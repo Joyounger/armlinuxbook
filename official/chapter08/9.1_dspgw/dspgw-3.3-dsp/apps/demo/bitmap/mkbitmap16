@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+
+@lines = <>;
+shift @lines;
+shift @lines;
+shift @lines;
+
+$rcycle = 0;
+$wcycle = 0;
+$wstr = '';
+
+foreach $line (@lines) {
+	$line =~ s/[ ,]//g;
+	while ($line =~ /^0x(..)/) {
+		$line = substr($line, 4);
+		$wstr = $1 . $wstr;
+		if ((++$rcycle) == 2) {
+			++$wcycle;
+			if ($wcycle == 1) {
+				print "\t";
+			}
+			print "0x$wstr, ";
+			$wstr = '';
+			if ($wcycle == 8) {
+				print "\\\n";
+				$wcycle = 0;
+			}
+			$rcycle = 0;
+		}
+	}
+}

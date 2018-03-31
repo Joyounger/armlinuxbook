@@ -1,0 +1,2 @@
+-l tokliBIOS.cmd
+-l tokliBIOScfg.cmd

@@ -1,0 +1,120 @@
+/*
+ * Text configuration file (tcf) for tokliBIOS
+ */
+
+/* loading the generic platform */
+var params = new Object();
+params.clockRate = 192.000000;
+params.deviceName = "1510";
+params.catalogName = "ti.catalog.c5500";
+utils.loadPlatform("ti.platforms.generic", params);
+
+/*
+ * DSP/BIOS configurations
+ */
+/* Disable RTDX */
+bios.RTDX.ENABLERTDX = false;
+/* Disable RTA */
+bios.GBL.ENABLEINST = false;
+/* Disalbe DSP/BIOS trace */
+bios.GBL.ENABLEALLTRC = false;
+
+bios.GBL.MEMORYMODEL = "LARGE";
+bios.MEM.ENABLELOADADDR = false;
+
+/*
+ * MEM
+ */
+bios.MEM.ARGSSIZE = 0x8;
+bios.MEM.NOMEMORYHEAPS = false;
+
+/* bios.PDROM.destroy(); */
+
+bios.DARAM.base = 0x80;
+bios.DARAM.len = 0x7f80;
+bios.DARAM.createHeap = true;
+bios.DARAM.heapSize = 0x3f80;
+
+bios.SARAM.base = 0x8000;
+bios.SARAM.len = 0xc000;
+/* FIXME */
+bios.SARAM.createHeap = true;
+bios.SARAM.heapSize = 0x8; // minimum, dummy
+
+bios.VECT.base = 0x7fff80;
+/* bios.VECT.len = 0x80; */
+
+bios.MEM.MALLOCSEG = prog.get("DARAM");
+bios.MEM.BIOSOBJSEG = prog.get("DARAM");
+
+
+/*
+ * CLK
+ */
+/* don't use hi-resolution timer */
+bios.CLK.HIRESTIME = false;
+bios.CLK.MICROSECONDS = 10000.0000;
+/* bios.PRD_clock.order = 1; */
+
+bios.PRD0 = bios.PRD.create("PRD0");
+bios.PRD0.period = 1;
+bios.PRD0.fxn = prog.extern("prd_10ms");
+
+bios.PRD1 = bios.PRD.create("PRD1");
+bios.PRD1.period = 100;
+bios.PRD1.fxn = prog.extern("prd_1s");
+
+/*
+ * HWI
+ */
+bios.HWI.STACKMODE = "USE_RETA";
+
+bios.HWI_INT5.fxn = prog.extern("mailbox_interrupt");
+bios.HWI_INT5.useDispatcher = 1;
+
+bios.HWI_INT13.fxn = prog.extern("wdt_handle");
+bios.HWI_INT13.useDispatcher = 1;
+
+/*
+ * TSK
+ */
+bios.TSK.ENABLETSK = true;
+bios.TSK.STACKSEG = prog.get("DARAM");
+bios.TSK.CALLSWITCHFXN = 1;
+bios.TSK.SWITCHFXN = prog.extern("tok_TSK_switch");
+bios.TSK.CALLREADYFXN = 1;
+bios.TSK.READYFXN = prog.extern("tok_TSK_ready");
+
+bios.TSK_sleep = bios.TSK.create("TSK_sleep");
+bios.TSK_sleep.fxn = prog.extern("sleep_dsp");
+bios.TSK_sleep.priority = 1;
+bios.TSK_sleep.exitFlag = 0;
+bios.TSK_sleep.allocateTaskName = 1;
+
+bios.TSK_super = bios.TSK.create("TSK_super");
+bios.TSK_super.fxn = prog.extern("supertask");
+bios.TSK_super.priority = 15;
+bios.TSK_super.exitFlag = 0;
+bios.TSK_super.allocateTaskName = 1;
+
+/*
+ * SEM
+ */
+bios.SEM_super = bios.SEM.create("SEM_super");
+bios.SEM_super.count = 0;
+
+bios.SEM_ipbuf_sys_da = bios.SEM.create("SEM_ipbuf_sys_da");
+bios.SEM_ipbuf_sys_da.count = 1;
+
+bios.SEM_fb = bios.SEM.create("SEM_fb");
+bios.SEM_fb.count = 1;
+
+/*
+ * HST
+ */
+bios.HST.HOSTLINKTYPE = "NONE";
+
+
+if (config.hasReportedError == false) {
+	prog.gen("tokliBIOS");
+}
