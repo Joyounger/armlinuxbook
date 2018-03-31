@@ -1,0 +1,10 @@
+CONFIG=qt qtopia_main no_quicklaunch no_singleexec app qtopia part_of_qtopia
+PROJECT_TYPE=qtopia app
+QTOPIA_DEPENDS=libraries/qtopiacore/* libraries/qtopiabase libraries/qtopia
+TARGET=eight
+AVAILABLE_LANGUAGES=en_US
+HEADERS=eight.h
+SOURCES=main.cpp eight.cpp
+target.hint=sxe
+target.domain=trusted
+TEMPLATE=app

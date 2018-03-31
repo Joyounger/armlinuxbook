@@ -1,0 +1,10 @@
+[Translation]
+File=mynewapp-nct
+Context=MyNewApp
+
+[Desktop Entry]
+Comment[]=An MyNewApp Program
+Exec=mynewapp
+Icon=mynewapp/MyNewApp
+Type=Application
+Name[]=MyNewApp

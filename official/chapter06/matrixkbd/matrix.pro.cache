@@ -1,0 +1,7 @@
+CONFIG=qt no_tr plugin qtopia part_of_qtopia
+PROJECT_TYPE=embedded qtopia core plugin
+QTOPIA_DEPENDS=libraries/qtopiacore/* libraries/qtopiabase
+TARGET=matrixkbd
+HEADERS=matrixkbddriverplugin.h matrixkbdhandler.h
+SOURCES=matrixkbddriverplugin.cpp matrixkbdhandler.cpp
+TEMPLATE=lib

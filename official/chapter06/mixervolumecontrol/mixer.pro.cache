@@ -1,0 +1,10 @@
+CONFIG=qt qtopia_main no_singleexec no_quicklaunch no_tr app qtopia part_of_qtopia
+PROJECT_TYPE=qtopia app
+QTOPIA_DEPENDS=libraries/qtopiacore/* libraries/qtopiabase libraries/qtopia
+TARGET=mixer
+FORMS=mixerbase.ui
+HEADERS=mixer.h
+SOURCES=main.cpp mixer.cpp
+target.hint=sxe
+target.domain=trusted
+TEMPLATE=app

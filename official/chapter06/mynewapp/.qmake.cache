@@ -1,0 +1,6 @@
+QPEDIR=/root/Qtopia4/target
+exists($$QPEDIR/src/build/trace_on):message(.qmake.cache)
+PROCESSED_PRI+=qmake_cache
+PROJECT_ROOT=/root/Qtopia4/source/mynewapp
+TREE_ROOT=/root/Qtopia4/source/mynewapp
+include(/root/Qtopia4/source/mynewapp/tree_config.pri)
