@@ -1,0 +1,288 @@
+/****************************************************************************
+** BookmarkAction meta object code from reading C++ file 'bookmarks.h'
+**
+** Created: Thu Nov 20 06:21:57 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "bookmarks.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *BookmarkAction::className() const
+{
+    return "BookmarkAction";
+}
+
+QMetaObject *BookmarkAction::metaObj = 0;
+
+#ifdef QWS
+static class BookmarkAction_metaObj_Unloader {
+public:
+    ~BookmarkAction_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "BookmarkAction" );
+    }
+} BookmarkAction_metaObj_unloader;
+#endif
+
+void BookmarkAction::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QAction::className(), "QAction") != 0 )
+	badSuperclassWarning("BookmarkAction","QAction");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString BookmarkAction::tr(const char* s)
+{
+    return qApp->translate( "BookmarkAction", s, 0 );
+}
+
+QString BookmarkAction::tr(const char* s, const char * c)
+{
+    return qApp->translate( "BookmarkAction", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* BookmarkAction::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QAction::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (BookmarkAction::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &BookmarkAction::selfActivated;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "selfActivated()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Protected;
+    typedef void (BookmarkAction::*m2_t0)(const QString&);
+    typedef void (QObject::*om2_t0)(const QString&);
+    m2_t0 v2_0 = &BookmarkAction::activated;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "activated(const QString&)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"BookmarkAction", "QAction",
+	slot_tbl, 1,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL activated
+void BookmarkAction::activated( const QString& t0 )
+{
+    activate_signal_strref( "activated(const QString&)", t0 );
+}
+
+
+const char *BookmarkMenu::className() const
+{
+    return "BookmarkMenu";
+}
+
+QMetaObject *BookmarkMenu::metaObj = 0;
+
+#ifdef QWS
+static class BookmarkMenu_metaObj_Unloader {
+public:
+    ~BookmarkMenu_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "BookmarkMenu" );
+    }
+} BookmarkMenu_metaObj_unloader;
+#endif
+
+void BookmarkMenu::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QPopupMenu::className(), "QPopupMenu") != 0 )
+	badSuperclassWarning("BookmarkMenu","QPopupMenu");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString BookmarkMenu::tr(const char* s)
+{
+    return qApp->translate( "BookmarkMenu", s, 0 );
+}
+
+QString BookmarkMenu::tr(const char* s, const char * c)
+{
+    return qApp->translate( "BookmarkMenu", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* BookmarkMenu::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QPopupMenu::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (BookmarkMenu::*m1_t0)(const QString&);
+    typedef void (QObject::*om1_t0)(const QString&);
+    m1_t0 v1_0 = &BookmarkMenu::slotActivated;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotActivated(const QString&)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Protected;
+    typedef void (BookmarkMenu::*m2_t0)(const QString&);
+    typedef void (QObject::*om2_t0)(const QString&);
+    m2_t0 v2_0 = &BookmarkMenu::activatedBookmark;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "activatedBookmark(const QString&)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"BookmarkMenu", "QPopupMenu",
+	slot_tbl, 1,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL activatedBookmark
+void BookmarkMenu::activatedBookmark( const QString& t0 )
+{
+    activate_signal_strref( "activatedBookmark(const QString&)", t0 );
+}
+
+
+const char *BookmarkManager::className() const
+{
+    return "BookmarkManager";
+}
+
+QMetaObject *BookmarkManager::metaObj = 0;
+
+#ifdef QWS
+static class BookmarkManager_metaObj_Unloader {
+public:
+    ~BookmarkManager_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "BookmarkManager" );
+    }
+} BookmarkManager_metaObj_unloader;
+#endif
+
+void BookmarkManager::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("BookmarkManager","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString BookmarkManager::tr(const char* s)
+{
+    return qApp->translate( "BookmarkManager", s, 0 );
+}
+
+QString BookmarkManager::tr(const char* s, const char * c)
+{
+    return qApp->translate( "BookmarkManager", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* BookmarkManager::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (BookmarkManager::*m1_t0)(const QString&);
+    typedef void (QObject::*om1_t0)(const QString&);
+    typedef void (BookmarkManager::*m1_t1)();
+    typedef void (QObject::*om1_t1)();
+    typedef void (BookmarkManager::*m1_t2)(const KURL&,const QString&);
+    typedef void (QObject::*om1_t2)(const KURL&,const QString&);
+    typedef void (BookmarkManager::*m1_t3)();
+    typedef void (QObject::*om1_t3)();
+    m1_t0 v1_0 = &BookmarkManager::bookmarkSelected;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &BookmarkManager::addBookmark;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    m1_t2 v1_2 = &BookmarkManager::addBookmark;
+    om1_t2 ov1_2 = (om1_t2)v1_2;
+    m1_t3 v1_3 = &BookmarkManager::editBookmarks;
+    om1_t3 ov1_3 = (om1_t3)v1_3;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(4);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(4);
+    slot_tbl[0].name = "bookmarkSelected(const QString&)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "addBookmark()";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    slot_tbl[2].name = "addBookmark(const KURL&,const QString&)";
+    slot_tbl[2].ptr = (QMember)ov1_2;
+    slot_tbl_access[2] = QMetaData::Public;
+    slot_tbl[3].name = "editBookmarks()";
+    slot_tbl[3].ptr = (QMember)ov1_3;
+    slot_tbl_access[3] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"BookmarkManager", "QObject",
+	slot_tbl, 4,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

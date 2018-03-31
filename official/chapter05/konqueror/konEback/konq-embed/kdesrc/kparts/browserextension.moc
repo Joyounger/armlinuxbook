@@ -1,0 +1,983 @@
+/****************************************************************************
+** KParts::BrowserExtension meta object code from reading C++ file 'browserextension.h'
+**
+** Created: Thu Nov 20 06:16:43 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "browserextension.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KParts::BrowserExtension::className() const
+{
+    return "KParts::BrowserExtension";
+}
+
+QMetaObject *KParts::BrowserExtension::metaObj = 0;
+
+#ifdef QWS
+static class KParts__BrowserExtension_metaObj_Unloader {
+public:
+    ~KParts__BrowserExtension_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KParts::BrowserExtension" );
+    }
+} KParts__BrowserExtension_metaObj_unloader;
+#endif
+
+void KParts::BrowserExtension::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KParts::BrowserExtension","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KParts::BrowserExtension::tr(const char* s)
+{
+    return qApp->translate( "KParts::BrowserExtension", s, 0 );
+}
+
+QString KParts::BrowserExtension::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KParts::BrowserExtension", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KParts::BrowserExtension::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+    typedef bool (BrowserExtension::*m3_t0)()const;
+    typedef bool (QObject::*om3_t0)()const;
+    typedef void (BrowserExtension::*m3_t1)(bool);
+    typedef void (QObject::*om3_t1)(bool);
+    m3_t0 v3_0 = &BrowserExtension::isURLDropHandlingEnabled;
+    om3_t0 ov3_0 = (om3_t0)v3_0;
+    m3_t1 v3_1 = &BrowserExtension::setURLDropHandlingEnabled;
+    om3_t1 ov3_1 = (om3_t1)v3_1;
+    QMetaProperty *props_tbl = QMetaObject::new_metaproperty( 1 );
+    props_tbl[0].t = "bool";
+    props_tbl[0].n = "urlDropHandling";
+    props_tbl[0].get = (QMember)ov3_0;
+    props_tbl[0].set = (QMember)ov3_1;
+    props_tbl[0].reset = 0;
+    props_tbl[0].gspec = QMetaProperty::Class;
+    props_tbl[0].sspec = QMetaProperty::Class;
+#endif // QT_NO_PROPERTIES
+    typedef void (KParts::BrowserExtension::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    typedef void (KParts::BrowserExtension::*m1_t1)(const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*om1_t1)(const KURL&,const KParts::URLArgs&);
+    typedef void (KParts::BrowserExtension::*m1_t2)();
+    typedef void (QObject::*om1_t2)();
+    typedef void (KParts::BrowserExtension::*m1_t3)(const char*,bool);
+    typedef void (QObject::*om1_t3)(const char*,bool);
+    m1_t0 v1_0 = &KParts::BrowserExtension::slotCompleted;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &KParts::BrowserExtension::slotOpenURLRequest;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    m1_t2 v1_2 = &KParts::BrowserExtension::slotEmitOpenURLRequestDelayed;
+    om1_t2 ov1_2 = (om1_t2)v1_2;
+    m1_t3 v1_3 = &KParts::BrowserExtension::slotEnableAction;
+    om1_t3 ov1_3 = (om1_t3)v1_3;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(4);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(4);
+    slot_tbl[0].name = "slotCompleted()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Private;
+    slot_tbl[1].name = "slotOpenURLRequest(const KURL&,const KParts::URLArgs&)";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Private;
+    slot_tbl[2].name = "slotEmitOpenURLRequestDelayed()";
+    slot_tbl[2].ptr = (QMember)ov1_2;
+    slot_tbl_access[2] = QMetaData::Private;
+    slot_tbl[3].name = "slotEnableAction(const char*,bool)";
+    slot_tbl[3].ptr = (QMember)ov1_3;
+    slot_tbl_access[3] = QMetaData::Private;
+    typedef void (KParts::BrowserExtension::*m2_t0)(const char*,bool);
+    typedef void (QObject::*om2_t0)(const char*,bool);
+    typedef void (KParts::BrowserExtension::*m2_t1)(const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*om2_t1)(const KURL&,const KParts::URLArgs&);
+    typedef void (KParts::BrowserExtension::*m2_t2)(const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*om2_t2)(const KURL&,const KParts::URLArgs&);
+    typedef void (KParts::BrowserExtension::*m2_t3)();
+    typedef void (QObject::*om2_t3)();
+    typedef void (KParts::BrowserExtension::*m2_t4)(const QString&);
+    typedef void (QObject::*om2_t4)(const QString&);
+    typedef void (KParts::BrowserExtension::*m2_t5)(const KURL&);
+    typedef void (QObject::*om2_t5)(const KURL&);
+    typedef void (KParts::BrowserExtension::*m2_t6)(const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*om2_t6)(const KURL&,const KParts::URLArgs&);
+    typedef void (KParts::BrowserExtension::*m2_t7)(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&);
+    typedef void (QObject::*om2_t7)(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&);
+    typedef void (KParts::BrowserExtension::*m2_t8)(int);
+    typedef void (QObject::*om2_t8)(int);
+    typedef void (KParts::BrowserExtension::*m2_t9)(int);
+    typedef void (QObject::*om2_t9)(int);
+    typedef void (KParts::BrowserExtension::*m2_t10)(const QString&);
+    typedef void (QObject::*om2_t10)(const QString&);
+    typedef void (KParts::BrowserExtension::*m2_t11)(const QPoint&,const KFileItemList&);
+    typedef void (QObject::*om2_t11)(const QPoint&,const KFileItemList&);
+    typedef void (KParts::BrowserExtension::*m2_t12)(KXMLGUIClient*,const QPoint&,const KFileItemList&);
+    typedef void (QObject::*om2_t12)(KXMLGUIClient*,const QPoint&,const KFileItemList&);
+    typedef void (KParts::BrowserExtension::*m2_t13)(const QPoint&,const KURL&,const QString&,mode_t);
+    typedef void (QObject::*om2_t13)(const QPoint&,const KURL&,const QString&,mode_t);
+    typedef void (KParts::BrowserExtension::*m2_t14)(KXMLGUIClient*,const QPoint&,const KURL&,const QString&,mode_t);
+    typedef void (QObject::*om2_t14)(KXMLGUIClient*,const QPoint&,const KURL&,const QString&,mode_t);
+    typedef void (KParts::BrowserExtension::*m2_t15)(const KFileItemList&);
+    typedef void (QObject::*om2_t15)(const KFileItemList&);
+    typedef void (KParts::BrowserExtension::*m2_t16)(const QString&);
+    typedef void (QObject::*om2_t16)(const QString&);
+    typedef void (KParts::BrowserExtension::*m2_t17)(const KURL::List&);
+    typedef void (QObject::*om2_t17)(const KURL::List&);
+    m2_t0 v2_0 = &KParts::BrowserExtension::enableAction;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KParts::BrowserExtension::openURLRequest;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    m2_t2 v2_2 = &KParts::BrowserExtension::openURLRequestDelayed;
+    om2_t2 ov2_2 = (om2_t2)v2_2;
+    m2_t3 v2_3 = &KParts::BrowserExtension::openURLNotify;
+    om2_t3 ov2_3 = (om2_t3)v2_3;
+    m2_t4 v2_4 = &KParts::BrowserExtension::setLocationBarURL;
+    om2_t4 ov2_4 = (om2_t4)v2_4;
+    m2_t5 v2_5 = &KParts::BrowserExtension::setIconURL;
+    om2_t5 ov2_5 = (om2_t5)v2_5;
+    m2_t6 v2_6 = &KParts::BrowserExtension::createNewWindow;
+    om2_t6 ov2_6 = (om2_t6)v2_6;
+    m2_t7 v2_7 = &KParts::BrowserExtension::createNewWindow;
+    om2_t7 ov2_7 = (om2_t7)v2_7;
+    m2_t8 v2_8 = &KParts::BrowserExtension::loadingProgress;
+    om2_t8 ov2_8 = (om2_t8)v2_8;
+    m2_t9 v2_9 = &KParts::BrowserExtension::speedProgress;
+    om2_t9 ov2_9 = (om2_t9)v2_9;
+    m2_t10 v2_10 = &KParts::BrowserExtension::infoMessage;
+    om2_t10 ov2_10 = (om2_t10)v2_10;
+    m2_t11 v2_11 = &KParts::BrowserExtension::popupMenu;
+    om2_t11 ov2_11 = (om2_t11)v2_11;
+    m2_t12 v2_12 = &KParts::BrowserExtension::popupMenu;
+    om2_t12 ov2_12 = (om2_t12)v2_12;
+    m2_t13 v2_13 = &KParts::BrowserExtension::popupMenu;
+    om2_t13 ov2_13 = (om2_t13)v2_13;
+    m2_t14 v2_14 = &KParts::BrowserExtension::popupMenu;
+    om2_t14 ov2_14 = (om2_t14)v2_14;
+    m2_t15 v2_15 = &KParts::BrowserExtension::selectionInfo;
+    om2_t15 ov2_15 = (om2_t15)v2_15;
+    m2_t16 v2_16 = &KParts::BrowserExtension::selectionInfo;
+    om2_t16 ov2_16 = (om2_t16)v2_16;
+    m2_t17 v2_17 = &KParts::BrowserExtension::selectionInfo;
+    om2_t17 ov2_17 = (om2_t17)v2_17;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(18);
+    signal_tbl[0].name = "enableAction(const char*,bool)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "openURLRequest(const KURL&,const KParts::URLArgs&)";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    signal_tbl[2].name = "openURLRequestDelayed(const KURL&,const KParts::URLArgs&)";
+    signal_tbl[2].ptr = (QMember)ov2_2;
+    signal_tbl[3].name = "openURLNotify()";
+    signal_tbl[3].ptr = (QMember)ov2_3;
+    signal_tbl[4].name = "setLocationBarURL(const QString&)";
+    signal_tbl[4].ptr = (QMember)ov2_4;
+    signal_tbl[5].name = "setIconURL(const KURL&)";
+    signal_tbl[5].ptr = (QMember)ov2_5;
+    signal_tbl[6].name = "createNewWindow(const KURL&,const KParts::URLArgs&)";
+    signal_tbl[6].ptr = (QMember)ov2_6;
+    signal_tbl[7].name = "createNewWindow(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&)";
+    signal_tbl[7].ptr = (QMember)ov2_7;
+    signal_tbl[8].name = "loadingProgress(int)";
+    signal_tbl[8].ptr = (QMember)ov2_8;
+    signal_tbl[9].name = "speedProgress(int)";
+    signal_tbl[9].ptr = (QMember)ov2_9;
+    signal_tbl[10].name = "infoMessage(const QString&)";
+    signal_tbl[10].ptr = (QMember)ov2_10;
+    signal_tbl[11].name = "popupMenu(const QPoint&,const KFileItemList&)";
+    signal_tbl[11].ptr = (QMember)ov2_11;
+    signal_tbl[12].name = "popupMenu(KXMLGUIClient*,const QPoint&,const KFileItemList&)";
+    signal_tbl[12].ptr = (QMember)ov2_12;
+    signal_tbl[13].name = "popupMenu(const QPoint&,const KURL&,const QString&,mode_t)";
+    signal_tbl[13].ptr = (QMember)ov2_13;
+    signal_tbl[14].name = "popupMenu(KXMLGUIClient*,const QPoint&,const KURL&,const QString&,mode_t)";
+    signal_tbl[14].ptr = (QMember)ov2_14;
+    signal_tbl[15].name = "selectionInfo(const KFileItemList&)";
+    signal_tbl[15].ptr = (QMember)ov2_15;
+    signal_tbl[16].name = "selectionInfo(const QString&)";
+    signal_tbl[16].ptr = (QMember)ov2_16;
+    signal_tbl[17].name = "selectionInfo(const KURL::List&)";
+    signal_tbl[17].ptr = (QMember)ov2_17;
+    metaObj = QMetaObject::new_metaobject(
+	"KParts::BrowserExtension", "QObject",
+	slot_tbl, 4,
+	signal_tbl, 18,
+#ifndef QT_NO_PROPERTIES
+	props_tbl, 1,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL enableAction
+void KParts::BrowserExtension::enableAction( const char* t0, bool t1 )
+{
+    // No builtin function for signal parameter type const char*,bool
+    QConnectionList *clist = receivers("enableAction(const char*,bool)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const char*);
+    typedef void (QObject::*RT2)(const char*,bool);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL openURLRequest
+void KParts::BrowserExtension::openURLRequest( const KURL& t0, const KParts::URLArgs& t1 )
+{
+    // No builtin function for signal parameter type const KURL&,const KParts::URLArgs&
+    QConnectionList *clist = receivers("openURLRequest(const KURL&,const KParts::URLArgs&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KURL&);
+    typedef void (QObject::*RT2)(const KURL&,const KParts::URLArgs&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL openURLRequestDelayed
+void KParts::BrowserExtension::openURLRequestDelayed( const KURL& t0, const KParts::URLArgs& t1 )
+{
+    // No builtin function for signal parameter type const KURL&,const KParts::URLArgs&
+    QConnectionList *clist = receivers("openURLRequestDelayed(const KURL&,const KParts::URLArgs&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KURL&);
+    typedef void (QObject::*RT2)(const KURL&,const KParts::URLArgs&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL openURLNotify
+void KParts::BrowserExtension::openURLNotify()
+{
+    activate_signal( "openURLNotify()" );
+}
+
+// SIGNAL setLocationBarURL
+void KParts::BrowserExtension::setLocationBarURL( const QString& t0 )
+{
+    activate_signal_strref( "setLocationBarURL(const QString&)", t0 );
+}
+
+// SIGNAL setIconURL
+void KParts::BrowserExtension::setIconURL( const KURL& t0 )
+{
+    // No builtin function for signal parameter type const KURL&
+    QConnectionList *clist = receivers("setIconURL(const KURL&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KURL&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL createNewWindow
+void KParts::BrowserExtension::createNewWindow( const KURL& t0, const KParts::URLArgs& t1 )
+{
+    // No builtin function for signal parameter type const KURL&,const KParts::URLArgs&
+    QConnectionList *clist = receivers("createNewWindow(const KURL&,const KParts::URLArgs&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KURL&);
+    typedef void (QObject::*RT2)(const KURL&,const KParts::URLArgs&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL createNewWindow
+void KParts::BrowserExtension::createNewWindow( const KURL& t0, const KParts::URLArgs& t1, const KParts::WindowArgs& t2, KParts::ReadOnlyPart*& t3 )
+{
+    // No builtin function for signal parameter type const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&
+    QConnectionList *clist = receivers("createNewWindow(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KURL&);
+    typedef void (QObject::*RT2)(const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*RT3)(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&);
+    typedef void (QObject::*RT4)(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    RT3 r3;
+    RT4 r4;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	    case 3:
+#ifdef Q_FP_CCAST_BROKEN
+		r3 = reinterpret_cast<RT3>(*(c->member()));
+#else
+		r3 = (RT3)*(c->member());
+#endif
+		(object->*r3)(t0, t1, t2);
+		break;
+	    case 4:
+#ifdef Q_FP_CCAST_BROKEN
+		r4 = reinterpret_cast<RT4>(*(c->member()));
+#else
+		r4 = (RT4)*(c->member());
+#endif
+		(object->*r4)(t0, t1, t2, t3);
+		break;
+	}
+    }
+}
+
+// SIGNAL loadingProgress
+void KParts::BrowserExtension::loadingProgress( int t0 )
+{
+    activate_signal( "loadingProgress(int)", t0 );
+}
+
+// SIGNAL speedProgress
+void KParts::BrowserExtension::speedProgress( int t0 )
+{
+    activate_signal( "speedProgress(int)", t0 );
+}
+
+// SIGNAL infoMessage
+void KParts::BrowserExtension::infoMessage( const QString& t0 )
+{
+    activate_signal_strref( "infoMessage(const QString&)", t0 );
+}
+
+// SIGNAL popupMenu
+void KParts::BrowserExtension::popupMenu( const QPoint& t0, const KFileItemList& t1 )
+{
+    // No builtin function for signal parameter type const QPoint&,const KFileItemList&
+    QConnectionList *clist = receivers("popupMenu(const QPoint&,const KFileItemList&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QPoint&);
+    typedef void (QObject::*RT2)(const QPoint&,const KFileItemList&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL popupMenu
+void KParts::BrowserExtension::popupMenu( KXMLGUIClient* t0, const QPoint& t1, const KFileItemList& t2 )
+{
+    // No builtin function for signal parameter type KXMLGUIClient*,const QPoint&,const KFileItemList&
+    QConnectionList *clist = receivers("popupMenu(KXMLGUIClient*,const QPoint&,const KFileItemList&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KXMLGUIClient*);
+    typedef void (QObject::*RT2)(KXMLGUIClient*,const QPoint&);
+    typedef void (QObject::*RT3)(KXMLGUIClient*,const QPoint&,const KFileItemList&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    RT3 r3;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	    case 3:
+#ifdef Q_FP_CCAST_BROKEN
+		r3 = reinterpret_cast<RT3>(*(c->member()));
+#else
+		r3 = (RT3)*(c->member());
+#endif
+		(object->*r3)(t0, t1, t2);
+		break;
+	}
+    }
+}
+
+// SIGNAL popupMenu
+void KParts::BrowserExtension::popupMenu( const QPoint& t0, const KURL& t1, const QString& t2, mode_t t3 )
+{
+    // No builtin function for signal parameter type const QPoint&,const KURL&,const QString&,mode_t
+    QConnectionList *clist = receivers("popupMenu(const QPoint&,const KURL&,const QString&,mode_t)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QPoint&);
+    typedef void (QObject::*RT2)(const QPoint&,const KURL&);
+    typedef void (QObject::*RT3)(const QPoint&,const KURL&,const QString&);
+    typedef void (QObject::*RT4)(const QPoint&,const KURL&,const QString&,mode_t);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    RT3 r3;
+    RT4 r4;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	    case 3:
+#ifdef Q_FP_CCAST_BROKEN
+		r3 = reinterpret_cast<RT3>(*(c->member()));
+#else
+		r3 = (RT3)*(c->member());
+#endif
+		(object->*r3)(t0, t1, t2);
+		break;
+	    case 4:
+#ifdef Q_FP_CCAST_BROKEN
+		r4 = reinterpret_cast<RT4>(*(c->member()));
+#else
+		r4 = (RT4)*(c->member());
+#endif
+		(object->*r4)(t0, t1, t2, t3);
+		break;
+	}
+    }
+}
+
+// SIGNAL popupMenu
+void KParts::BrowserExtension::popupMenu( KXMLGUIClient* t0, const QPoint& t1, const KURL& t2, const QString& t3, mode_t t4 )
+{
+    // No builtin function for signal parameter type KXMLGUIClient*,const QPoint&,const KURL&,const QString&,mode_t
+    QConnectionList *clist = receivers("popupMenu(KXMLGUIClient*,const QPoint&,const KURL&,const QString&,mode_t)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KXMLGUIClient*);
+    typedef void (QObject::*RT2)(KXMLGUIClient*,const QPoint&);
+    typedef void (QObject::*RT3)(KXMLGUIClient*,const QPoint&,const KURL&);
+    typedef void (QObject::*RT4)(KXMLGUIClient*,const QPoint&,const KURL&,const QString&);
+    typedef void (QObject::*RT5)(KXMLGUIClient*,const QPoint&,const KURL&,const QString&,mode_t);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    RT3 r3;
+    RT4 r4;
+    RT5 r5;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	    case 3:
+#ifdef Q_FP_CCAST_BROKEN
+		r3 = reinterpret_cast<RT3>(*(c->member()));
+#else
+		r3 = (RT3)*(c->member());
+#endif
+		(object->*r3)(t0, t1, t2);
+		break;
+	    case 4:
+#ifdef Q_FP_CCAST_BROKEN
+		r4 = reinterpret_cast<RT4>(*(c->member()));
+#else
+		r4 = (RT4)*(c->member());
+#endif
+		(object->*r4)(t0, t1, t2, t3);
+		break;
+	    case 5:
+#ifdef Q_FP_CCAST_BROKEN
+		r5 = reinterpret_cast<RT5>(*(c->member()));
+#else
+		r5 = (RT5)*(c->member());
+#endif
+		(object->*r5)(t0, t1, t2, t3, t4);
+		break;
+	}
+    }
+}
+
+// SIGNAL selectionInfo
+void KParts::BrowserExtension::selectionInfo( const KFileItemList& t0 )
+{
+    // No builtin function for signal parameter type const KFileItemList&
+    QConnectionList *clist = receivers("selectionInfo(const KFileItemList&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KFileItemList&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL selectionInfo
+void KParts::BrowserExtension::selectionInfo( const QString& t0 )
+{
+    activate_signal_strref( "selectionInfo(const QString&)", t0 );
+}
+
+// SIGNAL selectionInfo
+void KParts::BrowserExtension::selectionInfo( const KURL::List& t0 )
+{
+    // No builtin function for signal parameter type const KURL::List&
+    QConnectionList *clist = receivers("selectionInfo(const KURL::List&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KURL::List&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+
+const char *KParts::BrowserHostExtension::className() const
+{
+    return "KParts::BrowserHostExtension";
+}
+
+QMetaObject *KParts::BrowserHostExtension::metaObj = 0;
+
+#ifdef QWS
+static class KParts__BrowserHostExtension_metaObj_Unloader {
+public:
+    ~KParts__BrowserHostExtension_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KParts::BrowserHostExtension" );
+    }
+} KParts__BrowserHostExtension_metaObj_unloader;
+#endif
+
+void KParts::BrowserHostExtension::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KParts::BrowserHostExtension","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KParts::BrowserHostExtension::tr(const char* s)
+{
+    return qApp->translate( "KParts::BrowserHostExtension", s, 0 );
+}
+
+QString KParts::BrowserHostExtension::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KParts::BrowserHostExtension", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KParts::BrowserHostExtension::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"KParts::BrowserHostExtension", "QObject",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

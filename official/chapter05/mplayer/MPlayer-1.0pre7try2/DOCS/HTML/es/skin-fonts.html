@@ -1,0 +1,40 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.3. Tipografías</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - El reproductor de Películas
+para LINUX"><link rel="up" href="skin.html" title="Apéndice D. Formato del skin de MPlayer"><link rel="previous" href="skin-file.html" title="D.2. El archivo de skin"><link rel="next" href="skin-gui.html" title="D.4. Mensajes GUI"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.3. Tipografías</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-file.html">Anterior</a> </td><th width="60%" align="center">Apéndice D. Formato del skin de MPlayer</th><td width="20%" align="right"> <a accesskey="n" href="skin-gui.html">Siguiente</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-fonts"></a>D.3. Tipografías</h2></div></div><p>
+Como se mencionó en la sección acerca de las partes de un skin, una tipografía
+viene definida por una imagen y un archivo de descripción. Puede colocar caracteres
+en cualquier parte de la imagen, pero ha de asegurarse de que su posición y tamaño
+vienen dados en el archivo de descripción de manera exacta.
+</p><p>
+El archivo de descripción de la tipografía (con extensión <tt class="filename">.fnt</tt>)
+puede tener líneas de comentarios que empiecen por '<tt>;</tt>'. El archivo
+debe tener una línea en la forma
+<a name="skin-font-image"></a>
+<pre class="programlisting">image = <i><tt>image</tt></i></pre>
+Donde <tt><i><tt>image</tt></i></tt> es el nombre del
+archivo de imagen que se usará para la tipografía (puede no especificar la extensión).
+<a name="skin-font-char"></a>
+<pre class="programlisting">"char" = X, Y, width, height</pre>
+Aquí <tt>X</tt> e <tt>Y</tt> especifican la posición del
+caracter <tt>char</tt> en la imagen (<tt>0,0</tt> es la
+esquina superior izquierda). <tt>width</tt> y <tt>height</tt>
+son las dimensiones del caracter en pixels.
+</p><p>
+Este ejemplo define los caracteres A, B, C usando <tt class="filename">font.png</tt>.
+<pre class="programlisting">
+; Puede ser "font" en lugar de "font.png".
+image = font.png
+
+; Tres caracteres son suficientes para el propósito de esta demostración :-)
+"A" =  0,0, 7,13
+"B" =  7,0, 7,13
+"C" = 14,0, 7,13
+</pre>
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-fonts-symbols"></a>D.3.1. Símbolos</h3></div></div><p>
+Algunos caracteres tienen significado especial cuando son devueltos por algunas
+de las variables usadas en <a href="skin-file.html#skin-dlabel">dlabel</a>. Estos
+caracteres se deben mostrar como símbolos para que parezca un bonito logotipo
+de DVD en lugar del caracter '<tt>d</tt>' para un flujo de DVD por ejemplo.
+</p><p>
+La siguiente tabla lista todos los caracters que pueden ser usados para
+mostrar símbolos (y que por lo tanto requieren una tipografía diferente).
+</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Caracter</th><th>Símbolo</th></tr></thead><tbody><tr><td><span class="keycap"><b>p</b></span></td><td>play</td></tr><tr><td><span class="keycap"><b>s</b></span></td><td>stop</td></tr><tr><td><span class="keycap"><b>e</b></span></td><td>pausa</td></tr><tr><td><span class="keycap"><b>n</b></span></td><td>no sound</td></tr><tr><td><span class="keycap"><b>m</b></span></td><td>mono sound</td></tr><tr><td><span class="keycap"><b>t</b></span></td><td>stereo sound</td></tr><tr><td><span class="keycap"><b>f</b></span></td><td>stream es un archivo</td></tr><tr><td><span class="keycap"><b>v</b></span></td><td>stream es un Video CD</td></tr><tr><td><span class="keycap"><b>d</b></span></td><td>stream es un DVD</td></tr><tr><td><span class="keycap"><b>u</b></span></td><td>stream es una URL</td></tr></tbody></table></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-file.html">Anterior</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">Subir</a></td><td width="40%" align="right"> <a accesskey="n" href="skin-gui.html">Siguiente</a></td></tr><tr><td width="40%" align="left" valign="top">D.2. El archivo de skin </td><td width="20%" align="center"><a accesskey="h" href="index.html">Inicio</a></td><td width="40%" align="right" valign="top"> D.4. Mensajes GUI</td></tr></table></div></body></html>

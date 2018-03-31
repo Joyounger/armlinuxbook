@@ -1,0 +1,35 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.4. Urz&#261;dzenia wyj&#347;ciowe audio</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="features.html" title="Rozdzia&#322; 2. Mo&#380;liwo&#347;ci"><link rel="previous" href="video.html" title="2.3. Urz&#261;dzenia wyj&#347;cia video"><link rel="next" href="tv-input.html" title="2.5. Wej&#347;cie TV"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.4. Urz&#261;dzenia wyj&#347;ciowe audio</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="video.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 2. Mo&#380;liwo&#347;ci</th><td width="20%" align="right"> <a accesskey="n" href="tv-input.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="audio"></a>2.4. Urz&#261;dzenia wyj&#347;ciowe audio</h2></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="sync"></a>2.4.1. Synchronizacja Audio/Video</h3></div></div><p>
+Sterowniki kart d&#378;wi&#281;kowych przeznaczone dla Linuksa maj&#261; problemy
+zwi&#261;zane z kompatybilno&#347;ci&#261;. Dzieje si&#281; tak, poniewa&#380; <span class="application">MPlayer</span>
+korzysta z wbudowanych w&#322;a&#347;ciwo&#347;ci <span class="emphasis"><i>poprawnie</i></span> napisanych
+sterowników d&#378;wi&#281;ku, które prawid&#322;owo obs&#322;uguj&#261; synchronizacj&#281; audio/video.
+Niestety, niektórzy autorzy sterowników nie uwzgl&#281;dniaj&#261; tej cechy, poniewa&#380;
+nie jest ona potrzebna do odtwarzania efektów d&#378;wi&#281;kowych i plików MP3.
+</p><p>
+Inne odtwarzacze takie jak: <a href="http://avifile.sf.net" target="_top">aviplay</a>
+czy <a href="http://xinehq.de" target="_top">xine</a> prawdopodobnie dzia&#322;aj&#261;
+od razu z tymi sterownikami, poniewa&#380; u&#380;ywaj&#261; "prostych" metod synchronizacji
+korzystaj&#261;cych z wewn&#281;trznego zegara. Testy pokaza&#322;y, &#380;e ich metody nie s&#261; tak
+wydajne jak <span class="application">MPlayera</span>.
+</p><p>
+U&#380;ywanie <span class="application">MPlayera</span> z poprawnie napisanym sterownikiem
+d&#378;wi&#281;ku, nigdy nie zaowocuje desynchronizacj&#261; A/V z powodu d&#378;wi&#281;ku, chyba &#380;e
+odtwarzany plik zosta&#322; utworzony w niew&#322;a&#347;ciwy sposób lub jest popsuty
+(na stronie man znajdziesz mo&#380;liwe rozwi&#261;zania tego problemu).
+</p><p>
+Je&#347;li masz kiepski sterownik d&#378;wi&#281;ku, spróbuj u&#380;y&#263; opcji <tt class="option">-autosync</tt>.
+Powinna ona rozwi&#261;za&#263; Twój problem. Dok&#322;adniejsze informacje znajdziesz na stronie
+man.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="troubleshooting"></a>2.4.2. Rozwi&#261;zywanie problemów</h3></div></div><p>Kilka uwag:</p><p>
+  Je&#380;eli posiadasz sterowniki ALSA w wersji 0.5, prawie zawsze konieczne b&#281;dzie
+  u&#380;ycie <tt class="option">-ao alsa5</tt>, poniewa&#380; ich kod emulacji OSS jest wadliwy i
+  spowoduje <span class="bold"><b>b&#322;&#261;d <span class="application">MPlayera</span></b></span>
+  wy&#347;wietlaj&#261;c komunikat o tre&#347;ci podobnej do tej:
+  <pre class="screen">
+    DEMUXER: Za du&#380;o (945 w 8390980 bajtach) pakietów video w buforze!
+    (DEMUXER: Too many (945 in 8390980 bytes) video packets in the buffer!)</pre>
+</p><p>
+  Je&#347;li d&#378;wi&#281;k przerywany jest krótkimi trzaskami podczas odtwarzania z CD-ROMu,
+  w&#322;&#261;cz odmaskowywanie przerwa&#324;, tak jak opisano to w rozdziale dotycz&#261;cym
+  <a href="drives.html" title="5.1. Nap&#281;dy CD/DVD">CD-ROMu</a>.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="video.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="features.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="tv-input.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">2.3. Urz&#261;dzenia wyj&#347;cia video </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 2.5. Wej&#347;cie TV</td></tr></table></div></body></html>

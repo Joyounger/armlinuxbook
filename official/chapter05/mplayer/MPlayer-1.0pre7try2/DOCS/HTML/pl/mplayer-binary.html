@@ -1,0 +1,16 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>E.2. Dystrybucja binariów</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="users-vs-dev.html" title="Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy"><link rel="previous" href="gcc-296.html" title="E.1. GCC 2.96"><link rel="next" href="nvidia-opinions.html" title="E.3. nVidia"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">E.2. Dystrybucja binariów</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="gcc-296.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy</th><td width="20%" align="right"> <a accesskey="n" href="nvidia-opinions.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="mplayer-binary"></a>E.2. Dystrybucja binariów</h2></div></div><p>
+<span class="application">MPlayer</span> zawiera&#322; wcze&#347;niej &#378;ród&#322;a z projektu
+OpenDivX, który zabrania redystrybucji binariów. Kod ten zosta&#322; usuni&#281;ty w
+wersji 0.90-pre1, a pozostawiony plik <tt class="filename">divx_vbr.c</tt>, który
+pochodzi ze &#378;róde&#322; OpenDivX, zosta&#322; obj&#281;ty licencj&#261; GPL przez jego autorów w
+wersji 0.90pre9. Mo&#380;esz teraz bez obaw tworzy&#263; pakiety binarne.
+</p><p>
+Kolejn&#261; przeszkod&#261; przy redystrybucji binariów by&#322;a optymalizacja dla konkretnej
+architektury CPU podczas kompilacji. <span class="application">MPlayer</span>
+obs&#322;uguje wykrywanie CPU podczas uruchamiania (podaj opcj&#281;
+<tt class="option">--enable-runtime-cpudetection</tt> dla skryptu
+<b>configure</b>). Jest ona domy&#347;lnie wy&#322;&#261;czona, poniewa&#380; wymaga
+po&#347;wi&#281;cenia ma&#322;ej cz&#281;&#347;ci mocy obliczeniowej procesora. Jednak mo&#380;liwe jest
+teraz tworzenie binariów, które b&#281;d&#261; dzia&#322;a&#322;y na ró&#380;nych typach procesorów
+kompatybilnych z Intelem.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="gcc-296.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="users-vs-dev.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="nvidia-opinions.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">E.1. GCC 2.96 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> E.3. nVidia</td></tr></table></div></body></html>

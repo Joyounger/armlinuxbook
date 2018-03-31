@@ -1,0 +1,45 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.1. Nap&#281;dy CD/DVD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="cd-dvd.html" title="Rozdzia&#322; 5. U&#380;ywanie CD/DVD"><link rel="previous" href="cd-dvd.html" title="Rozdzia&#322; 5. U&#380;ywanie CD/DVD"><link rel="next" href="dvd.html" title="5.2. Odtwarzanie DVD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.1. Nap&#281;dy CD/DVD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="cd-dvd.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 5. U&#380;ywanie CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="dvd.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="drives"></a>5.1. Nap&#281;dy CD/DVD</h2></div></div><p>
+Fragment dokumentacji Linuksa:
+</p><p>
+Nowoczesne nap&#281;dy CD-ROM osi&#261;gaj&#261; bardzo du&#380;e pr&#281;dko&#347;ci. Niektóre z nich s&#261;
+dodatkowo zdolne do pracy przy zredukowanych pr&#281;dko&#347;ciach. Oto kilka powodów,
+dla których powinni&#347;my zastanowi&#263; si&#281; czy nie nale&#380;y zredukowa&#263; pr&#281;dko&#347;ci
+naszego nap&#281;du:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+Istniej&#261; doniesienia o b&#322;&#281;dach odczytu przy du&#380;ych pr&#281;dko&#347;ciach, szczególnie
+podczas u&#380;ywania uszkodzonych b&#261;d&#378; wadliwie wyt&#322;oczonych/nagranych p&#322;yt CD.
+Redukcja pr&#281;dko&#347;ci odczytu mo&#380;e uchroni&#263; nas przed utrat&#261; danych w takich
+przypadkach.
+</p></li><li><p>
+Wiele nap&#281;dów CD jest dokuczliwie g&#322;o&#347;nych. Redukcja pr&#281;dko&#347;ci mo&#380;e zmniejszy&#263;
+nat&#281;&#380;enie ha&#322;asu.
+</p></li></ul></div><p>
+Redukcj&#281; pr&#281;dko&#347;ci nap&#281;du CD z interfejsem IDE mo&#380;emy uzysta&#263; korzystaj&#261;c z
+<b>hdparm</b> b&#261;d&#378; programu <b>setcd</b>. Dzia&#322;aj&#261; one w
+nast&#281;puj&#261;cy sposób:
+
+<pre class="screen">hdparm -E <i><tt>[pr&#281;dko&#347;&#263;]</tt></i> <i><tt>[urz&#261;dzenie cdrom]</tt></i></pre>
+<pre class="screen">setcd -x <i><tt>[pr&#281;dko&#347;&#263;]</tt></i> <i><tt>[urz&#261;dzenie cdrom]</tt></i></pre>
+</p><p>
+Je&#380;eli masz uprawnienia roota, to pomóc mo&#380;e tak&#380;e nast&#281;puj&#261;ca komenda:
+<pre class="screen">echo file_readahead:2000000 &gt; /proc/ide/<i><tt>[urz&#261;dzenie cdrom]</tt></i>/settings</pre>
+</p><p>
+Ustawiamy w ten sposób wielko&#347;&#263; bufora odczytu na 2MB, co pomaga przy odczycie
+porysowanych p&#322;yt. Je&#380;eli ustawimy zbyt du&#380;&#261; wielko&#347;&#263; tego bufora, nap&#281;d b&#281;dzie
+stale rozkr&#281;ca&#322; si&#281; i zwalnia&#322;, co spowoduje bardzo znaczny spadek wydajno&#347;ci.
+Zaleca si&#281; równie&#380; dostrojenie nap&#281;du CD-ROM przy u&#380;yciu
+<b>hdparm</b>:
+<pre class="screen">hdparm -d1 -a8 -u1 <i><tt>[urz&#261;dzenie cdrom]</tt></i></pre>
+</p><p>
+W&#322;&#261;czamy w ten sposób dost&#281;p DMA do dysku, czytanie z wyprzedzeniem i
+odmaskowanie IRQ (IRQ unmasking) (wi&#281;cej przeczytasz na stronach man do
+<b>hdparm</b>)
+</p><p>
+Prosz&#281; sprawdzi&#263; "<tt class="filename">/proc/ide/<i><tt>urz&#261;dzenie
+cdrom</tt></i>/settings"</tt>
+dla dostrojenia swojego nap&#281;du CD-ROM.
+</p><p>
+Dla nap&#281;dów SCSI nie istnieje jednolity sposób ustawiawiania tych parametrów
+(je&#380;eli znasz jaki&#347; to napisz nam o nim). Istnieje narz&#281;dzie które dzia&#322;a z
+<a href="http://das.ist.org/~georg/" target="_top">nap&#281;dami SCSI Plextor</a>.
+</p><p>FreeBSD:</p><p>Pr&#281;dko&#347;&#263;: <b>cdcontrol [-f <i><tt>device</tt></i>] speed <i><tt>speed</tt></i></b></p><p>DMA: <b>sysctl hw.ata.atapi_dma=1</b></p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="cd-dvd.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="dvd.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">Rozdzia&#322; 5. U&#380;ywanie CD/DVD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 5.2. Odtwarzanie DVD</td></tr></table></div></body></html>

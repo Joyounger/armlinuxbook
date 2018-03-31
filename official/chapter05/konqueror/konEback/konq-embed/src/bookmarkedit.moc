@@ -1,0 +1,87 @@
+/****************************************************************************
+** BookmarkEditBase meta object code from reading C++ file 'bookmarkedit.h'
+**
+** Created: Thu Nov 20 06:22:08 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "bookmarkedit.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *BookmarkEditBase::className() const
+{
+    return "BookmarkEditBase";
+}
+
+QMetaObject *BookmarkEditBase::metaObj = 0;
+
+#ifdef QWS
+static class BookmarkEditBase_metaObj_Unloader {
+public:
+    ~BookmarkEditBase_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "BookmarkEditBase" );
+    }
+} BookmarkEditBase_metaObj_unloader;
+#endif
+
+void BookmarkEditBase::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QDialog::className(), "QDialog") != 0 )
+	badSuperclassWarning("BookmarkEditBase","QDialog");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString BookmarkEditBase::tr(const char* s)
+{
+    return qApp->translate( "BookmarkEditBase", s, 0 );
+}
+
+QString BookmarkEditBase::tr(const char* s, const char * c)
+{
+    return qApp->translate( "BookmarkEditBase", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* BookmarkEditBase::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QDialog::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"BookmarkEditBase", "QDialog",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

@@ -1,0 +1,27 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.8. Extraction des sous-titres DVD dans un fichier Vobsub</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="mencoder.html" title="Chapitre 7. Encodage avec MEncoder"><link rel="previous" href="menc-feat-enc-images.html" title="7.7. Encodage à partir de multiples fichiers image (JPEG, PNG, TGA, SGI)"><link rel="next" href="aspect.html" title="7.9. Préserver le ratio d'aspect"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.8. Extraction des sous-titres DVD dans un fichier Vobsub</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-enc-images.html">Précédent</a> </td><th width="60%" align="center">Chapitre 7. Encodage avec MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="aspect.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-extractsub"></a>7.8. Extraction des sous-titres DVD dans un fichier Vobsub</h2></div></div><p>
+<span class="application">MEncoder</span> est capable d'extraire les sous-titres d'un DVD
+dans des fichiers au format VOBsub. Ils consistent en une paire de fichiers terminant
+par <tt class="filename">.idx</tt> et <tt class="filename">.sub</tt> et sont généralement compressés
+dans une seule archive <tt class="filename">.rar</tt>. <span class="application">MPlayer</span>
+peut les lire avec les options <tt class="option">-vobsub</tt> et <tt class="option">-vobsubid</tt>.
+</p><p>
+Vous spécifiez le nom de base (c-à-d. sans extension <tt class="filename">.idx</tt> ou
+<tt class="filename">.sub</tt>) des fichiers de sortie avec <tt class="option">-vobsubout</tt>
+et l'index pour ces sous-titres dans le fichier final avec <tt class="option">-vobsuboutindex</tt>.
+</p><p>
+Si l'entrée n'est pas un DVD vous pouvez utiliser <tt class="option">-ifo</tt> pour indiquer le
+fichier <tt class="filename">.ifo</tt> requis pour construire le fichier <tt class="filename">.idx</tt> final.
+</p><p>
+Si l'entrée n'est pas un DVD et que vous n'avez pas de fichier <tt class="filename">.ifo</tt>
+vous aurez besoin d'utiliser l'option <tt class="option">-vobsubid</tt> pour lui permettre de
+savoir quel id langue placer dans le fichier <tt class="filename">.idx</tt>.
+</p><p>
+Chaque étape ajoutera les sous-titres actifs dans les fichiers <tt class="filename">.idx</tt>
+et <tt class="filename">.sub</tt> déjà existants. Vous devrez donc les enlever avant de commencer.
+</p><div class="example"><p><b>Exemple 7.3. Copier deux sous-titres d'un DVD pendant l'encodage 2-passes</b></p><pre class="screen">
+rm subtitles.idx subtitles.sub
+mencoder dvd://1 -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vpass=1 -vobsubout subtitles -vobsuboutindex 0 -sid 2
+mencoder dvd://1 -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vpass=2 -vobsubout subtitles -vobsuboutindex 1 -sid 5
+</pre></div><div class="example"><p><b>Exemple 7.4. Copier les sous-titres français depuis un fichier MPEG</b></p><pre class="screen">
+rm soustitres.idx soustitres.sub
+mencoder <i><tt>film.mpg</tt></i> -ifo <i><tt>film.ifo</tt></i> -vobsubout soustitres -vobsuboutindex 0 -vobsuboutid fr -sid 1</pre></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-enc-images.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="aspect.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">7.7. Encodage à partir de multiples fichiers image (JPEG, PNG, TGA, SGI) </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 7.9. Préserver le ratio d'aspect</td></tr></table></div></body></html>

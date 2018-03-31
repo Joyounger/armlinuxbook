@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Revision: 1.24 $ -->
+<chapter id="usage">
+<title>Usage</title>
+
+<sect1 id="commandline">
+<title>Command line</title>
+
+<para>
+<application>MPlayer</application> utilizes a complex playtree. It consists
+of global options written as first, for example
+
+<screen>mplayer -vfm 5</screen>
+
+and options written after filenames, that apply only to the given
+filename/URL/whatever, for example:
+
+<screen>mplayer -vfm 5 <replaceable>movie1.avi</replaceable> <replaceable>movie2.avi</replaceable> -vfm 4</screen>
+</para>
+
+<para>
+You can group filenames/URLs together using <literal>{</literal> and
+<literal>}</literal>. It's useful with option <option>-loop</option>:
+
+<screen>mplayer { 1.avi -loop 2 2.avi } -loop 3</screen>
+
+The above command will play files in this order: 1, 1, 2, 1, 1, 2, 1, 1, 2.
+</para>
+
+<para>
+Playing a file:
+<synopsis>
+<command>mplayer</command><!--
+--> [<replaceable>options</replaceable>]<!--
+--> [<replaceable>path</replaceable>/]<replaceable>filename</replaceable>
+</synopsis>
+</para>
+
+<para>
+Playing more files:
+<synopsis>
+<command>mplayer</command><!--
+--> [<replaceable>default options</replaceable>]<!--
+--> [<replaceable>path</replaceable>/]<replaceable>filename1</replaceable><!--
+--> [<replaceable>options for filename1</replaceable>]<!--
+--> <replaceable>filename2</replaceable><!--
+--> [<replaceable>options for filename2</replaceable>] ...
+</synopsis>
+</para>
+
+<para>
+Playing VCD:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> vcd://<replaceable>trackno</replaceable><!--
+--> [-cdrom-device <replaceable>/dev/cdrom</replaceable>]
+</synopsis>
+</para>
+
+<para>
+Playing DVD:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> dvd://<replaceable>titleno</replaceable><!--
+--> [-dvd-device <replaceable>/dev/dvd</replaceable>]
+</synopsis>
+</para>
+
+<para>
+Playing from the WWW:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> http://<replaceable>site.com/file.asf</replaceable>
+</synopsis>
+(playlists can be used, too)
+</para>
+
+<para>
+Playing from RTSP:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> rtsp://<replaceable>server.example.com/streamName</replaceable>
+</synopsis>
+</para>
+
+<para>
+Examples:
+<screen>
+mplayer -vo x11 <replaceable>/mnt/Films/Contact/contact2.mpg</replaceable>
+mplayer vcd://<replaceable>2</replaceable> -cdrom-device <replaceable>/dev/hdc</replaceable>
+mplayer -afm 3 <replaceable>/mnt/DVDtrailers/alien4.vob</replaceable>
+mplayer dvd://<replaceable>1</replaceable> -dvd-device <replaceable>/dev/hdc</replaceable>
+mplayer -abs 65536 -delay -0.4 -nobps <replaceable>~/movies/test.avi</replaceable><!--
+--></screen>
+</para>
+</sect1>
+
+
+<sect1 id="control">
+<title>Control</title>
+
+<para>
+<application>MPlayer</application> has a fully configurable, command
+driven, control layer which lets you control
+<application>MPlayer</application> with keyboard, mouse, joystick or remote
+control (using LIRC). See the man page for the complete list of keyboard controls.
+</para>
+
+
+<sect2 id="ctrl-cfg">
+<title>Controls configuration</title>
+
+<para>
+<application>MPlayer</application> allows you bind any key/button to any
+<application>MPlayer</application> command using a simple config file.
+The syntax consist of a key name followed by a command. The default config file location is
+<filename>$HOME/.mplayer/input.conf</filename> but it can be overridden
+using the <option>-input <replaceable>conf</replaceable></option> option
+(relative path are relative to <filename>$HOME/.mplayer</filename>).
+</para>
+
+<para>
+You can get a full list of supported key names by running
+<command>mplayer -input keylist</command>
+and a full list of available commands by running
+<command>mplayer -input cmdlist</command>.
+</para>
+
+<example>
+<title>A simple input control file</title>
+<programlisting>
+##
+## MPlayer input control file
+##
+
+RIGHT seek +10
+LEFT seek -10
+- audio_delay 0.100
++ audio_delay -0.100
+q quit
+&gt; pt_step 1
+&lt; pt_step -1
+ENTER pt_step 1 1<!--
+--></programlisting>
+</example>
+</sect2>
+
+
+<sect2 id="lirc">
+<title>Control from LIRC</title>
+
+<para>
+Linux Infrared Remote Control - use an easy to build home-brewn IR-receiver,
+an (almost) arbitrary remote control and control your Linux box with it!
+More about it on the <ulink url="http://www.lirc.org">LIRC homepage</ulink>.
+</para>
+
+<para>
+If you have the LIRC package installed, <filename>configure</filename> will
+autodetect it. If everything went fine, <application>MPlayer</application>
+will print &quot;<systemitem>Setting up LIRC support...</systemitem>&quot;
+on startup. If an error occurs it will tell you. If there is no message about
+LIRC there is no support compiled in. That's it :-)
+</para>
+
+<para>
+The application name for <application>MPlayer</application> is - surprise -
+<filename>mplayer</filename>. You can use any <application>MPlayer</application>
+commands and even pass more than one command by separating them with
+<literal>\n</literal>.
+Don't forget to enable the repeat flag in <filename>.lircrc</filename> when
+it makes sense (seek, volume, etc). Here's an excerpt from a sample
+<filename>.lircrc</filename>:
+</para>
+
+<programlisting>
+begin
+     button = VOLUME_PLUS
+     prog = mplayer
+     config = volume 1
+     repeat = 1
+end
+
+begin
+    button = VOLUME_MINUS
+    prog = mplayer
+    config = volume -1
+    repeat = 1
+end
+
+begin
+    button = CD_PLAY
+    prog = mplayer
+    config = pause
+end
+
+begin
+    button = CD_STOP
+    prog = mplayer
+    config = seek 0 1\npause
+end<!--
+--></programlisting>
+
+<para>
+If you don't like the standard location for the lirc-config file
+(<filename>~/.lircrc</filename>) use the <option>-lircconf
+<replaceable>filename</replaceable></option> switch to specify another
+file.
+</para>
+</sect2>
+
+
+<sect2 id="slave-mode">
+<title>Slave mode</title>
+<para>
+The slave mode allows you to build simple frontends to
+<application>MPlayer</application>. When run with the
+<option>-slave</option> option <application>MPlayer</application> will
+read commands separated by a newline (\n) from stdin.
+The commands are documented in the
+<ulink url="../../tech/slave.txt">slave.txt</ulink> file.
+</para>
+</sect2>
+</sect1>
+
+
+<sect1 id="streaming">
+<title>Streaming from network or pipes</title>
+
+<para>
+<application>MPlayer</application> can play files from the network, using the
+HTTP, FTP, MMS or RTSP/RTP protocol.
+</para>
+
+<para>
+Playing works simply by passing the URL on the command line.
+<application>MPlayer</application> honors the <envar>http_proxy</envar>
+environment variable, using a proxy if available. Proxies can also be forced:
+<screen>mplayer <replaceable>http_proxy://proxy.micorsops.com:3128/http://micorsops.com:80/stream.asf</replaceable></screen>
+</para>
+
+<para>
+<application>MPlayer</application> can read from stdin
+(<emphasis>not</emphasis> named pipes). This can for example be used to
+play from FTP:
+<screen>wget <replaceable>ftp://micorsops.com/something.avi</replaceable> -O - | mplayer -</screen>
+</para>
+
+<note><para>
+It's also recommended to enable <option>-cache</option> when playing
+from the network:
+<screen>wget <replaceable>ftp://micorsops.com/something.avi</replaceable> -O - | mplayer -cache 8192 -</screen>
+</para></note>
+</sect1>
+
+<sect1 id="mpst" xreflabel="Remote streams">
+<title>Remote streams</title>
+
+<para>
+Remote streams allow you to access most <application>MPlayer</application>
+stream type from a remote host. The main purpose of this feature is to make
+it possible to directly use the CD or DVD drive of another computer on the
+network (provided you have the required bandwidth). On the downside some
+stream type (currently TV and MF) are not usable remotely because they are
+implemented at the demuxer level. It's sad for MF but TV stream would anyway
+require an insane amount of bandwidth.
+</para>
+
+<sect2 id="compile_mpst_server">
+<title>Compiling the server</title>
+<para>
+After having compiled <application>MPlayer</application> go to the
+<filename>TOOLS/netstream</filename> directory and enter
+<application>make</application> to build the server binary.
+You can then copy the <application>netstream</application> binary
+to the right place on your system (usually
+<filename class="directory">/usr/local/bin</filename> on Linux).
+</para>
+</sect2>
+
+<sect2 id="use_mpst">
+<title>Using remote streams</title>
+<para>
+First you have to start the server on the computer you intend to remotely
+access. Currently the server is very basic and doesn't have any commands
+line arguments so just enter <filename>netstream</filename>. Now you can
+for example play the second track of a VCD on the server with :
+<screen>
+mplayer -cache 5000 <replaceable>mpst://servername/vcd://2</replaceable>
+</screen>
+You can also access files on this server :
+<screen>
+mplayer -cache 5000 <replaceable>mpst://servername//usr/local/movies/lol.avi</replaceable>
+</screen>
+Note that paths which aren't starting with a / will be relative to
+the directory where the server is running. The <option>-cache</option> option is not
+needed but highly recommended.
+</para>
+
+<para>
+Be aware that currently the server is not secure at all. So don't complain
+about the numerous exploits which are possible through this. Instead send
+some (good) patch to make it better or start writing your own server.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="edl" xreflabel="Edit Decision Lists (EDL)">
+<title>Edit Decision Lists (EDL)</title>
+
+<para>
+The edit decision list (EDL) system allows you to automatically skip
+or mute sections of videos during playback, based on a movie specific
+EDL configuration file.
+</para>
+
+<para>
+This is useful for those who may want to watch a film in "family-friendly"
+mode. You can cut out any violence, profanity, Jar-Jar Binks .. from a movie
+according to your own personal preferences. Aside from this, there are other
+uses, like automatically skipping over commercials in video files you watch.
+</para>
+
+<para>
+The EDL file format is pretty bare-bones. Once the EDL system has reached a
+certain level of maturity, an XML-based file format will probably be implemented
+(keeping backwards compatibility with previous EDL formats).
+</para>
+
+<sect2 id="edl_using">
+<title>Using an EDL file</title>
+<para>
+Include the <option>-edl &lt;filename&gt;</option> flag when you run
+<application>MPlayer</application>, with the name of the EDL file you
+want applied to the video.
+</para>
+</sect2>
+
+<sect2 id="edl_making">
+<title>Making an EDL file</title>
+<para>
+The current EDL file format is:
+<programlisting>
+[begin second] [end second] [action]
+</programlisting>
+Where the seconds are floating-point numbers and the action is either
+<literal>0</literal> for skip or <literal>1</literal> for mute. Example:
+<programlisting>
+5.3   7.1    0
+15    16.7   1
+420   422    0
+</programlisting>
+This will skip from second 5.3 to second 7.1 of the video, then mute at
+15 seconds, unmute at 16.7 seconds and skip from second 420 to second 422
+of the video. These actions will be performed when the playback timer
+reaches the times given in the file.
+</para>
+
+<para>
+To create an EDL file to work from, use the <option>-edlout &lt;filename&gt;</option>
+flag. During playback, when you want to mark the previous two seconds to skip over,
+hit <keycap>i</keycap>. A corresponding entry will be written to the file for
+that time. You can then go back and fine-tune the generated EDL file.
+</para>
+</sect2>
+
+</sect1>
+
+</chapter>

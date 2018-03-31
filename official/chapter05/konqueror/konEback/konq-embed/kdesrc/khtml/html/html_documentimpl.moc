@@ -1,0 +1,160 @@
+/****************************************************************************
+** DOM::HTMLDocumentImpl meta object code from reading C++ file 'html_documentimpl.h'
+**
+** Created: Thu Nov 20 06:18:54 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "html_documentimpl.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *DOM::HTMLDocumentImpl::className() const
+{
+    return "DOM::HTMLDocumentImpl";
+}
+
+QMetaObject *DOM::HTMLDocumentImpl::metaObj = 0;
+
+#ifdef QWS
+static class DOM__HTMLDocumentImpl_metaObj_Unloader {
+public:
+    ~DOM__HTMLDocumentImpl_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "DOM::HTMLDocumentImpl" );
+    }
+} DOM__HTMLDocumentImpl_metaObj_unloader;
+#endif
+
+void DOM::HTMLDocumentImpl::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(DocumentImpl::className(), "DOM::DocumentImpl") != 0 )
+	badSuperclassWarning("DOM::HTMLDocumentImpl","DOM::DocumentImpl");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString DOM::HTMLDocumentImpl::tr(const char* s)
+{
+    return qApp->translate( "DOM::HTMLDocumentImpl", s, 0 );
+}
+
+QString DOM::HTMLDocumentImpl::tr(const char* s, const char * c)
+{
+    return qApp->translate( "DOM::HTMLDocumentImpl", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* DOM::HTMLDocumentImpl::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) DOM::DocumentImpl::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (DOM::HTMLDocumentImpl::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &DOM::HTMLDocumentImpl::slotHistoryChanged;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotHistoryChanged()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Protected;
+    metaObj = QMetaObject::new_metaobject(
+	"DOM::HTMLDocumentImpl", "DOM::DocumentImpl",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+
+const char *DOM::XHTMLDocumentImpl::className() const
+{
+    return "DOM::XHTMLDocumentImpl";
+}
+
+QMetaObject *DOM::XHTMLDocumentImpl::metaObj = 0;
+
+#ifdef QWS
+static class DOM__XHTMLDocumentImpl_metaObj_Unloader {
+public:
+    ~DOM__XHTMLDocumentImpl_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "DOM::XHTMLDocumentImpl" );
+    }
+} DOM__XHTMLDocumentImpl_metaObj_unloader;
+#endif
+
+void DOM::XHTMLDocumentImpl::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(HTMLDocumentImpl::className(), "DOM::HTMLDocumentImpl") != 0 )
+	badSuperclassWarning("DOM::XHTMLDocumentImpl","DOM::HTMLDocumentImpl");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString DOM::XHTMLDocumentImpl::tr(const char* s)
+{
+    return qApp->translate( "DOM::XHTMLDocumentImpl", s, 0 );
+}
+
+QString DOM::XHTMLDocumentImpl::tr(const char* s, const char * c)
+{
+    return qApp->translate( "DOM::XHTMLDocumentImpl", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* DOM::XHTMLDocumentImpl::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) HTMLDocumentImpl::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"DOM::XHTMLDocumentImpl", "DOM::HTMLDocumentImpl",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

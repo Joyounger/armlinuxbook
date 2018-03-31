@@ -1,0 +1,359 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.2. Telepítés</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="intro.html" title="1. fejezet - Bevezetés"><link rel="previous" href="history.html" title="1.1. Történelem"><link rel="next" href="gui.html" title="1.3. Mi a helyzet a GUI-val?"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.2. Telepítés</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="history.html">El&#337;z&#337;</a> </td><th width="60%" align="center">1. fejezet - Bevezetés</th><td width="20%" align="right"> <a accesskey="n" href="gui.html">Következ&#337;</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="install"></a>1.2. Telepítés</h2></div></div><p>
+Egy rövid telepítési leírást találsz a <tt class="filename">README</tt> fájlban.
+Kérlek el&#337;ször azt olvasd el, és utána gyere vissza ide, hogy megtudd a
+részleteket!
+</p><p>
+Ebben a fejezetben megpróbállak végigvezetni az <span class="application">MPlayer</span>
+fordításának és beállításának menetén. Nem egyszer&#369;, de nem is észveszejt&#337;en
+nehéz. Ha nálad máshogy viselkednek a dolgok, mint ahogy itt le van írva,
+nézd végig ezt a dokumentációt és (remélhet&#337;leg) megtalálod a választ. Ha
+linkeket látsz, kövesd &#337;ket és olvasd el figyelmesen a tartalmukat. Id&#337;be
+fog kerülni, de MEGÉRI.
+</p><p>
+Nem árt, ha vmi újabb rendszered van. Linuxon a 2.4.x-es kernel javasolt.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="softreq"></a>1.2.1. Szoftver követelmények</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>binutils</b></span> - javasolt verzió: <span class="bold"><b>2.11.x</b></span>.
+  Ez a program felel&#337;s az MMX/ 3DNow!/stb utasítások generálásáért,
+  így nagyon fontos!
+</p></li><li><p>
+  <span class="bold"><b>gcc</b></span> - javasolt verziók: <span class="bold"><b>2.95.3</b></span>
+  (esetleg <span class="bold"><b>2.95.4</b></span>) és <span class="bold"><b>3.2+</b></span>.
+  <span class="bold"><b>SOHA</b></span> ne használd a 2.96-ot vagy a 3.0.x-et! Hibás
+  <span class="application">MPlayer</span> kódot generálnak. Ha úgy döntesz, hogy lecseréled
+  a 2.96-os gcc-det, csak azért ne tegyél fel 3.x-est, mert újabb! A 3.x korai kiadásai
+  még több hibát tartalmaztak, mint a 2.96. Tehát vagy állj vissza 2.95.x-re
+  (és cseréld le a <tt>libstdc++</tt>-t is,
+  más programoknak szükségük lehet rá) vagy ne frissíts/tegyél vissza semmit (de ebben az
+  esetben készülj fel futási problémákra). Ha a 3.x-re szavazol, próbáld a legújabb
+  verziót használni, a korai kiadásoknak számtalan hibájuk volt, így gy&#337;z&#337;dj meg róla,
+  hogy legalább 3.1-eset használsz, ami ki lett próbálva és m&#369;ködik. Ha további infókat
+  szeretnél a 2.96-os gcc hibáiról (amik még mindig NEM lettek kijavítva, csak meg lettek
+  kerülve az <span class="application">MPlayer</span>ben!), nézd meg a <a href="faq.html">FAQ</a>
+  <a href="gcc-296.html" title="E.1. GCC 2.96">2.96-os gcc</a>-re vonatkozó részét!
+  </p></li><li><p>
+  <span class="bold"><b>XFree86</b></span> - javasolt verzió: <span class="bold"><b>mindig a
+  legújabb</b></span> (4.3). Mindenki ezt akarja, mivel a 4.0.2-es XFree86-tól benne van az
+  <a href="video.html#xv" title="2.3.2.1. Xv">XVideo</a> kiterjesztés (néhol <span class="bold"><b>Xv</b></span>-ként
+  hivatkoznak rá), ami szükséges a hardveres YUV gyorsítás engedélyezéséhez (gyors képmegjelenítés)
+  azokon a kártyákon, amik támogatják.
+  Gy&#337;z&#337;dj meg róla, hogy a <span class="bold"><b>fejleszt&#337;i csomagja</b></span> is telepítve van,
+  különben nem fog m&#369;ködni.
+  Néhány videó kártyához nem kell XFree86. A listát lásd lejjebb.
+  </p></li><li><p>
+  <span class="bold"><b>make</b></span> - javasolt verzió:
+  <span class="bold"><b>mindig a legújabb</b></span> (legalább 3.79.x-es). Ez
+  legtöbbször nem olyan fontos.
+  </p></li><li><p>
+  <span class="bold"><b>SDL</b></span> - nem feltétlenül szükséges, de segíthet
+  pár esetben (hibás audió, videó kártya, ami késik az xv vezérl&#337;vel).
+  Mindig használd a legújabbat (1.2.x-t&#337;l kezdve).
+  </p></li><li><p>
+  <span class="bold"><b>libjpeg</b></span> - választható JPEG dekódoló, az <tt class="option">-mf</tt>
+  kapcsoló használja és néhány QT MOV fájl. Hasznos mind az <span class="application">MPlayer</span>,
+  mind a <span class="application">MEncoder</span> szempontjából, ha jpeg fájlokkal akarsz dolgozni.
+  </p></li><li><p>
+  <span class="bold"><b>libpng</b></span> - szükséges és az alapértelmezett (M)PNG dekóder. Kell a
+  GUI-hoz is. Használja az <span class="application">MPlayer</span> és a <span class="application">MEncoder</span>
+  is.
+  </p></li><li><p>
+  <span class="bold"><b>lame</b></span> - javasolt, szükséges MP3 audió <span class="application">MEncoder</span>rel
+  történ&#337; kódolásához, a javasolt verzió <span class="emphasis"><i>mindig a legújabb</i></span> (de legalább 3.90).
+  </p></li><li><p>
+  <span class="bold"><b>zlib</b></span> - javasolt, szükséges a tömörített MOV fejlécekhez és a
+  PNG támogatáshoz.
+  </p></li><li><p>
+  <span class="bold"><b>libogg</b></span> - választható, szükséges az OGG formátumú fájlok lejátszásához.
+  </p></li><li><p>
+  <span class="bold"><b>libvorbis</b></span> - választható, szükséges az OGG Vorbis audiók lejátszásához.
+  </p></li><li><p>
+  <span class="bold"><b><a href="http://www.live.com/mplayer/" target="_top">LIVE.COM Streaming Media</a></b></span>
+  - választható, szükséges az RTSP/RTP folyamok lejátszásához.
+  </p></li><li><p>
+  <span class="bold"><b>directfb</b></span> - választható, elérhet&#337; itt:
+  <a href="http://www.directfb.org" target="_top">http://www.directfb.org</a>. Legalább 0.9.13-as szükséges.
+  </p></li><li><p>
+  <span class="bold"><b>cdparanoia</b></span> - választható, szükséges a CDDA támogatáshoz
+  </p></li><li><p>
+  <span class="bold"><b>libfreetype</b></span> - választható, TTF bet&#369;típusok támogatásához kell.
+  Legalább 2.0.9-es szükséges.
+  </p></li><li><p>
+  <span class="bold"><b>libxmms</b></span> - választható, XMMS input plugin támogatáshoz kell.
+  Legalább 1.2.7-es szükséges.
+  </p></li><li><p>
+  <span class="bold"><b>libsmb</b></span> - választható, Samba támogatáshoz kell.
+  </p></li><li><p>
+  <span class="bold"><b>ALSA</b></span> - választható, az ALSA audió kimenet
+  támogatásához. Legalább 0.9.0rc4 szükséges.
+  </p></li><li><p>
+  <span class="bold"><b>bio2jack</b></span> - választható, a JACK audió kimenet támogatásához kell,
+  de csak a fordítás alatt. Beszerezheted a <a href="http://bio2jack.sf.net/" target="_top">http://bio2jack.sf.net</a>
+  címr&#337;l. Mivel nincs install opciója, kézzel kell bemásolnod a <tt class="filename">libbio2jack.a</tt> fájlt
+  valahova a függvénykönyvtárakat tartalmazó könyvtáradba (pl. <tt class="filename">/usr/local/lib</tt>) vagy
+  használnod kell a <tt class="option">--with-bio2jack=DIR</tt> kapcsolót, hogy megmondd a
+  <tt class="filename">./configure</tt> scriptnek, hol van a fájl.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2839532"></a>1.2.2. Codecek</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b><tt>libavcodec</tt></b></span>:
+  Ez a codec csomag a H.263/MJPEG/RV10/DivX3/DivX4/DivX5/MP41/MP42/WMV1/WMV2/SVQ1/SVQ3 kódolású videó
+  folyamokat és a WMA (Windows Media Audio) v1/v2 audió folyamokat tudja visszakódolni több platformon.
+  Mindezt az elérhet&#337; programok közül &#337; végzi a leggyorsabban is. Lásd az
+  <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec">FFmpeg</a> bekezdést a részletekért. Jellemz&#337;k:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    lehet&#337;vé teszi a fent említett formátumok dekódolását nem x86 gépeken
+    </li><li>
+    a legtöbb megemlített codec-kel kódolni is tud
+    </li><li>
+    ez a codec <span class="bold"><b>az elérhet&#337; leggyorsabb</b></span> a
+    DivX/3/4/5 és egyébb MPEG-4 típusú formátumoknál. Javasolt!
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>Win32 codecek</b></span>: Ha x86-os gépen akarod használni
+  az <span class="application">MPlayer</span>t, valószín&#369;leg szükséged lesz rájuk.
+  Töltsd le egy codec csomagot a
+  <a href="http://www.mplayerhq.hu/homepage/design7/codecs.html" target="_top">codec oldalunkról</a>
+  és tedd be a codec-eket a <tt class="filename">/usr/local/lib/codecs</tt> könyvtárba
+  az <span class="application">MPlayer</span> fordítása <span class="bold"><b>EL&#336;TT</b></span>,
+  különben nem lesz befordított Win32 támogatásod!
+  </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Megjegyzés</h3><p>Az avifile projektnek hasonló codec csomagja van, de az különbözik
+  a mienkét&#337;l, így ha minden támogatott codecet használni akarsz, akkor a mi
+  csomagunkra van szükséged (ne aggódj, az avifile-é is probléma nélkül m&#369;ködik).</p></div><p>
+  Jellemz&#337;k:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    szükséged van erre, ha különböz&#337; hardveres tömörít&#337;kkel, például tuner kártyákkal,
+    digitális kamerákkal rögzített filmeket akarod lejátszani vagy átkódolni
+    (például: DV, ATI VCR, MJPEG)
+    </li><li>
+    szükséges ha <span class="bold"><b>WMV9/WMA9 filmeket</b></span> akarsz lejátszani.
+   </li><li>
+    Nem kell a régi ASF-ekhez MP41 vagy MP42 videóval (ezek gyakran VoxWare audiójú
+    fájlok - ezt a Win32 codec elintézi), és az WMV7-hez. Szintén szükségtelen
+    a WMA-hoz (Windows Media Audio), a
+    <tt>libavcodec</tt>nek van nyílt forrású dekódolója
+    ehhez.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>QuickTime codecek</b></span>: x86-os platformokon ezek
+  a codecek az RPZA, egyébb QuickTime videók és QDesign audió folyamok lejátszására
+  használható. A telepítés&#337; útmutatók a <a href="codecs.html#sorenson" title="2.2.1.9. Sorenson">Sorenson video codec</a>
+  részben találhatóak.
+  </p></li><li><p>
+  <span class="bold"><b>DivX4/DivX5</b></span>: err&#337;l a codecr&#337;l a információkat a
+  <a href="codecs.html#divx4-5" title="2.2.1.1. DivX4/DivX5">DivX4/DivX5</a> részben találhatsz. Valószín&#369;leg nincs
+  szükséged erre a codecre, mert a <span class="bold"><b>
+  <tt>libavcodec</tt></b></span> (lásd fent) sokkal
+  gyorsabb és jobb min&#337;séget biztosít, mint ez, mind kódolásban, mind visszakódolásban.
+  Jellemz&#337;k:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    egy vagy két menetes kódolás
+    <a href="mencoder.html" title="7. fejezet - Encoding with MEncoder"><span class="application">MEncoder</span></a>-rel
+    </li><li>
+    le tudja játszani a régi <span class="bold"><b>DivX3</b></span> filmeket, sokkal
+    gyorsabban, mint a Win32-es DLL-ekkel, de lassabban, mint a
+    <span class="bold"><b><tt>libavcodec</tt></b></span>-kel!
+    </li><li>
+    zárt forrású, és csak x86 változata elérhet&#337;.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>XviD</b></span>: Nyílt forráskódú, alternatív kódoló a
+  DivX4Linux mellett. Jellemz&#337;k:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    egy vagy két menetes kódolás
+    <a href="mencoder.html" title="7. fejezet - Encoding with MEncoder"><span class="application">MEncoder</span></a>-rel
+    </li><li>
+    nyílt forráskódú, így multiplatformos.
+    </li><li>
+    kódolásban kb. kétszer gyorsabb, mint a divX4 - majdnem ugyan azzal a min&#337;séggel
+    </li></ul></div><p>
+  </p></li><li><p>
+  Az <span class="bold"><b><a href="codecs.html#xanim" title="2.2.1.3. XAnim codec-ek">XAnim codecek</a></b></span>
+  a legjobbak (teljes képerny&#337;, hardveres YUV nagyítás) a
+  <span class="bold"><b>3ivx</b></span> és Indeo 3/4/5 filmek dekódolásához, és
+  néhány régi formátumhoz. Ráadásul multiplatformos, így ez az egyetlen lehet&#337;ség
+  az Indeo fájlok lejátszására nem-x86-os platformokon (nos, legalábbis az XAnim
+  használatán kívül :). De például a Cinepak filmeket legjobb az
+  <span class="application">MPlayer</span> saját Cinepak dekódolójával lejátszani!
+  </p></li><li><p>
+  Az <span class="bold"><b>Ogg Vorbis</b></span> audió dekódoláshoz helyesen
+  telepített <tt>libvorbis</tt> kell.
+  A bináris csomagokat és a forráskódot beszerezheted az
+  <a href="http://www.vorbis.com/download.psp" target="_top">Ogg Vorbis oldaláról</a>
+  </p></li><li><p>
+  <span class="application">MPlayer</span> tudja használni a RealPlayer 8 vagy a
+  RealONE függvénykönyvtárait a <span class="bold"><b>RealVideo 3.0 és 4.0</b></span>
+  videók lejátszásához, és a Sipro/Cook audióhoz. Lásd a
+  <a href="formats.html#realmedia" title="2.1.1.7. RealMedia (RM) fájlok">RealMedia fájl formátumok</a>
+  részt a telepítési útmutatóért és egyébb információkért.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="video-cards"></a>1.2.3. Videó kártyák</h3></div></div><p>
+Két nagy típusa van a videó kártyáknak. Az egyik (az újabbak) tudják a
+<span class="bold"><b>hardveres méretezést és YUV gyorsítást</b></span>,
+a másik nem.
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="yuv-cards"></a>1.2.3.1. YUV kártyák</h4></div></div><p>
+A képet bármilyen méretben meg tudják jeleníteni és átméretezni (nagyítani),
+ami belefér a memóriájukba, <span class="bold"><b>kevés CPU használattal</b></span>
+(még nagyításnál is), így a teljes képerny&#337;s vetítés szép és nagyon gyors.
+
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>Matrox G200/G400/G450/G550 kártyák</b></span>: bár van
+  <a href="video.html#vidix" title="2.3.2.13. VIDIX">Vidix vezérl&#337;</a> hozzájuk, inkább az mgs_vid
+  modult használd, sokkal jobban m&#369;ködik.
+  Nézd meg az <a href="video.html#mga_vid" title="2.3.2.6. Matrox framebuffer (mga_vid)">mga_vid</a> részt a telepítéséhez
+  és használatához! Fontos, hogy az ott leírtakat az <span class="application">MPlayer</span>
+  fordítása <span class="emphasis"><i>el&#337;tt</i></span> végezd el, különben nem lesz beépített
+  mga_vid támogatásod. Szintén nézd meg a <a href="video.html#tvout-mga-g400" title="2.3.5.1. Matrox G400 kártyák">Matrox TV-kimenet</a>
+  részt! <span class="bold"><b> Ha nem használsz Linux-ot</b></span>, csak a
+  VIDIX vezérl&#337;ben bízhatsz: olvasd el a <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a> részt.
+  </p></li><li><p>
+  <span class="bold"><b>3Dfx Voodoo3/Banshee kártyák</b></span>: nézd meg a
+  <a href="video.html#tdfxfb" title="2.3.2.7. 3Dfx YUV támogatás">tdfxfb</a> részt, ha nagy sebességnövekedést akarsz
+  elérni! Fontos, hogy az ott leírtakat az <span class="application">MPlayer</span>
+  fordítása <span class="bold"><b>el&#337;tt</b></span> végezd el, különben nem lesz
+  beépített 3Dfx támogatásod. Szintén nézd meg a <a href="video.html#tvout-voodoo" title="2.3.5.4. Voodoo 3">3dfx TV-kimenet</a>
+  részt! Ha X-et használsz, legalább <span class="bold"><b>4.2.0</b></span>-est
+  használj, mert a 3dfx Xv vezérl&#337; a 4.1.0 és korábbi verziókban hibás volt.
+  </p></li><li><p>
+  <span class="bold"><b>ATI kártyák</b></span>: <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>
+  vezérl&#337; elérhet&#337; a következ&#337; kártyákhoz:
+  <span class="bold"><b>Radeon, Rage128, Mach64</b></span> (Rage XL/Mobility, Xpert98).
+  Nézd meg a TV-out dokumentáció <a href="video.html#tvout-ati" title="2.3.5.3. ATI kártyák">ATI kártyákra</a>
+  vonatkozó részét, hogy megtudd a kártyád TV-kimenete támogatott-e a
+  Linux/<span class="application">MPlayer</span> alatt!
+  </p></li><li><p>
+  <span class="bold"><b>S3 kártyák</b></span>: a Savage és Virge/DX chip-eknek van
+  hardveres gyorsításuk. Használj olyan friss XFree86-ot, amilyet csak tudsz, a régebbi
+  vezérl&#337;k hibásak. A Savage chip-eknek problémáik vannak a YV12 megjelenítéssel, lásd
+  az <a href="video.html#s3" title="2.3.2.1.2. S3 kártyák">S3 Xv</a> részt a részletekért. Régebbi, Trio kártyákban nincs
+  vagy lassú a hardveres támogatás.
+  </p></li><li><p>
+  <span class="bold"><b>nVidia kártyák</b></span>: talán jó választás a videó lejátszáshoz,
+  talán nem. Ha nincs GeForce2 (vagy újabb) kártyád, valószín&#369;leg nem fog menni hiba nélkül.
+  <span class="bold"><b>Az XFree86 beépített nVidia vezérl&#337;je nem minden kártyán támogatja a
+  hardveres YUV gyorsítást.</b></span> Le kell töltened az nVidia zárt forrású vezérl&#337;jét az
+  <a href="http://nvidia.com" target="_top">nVidia.com</a>-ról.
+  Nézd meg az <a href="video.html#nvidia" title="2.3.2.1.3. nVidia kártyák">nVidia Xv vezérl&#337;</a> fejezetet b&#337;vebb információkért!
+  Szintén nézd meg az <a href="video.html#tvout-nvidia" title="2.3.5.5. nVidia">nVidia TV-kimenet</a> részt ha TV-t is
+  akarsz használni.
+  </p></li><li><p>
+  <span class="bold"><b>3DLabs GLINT R3 és Permedia3</b></span>: VIDIX vezérl&#337; van
+  hozzá (pm3_vid). Kérlek olvasd el a <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a> fejezetet
+  b&#337;vebb infókért!
+  </p></li><li><p>
+  <span class="bold"><b>Egyéb kártyák</b></span>: nincs a fentiekben?
+  </p><div class="itemizedlist"><ul type="round"><li>
+    Próbáld ki, hogy az XFree86 vezérl&#337; (és a kártyád) támogatja-e a hardveres
+    gyorsítást! Lásd az <a href="video.html#xv" title="2.3.2.1. Xv">Xv</a> fejezetet a részletekért!
+    </li><li>
+    Ha nem, akkor a kártyád videós tulajdonságai nem támogatottak az operációs rendszered
+    alatt. :( Ha a hardveres méretezés m&#369;ködik Windows alatt, az nem jelenti azt, hogy
+    Linux vagy más operációs rendszer alatt is fog menni, ez a vezérl&#337;t&#337;l függ.
+    A legtöbb gyártó sem Linuxos vezérl&#337;t nem ad ki, sem a chip-jei specifikációját -
+    így hát peched van, ha az &#337; kártyájukat használod.
+    Lásd <a href="install.html#non-yuv-cards">Nem YUV-os kártyák</a>.
+    </li></ul></div><p>
+  </p></li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="non-yuv-cards"></a>1.2.3.2. Nem YUV-os kártyák</h4></div></div><p>
+A teljes képerny&#337;s lejátszás vagy a <span class="bold"><b>szoftveres méretezés</b></span>
+engedélyezésével (használd a <tt class="option">-zoom</tt> vagy a <tt class="option">-vf</tt> kapcsolót,
+de figyelmeztetlek: lassú lesz), vagy egy kisebb, pl. 352x288-as felbontásra való átváltással
+lehetséges. Ha nincs YUV gyorsításod, az utóbbi módszer javasolt.
+A videó mód váltást a <tt class="option">-vm</tt> kapcsolóval engedélyezheted, mely a következ&#337;
+vezérl&#337;kkel m&#369;ködik:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>használsz</b></span> XFree86-t: részleteket lásd a <a href="video.html#dga" title="2.3.2.2. DGA">DGA vezérl&#337;r&#337;l</a>
+  és az <a href="video.html#x11" title="2.3.2.12. X11">X11 vezérl&#337;r&#337;l</a> szóló fejezetekben. A DGA a javasolt! Megpróbálhatod
+  a DGA-t SDL-en keresztül is, van amikor az a jobb.
+  </li><li>
+  <span class="bold"><b>nem használsz</b></span> XFree86-t: próbáld ezeket a vezérl&#337;ket ebben a sorrendben
+  <a href="video.html#vesa" title="2.3.2.11. VESA - kimenet a VESA BIOS-hoz">vesa</a>,
+  <a href="video.html#fbdev" title="2.3.2.5. Framebuffer kimenet (FBdev)">fbdev</a>,
+  <a href="video.html#svgalib" title="2.3.2.4. SVGAlib">svgalib</a>,
+  <a href="video.html#aalib" title="2.3.2.9. AAlib - szöveges módú megjelenítés">aalib</a>.
+  </li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="cirrus-logic-cards"></a>1.2.3.3. Cirrus-Logic kártyák</h4></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  GD 7548: alaplapi vezérl&#337;, Compaq Armada 41xx notebook sorozatban tesztelve.
+  </p><div class="itemizedlist"><ul type="round"><li>
+    XFree86 3: 8/16bpp módban m&#369;ködik. Bár a vezérl&#337; borzasztóan lassú
+    és hibás 800x600@16bpp-ben. <span class="bold"><b>Javasolt: 640x480@16bpp</b></span>
+   </li><li>
+    XFree86 4: az Xserver kifagy rögtön indítás után, ha a gyorsítás nincs kikapcsolva,
+    de akkor meg az egész cucc lassabb lesz, mint az XFree86 3. Nincs XVideo.
+   </li><li>
+    FBdev: a framebuffer-t a <tt>clgenfb</tt> kernel vezérl&#337;vel tudod
+    bekapcsolni, de nekem csak 8bpp-ben m&#369;ködött, így használhatatlan.
+    A clgenfb forrását ki kell egészíteni a 7548 ID-vel fordítás el&#337;tt.
+   </li><li>
+    VESA: a kártya csak a VBE 1.2-t ismeri, így a VESA kimenet nem használható. UniVBE-vel
+    sem lehet megkerülni.
+  </li><li>
+    SVGAlib: régebbi Cirrus chip-nek ismeri fel. Használható de lassú a <tt class="option">-bpp 8</tt> kapcsolóval.
+  </li></ul></div><p>
+</p></li></ul></div></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="sound-cards"></a>1.2.4. Hangkártyák</h3></div></div><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>Soundblaster Live!</b></span>: ezzel a kártyával 4 vagy 6
+  (<span class="bold"><b>5.1</b></span>) csatornás AC3 dekódolást használhatsz a 2 helyett. Olvasd el a
+  <a href="codecs.html#swac3" title="2.2.2.1. Szoftveres AC3 dekódolás">szoftveres AC3 dekódolás</a>ról szóló fejezetet! Hardveres AC3
+  használathoz ALSA 0.9-et <span class="bold"><b>kell</b></span> használnod OSS emulációval!
+  </li><li>
+  <span class="bold"><b>C-Media S/PDIF kimenettel</b></span>: hardveres AC3
+  áteresztés lehetséges ezeken a kártyákon, lásd a
+  <a href="codecs.html#hwac3" title="2.2.2.2. Hardveres AC3 dekódolás">hardveres AC3 dekódolás</a> fejezetet!
+  </li><li>
+  <span class="bold"><b>Más kártyák</b></span> tulajdonságait nem támogatja az
+  <span class="application">MPlayer</span>. <span class="bold"><b>Nagyon ajánlott, hogy elolvasd
+  a <a href="audio.html" title="2.4. Audió kimeneti eszközök">hangkártyákról</a> szóló részt!</b></span>
+  </li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2841282"></a>1.2.5. Jellemz&#337;k</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  Döntsd el, hogy szükséged van-e GUI-ra. Ha igen, akkor nézd meg a <a href="gui.html" title="1.3. Mi a helyzet a GUI-val?">GUI</a>
+  fejezetet a fordítás el&#337;tt!
+  </p></li><li><p>
+  Ha telepíteni akarod a <span class="application">MEncoder</span>t is (a nagyszer&#369;, mindent
+  tudó kódolónkat), nézd meg a <a href="mencoder.html" title="7. fejezet - Encoding with MEncoder"><span class="application">MEncoder</span></a> részt!
+  </p></li><li><p>
+  Ha V4L kompatibilis <span class="bold"><b>TV tuner</b></span> kártyád van,
+  és nézni/grabbelni vagy kódolni szeretnél filmeket az <span class="application">MPlayer</span>rel,
+  olvasd el a <a href="tv-input.html" title="2.5. TV bemenet">TV bemenet</a> fejezetet.
+  </p></li><li><p>
+  Roppant jól sikerült <span class="bold"><b>OSD Menü</b></span> támogatás vár használatra.
+  Lásd az <a href="subosd.html" title="1.4. Feliratok és OSD">OSD menü</a> fejezetet!
+  </p></li></ul></div><p>
+Mindezek után fordítsd le az <span class="application">MPlayer</span>t:
+<pre class="screen">
+./configure
+make
+make install</pre>
+</p><p>
+Ezek után az <span class="application">MPlayer</span> máris használatra kész. A
+<tt class="filename">$PREFIX/share/mplayer</tt> könyvtárban van
+a <tt class="filename">codecs.conf</tt> fájl, ami a codec-eket és azok tulajdonságait
+írja le a programnak. Ez a fájl csak akkor kell, ha meg akarod változtatni a
+képességeit, egyébként nem, mert a binárisban van egy másolat róla. Ellen&#337;rizd le,
+hogy van-e <tt class="filename">codecs.conf</tt> nev&#369; fájlod a home könyvtáradban
+(<tt class="filename">~/.mplayer/codecs.conf</tt>), melyet régebbi
+<span class="application">MPlayer</span> verziók hagyhattak ott, és ha van, töröld le!
+</p><p>
+Vedd figyelembe, hogy ha van egy <tt class="filename">codecs.conf</tt> fájlod a
+<tt class="filename">~/.mplayer/</tt> könyvtárban, a beépített és a f&#337;
+<tt class="filename">codecs.conf</tt> teljesen figyelmen kívül lesz hagyva.
+Ne használd ezt, hacsak nem akarsz trükközni az <span class="application">MPlayer</span>rel,
+mivel ez sok problémát okozhat. Ha meg akarod változtatni a codec-ek keresési sorrendjét,
+használd a <tt class="option">-vc</tt>, <tt class="option">-ac</tt>, <tt class="option">-vfm</tt>,
+vagy <tt class="option">-afm</tt> kapcsolókat akár a parancssorban akár a konfigurációs fájlban
+(lásd man oldal).
+</p><p>
+A Debian használók .deb csomagot is készíthetnek maguknak, roppant egyszer&#369;en.
+Csak futtasd a
+<pre class="screen">fakeroot debian/rules binary</pre>
+parancsot az <span class="application">MPlayer</span> f&#337;könyvtárában. Lásd a
+<a href="linux.html#debian" title="6.1.1. Debian csomagolás">Debian csomagolás</a> fejezetet b&#337;vebb információkért!
+</p><p>
+<span class="bold"><b>Mindig nézd végig a <tt class="filename">./configure</tt>
+kimenetét</b></span>, és a <tt class="filename">configure.log</tt> fájl, melyek
+információkat tartalmaznak arról, hogy mi is lesz lefordítva és mi nem.
+Szintén tanácsos megnézni a <tt class="filename">config.h</tt> és
+<tt class="filename">config.mak</tt> fájlokat. Ha van olyan telepített függvénykönyvtárad,
+amit a <tt class="filename">./configure</tt> mégsem talált meg, ellen&#337;rizd, hogy a
+megfelel&#337; fejléc fájlok (általában a -dev csomagokban vannak) is elérhet&#337;ek-e, és
+egyez&#337; verziójúak. A <tt class="filename">configure.log</tt> fájl legtöbbször megmondja,
+hogy mi hiányzik.
+</p><p>
+Bár nem kötelez&#337;, de a bet&#369;típusoknak telepítve kell lenniük, hogy az OSD és a
+feliratozás m&#369;ködjön. A javasolt eljárás, hogy telepíted a TTF bet&#369;készletet,
+majd megmondod az <span class="application">MPlayer</span>nek, hogy használja azt.
+Lásd a <a href="subosd.html" title="1.4. Feliratok és OSD">Feliratok és az OSD</a> részt b&#337;vebben.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="history.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="gui.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">1.1. Történelem </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 1.3. Mi a helyzet a GUI-val?</td></tr></table></div></body></html>

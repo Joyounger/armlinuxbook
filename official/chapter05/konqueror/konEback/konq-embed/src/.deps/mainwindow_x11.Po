@@ -1,0 +1,576 @@
+mainwindow_x11.o mainwindow_x11.o: mainwindow_x11.cc mainwindow_x11.h \
+  ../../config.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/types.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/types.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/wordsize.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/typesizes.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/time.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/endian.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/endian.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/select.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/select.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/sigset.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/time.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/sysmacros.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/pthreadtypes.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/sched.h \
+  mainwindowbase.h /arm2410s/gui/Qt/src/qt-2.3.10/include/qmainwindow.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qwidget.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qregion.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qiodevice.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qregexp.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpalette.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qbrush.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcursor.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfontmetrics.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfontinfo.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstyle.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qsizepolicy.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qaction.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qiconset.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  ./../kdesrc/kdecore/kurl.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h \
+  ./../kdesrc/kparts/browserextension.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h \
+  ./../dropin/kparts/part.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qwidget.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qguardedptr.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmap.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qvariant.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmap.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfile.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/stdio.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/libio.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/_G_config.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/wchar.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/wchar.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gconv.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stdarg.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/sys_errlist.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/unistd.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix_opt.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/environments.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/confname.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/getopt.h \
+  ./../kdesrc/kparts/event.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h \
+  ./../dropin/kxmlguiclient.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdom.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdict.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgdict.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpen.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmodules.h ./../dropin/kaction.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h \
+  ./../kdesrc/kparts/factory.h ./../dropin/klibloader.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qasciidict.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h bookmarks.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpopupmenu.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qframe.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmenudata.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qiconset.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qtoolbar.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmainwindow.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmenubar.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpopupmenu.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlineedit.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstatusbar.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcombobox.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qtoolbutton.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qbutton.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlabel.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlayout.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qabstractlayout.h \
+  ./../dropin/klocale.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h \
+  ./../dropin/kglobal.h ./../dropin/kinstance.h ./../dropin/kiconloader.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h \
+  ./../dropin/kiconeffect.h ./../dropin/kapp.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qapplication.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qasciidict.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qtranslator.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qintdict.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/stdlib.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/waitflags.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/waitstatus.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/alloca.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qpe/qpeapplication.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qpe/../../src/libraries/qtopia/qpeapplication.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/qpeglobal.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/qpeglobal.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdialog.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/timestring.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/timestring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/applicationinterface.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/applicationinterface.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/qcom.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/qcom.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/quuid.h \
+  /arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/quuid.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/memory.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmetaobject.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qconnection.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstrlist.h \
+  ./../dropin/kdummyprinter.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/stat.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stat.h \
+  ./../dropin/kfontdatabase.h pics/new.xpm pics/configure.xpm \
+  pics/next.xpm pics/close.xpm pics/bookmark.xpm pics/bookmark_add.xpm \
+  ./pics/menu.xpm ./pics/back.xpm ./pics/forward.xpm ./pics/gohome.xpm \
+  ./pics/reload.xpm ./pics/stop.xpm ./pics/find.xpm ./pics/lock.xpm \
+  ./pics/viewmag.xpm ./pics/windows.xpm ./pics/images_display.xpm \
+  mainwindow_x11.moc /arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdict.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmetaobject.h
+
+mainwindow_x11.h:
+
+../../config.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/types.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/types.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/wordsize.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/typesizes.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/time.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/endian.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/endian.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/select.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/select.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/sigset.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/time.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/sysmacros.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/pthreadtypes.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/sched.h:
+
+mainwindowbase.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmainwindow.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qwidget.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qregion.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qiodevice.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qregexp.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpalette.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qbrush.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcursor.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfontmetrics.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfontinfo.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstyle.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qsizepolicy.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qaction.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qiconset.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+./../kdesrc/kdecore/kurl.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h:
+
+./../kdesrc/kparts/browserextension.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h:
+
+./../dropin/kparts/part.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qwidget.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qguardedptr.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmap.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qvariant.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmap.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfile.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/stdio.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/libio.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/_G_config.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/wchar.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/wchar.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gconv.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stdarg.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/sys_errlist.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/unistd.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix_opt.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/environments.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/confname.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/getopt.h:
+
+./../kdesrc/kparts/event.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h:
+
+./../dropin/kxmlguiclient.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdom.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdict.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgdict.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpen.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmodules.h:
+
+./../dropin/kaction.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h:
+
+./../kdesrc/kparts/factory.h:
+
+./../dropin/klibloader.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qasciidict.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h:
+
+bookmarks.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpopupmenu.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qframe.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmenudata.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qiconset.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qtoolbar.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmainwindow.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmenubar.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpopupmenu.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlineedit.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstatusbar.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcombobox.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qtoolbutton.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qbutton.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlabel.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlayout.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qabstractlayout.h:
+
+./../dropin/klocale.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h:
+
+./../dropin/kglobal.h:
+
+./../dropin/kinstance.h:
+
+./../dropin/kiconloader.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h:
+
+./../dropin/kiconeffect.h:
+
+./../dropin/kapp.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qapplication.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qasciidict.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qtranslator.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qintdict.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/stdlib.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/waitflags.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/waitstatus.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/alloca.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qpe/qpeapplication.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qpe/../../src/libraries/qtopia/qpeapplication.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/qpeglobal.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/qpeglobal.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdialog.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/timestring.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/timestring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/applicationinterface.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/applicationinterface.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/qcom.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/qcom.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/quuid.h:
+
+/arm2410s/gui/Qt/src/qtopia-free-2.1.1/include/qtopia/../../src/libraries/qtopia/quuid.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/memory.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmetaobject.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qconnection.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstrlist.h:
+
+./../dropin/kdummyprinter.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/stat.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stat.h:
+
+./../dropin/kfontdatabase.h:
+
+pics/new.xpm:
+
+pics/configure.xpm:
+
+pics/next.xpm:
+
+pics/close.xpm:
+
+pics/bookmark.xpm:
+
+pics/bookmark_add.xpm:
+
+./pics/menu.xpm:
+
+./pics/back.xpm:
+
+./pics/forward.xpm:
+
+./pics/gohome.xpm:
+
+./pics/reload.xpm:
+
+./pics/stop.xpm:
+
+./pics/find.xpm:
+
+./pics/lock.xpm:
+
+./pics/viewmag.xpm:
+
+./pics/windows.xpm:
+
+./pics/images_display.xpm:
+
+mainwindow_x11.moc:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdict.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmetaobject.h:

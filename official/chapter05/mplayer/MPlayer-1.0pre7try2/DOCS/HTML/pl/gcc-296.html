@@ -1,0 +1,88 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>E.1. GCC 2.96</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="users-vs-dev.html" title="Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy"><link rel="previous" href="users-vs-dev.html" title="Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy"><link rel="next" href="mplayer-binary.html" title="E.2. Dystrybucja binariów"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">E.1. GCC 2.96</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="users-vs-dev.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy</th><td width="20%" align="right"> <a accesskey="n" href="mplayer-binary.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="gcc-296"></a>E.1. GCC 2.96</h2></div></div><p><b>Zarys historyczny: </b>
+GCC z serii <span class="bold"><b>2.95</b></span> jest oficjalnym wydaniem GNU,
+a jego wersja 2.95.3 jest najbardziej wolna od b&#322;&#281;dów. Nigdy nie odnotowali&#347;my
+problemów przy kompilacji, które mogliby&#347;my przypisa&#263; gcc-2.95.3. Zaczynaj&#261;c od
+Red Hat Linuksa 7.0, <span class="bold"><b>Red Hat</b></span> do&#322;&#261;czy&#322; powa&#380;nie
+zmodyfikowan&#261; wersj&#281; CVS GCC do swojej dystrybucji i nazwa&#322; j&#261;
+<span class="bold"><b>2.96</b></span>. Sta&#322;o si&#281; tak, poniewa&#380; GCC 3.0
+nie by&#322;o jeszcze uko&#324;czone, a potrzebowano kompilatora, który wspó&#322;dzia&#322;a&#322;by
+dobrze z wszystkimi platformami jakie by&#322;y obs&#322;ugiwane, w&#322;&#261;czaj&#261;c w to IA64 i
+s390. Dystrybutor <span class="bold"><b>Mandrake</b></span> równie&#380; poszed&#322; w
+&#347;lady Red Hata i zacz&#261;&#322; do&#322;&#261;cza&#263; GCC 2.96 do serii Linux-Mandrake 8.0.
+</p><p><b>O&#347;wiadczenie: </b>
+Zespó&#322; GCC wypar&#322; si&#281; jakichkolwiek powi&#261;za&#324; z GCC 2.96 i wystosowa&#322;
+<a href="http://gcc.gnu.org/gcc-2.96.html" target="_top">oficjaln&#261; odpowied&#378;</a>
+na GCC 2.96. Wielu developerów ze &#347;wiata zacz&#281;&#322;o mie&#263; problemy z tym
+kompilatorem i kilka projektów, mi&#281;dzy innymi
+<a href="http://avifile.sf.net/news-old1.htm" target="_top">avifile</a>
+zacz&#281;&#322;o rekomendowa&#263; inne rozwi&#261;zania. Inne interesuj&#261;ce linki:
+<a href="http://www.atnf.csiro.au/people/rgooch/linux/docs/kernel-newsflash.html" target="_top">
+ Krótka wiadomo&#347;&#263; o j&#261;drze 2.4.17</a>
+i
+<a href="http://www.voy.com/3516/572.html" target="_top">Forum Voy</a>.
+<span class="application">MPlayer</span> równie&#380; ucierpia&#322; z powodu okresowych
+problemów, które zosta&#322;y rozwi&#261;zane przez przesiadk&#281; na inn&#261; wersj&#281; GCC. Kilka
+projektów rozpocz&#281;&#322;o implementacj&#281; obej&#347;&#263; dla pewnych spraw zwi&#261;zanych z 2.96,
+ale my postanowili&#347;my nie naprawia&#263; b&#322;&#281;dów innych, szczególnie, &#380;e niektóre
+obej&#347;cia mog&#261; ujemnie wp&#322;ywa&#263; na wydajno&#347;&#263;.
+</p><p>
+GCC 2.96 nie pozwala na u&#380;ycie symbolu <tt>|</tt> (pipe - potok) w
+komentarzu assemblera, poniewa&#380; obs&#322;uguje zarówno sk&#322;adni&#281; Intela jak i
+AT&amp;T, a symbol <tt>|</tt> jest stosowany w wariancie Intela.
+Problem polega na tym, &#380;e ca&#322;y blok assemblera jest
+<span class="emphasis"><i>po cichu</i></span> ignorowany. Rzekomo zosta&#322;o to ju&#380; naprawione i
+GCC wy&#347;wietla ostrze&#380;enie zamiast pomijania tego bloku.
+</p><p><b>Tera&#378;niejszo&#347;&#263;: </b>
+Red Hat twierdzi, &#380;e GCC 2.96-85 i kolejne zosta&#322;y ju&#380; poprawione. Sytuacja
+rzeczywi&#347;cie poprawi&#322;a si&#281;, ci&#261;gle jednak dostajemy raporty o b&#322;&#281;dach na nasze
+listy dyskusyjne, które znikaj&#261; wraz z przej&#347;ciem na inny kompilator. W ka&#380;dym
+razie, nie ma to ju&#380; znaczenia. Mamy nadziej&#281;, &#380;e dojrzewaj&#261;ce GCC 3.x na dobre
+zako&#324;czy t&#281; spraw&#281;. Je&#380;eli chcesz kompilowa&#263; z 2.96, przeka&#380; flag&#281;
+<tt class="option">--disable-gcc-checking</tt> skryptowi
+<tt class="filename">configure</tt>. Pami&#281;taj, &#380;e mo&#380;esz wtedy liczy&#263; tylko na siebie
+i <span class="bold"><b>nie zg&#322;aszaj &#380;adnych b&#322;&#281;dów</b></span>. Je&#380;eli to
+zrobisz, zostanie odebrany Ci dost&#281;p do naszej listy dyskusyjnej, poniewa&#380; mamy
+ju&#380; bardziej ni&#380; do&#347;&#263; bezsensownych k&#322;ótni na temat GCC 2.96. Prosz&#281;, zostaw t&#281;
+spraw&#281; w spokoju.
+</p><p>
+Je&#380;eli masz problemy z GCC 2.96, mo&#380;esz pobra&#263; paczki 2.96-85
+z <a href="ftp://updates.redhat.com" target="_top">serwera ftp</a> Red Hat lub
+skorzysta&#263; z pakietów 3.0.4, oferowanych z wersj&#261; 7.2 i kolejnymi. Mo&#380;esz
+równie&#380; &#347;ci&#261;gn&#261;&#263;
+<a href="ftp://people.redhat.com/jakub/gcc/errata/3.2.3-37/" target="_top">pakiety
+gcc-3.2.3-37</a> (nieoficjalne, ale dzia&#322;aj&#261; dobrze) i zainstalowa&#263;
+je razem z gcc-2.96, które ju&#380; masz. <span class="application">MPlayer</span>
+wykryje je i u&#380;yje 3.2 zamiast 2.96. Je&#380;eli nie chcesz albo nie mo&#380;esz
+u&#380;y&#263; binarnych paczek, poni&#380;ej znajdziesz informacje, jak skompilowa&#263;
+GCC 3 ze &#378;róde&#322;:
+</p><div class="procedure"><ol type="1"><li><p>
+  Wejd&#378; na stron&#281; z
+  <a href="http://gcc.gnu.org/mirrors.html" target="_top">serwerami lustrzanymi GCC</a>
+  i &#347;ci&#261;gnij
+  <tt class="filename">gcc-core-<i><tt>XXX</tt></i>.tar.gz</tt>, gdzie
+  <i><tt>XXX</tt></i> to numer wersji. W pliku znajduje si&#281; kompletny
+  kompilator C, który wystarczy dla <span class="application">MPlayera</span>. Je&#380;eli
+  chcesz mie&#263; równie&#380; C++, Java albo inne z zaawansowanych mo&#380;liwo&#347;ci GCC,
+  <tt class="filename">gcc-<i><tt>XXX</tt></i>.tar.gz</tt> mo&#380;e bardziej
+  pasowa&#263; do twoich potrzeb.
+  </p></li><li><p>
+  Rozpakuj archiwum, wykonuj&#261;c
+  <pre class="screen">tar -xvzf gcc-core-<i><tt>XXX</tt></i>.tar.gz</pre>
+  </p></li><li><p>
+  GCC nie jest budowane w katalogu &#378;ród&#322;owym jak wi&#281;kszo&#347;&#263; programów, ale
+  potrzebuje katalogu kompilacji poza katalogiem ze &#378;ród&#322;ami. B&#281;dziesz musia&#322;
+  stworzy&#263; katalog przez
+  <pre class="screen">mkdir gcc-build</pre>
+  </p></li><li><p>
+  Dalej mo&#380;esz przej&#347;&#263; do procedury konfiguracyjnej i katalogu budowy, ale
+  musisz skonfigurowa&#263; z katalogu &#378;ród&#322;owego:
+  <pre class="screen">
+cd gcc-build
+../gcc-3.<i><tt>XXX</tt></i>/configure</pre>
+  </p></li><li><p>
+  Skompiluj GCC, wykonuj&#261;c t&#281; komend&#281; w katalogu kompilacji:
+  <pre class="screen">make bootstrap</pre>
+  </p></li><li><p>
+  Teraz mo&#380;esz zainstalowa&#263; GCC (jako superu&#380;ytkownik), wpisuj&#261;c
+  <pre class="screen">make install</pre>
+  </p></li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="users-vs-dev.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="users-vs-dev.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="mplayer-binary.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> E.2. Dystrybucja binariów</td></tr></table></div></body></html>

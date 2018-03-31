@@ -1,0 +1,62 @@
+/*****************************************************************************
+ * error.c: error management functions
+ *****************************************************************************
+ * Copyright (C) 1998-2002 VideoLAN
+ *
+ * Modified for use with MPlayer, changes contained in libdvdcss_changes.diff.
+ * detailed CVS changelog at http://www.mplayerhq.hu/cgi-bin/cvsweb.cgi/main/
+ * $Id: error.c,v 1.5 2005/03/01 06:41:41 diego Exp $
+ *
+ * Author: Samuel Hocevar <sam@zoy.org>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111, USA.
+ *****************************************************************************/
+
+#include "config.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+#include "dvdcss.h"
+
+#include "common.h"
+#include "css.h"
+#include "libdvdcss.h"
+
+/*****************************************************************************
+ * Error messages
+ *****************************************************************************/
+void _dvdcss_error( dvdcss_t dvdcss, char *psz_string )
+{
+    if( dvdcss->b_errors )
+    {
+        fprintf( stderr, "libdvdcss error: %s\n", psz_string );
+    }
+
+    dvdcss->psz_error = psz_string;
+}
+
+/*****************************************************************************
+ * Debug messages
+ *****************************************************************************/
+void _dvdcss_debug( dvdcss_t dvdcss, char *psz_string )
+{
+    if( dvdcss->b_debug )
+    {
+        fprintf( stderr, "libdvdcss debug: %s\n", psz_string );
+    }
+}
+

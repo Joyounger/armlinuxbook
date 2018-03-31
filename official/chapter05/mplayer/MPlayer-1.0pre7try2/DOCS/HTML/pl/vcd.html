@@ -1,0 +1,72 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.3. Odtwarzanie VCD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="cd-dvd.html" title="Rozdzia&#322; 5. U&#380;ywanie CD/DVD"><link rel="previous" href="dvd.html" title="5.2. Odtwarzanie DVD"><link rel="next" href="ports.html" title="Rozdzia&#322; 6. Porty"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.3. Odtwarzanie VCD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="dvd.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 5. U&#380;ywanie CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="ports.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="vcd"></a>5.3. Odtwarzanie VCD</h2></div></div><p>
+Pe&#322;na lista dost&#281;pnych opcji znajduje si&#281; na stronie man. Sk&#322;adnia dla
+standardowego Video CD (VCD) jest nast&#281;puj&#261;ca:
+<pre class="screen">mplayer vcd://<i><tt>&lt;&#347;cie&#380;ka&gt;</tt></i> [-cdrom-device <i><tt>&lt;urz&#261;dzenie&gt;</tt></i>]</pre>
+Przyk&#322;ad:
+<pre class="screen">mplayer vcd://2 -cdrom-device /dev/hdc</pre>
+Domy&#347;lnym urz&#261;dzeniem VCD jest <tt class="filename">/dev/cdrom</tt>. Je&#347;li
+Twoje ustawienia s&#261; inne, utwórz dowi&#261;zanie symboliczne
+lub podaj prawid&#322;owe urz&#261;dzenie w linii polece&#324; za pomoc&#261; opcji
+<tt class="option">-cdrom-device</tt>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+Przynajmniej nap&#281;dy CD-ROM SCSI firmy Plextor i niektóre modele Toshiby
+maj&#261; beznadziejn&#261; wydajno&#347;&#263; przy odczycie VCD. Jest to spowodowane
+niekompletn&#261; implementacj&#261; <tt>ioctl</tt>'a CDROMREADRAW dla
+tych urz&#261;dze&#324;. Je&#347;li masz jakie&#347; poj&#281;cie o programowaniu SCSI,
+<a href="../../tech/patches.txt" target="_top">pomó&#380; nam</a> zaimplementowa&#263; ogóln&#261;
+obs&#322;ug&#281; SCSI dla VCD.
+</p></div><p>
+W mi&#281;dzyczasie mo&#380;esz wyci&#261;ga&#263; dane z VCD za pomoc&#261;
+<a href="http://miketeo.net/links/readvcd-0.3.tgz" target="_top">readvcd</a>
+i odtwarza&#263; plik wynikowy za pomoc&#261; <span class="application">MPlayera</span>
+</p><p><b>Struktura VCD. </b>
+Video CD (VCD) sk&#322;ada si&#281; z sektorów CD-ROM XA, tzn. CD-ROM 
+mode 2 form 1 i form 2 posiada &#347;cie&#380;ki:</p><div class="itemizedlist"><ul type="disc"><li><p>
+Pierwsza &#347;cie&#380;ka jest w formacie mode 2 form 2, który oznacza u&#380;ycie korekcji 
+b&#322;&#281;dów L2. &#346;cie&#380;ka ta zawiera system plików ISO-9660 o g&#281;sto&#347;ci 2048 bajtów/sektor.
+Ten system plików z kolei zawiera metainformacje VCD, a tak&#380;e nieruchome klatki, cz&#281;sto 
+u&#380;ywane w menu. Segmenty MPEG dla menu mog&#261; tak&#380;e by&#263; sk&#322;adowane w tej&#380;e pierwszej 
+&#347;cie&#380;ce, ale MPEGi musz&#261; by&#263; podzielone na kawa&#322;ki po 150 sektorów. System plików ISO-9660 
+mo&#380;e zawiera&#263; inne pliki b&#261;d&#378; programy, niekonieczne dla eksploatacji VCD.
+</p></li><li><p>
+Druga i pozosta&#322;e &#347;cie&#380;ki s&#261; zwykle &#347;cie&#380;kami video MGEG typu raw o g&#281;sto&#347;ci 
+2324 bajtów/sektor, zawieraj&#261;cymi jeden pakiet danych MGEG PS na sektor.
+&#346;cie&#380;ki te s&#261; w formacje mode 2 form 1, wi&#281;c przechowuj&#261; one wi&#281;cej danych 
+na sektor, w zamian za s&#322;absz&#261; korekcj&#281; b&#322;&#281;dów. Mo&#380;liwe s&#261; te&#380; &#347;cie&#380;ki 
+CD-DA na VCD poza pierwsz&#261; &#347;cie&#380;k&#261;.
+Niektóre systemy operacyjne u&#380;ywaj&#261; pewnych trików aby &#347;cie&#380;ki nie zawi&#281;raj&#261;ce 
+systemu plików ISO-9660 by&#322;y widoczne w systemie plików. W pozosta&#322;ych systemach, 
+jak na przyk&#322;ad w systemie GNU/Linux, nie ma takiej mo&#380;liwo&#347;ci (jeszcze). W takim 
+przypadku dane MPEG <span class="bold"><b>nie mog&#261; by&#263; montowane</b></span>. 
+Jako &#380;e wi&#281;kszo&#347;&#263; filmów znajduje si&#281; na tego typu &#347;cie&#380;ce,
+powiniene&#347; spróbowa&#263; na pocz&#261;tek opcji <tt class="option">vcd://2</tt>.
+</p></li><li><p>
+Istniej&#261; równie&#380; p&#322;yty VCD bez pierwszej &#347;cie&#380;ki (pojedyncza &#347;cie&#380;ka i
+brak systemu plików w ogóle). Je równie&#380; da si&#281; odtwarza&#263;, ale nie da
+si&#281; ich montowa&#263;.
+</p></li><li><p> Definicja standardu Video CD, nazywana "Bia&#322;&#261; Ksi&#281;g&#261;"
+Phillipsa, generalnie nie jest dost&#281;pna online, musi by&#263; zakupiona u Phillipsa. 
+Bardziej szczegó&#322;owe informacje na temat Video CD mo&#380;na znale&#378;&#263; na 
+<a href="http://www.vcdimager.org/pub/vcdimager/manuals/0.7/vcdimager.html#SEC4" target="_top">stronie 
+dokumentacji vcdimagera</a>.
+</p></li></ul></div><p><b>O plikach .DAT. </b>
+Plik o rozmiarze ok. 600 MB widoczny na pierwszej &#347;cie&#380;ce zamontowanego VCD
+nie jest prawdziwym plikiem ! Jest on tzw. bramk&#261; ISO, utworzon&#261; by
+Windows móg&#322; obs&#322;ugiwa&#263; takie &#347;cie&#380;ki (Windows w ogóle nie zezwala aplikacjom
+na dost&#281;p do urz&#261;dze&#324; w trybie raw). Pod Linuksem nie mo&#380;esz kopiowa&#263; ani
+odtwarza&#263; tych plików (zawieraj&#261; "&#347;mieci"). Pod Windows jest to mo&#380;liwe, gdy&#380;
+jego sterownik iso9660 symuluje odczyt &#347;cie&#380;ek w trybie raw za pomoc&#261; tego
+pliku. By móc odtwarza&#263; pliki .DAT, musisz mie&#263; sterownik do j&#261;dra, który
+dostarczany jest z linuksow&#261; wersj&#261; PowerDVD. Posiada on zmodyfikowany sterownik
+systemu plików iso9660 (<tt class="filename">vcdfs/isofs-2.4.X.o</tt>), który jest w
+stanie symulowa&#263; odczyt &#347;cie&#380;ek w trybie raw za pomoc&#261; pliku .DAT. Je&#347;li
+podmontujesz p&#322;yt&#281; u&#380;ywaj&#261;c ich sterownika, mo&#380;esz kopiowa&#263;, a nawet odtwarza&#263;
+pliki .DAT za pomoc&#261; <span class="application">MPlayera</span>. Ale nie b&#281;dzie to
+dzia&#322;a&#322;o za pomoc&#261; standardowego sterownika iso9660 dostarczonego z j&#261;drem
+Linuksa! Zamiast tego u&#380;yj opcji <tt class="option">vcd://</tt>. Alternatyw&#261; dla
+kopiowania VCD jest nowy sterownik:
+<a href="http://www.elis.rug.ac.be/~ronsse/cdfs/" target="_top">cdfs</a> (nie jest
+cz&#281;&#347;ci&#261; oficjalnego j&#261;dra), który wy&#347;wietla sesje CD jako pliki obrazów, oraz
+<a href="http://cdrdao.sf.net/" target="_top">cdrdao</a>, program do zgrywania
+p&#322;yt CD bit po bicie.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="dvd.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="ports.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">5.2. Odtwarzanie DVD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> Rozdzia&#322; 6. Porty</td></tr></table></div></body></html>

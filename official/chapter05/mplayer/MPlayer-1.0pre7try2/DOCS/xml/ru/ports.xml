@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="koi8-r"?>
+<!-- synced with 1.46 -->
+<chapter id="ports" xreflabel="Портинг">
+<title>Портинг</title>
+
+<sect1 id="linux">
+<title>Linux</title>
+<para>
+Основная платформа разработки &mdash; это Linux на x86, хотя
+<application>MPlayer</application> работает под многими другими портами Linux.
+Бинарные пакеты <application>MPlayer</application>'а доступны из нескольких источников. Тем не менее,
+<emphasis role="bold">ни один из этих пакетов не поддерживается</emphasis>.
+Сообщайте о проблемах их авторам, а не нам.
+</para>
+
+<sect2 id="debian">
+<title>Упаковка под Debian</title>
+<para>
+Чтобы создать Debian пакет, выполните следующие команды в каталоге с исходным
+кодом <application>MPlayer</application>'а:
+<screen>fakeroot debian/rules binary</screen>
+Затем, став root'ом Вы, как обычно, Вы можете установить <filename>.deb
+</filename> пакет:
+<screen>dpkg -i ../mplayer_<replaceable>версия</replaceable>.deb</screen>
+</para>
+
+<para>
+Какое-то время Christian Marillat собирал неофициальные Debian пакеты с
+<application>MPlayer</application>'ом, <application>MEncoder</application>'ом
+и шрифтами, так что вы можете их скачать (apt-get'нуть)
+их с его <ulink url="http://marillat.free.fr/">сайта</ulink>.
+</para>
+</sect2>
+
+<sect2 id="rpm">
+<title>RPM пакеты</title>
+<para>
+Dominik Mierzejewski собирает и поддерживает официальные Red Hat RPM пакеты
+<application>MPlayer</application>'а. Они доступны с его
+<ulink url="http://greysector.rangers.eu.org/mplayer.html">сайта</ulink>.
+</para>
+
+<para>
+Mandrake RPM пакеты доступны с <ulink url="http://plf.zarb.org/">P.L.F.</ulink>.
+SuSE включала искалеченную версию <application>MPlayer</application>'а в дистрибутив.
+Из последних релизов они убрали эти пакеты. Вы можете взять
+работающие RPM'ники с
+<ulink url="http://packman.links2linux.de/?action=128">links2linux.de</ulink>.
+</para>
+</sect2>
+
+<sect2 id="arm">
+<title>ARM</title>
+<para>
+<application>MPlayer</application> работает на Linux PDAs с ARM процессором,
+например Sharp Zaurus, Compaq Ipaq. Простейший способ получить <application>
+MPlayer</application> &mdash; это скачать его с
+пакетных пастбищ[feeds]
+<ulink url="http://www.openzaurus.org">OpenZaurus</ulink>. Если Вы хотите
+скомпилировать его самостоятельно, обратите внимание на каталоги
+<ulink url="http://openzaurus.bkbits.net:8080/buildroot/src/packages/mplayer?nav=index.html|src/.|src/packages">mplayer</ulink>
+и
+<ulink url="http://openzaurus.bkbits.net:8080/buildroot/src/packages/libavcodec?nav=index.html|src/.|src/packages">libavcodec</ulink>
+в корне сборки[buildroot] дистрибутива OpenZaurus. Там всегда найдутся
+свежий Makefile и патчи, используемые для сборки CVS <application>MPlayer</application>'а вместе с
+<systemitem class="library">libavcodec</systemitem>.
+Если Вам нужен GUI, используйте xmms-embedded.
+</para>
+</sect2>
+</sect1>
+
+<sect1 id="bsd">
+<title>*BSD</title>
+<para>
+<application>MPlayer</application> работает под FreeBSD, OpenBSD, NetBSD,
+BSD/OS и Darwin. Существуют портированные[ports]/пакеты сорцов[pkgsrcs]/fink/
+и т. п. версии <application>MPlayer</application>'а, которые наверное проще использовать, чем просто
+исходный код.
+</para>
+
+<para>
+Чтобы собрать <application>MPlayer</application>, Вам понадобится GNU make (gmake &mdash; родной BSD make
+не будет работать) и свежая версия binutils.
+</para>
+
+<para>
+Если <application>MPlayer</application> ругается, что он не может найти <filename>/dev/cdrom</filename> или
+<filename>/dev/dvd</filename>, создайте соответствующую ссылку:
+<screen>ln -s /dev/<replaceable>Ваше_cdrom_устройство</replaceable> /dev/cdrom</screen>
+</para>
+
+<para>
+Чтобы использовать Win32 DLL'и с <application>MPlayer</application>'ом, Вам необходимо перекомпилировать
+ядро с &quot;<envar>option USER_LDT</envar>&quot; (если только у Вас не FreeBSD-CURRENT,
+где это включено по умолчанию).
+</para>
+
+
+<sect2 id="freebsd">
+<title>FreeBSD</title>
+<para>
+Если Ваш CPU поддерживает SSE, перекомпилируйте ядро с
+&quot;<envar>options CPU_ENABLE_SSE</envar>&quot; (необходимо FreeBSD-STABLE
+или патчи к ядру).
+</para>
+</sect2>
+
+<sect2 id="openbsd">
+<title>OpenBSD</title>
+<para>
+В связи с ограничениями в различных версиях gas'а (переносы[relocation] и MMX),
+Вы должны будете компилировать в два шага: сначала убедитесь, что не родной as
+&mdash; первый в Вашем <envar>$PATH</envar> и выполните <command>gmake -k
+</command>, затем убедитесь, что будет использоваться родная версия и запустите
+<command>gmake</command>.
+</para>
+</sect2>
+
+<sect2 id="darwin">
+<title>Darwin</title>
+<para>
+См. секцию <link linkend="macos">Mac OS</link>.
+</para>
+</sect2>
+</sect1>
+
+<sect1 id="solaris">
+<title>Sun Solaris</title>
+<para>
+<application>MPlayer</application> должен работать под Solaris 2.6 и более
+новыми версиями.
+</para>
+
+<para>
+На <emphasis role="bold">UltraSPARC</emphasis>'ах, <application>MPlayer</application>
+использует их расширение <emphasis role="bold">VIS</emphasis> (эквивалент MMX), но (в настоящий
+момент) только в
+<systemitem class="library">libmpeg2</systemitem>,
+<systemitem class="library">libvo</systemitem>
+and <systemitem class="library">libavcodec</systemitem>, но не в
+<systemitem class="library">mp3lib</systemitem>. Вы сможете просматривать VOB'ы
+на 400MHz CPU. Вам потребуется установленная
+<ulink url="http://www.sun.com/sparc/vis/mediaLib.html"><systemitem class="library">mLib</systemitem></ulink>.
+</para>
+
+<para>
+Чтобы собрать программу, Вам потребуется GNU <application>make</application>
+(<filename>gmake</filename>, <filename>/opt/sfw/gmake</filename>), родной
+Solaris'овый make не будет работать. Типичная ошибка которую Вы будете
+получать при использовании Solaris'огово make, вместо GNU'шного:
+<screen>
+   % /usr/ccs/bin/make
+   make: Fatal error in reader: Makefile, line 25: Unexpected end of line seen
+</screen>
+</para>
+
+<para>
+На Solaris SPARC, Вам потребуется GNU C/C++ Compiler; при этом не имеет
+значения, был ли GNU C/C++ компилятор сконфигурирован с или без GNU ассемблера.
+</para>
+
+<para>
+На Solaris x86, Вам потребуются GNU ассемблер и GNU C/C++ компилятор,
+сконфигурированный, чтобы использовать GNU ассемблер! На x86 платформах
+код <application>MPlayer</application>'а использует много MMX, SSE и 3DNOW!
+инструкций, которые Sun'овский ассемблер <filename>/usr/ccs/bin/as</filename>
+не может скомпилировать.
+</para>
+
+<para>
+Скрипт <filename>configure</filename> пытается обнаружить, какой ассемблер
+используется Вашей командой &quot;gcc&quot; (в том случае, если автоопределение
+не сработает, используйте опцию
+<option>--as=<replaceable>/там/где/у/Вас/установлен/gnu-as</replaceable></option>, чтобы сообщить
+скрипту <filename>configure</filename>, где можно обнаружить GNU "as" на Вашей
+системе).
+</para>
+
+<para>
+Сообщения об ошибках <filename>configure</filename> на Solaris x86 системах при
+использовании GCC без GNU ассемблера:
+<screen>
+   % configure
+   ...
+   Checking assembler (/usr/ccs/bin/as) ... , failed
+   Please upgrade(downgrade) binutils to 2.10.1...
+</screen>
+(Решение: Установите и используйте gcc, сконфигурированный с <option>--with-as=gas</option>)
+</para>
+
+<para>
+Типичная ошибка при сборке GNU C компилятором, который не использует GNU as:
+<screen>
+   % gmake
+   ...
+   gcc -c -Iloader -Ilibvo -O4 -march=i686 -mcpu=i686 -pipe -ffast-math
+        -fomit-frame-pointer  -I/usr/local/include   -o mplayer.o mplayer.c
+   Assembler: mplayer.c
+   "(stdin)", line 3567 : Illegal mnemonic
+   "(stdin)", line 3567 : Syntax error
+   ... more "Illegal mnemonic" and "Syntax error" errors ...
+</screen>
+</para>
+
+<para>
+В связи с ошибками в Solaris 8, Вы не сможете проигрывать DVD диски, размером
+больше 4 Гб:
+</para>
+
+<itemizedlist>
+<listitem><para>
+Под Solaris 8 x86 драйвер sd(7D) содержит ошибку, проявляющуюся при доступе
+к дискам, размером > 4 Гб на устройствах с логическим размером блока !=
+DEV_BSIZE (например CD-ROM и DVD диски).
+Из-за целочисленного 32битного переполнения, происходит доступ к дисковому адресу
+по модулю 4 Гб
+(<ulink url="http://groups.yahoo.com/group/solarisonintel/message/22516"/>).
+Проблема отсутствует в SPARC версиях Solaris 8.
+</para></listitem>
+
+<listitem><para>
+Похожая ошибка существует в коде файловой системы hsfs(7FS) (ISO9660),
+hsfs может не поддерживать разделы/диски больше 4 Гб, доступ к данным
+происходит по модулю 4 Гб
+(<ulink url="http://groups.yahoo.com/group/solarisonintel/message/22592"/>).
+Проблемы с hsfs могут быть исправлены установкой патча 109764-04 (sparc) /
+109765-04 (x86).
+</para></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="sgi">
+<title>Silicon Graphics Irix</title>
+<para>
+Вы либо можете попробовать установить программу GNU install, и (если Вы
+не поместили её в Ваш глобальный путь), то укажите на её местонахождение:
+<screen>./configure --with-install=</screen>
+</para>
+
+<para>
+Или Вы можете использовать стандартную программу install, поставляемую вместе
+с IRIX 6.5, но в этом случае Вы должны будете вручную немножко подправить
+<filename>Makefile</filename>.
+Поменяйте следующие две строки:
+<programlisting>
+  $(INSTALL) -c -m 644 DOCS/mplayer.1 $(MANDIR)/man1/mplayer.1
+
+  $(INSTALL) -c -m 644 etc/codecs.conf $(CONFDIR)/codecs.conf
+</programlisting>
+на:
+<programlisting>
+  $(INSTALL) -m 644 mplayer.1 $(MANDIR)/man1/
+
+  $(INSTALL) -m 644 codecs.conf $(CONFDIR)/
+</programlisting>
+И затем выполните (из корневого каталога MPlayer'а):
+<screen>cp DOCS/mplayer.1 . ; cp etc/codecs.conf .</screen>
+И затем просто соберите и установите MPlayer.
+</para>
+</sect1>
+
+<sect1 id="qnx">
+<title>QNX</title>
+<para>
+Работает. Вам нужно скачать и установить SDL для QNX. Затем запустите
+<application>MPlayer</application> с опциями <option>-vo sdl:photon</option>
+и <option>-ao sdl:nto</option>, и все будет работать быстро.
+</para>
+
+<para>
+Вывод <option>-vo x11</option> будет ещё медленнее, чем под Linux, поскольку под
+QNX X'ы <emphasis>эмулируются</emphasis>, что ОЧЕНЬ медленно. Используйте SDL.
+</para>
+</sect1>
+
+<sect1 id="windows">
+<title>Windows</title>
+
+<para>Да, <application>MPlayer</application> работает под Windows под
+  <ulink url="http://www.cygwin.com/"><application>Cygwin</application></ulink> и
+  <ulink url="http://www.mingw.org/"><application>MinGW</application></ulink>.
+  Пока ещё нет GUI, но версия командной строки почти функциональна. Мы всегда
+  будем благодарны за <ulink url="../../tech/patches.txt">патчи</ulink>.
+  Вы можете получить помощь и последнюю информацию на рассылке
+  <ulink url="http://mplayerhq.hu/mailman/listinfo/mplayer-cygwin/">mplayer-cygwin</ulink>.</para>
+
+<para>Лучшие результаты получаются при использовании родного DirectX видео
+  вывода (<option>-vo directx</option>) и родного Windows waveout аудио драйвера
+  (<option>-ao win32</option>). Альтернативой является использование OpenGL или
+  SDL, но производительность OpenGL сильно зависит от машины, а SDL на некоторых
+  системах искажает звук и видео или ломает систему. 
+  Если изображение искажено, попробуйте отключить аппаратное ускорение, указав
+  <option>-vo directx:noaccel</option>. Скачайте
+  <ulink url="http://www.videolan.org/vlc/dx7headers.tgz">файлы заголовков
+  DirectX 7</ulink>, чтобы скомпилировать видео драйвер DirectX.</para>
+
+<para><link linkend="vidix">VIDIX</link> теперь доступен из-под Windows, как
+  <option>-vo winvidix</option>, хотя это ещё экспериментально и требует небольшой
+	ручной установки. Скачайте
+  <ulink url="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/dhahelper.sys">dhahelper.sys</ulink>
+  и скопируйте его в каталог
+  <filename class="directory">libdha/dhahelperwin</filename> в Вашем дереве
+	исходного кода <application>MPlayer</application>'а.
+	Откройте консоль и перейдите в этот каталог. Теперь наберите
+
+  <screen>gcc -o dhasetup.exe dhasetup.c</screen>
+
+  и запустите
+
+  <screen>dhasetup.exe install</screen>
+
+  под Администратором[Administrator]. Теперь Вам нужно перезагрузить машину.
+  Когда всё будет закончено, скопируйте файлы
+  <systemitem class="library">.so</systemitem> из каталога
+	<filename class="directory">vidix/drivers</filename> в каталог
+	<filename class="directory">mplayer/vidix</filename> относительно вашего
+	<filename>mplayer.exe</filename>.</para>
+
+<para>Для получения наилучших результатов, <application>MPlayer</application>
+  должен использовать пространство цветов, аппаратно поддерживаемое Вашей
+  видеокартой. К сожалению, многие графические драйверы под Windows ошибочно
+  сообщают, что некоторые пространства цветов поддерживаются аппаратно.
+  Чтобы найти какие именно, попробуйте
+
+  <screen>mplayer -benchmark -nosound -frames 100 -vf format=<replaceable>colorspace</replaceable> <replaceable>movie</replaceable></screen>,
+
+  где <replaceable>colorspace</replaceable> может быть любым пространством
+  цветов из вывода опции <option>-vf format=fmt=help</option>. Если Вы найдёте
+  пространство цветов, которое Ваша карта особенно плохо поддерживает,
+  опция <option>-vf noformat=<replaceable>colorspace</replaceable></option>
+  помешает его использовани. Добавьте это в ваш конфигурационный файл, чтобы
+  это пространство цветов больше никогда не использовалось.</para>
+
+<para>Вы можете использовать Win32 кодеки и Real Win32 кодеки (не Real Linux кодеки),
+  если хотите. Поместите их куда-нибудь в пути или укажите
+  <filename>configure</filename> опцию
+  <option>--with-codecsdir=<replaceable>c:/path/to/your/codecs</replaceable></option>
+  (или <option>--with-codecsdir=<replaceable>/path/to/your/codecs</replaceable></option>, но
+  только под <application>Cygwin</application>). У нас были сообщения о том,
+  что Real DLL'и должны быть доступны пользователю, запускающему
+  <application>MPlayer</application>, для записи, но только на
+  некоторых системах. Если у Вас проблемы с ними, попробуйте сделать их
+  записываемыми. QuickTime DLL'и также работают, но Вы должны поместить их
+  в системный Windows каталог
+  (<filename class="directory"><replaceable>C:\Windows\system\</replaceable></filename>
+  или что-то в этом духе). В крайнем случае, попробуйте поместить их в тотже
+  каталог, что и <application>MPlayer</application>.</para>
+
+<para>Вы можете воспроизводить VCD, проигрывая <filename>.DAT</filename>
+  или <filename>.MPG</filename> файлы, которые Windows показывает на VCD.
+  Вот как это работает (указывайте букву диска Вашего CD-ROM):</para>
+
+<screen>mplayer <replaceable>d:/mpegav/avseq01.dat</replaceable></screen>
+
+<para>DVDs также работают, укажите <option>-dvd-device</option> с буквой
+  Вашего DVD-ROM:</para>
+
+<screen>mplayer dvd://<replaceable>&lt;title&gt;</replaceable> -dvd-device <replaceable>d</replaceable>:</screen>
+
+<para>Консоль <application>Cygwin</application>/<application>MinGW</application>
+  слегка медленная. Перенаправление вывода или
+  использование опции <option>-quiet</option> улучшает производительность на
+  некоторых системах. Прямое воспроизведение[Direct rendering] (<option>-dr
+  </option>) также может помочь. Вы можете избежать мерцания OSD, включив
+  опцией <option>-double</option> двойную буферизацию. Если воспроизведение
+  прерывисто, попробуйте <option>-autosync 100</option>. Если какие-то из этих
+  опций Вам помогут, стоит поместить их в конфигурационный файл.</para>
+
+<para>Иногда Саша Зоммер [Sascha Sommer] выпускает оффициальные бинарии
+  под Windows, Джой Пэрриш[Joey Parrish] собирает
+  неофициальные Windows пакеты с установочником. Ищщите ссылки в секции
+  Windows <ulink url="http://www.mplayerhq.hu/homepage/projects.html#windows">
+  нашей страницы проектов</ulink>.</para>
+
+<sect2 id="cygwin">
+<title><application>Cygwin</application></title>
+
+<para><application>Cygwin</application> версий до 1.5.0 не включал
+  <filename>inttypes.h</filename>. Поместите этот
+  <ulink url="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/contrib/inttypes.h">inttypes.h</ulink>
+  в <filename class="directory">/usr/include/</filename>, чтобы
+  <application>MPlayer</application> мог скомпилироваться.</para>
+
+<para>Файлы заголовков DirectX надо распаковать в <filename class="directory">
+  /usr/include/</filename> или <filename class="directory">/usr/local/include/
+  </filename>.</para>
+
+<para>Вы можете найти инструкции и файлы для запуска SDL
+  под <application>Cygwin</application> на
+  <ulink url="http://www.libsdl.org/extras/win32/cygwin/">сайте libsdl</ulink>.</para>
+
+</sect2>
+
+
+<sect2 id="mingw">
+<title><application>MinGW</application></title>
+
+<para>Прежде, установка версии <application>MinGW</application>,
+  способной скомпилировать <application>MPlayer</application>, была
+  слегка сложной, но сейчас все работает с самого начала. Просто установите
+  <application>MinGW</application> 3.1.0 или более новый и укажите
+  MSYS постустановщику, что <application>MinGW</application>
+  установлен.</para>
+
+<para>Если Вы используете более раннюю, чем 3.1.0 версию
+  <application>MinGW</application>, Вам нужно
+  заменить <filename>/mingw/include/sys/types.h</filename> этим файлом:
+  <ulink url="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/contrib/types.h"><filename>types.h</filename></ulink>.</para>
+
+<para>Распакуйте файлы заголовков DirectX в <filename class="directory">/mingw/include/</filename>.</para>
+
+<para>Для поддержки сжатых заголовкоав MOV необходима
+  <ulink url="http://www.gzip.org/zlib/">zlib</ulink>, которую
+  <application>MinGW</application> по умолчанию не предоставляет.
+  Сконфигурируйте её, указав <option>--prefix=/mingw</option> и установите
+  её до компиляции <application>MPlayer</application>'а.</para>
+
+</sect2>
+
+
+</sect1>
+
+<sect1 id="macos">
+<title>Mac OS</title>
+<para>
+Только Mac OS X 10.2 и выше "напрямую" поддреживаются
+сорцами <application>MPlayer</application>'а. Если хотите, добавьте поддержку
+юолее старых версий Mac OS и пришлите патч!
+</para>
+
+<para>
+Для компиляции <application>MPlayer</application>'а предпочтителен
+изменённый фирмой Apple GCC 3.x, особенно при использовании libavcodec, поскольку
+Apple'вский GCC 2.95.x не очень хорошо поддерживает C99 синтакс.
+</para>
+
+<para>
+Вы можете получить Aqua GUI для <application>MPlayer</application> вместе с
+откомпилированными Mac OS X бинариями <application>MPlayer</application>'а
+на сайте <ulink url="http://mplayerosx.sf.net/">MPlayerOSX</ulink> проекта.
+</para>
+</sect1>
+
+<sect1 id="hp-ux">
+<title>HP-UX</title>
+<para>
+Martin Gansser поддерживает 
+<ulink url="http://cloud.prohosting.com/patos/docs/mplayer_on_hpux11.htm">HOWTO</ulink>
+по сборке <application>MPlayer</application> под HP-UX. Там даже есть FAQ!
+</para>
+
+<para>
+Как бы то ни было, наши "сырые" исходники <application>MPlayer</application>'а
+компилируются на HP-UX безошибочно.
+</para>
+</sect1>
+
+<sect1 id="amiga">
+<title>Amiga/MorphOS (GeekGadgets)</title>
+<para>
+Nicholas Det at Genesi сделал большой и значительный <application>MPlayer
+</application>'а под MorphOS. К сожалению, он основан на серии 0.90.
+</para>
+
+<para>
+Получите их с <ulink url="http://www.morphzone.org/">MorphZone</ulink>:
+<itemizedlist>
+<listitem><para>
+<ulink url="http://www.morphzone.org/modules/mydownloads/singlefile.php?lid=90">
+<application>MPlayer</application> 0.91 бинарник</ulink>
+</para></listitem>
+<listitem><para>
+<ulink url="http://www.morphzone.org/modules/mydownloads/singlefile.php?lid=91">
+<application>MPlayer</application> 0.91 исходный код</ulink>
+</para></listitem>
+<listitem><para>
+<ulink url="http://www.morphzone.org/modules/mydownloads/singlefile.php?lid=912">
+<application>MEncoder</application> 0.91 бинарник</ulink>
+</para></listitem>
+</itemizedlist>
+</para>
+</sect1>
+</chapter>

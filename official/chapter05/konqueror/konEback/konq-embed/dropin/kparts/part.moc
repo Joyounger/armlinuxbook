@@ -1,0 +1,313 @@
+/****************************************************************************
+** KParts::Part meta object code from reading C++ file 'part.h'
+**
+** Created: Thu Nov 20 06:14:18 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "part.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KParts::Part::className() const
+{
+    return "KParts::Part";
+}
+
+QMetaObject *KParts::Part::metaObj = 0;
+
+#ifdef QWS
+static class KParts__Part_metaObj_Unloader {
+public:
+    ~KParts__Part_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KParts::Part" );
+    }
+} KParts__Part_metaObj_unloader;
+#endif
+
+void KParts::Part::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KParts::Part","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KParts::Part::tr(const char* s)
+{
+    return qApp->translate( "KParts::Part", s, 0 );
+}
+
+QString KParts::Part::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KParts::Part", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KParts::Part::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KParts::Part::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &KParts::Part::slotWidgetDestroyed;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotWidgetDestroyed()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Private;
+    typedef void (KParts::Part::*m2_t0)(const QString&);
+    typedef void (QObject::*om2_t0)(const QString&);
+    typedef void (KParts::Part::*m2_t1)(const QString&);
+    typedef void (QObject::*om2_t1)(const QString&);
+    m2_t0 v2_0 = &KParts::Part::setWindowCaption;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KParts::Part::setStatusBarText;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(2);
+    signal_tbl[0].name = "setWindowCaption(const QString&)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "setStatusBarText(const QString&)";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    metaObj = QMetaObject::new_metaobject(
+	"KParts::Part", "QObject",
+	slot_tbl, 1,
+	signal_tbl, 2,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL setWindowCaption
+void KParts::Part::setWindowCaption( const QString& t0 )
+{
+    activate_signal_strref( "setWindowCaption(const QString&)", t0 );
+}
+
+// SIGNAL setStatusBarText
+void KParts::Part::setStatusBarText( const QString& t0 )
+{
+    activate_signal_strref( "setStatusBarText(const QString&)", t0 );
+}
+
+
+const char *KParts::ReadOnlyPart::className() const
+{
+    return "KParts::ReadOnlyPart";
+}
+
+QMetaObject *KParts::ReadOnlyPart::metaObj = 0;
+
+#ifdef QWS
+static class KParts__ReadOnlyPart_metaObj_Unloader {
+public:
+    ~KParts__ReadOnlyPart_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KParts::ReadOnlyPart" );
+    }
+} KParts__ReadOnlyPart_metaObj_unloader;
+#endif
+
+void KParts::ReadOnlyPart::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(Part::className(), "KParts::Part") != 0 )
+	badSuperclassWarning("KParts::ReadOnlyPart","KParts::Part");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KParts::ReadOnlyPart::tr(const char* s)
+{
+    return qApp->translate( "KParts::ReadOnlyPart", s, 0 );
+}
+
+QString KParts::ReadOnlyPart::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KParts::ReadOnlyPart", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KParts::ReadOnlyPart::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) Part::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef bool (KParts::ReadOnlyPart::*m1_t0)(const KURL&);
+    typedef bool (QObject::*om1_t0)(const KURL&);
+    typedef KURL (KParts::ReadOnlyPart::*m1_t1)()const;
+    typedef KURL (QObject::*om1_t1)()const;
+    typedef bool (KParts::ReadOnlyPart::*m1_t2)();
+    typedef bool (QObject::*om1_t2)();
+    typedef void (KParts::ReadOnlyPart::*m1_t3)(KIO::Job*);
+    typedef void (QObject::*om1_t3)(KIO::Job*);
+    typedef void (KParts::ReadOnlyPart::*m1_t4)();
+    typedef void (QObject::*om1_t4)();
+    typedef void (KParts::ReadOnlyPart::*m1_t5)(KIO::Job*,const QByteArray&);
+    typedef void (QObject::*om1_t5)(KIO::Job*,const QByteArray&);
+    m1_t0 v1_0 = &KParts::ReadOnlyPart::openURL;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &KParts::ReadOnlyPart::url;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    m1_t2 v1_2 = &KParts::ReadOnlyPart::closeURL;
+    om1_t2 ov1_2 = (om1_t2)v1_2;
+    m1_t3 v1_3 = &KParts::ReadOnlyPart::slotJobFinished;
+    om1_t3 ov1_3 = (om1_t3)v1_3;
+    m1_t4 v1_4 = &KParts::ReadOnlyPart::slotJobDestroyed;
+    om1_t4 ov1_4 = (om1_t4)v1_4;
+    m1_t5 v1_5 = &KParts::ReadOnlyPart::slotData;
+    om1_t5 ov1_5 = (om1_t5)v1_5;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(6);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(6);
+    slot_tbl[0].name = "openURL(const KURL&)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "url()";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    slot_tbl[2].name = "closeURL()";
+    slot_tbl[2].ptr = (QMember)ov1_2;
+    slot_tbl_access[2] = QMetaData::Public;
+    slot_tbl[3].name = "slotJobFinished(KIO::Job*)";
+    slot_tbl[3].ptr = (QMember)ov1_3;
+    slot_tbl_access[3] = QMetaData::Protected;
+    slot_tbl[4].name = "slotJobDestroyed()";
+    slot_tbl[4].ptr = (QMember)ov1_4;
+    slot_tbl_access[4] = QMetaData::Protected;
+    slot_tbl[5].name = "slotData(KIO::Job*,const QByteArray&)";
+    slot_tbl[5].ptr = (QMember)ov1_5;
+    slot_tbl_access[5] = QMetaData::Protected;
+    typedef void (KParts::ReadOnlyPart::*m2_t0)(KIO::Job*);
+    typedef void (QObject::*om2_t0)(KIO::Job*);
+    typedef void (KParts::ReadOnlyPart::*m2_t1)();
+    typedef void (QObject::*om2_t1)();
+    typedef void (KParts::ReadOnlyPart::*m2_t2)(bool);
+    typedef void (QObject::*om2_t2)(bool);
+    typedef void (KParts::ReadOnlyPart::*m2_t3)(const QString&);
+    typedef void (QObject::*om2_t3)(const QString&);
+    m2_t0 v2_0 = &KParts::ReadOnlyPart::started;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KParts::ReadOnlyPart::completed;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    m2_t2 v2_2 = &KParts::ReadOnlyPart::completed;
+    om2_t2 ov2_2 = (om2_t2)v2_2;
+    m2_t3 v2_3 = &KParts::ReadOnlyPart::canceled;
+    om2_t3 ov2_3 = (om2_t3)v2_3;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(4);
+    signal_tbl[0].name = "started(KIO::Job*)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "completed()";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    signal_tbl[2].name = "completed(bool)";
+    signal_tbl[2].ptr = (QMember)ov2_2;
+    signal_tbl[3].name = "canceled(const QString&)";
+    signal_tbl[3].ptr = (QMember)ov2_3;
+    metaObj = QMetaObject::new_metaobject(
+	"KParts::ReadOnlyPart", "KParts::Part",
+	slot_tbl, 6,
+	signal_tbl, 4,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL started
+void KParts::ReadOnlyPart::started( KIO::Job* t0 )
+{
+    // No builtin function for signal parameter type KIO::Job*
+    QConnectionList *clist = receivers("started(KIO::Job*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KIO::Job*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL completed
+void KParts::ReadOnlyPart::completed()
+{
+    activate_signal( "completed()" );
+}
+
+// SIGNAL completed
+void KParts::ReadOnlyPart::completed( bool t0 )
+{
+    activate_signal_bool( "completed(bool)", t0 );
+}
+
+// SIGNAL canceled
+void KParts::ReadOnlyPart::canceled( const QString& t0 )
+{
+    activate_signal_strref( "canceled(const QString&)", t0 );
+}

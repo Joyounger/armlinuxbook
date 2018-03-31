@@ -1,0 +1,923 @@
+/****************************************************************************
+** KIO::SlaveInterface meta object code from reading C++ file 'slaveinterface.h'
+**
+** Created: Thu Nov 20 06:15:59 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "slaveinterface.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KIO::SlaveInterface::className() const
+{
+    return "KIO::SlaveInterface";
+}
+
+QMetaObject *KIO::SlaveInterface::metaObj = 0;
+
+#ifdef QWS
+static class KIO__SlaveInterface_metaObj_Unloader {
+public:
+    ~KIO__SlaveInterface_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KIO::SlaveInterface" );
+    }
+} KIO__SlaveInterface_metaObj_unloader;
+#endif
+
+void KIO::SlaveInterface::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KIO::SlaveInterface","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KIO::SlaveInterface::tr(const char* s)
+{
+    return qApp->translate( "KIO::SlaveInterface", s, 0 );
+}
+
+QString KIO::SlaveInterface::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KIO::SlaveInterface", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KIO::SlaveInterface::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    typedef void (KIO::SlaveInterface::*m2_t0)(const QByteArray&);
+    typedef void (QObject::*om2_t0)(const QByteArray&);
+    typedef void (KIO::SlaveInterface::*m2_t1)();
+    typedef void (QObject::*om2_t1)();
+    typedef void (KIO::SlaveInterface::*m2_t2)(int,const QString&);
+    typedef void (QObject::*om2_t2)(int,const QString&);
+    typedef void (KIO::SlaveInterface::*m2_t3)();
+    typedef void (QObject::*om2_t3)();
+    typedef void (KIO::SlaveInterface::*m2_t4)();
+    typedef void (QObject::*om2_t4)();
+    typedef void (KIO::SlaveInterface::*m2_t5)(pid_t,const QCString&,const QString&,bool);
+    typedef void (QObject::*om2_t5)(pid_t,const QCString&,const QString&,bool);
+    typedef void (KIO::SlaveInterface::*m2_t6)(const KIO::UDSEntryList&);
+    typedef void (QObject::*om2_t6)(const KIO::UDSEntryList&);
+    typedef void (KIO::SlaveInterface::*m2_t7)(const KIO::UDSEntry&);
+    typedef void (QObject::*om2_t7)(const KIO::UDSEntry&);
+    typedef void (KIO::SlaveInterface::*m2_t8)();
+    typedef void (QObject::*om2_t8)();
+    typedef void (KIO::SlaveInterface::*m2_t9)();
+    typedef void (QObject::*om2_t9)();
+    typedef void (KIO::SlaveInterface::*m2_t10)(unsigned long);
+    typedef void (QObject::*om2_t10)(unsigned long);
+    typedef void (KIO::SlaveInterface::*m2_t11)(const KIO::MetaData&);
+    typedef void (QObject::*om2_t11)(const KIO::MetaData&);
+    typedef void (KIO::SlaveInterface::*m2_t12)(unsigned long);
+    typedef void (QObject::*om2_t12)(unsigned long);
+    typedef void (KIO::SlaveInterface::*m2_t13)(unsigned long);
+    typedef void (QObject::*om2_t13)(unsigned long);
+    typedef void (KIO::SlaveInterface::*m2_t14)(const KURL&);
+    typedef void (QObject::*om2_t14)(const KURL&);
+    typedef void (KIO::SlaveInterface::*m2_t15)(unsigned long);
+    typedef void (QObject::*om2_t15)(unsigned long);
+    typedef void (KIO::SlaveInterface::*m2_t16)();
+    typedef void (QObject::*om2_t16)();
+    typedef void (KIO::SlaveInterface::*m2_t17)(const QString&);
+    typedef void (QObject::*om2_t17)(const QString&);
+    typedef void (KIO::SlaveInterface::*m2_t18)(const QString&);
+    typedef void (QObject::*om2_t18)(const QString&);
+    typedef void (KIO::SlaveInterface::*m2_t19)(const QString&);
+    typedef void (QObject::*om2_t19)(const QString&);
+    typedef void (KIO::SlaveInterface::*m2_t20)(const QString&);
+    typedef void (QObject::*om2_t20)(const QString&);
+    typedef void (KIO::SlaveInterface::*m2_t21)();
+    typedef void (QObject::*om2_t21)();
+    typedef void (KIO::SlaveInterface::*m2_t22)(const QCString&,const QCString&);
+    typedef void (QObject::*om2_t22)(const QCString&,const QCString&);
+    typedef void (KIO::SlaveInterface::*m2_t23)(const QCString&,const QCString&,bool);
+    typedef void (QObject::*om2_t23)(const QCString&,const QCString&,bool);
+    typedef void (KIO::SlaveInterface::*m2_t24)(const QCString&);
+    typedef void (QObject::*om2_t24)(const QCString&);
+    m2_t0 v2_0 = &KIO::SlaveInterface::data;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KIO::SlaveInterface::dataReq;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    m2_t2 v2_2 = &KIO::SlaveInterface::error;
+    om2_t2 ov2_2 = (om2_t2)v2_2;
+    m2_t3 v2_3 = &KIO::SlaveInterface::connected;
+    om2_t3 ov2_3 = (om2_t3)v2_3;
+    m2_t4 v2_4 = &KIO::SlaveInterface::finished;
+    om2_t4 ov2_4 = (om2_t4)v2_4;
+    m2_t5 v2_5 = &KIO::SlaveInterface::slaveStatus;
+    om2_t5 ov2_5 = (om2_t5)v2_5;
+    m2_t6 v2_6 = &KIO::SlaveInterface::listEntries;
+    om2_t6 ov2_6 = (om2_t6)v2_6;
+    m2_t7 v2_7 = &KIO::SlaveInterface::statEntry;
+    om2_t7 ov2_7 = (om2_t7)v2_7;
+    m2_t8 v2_8 = &KIO::SlaveInterface::needSubURLData;
+    om2_t8 ov2_8 = (om2_t8)v2_8;
+    m2_t9 v2_9 = &KIO::SlaveInterface::needProgressId;
+    om2_t9 ov2_9 = (om2_t9)v2_9;
+    m2_t10 v2_10 = &KIO::SlaveInterface::canResume;
+    om2_t10 ov2_10 = (om2_t10)v2_10;
+    m2_t11 v2_11 = &KIO::SlaveInterface::metaData;
+    om2_t11 ov2_11 = (om2_t11)v2_11;
+    m2_t12 v2_12 = &KIO::SlaveInterface::totalSize;
+    om2_t12 ov2_12 = (om2_t12)v2_12;
+    m2_t13 v2_13 = &KIO::SlaveInterface::processedSize;
+    om2_t13 ov2_13 = (om2_t13)v2_13;
+    m2_t14 v2_14 = &KIO::SlaveInterface::redirection;
+    om2_t14 ov2_14 = (om2_t14)v2_14;
+    m2_t15 v2_15 = &KIO::SlaveInterface::speed;
+    om2_t15 ov2_15 = (om2_t15)v2_15;
+    m2_t16 v2_16 = &KIO::SlaveInterface::errorPage;
+    om2_t16 ov2_16 = (om2_t16)v2_16;
+    m2_t17 v2_17 = &KIO::SlaveInterface::mimeType;
+    om2_t17 ov2_17 = (om2_t17)v2_17;
+    m2_t18 v2_18 = &KIO::SlaveInterface::warning;
+    om2_t18 ov2_18 = (om2_t18)v2_18;
+    m2_t19 v2_19 = &KIO::SlaveInterface::gettingFile;
+    om2_t19 ov2_19 = (om2_t19)v2_19;
+    m2_t20 v2_20 = &KIO::SlaveInterface::infoMessage;
+    om2_t20 ov2_20 = (om2_t20)v2_20;
+    m2_t21 v2_21 = &KIO::SlaveInterface::connectFinished;
+    om2_t21 ov2_21 = (om2_t21)v2_21;
+    m2_t22 v2_22 = &KIO::SlaveInterface::authenticationKey;
+    om2_t22 ov2_22 = (om2_t22)v2_22;
+    m2_t23 v2_23 = &KIO::SlaveInterface::authorizationKey;
+    om2_t23 ov2_23 = (om2_t23)v2_23;
+    m2_t24 v2_24 = &KIO::SlaveInterface::delAuthorization;
+    om2_t24 ov2_24 = (om2_t24)v2_24;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(25);
+    signal_tbl[0].name = "data(const QByteArray&)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "dataReq()";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    signal_tbl[2].name = "error(int,const QString&)";
+    signal_tbl[2].ptr = (QMember)ov2_2;
+    signal_tbl[3].name = "connected()";
+    signal_tbl[3].ptr = (QMember)ov2_3;
+    signal_tbl[4].name = "finished()";
+    signal_tbl[4].ptr = (QMember)ov2_4;
+    signal_tbl[5].name = "slaveStatus(pid_t,const QCString&,const QString&,bool)";
+    signal_tbl[5].ptr = (QMember)ov2_5;
+    signal_tbl[6].name = "listEntries(const KIO::UDSEntryList&)";
+    signal_tbl[6].ptr = (QMember)ov2_6;
+    signal_tbl[7].name = "statEntry(const KIO::UDSEntry&)";
+    signal_tbl[7].ptr = (QMember)ov2_7;
+    signal_tbl[8].name = "needSubURLData()";
+    signal_tbl[8].ptr = (QMember)ov2_8;
+    signal_tbl[9].name = "needProgressId()";
+    signal_tbl[9].ptr = (QMember)ov2_9;
+    signal_tbl[10].name = "canResume(unsigned long)";
+    signal_tbl[10].ptr = (QMember)ov2_10;
+    signal_tbl[11].name = "metaData(const KIO::MetaData&)";
+    signal_tbl[11].ptr = (QMember)ov2_11;
+    signal_tbl[12].name = "totalSize(unsigned long)";
+    signal_tbl[12].ptr = (QMember)ov2_12;
+    signal_tbl[13].name = "processedSize(unsigned long)";
+    signal_tbl[13].ptr = (QMember)ov2_13;
+    signal_tbl[14].name = "redirection(const KURL&)";
+    signal_tbl[14].ptr = (QMember)ov2_14;
+    signal_tbl[15].name = "speed(unsigned long)";
+    signal_tbl[15].ptr = (QMember)ov2_15;
+    signal_tbl[16].name = "errorPage()";
+    signal_tbl[16].ptr = (QMember)ov2_16;
+    signal_tbl[17].name = "mimeType(const QString&)";
+    signal_tbl[17].ptr = (QMember)ov2_17;
+    signal_tbl[18].name = "warning(const QString&)";
+    signal_tbl[18].ptr = (QMember)ov2_18;
+    signal_tbl[19].name = "gettingFile(const QString&)";
+    signal_tbl[19].ptr = (QMember)ov2_19;
+    signal_tbl[20].name = "infoMessage(const QString&)";
+    signal_tbl[20].ptr = (QMember)ov2_20;
+    signal_tbl[21].name = "connectFinished()";
+    signal_tbl[21].ptr = (QMember)ov2_21;
+    signal_tbl[22].name = "authenticationKey(const QCString&,const QCString&)";
+    signal_tbl[22].ptr = (QMember)ov2_22;
+    signal_tbl[23].name = "authorizationKey(const QCString&,const QCString&,bool)";
+    signal_tbl[23].ptr = (QMember)ov2_23;
+    signal_tbl[24].name = "delAuthorization(const QCString&)";
+    signal_tbl[24].ptr = (QMember)ov2_24;
+    metaObj = QMetaObject::new_metaobject(
+	"KIO::SlaveInterface", "QObject",
+	0, 0,
+	signal_tbl, 25,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL data
+void KIO::SlaveInterface::data( const QByteArray& t0 )
+{
+    // No builtin function for signal parameter type const QByteArray&
+    QConnectionList *clist = receivers("data(const QByteArray&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QByteArray&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL dataReq
+void KIO::SlaveInterface::dataReq()
+{
+    activate_signal( "dataReq()" );
+}
+
+// SIGNAL error
+void KIO::SlaveInterface::error( int t0, const QString& t1 )
+{
+    // No builtin function for signal parameter type int,const QString&
+    QConnectionList *clist = receivers("error(int,const QString&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(int);
+    typedef void (QObject::*RT2)(int,const QString&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL connected
+void KIO::SlaveInterface::connected()
+{
+    activate_signal( "connected()" );
+}
+
+// SIGNAL finished
+void KIO::SlaveInterface::finished()
+{
+    activate_signal( "finished()" );
+}
+
+// SIGNAL slaveStatus
+void KIO::SlaveInterface::slaveStatus( pid_t t0, const QCString& t1, const QString& t2, bool t3 )
+{
+    // No builtin function for signal parameter type pid_t,const QCString&,const QString&,bool
+    QConnectionList *clist = receivers("slaveStatus(pid_t,const QCString&,const QString&,bool)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(pid_t);
+    typedef void (QObject::*RT2)(pid_t,const QCString&);
+    typedef void (QObject::*RT3)(pid_t,const QCString&,const QString&);
+    typedef void (QObject::*RT4)(pid_t,const QCString&,const QString&,bool);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    RT3 r3;
+    RT4 r4;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	    case 3:
+#ifdef Q_FP_CCAST_BROKEN
+		r3 = reinterpret_cast<RT3>(*(c->member()));
+#else
+		r3 = (RT3)*(c->member());
+#endif
+		(object->*r3)(t0, t1, t2);
+		break;
+	    case 4:
+#ifdef Q_FP_CCAST_BROKEN
+		r4 = reinterpret_cast<RT4>(*(c->member()));
+#else
+		r4 = (RT4)*(c->member());
+#endif
+		(object->*r4)(t0, t1, t2, t3);
+		break;
+	}
+    }
+}
+
+// SIGNAL listEntries
+void KIO::SlaveInterface::listEntries( const KIO::UDSEntryList& t0 )
+{
+    // No builtin function for signal parameter type const KIO::UDSEntryList&
+    QConnectionList *clist = receivers("listEntries(const KIO::UDSEntryList&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KIO::UDSEntryList&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL statEntry
+void KIO::SlaveInterface::statEntry( const KIO::UDSEntry& t0 )
+{
+    // No builtin function for signal parameter type const KIO::UDSEntry&
+    QConnectionList *clist = receivers("statEntry(const KIO::UDSEntry&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KIO::UDSEntry&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL needSubURLData
+void KIO::SlaveInterface::needSubURLData()
+{
+    activate_signal( "needSubURLData()" );
+}
+
+// SIGNAL needProgressId
+void KIO::SlaveInterface::needProgressId()
+{
+    activate_signal( "needProgressId()" );
+}
+
+// SIGNAL canResume
+void KIO::SlaveInterface::canResume( unsigned long t0 )
+{
+    // No builtin function for signal parameter type unsigned long
+    QConnectionList *clist = receivers("canResume(unsigned long)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(unsigned long);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL metaData
+void KIO::SlaveInterface::metaData( const KIO::MetaData& t0 )
+{
+    // No builtin function for signal parameter type const KIO::MetaData&
+    QConnectionList *clist = receivers("metaData(const KIO::MetaData&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KIO::MetaData&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL totalSize
+void KIO::SlaveInterface::totalSize( unsigned long t0 )
+{
+    // No builtin function for signal parameter type unsigned long
+    QConnectionList *clist = receivers("totalSize(unsigned long)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(unsigned long);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL processedSize
+void KIO::SlaveInterface::processedSize( unsigned long t0 )
+{
+    // No builtin function for signal parameter type unsigned long
+    QConnectionList *clist = receivers("processedSize(unsigned long)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(unsigned long);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL redirection
+void KIO::SlaveInterface::redirection( const KURL& t0 )
+{
+    // No builtin function for signal parameter type const KURL&
+    QConnectionList *clist = receivers("redirection(const KURL&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const KURL&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL speed
+void KIO::SlaveInterface::speed( unsigned long t0 )
+{
+    // No builtin function for signal parameter type unsigned long
+    QConnectionList *clist = receivers("speed(unsigned long)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(unsigned long);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL errorPage
+void KIO::SlaveInterface::errorPage()
+{
+    activate_signal( "errorPage()" );
+}
+
+// SIGNAL mimeType
+void KIO::SlaveInterface::mimeType( const QString& t0 )
+{
+    activate_signal_strref( "mimeType(const QString&)", t0 );
+}
+
+// SIGNAL warning
+void KIO::SlaveInterface::warning( const QString& t0 )
+{
+    activate_signal_strref( "warning(const QString&)", t0 );
+}
+
+// SIGNAL gettingFile
+void KIO::SlaveInterface::gettingFile( const QString& t0 )
+{
+    activate_signal_strref( "gettingFile(const QString&)", t0 );
+}
+
+// SIGNAL infoMessage
+void KIO::SlaveInterface::infoMessage( const QString& t0 )
+{
+    activate_signal_strref( "infoMessage(const QString&)", t0 );
+}
+
+// SIGNAL connectFinished
+void KIO::SlaveInterface::connectFinished()
+{
+    activate_signal( "connectFinished()" );
+}
+
+// SIGNAL authenticationKey
+void KIO::SlaveInterface::authenticationKey( const QCString& t0, const QCString& t1 )
+{
+    // No builtin function for signal parameter type const QCString&,const QCString&
+    QConnectionList *clist = receivers("authenticationKey(const QCString&,const QCString&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QCString&);
+    typedef void (QObject::*RT2)(const QCString&,const QCString&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL authorizationKey
+void KIO::SlaveInterface::authorizationKey( const QCString& t0, const QCString& t1, bool t2 )
+{
+    // No builtin function for signal parameter type const QCString&,const QCString&,bool
+    QConnectionList *clist = receivers("authorizationKey(const QCString&,const QCString&,bool)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QCString&);
+    typedef void (QObject::*RT2)(const QCString&,const QCString&);
+    typedef void (QObject::*RT3)(const QCString&,const QCString&,bool);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    RT3 r3;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	    case 3:
+#ifdef Q_FP_CCAST_BROKEN
+		r3 = reinterpret_cast<RT3>(*(c->member()));
+#else
+		r3 = (RT3)*(c->member());
+#endif
+		(object->*r3)(t0, t1, t2);
+		break;
+	}
+    }
+}
+
+// SIGNAL delAuthorization
+void KIO::SlaveInterface::delAuthorization( const QCString& t0 )
+{
+    // No builtin function for signal parameter type const QCString&
+    QConnectionList *clist = receivers("delAuthorization(const QCString&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QCString&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}

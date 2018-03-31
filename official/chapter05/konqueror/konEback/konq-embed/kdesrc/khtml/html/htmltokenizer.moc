@@ -1,0 +1,165 @@
+/****************************************************************************
+** Tokenizer meta object code from reading C++ file 'htmltokenizer.h'
+**
+** Created: Thu Nov 20 06:18:39 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "htmltokenizer.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *Tokenizer::className() const
+{
+    return "Tokenizer";
+}
+
+QMetaObject *Tokenizer::metaObj = 0;
+
+#ifdef QWS
+static class Tokenizer_metaObj_Unloader {
+public:
+    ~Tokenizer_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "Tokenizer" );
+    }
+} Tokenizer_metaObj_unloader;
+#endif
+
+void Tokenizer::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("Tokenizer","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString Tokenizer::tr(const char* s)
+{
+    return qApp->translate( "Tokenizer", s, 0 );
+}
+
+QString Tokenizer::tr(const char* s, const char * c)
+{
+    return qApp->translate( "Tokenizer", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* Tokenizer::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    typedef void (Tokenizer::*m2_t0)();
+    typedef void (QObject::*om2_t0)();
+    m2_t0 v2_0 = &Tokenizer::finishedParsing;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "finishedParsing()";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"Tokenizer", "QObject",
+	0, 0,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL finishedParsing
+void Tokenizer::finishedParsing()
+{
+    activate_signal( "finishedParsing()" );
+}
+
+
+const char *HTMLTokenizer::className() const
+{
+    return "HTMLTokenizer";
+}
+
+QMetaObject *HTMLTokenizer::metaObj = 0;
+
+#ifdef QWS
+static class HTMLTokenizer_metaObj_Unloader {
+public:
+    ~HTMLTokenizer_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "HTMLTokenizer" );
+    }
+} HTMLTokenizer_metaObj_unloader;
+#endif
+
+void HTMLTokenizer::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(Tokenizer::className(), "Tokenizer") != 0 )
+	badSuperclassWarning("HTMLTokenizer","Tokenizer");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString HTMLTokenizer::tr(const char* s)
+{
+    return qApp->translate( "HTMLTokenizer", s, 0 );
+}
+
+QString HTMLTokenizer::tr(const char* s, const char * c)
+{
+    return qApp->translate( "HTMLTokenizer", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* HTMLTokenizer::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) Tokenizer::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"HTMLTokenizer", "Tokenizer",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

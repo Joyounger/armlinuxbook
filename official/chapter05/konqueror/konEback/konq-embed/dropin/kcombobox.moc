@@ -1,0 +1,87 @@
+/****************************************************************************
+** KComboBox meta object code from reading C++ file 'kcombobox.h'
+**
+** Created: Thu Nov 20 06:13:14 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "kcombobox.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KComboBox::className() const
+{
+    return "KComboBox";
+}
+
+QMetaObject *KComboBox::metaObj = 0;
+
+#ifdef QWS
+static class KComboBox_metaObj_Unloader {
+public:
+    ~KComboBox_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KComboBox" );
+    }
+} KComboBox_metaObj_unloader;
+#endif
+
+void KComboBox::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QComboBox::className(), "QComboBox") != 0 )
+	badSuperclassWarning("KComboBox","QComboBox");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KComboBox::tr(const char* s)
+{
+    return qApp->translate( "KComboBox", s, 0 );
+}
+
+QString KComboBox::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KComboBox", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KComboBox::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QComboBox::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"KComboBox", "QComboBox",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

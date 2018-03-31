@@ -1,0 +1,76 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.5. HP-UX</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="ports.html" title="Kapitola 6. Ports"><link rel="previous" href="irix.html" title="6.4. Silicon Graphics Irix"><link rel="next" href="qnx.html" title="6.6. QNX"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.5. HP-UX</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="irix.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 6. Ports</th><td width="20%" align="right"> <a accesskey="n" href="qnx.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="hp-ux"></a>6.5. HP-UX</h2></div></div><p>
+Joe Page hosts a detailed HP-UX <span class="application">MPlayer</span>
+<a href="http://users.rcn.com/joepage/mplayer_on_hpux11.htm" target="_top">HOWTO</a>
+by Martin Gansser on his homepage. With these instructions the build should
+work out of the box. The following information is taken from this HOWTO.
+</p><p>
+You need GCC 3.4.0 or later, GNU make 3.80 or later and SDL 1.2.7 or later.
+HP cc will not produce a working program, prior GCC versions are buggy.
+For OpenGL functionality you need to install Mesa and the gl and gl2 video
+output drivers should work, speed may be very bad, depending on the CPU speed,
+though. A good replacement for the rather poor native HP-UX sound system is
+GNU esound.
+</p><p>
+Create the DVD device
+scan the SCSI bus with:
+</p><pre class="screen">
+# ioscan -fn
+
+Class          I            H/W   Path          Driver    S/W State    H/W Type        Description
+...
+ext_bus 1    8/16/5      c720  CLAIMED INTERFACE  Built-in SCSI
+target  3    8/16/5.2    tgt   CLAIMED DEVICE
+disk    4    8/16/5.<span class="bold"><b>2</b></span>.<span class="bold"><b>0</b></span>  sdisk CLAIMED DEVICE     <span class="bold"><b>PIONEER DVD-ROM DVD-305</b></span>
+                         /dev/dsk/c1t2d0 <span class="bold"><b>/dev/rdsk/c1t2d0</b></span>
+target  4    8/16/5.7    tgt   CLAIMED DEVICE
+ctl     <span class="bold"><b>1</b></span>    8/16/5.7.0  sctl  CLAIMED DEVICE     Initiator
+                         /dev/rscsi/c1t7d0 /dev/rscsi/c1t7l0 /dev/scsi/c1t7l0
+...
+</pre><p>
+The screen output shows a Pioneer DVD-ROM at SCSI address 2.
+The card instance for hardware path 8/16 is 1.
+</p><p>
+Create a link from the raw device to the DVD device.
+</p><pre class="screen">
+# ln -s /dev/rdsk/c<i><tt>&lt;SCSI bus instance&gt;</tt></i>t<i><tt>&lt;SCSI target ID&gt;</tt></i>d<i><tt>&lt;LUN&gt;</tt></i> /dev/<i><tt>&lt;device&gt;</tt></i>
+</pre><p>
+Example:
+</p><pre class="screen">
+# ln -s /dev/rdsk/c1t2d0 /dev/dvd
+</pre><p>
+Below are solutions for some common problems:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+Crash at Start with the following error message:
+<pre class="screen">
+/usr/lib/dld.sl: Unresolved symbol: finite (code) from /usr/local/lib/gcc-lib/hppa2.0n-hp-hpux11.00/3.2/../../../libGL.sl
+</pre>
+</p><p>
+This means that the function <tt>.finite().</tt> is not
+available in the standard HP-UX math library.
+Instead there is <tt>.isfinite().</tt>.
+Solution: Use the latest Mesa depot file.
+</p></li><li><p>
+Crash at playback with the following error message:
+<pre class="screen">
+/usr/lib/dld.sl: Unresolved symbol: sem_init (code) from /usr/local/lib/libSDL-1.2.sl.0
+</pre>
+</p><p>
+Solution: Use the extralibdir option of configure
+<tt class="option">--with-extralibdir="/usr/lib -lrt"</tt>
+</p></li><li><p>
+MPlayer segfaults with a message like this:
+<pre class="screen">
+Pid 10166 received a SIGSEGV for stack growth failure.
+Possible causes: insufficient memory or swap space, or stack size exceeded maxssiz.
+Segmentation fault
+</pre>
+</p><p>
+Solution:
+The HP-UX kernel has a default stack size of 8MB(?) per process.(11.0 and
+newer 10.20 patches let you increase <tt>maxssiz</tt> up to
+350MB for 32-bit programs). You need to extend <tt>maxssiz</tt>
+and recompile the kernel (and reboot). You can use SAM to do this. (While at
+it, check out the <tt>maxdsiz</tt> parameter for the maximum
+amount of data a program can use. It depends on your applications, if the
+default of 64MB is enough or not.)
+</p></li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="irix.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="qnx.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">6.4. Silicon Graphics Irix </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> 6.6. QNX</td></tr></table></div></body></html>

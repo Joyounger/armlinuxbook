@@ -1,0 +1,29 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.2. *BSD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="ports.html" title="Rozdzia&#322; 6. Porty"><link rel="previous" href="linux.html" title="6.1. Linux"><link rel="next" href="solaris.html" title="6.3. Sun Solaris"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.2. *BSD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="linux.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 6. Porty</th><td width="20%" align="right"> <a accesskey="n" href="solaris.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="bsd"></a>6.2. *BSD</h2></div></div><p>
+<span class="application">MPlayer</span> dzia&#322;a na FreeBSD, OpenBSD, NetBSD,
+BSD/OS i Darwinie. Dost&#281;pne s&#261; wersje portów/pkgsrc/fink/itp., które
+prawdopodobnie s&#261; &#322;atwiejsze w instalacji, ni&#380; kompilacja ze &#378;róde&#322;.
+</p><p>
+Do zbudowania <span class="application">MPlayera</span> b&#281;dziesz potrzebowa&#322;
+GNU make (gmake - rdzenne make BSD nie zadzia&#322;a) i najnowszej wersji binutils.
+</p><p>
+Je&#380;eli <span class="application">MPlayer</span> nie mo&#380;e znale&#378;&#263;
+<tt class="filename">/dev/cdrom</tt> lub <tt class="filename">/dev/dvd</tt>,
+stwórz odpowiednie dowi&#261;zanie symboliczne:
+<pre class="screen">ln -s /dev/<i><tt>twoje_urz&#261;dzenie_cdrom</tt></i> /dev/cdrom</pre>
+</p><p>
+Aby u&#380;ywa&#263; bibliotek Win32 z <span class="application">MPlayerem</span>, b&#281;dziesz
+potrzebowa&#322; przekompilowa&#263; j&#261;dro z opcj&#261; "<tt>USER_LDT</tt>"
+(chyba, &#380;e u&#380;ywasz FreeBSD-CURRENT, tam jest domy&#347;lnie w&#322;&#261;czona).
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="freebsd"></a>6.2.1. FreeBSD</h3></div></div><p>
+Je&#380;eli Twój procesor ma rozszerzenie SSE, przekompiluj j&#261;dro z opcj&#261;
+"<tt>CPU_ENABLE_SSE</tt>" (wymagany FreeBSD-STABLE lub &#322;aty na j&#261;dro).
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="openbsd"></a>6.2.2. OpenBSD</h3></div></div><p>Ze wzgl&#281;du na ograniczenia w ró&#380;nych wersjach gas (GNU assemblera - przyp. t&#322;umacza)
+(dotycz&#261;ce relokacji i MMX), b&#281;dziesz musia&#322; przeprowadzi&#263; kompilacj&#281; w dwóch krokach:
+Po pierwsze, upewnij si&#281;, &#380;e wersja nierdzenna wyst&#281;puje w zmiennej <tt>$PATH</tt>
+i wykonaj <b>gmake -k</b>, a nast&#281;pnie upewnij si&#281;, &#380;e u&#380;ywana jest wersja rdzenna
+i wykonaj <b>gmake</b>.
+</p><p>
+Powy&#380;sza metoda nie jest ju&#380; potrzebna w OpenBSD 3.4.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="darwin"></a>6.2.3. Darwin</h3></div></div><p>
+Zobacz rozdzia&#322; <a href="macos.html" title="6.8. Mac OS">Mac OS</a>.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="linux.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="solaris.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">6.1. Linux </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 6.3. Sun Solaris</td></tr></table></div></body></html>

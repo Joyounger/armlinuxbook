@@ -1,0 +1,104 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.4. Mensajes GUI</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - El reproductor de Películas
+para LINUX"><link rel="up" href="skin.html" title="Apéndice D. Formato del skin de MPlayer"><link rel="previous" href="skin-fonts.html" title="D.3. Tipografías"><link rel="next" href="users-vs-dev.html" title="Apéndice E. Lloriqueos de desarrolladores"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.4. Mensajes GUI</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-fonts.html">Anterior</a> </td><th width="60%" align="center">Apéndice D. Formato del skin de MPlayer</th><td width="20%" align="right"> <a accesskey="n" href="users-vs-dev.html">Siguiente</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-gui"></a>D.4. Mensajes GUI</h2></div></div><p>
+Son los mensajes que pueden ser generados por los botones, potmetros y entradas
+de menú.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Nota</h3><p>
+Algunos de los mensajes pueden no funcionar como se espera (o ni funcionar).
+Como ya sabe, el GUI está bajo desarrollo.
+</p></div><div class="variablelist"><p><b>Control de reproducción:</b></p><dl><dt><span class="term"><span class="bold"><b>evNext</b></span></span></dt><dd><p>
+Salta a la siguiente pista en la lista de reproducción.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPause</b></span></span></dt><dd><p>
+Forma un cambio junto con <tt>evPlaySwitchToPause</tt>. Puede ser
+usado para tener un botón normal de play/pausa. Ambos mensajes deben ser asignados
+a botones que se muestren exactamente en la misma posición en la ventana. Este mensaje
+pausa la reproducción y la imagen para el botón <tt>evPlaySwitchToPause</tt>
+es mostrada (para indicar que el botón puede ser pulsado de nuevo para continuar
+la reproducción).
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlay</b></span></span></dt><dd><p>
+Inicia la reproducción.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlaySwitchToPause</b></span></span></dt><dd><p>
+Lo contrario a <tt>evPauseSwitchToPlay</tt>. Este mensaje inicia
+la reproducción y la imagen para el botón <tt>evPauseSwitchToPlay</tt>
+es mostrada (para indicar que el botón puede ser pulsado de nuevo para
+volver a pausar la reproducción).
+    </p></dd><dt><span class="term"><span class="bold"><b>evPrev</b></span></span></dt><dd><p>
+Salta a la pista previa en la lista de reproducción.
+    </p></dd><dt><span class="term"><span class="bold"><b>evStop</b></span></span></dt><dd><p>
+Detiene la reproducción.
+    </p></dd></dl></div><div class="variablelist"><p><b>Búsqueda:</b></p><dl><dt><span class="term"><span class="bold"><b>evBackward10sec</b></span></span></dt><dd><p>
+Busca 10 segundos hacia atrás.
+    </p></dd><dt><span class="term"><span class="bold"><b>evBackward1min</b></span></span></dt><dd><p>
+Busca 1 minuto hacia atrás.
+    </p></dd><dt><span class="term"><span class="bold"><b>evBackward10min</b></span></span></dt><dd><p>
+Busca 10 minutos hacia atrás.
+    </p></dd><dt><span class="term"><span class="bold"><b>evForward10sec</b></span></span></dt><dd><p>
+Busca 10 segundos hacia adelante.
+    </p></dd><dt><span class="term"><span class="bold"><b>evForward1min</b></span></span></dt><dd><p>
+Busca 1 minuto hacia adelante.
+    </p></dd><dt><span class="term"><span class="bold"><b>evForward10min</b></span></span></dt><dd><p>
+Busca 10 minutos hacia adelante.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetMoviePosition</b></span></span></dt><dd><p>
+Busca la posición (puede ser usado por un potmetro; el
+valor relativo (0-100%) del potmetro será el que se use).
+    </p></dd></dl></div><div class="variablelist"><p><b>Control de video:</b></p><dl><dt><span class="term"><span class="bold"><b>evDoubleSize</b></span></span></dt><dd><p>
+Establece doble tamaño para la ventana de la película.
+    </p></dd><dt><span class="term"><span class="bold"><b>evFullScreen</b></span></span></dt><dd><p>
+Cambia el modo pantalla completa activado/desactivado.
+    </p></dd><dt><span class="term"><span class="bold"><b>evNormalSize</b></span></span></dt><dd><p>
+Establece la ventana de video a tu tamaño normal
+    </p></dd></dl></div><div class="variablelist"><p><b>Control de audio:</b></p><dl><dt><span class="term"><span class="bold"><b>evDecAudioBufDelay</b></span></span></dt><dd><p>
+Decrementa el retardo en el buffer de audio.
+    </p></dd><dt><span class="term"><span class="bold"><b>evDecBalance</b></span></span></dt><dd><p>
+Decrementa el balance.
+    </p></dd><dt><span class="term"><span class="bold"><b>evDecVolume</b></span></span></dt><dd><p>
+Decrementa el volumen.
+    </p></dd><dt><span class="term"><span class="bold"><b>evIncAudioBufDelay</b></span></span></dt><dd><p>
+Incrementa el retardo en el buffer de audio.
+    </p></dd><dt><span class="term"><span class="bold"><b>evIncBalance</b></span></span></dt><dd><p>
+Incrementa el balance.
+    </p></dd><dt><span class="term"><span class="bold"><b>evIncVolume</b></span></span></dt><dd><p>
+Incrementa el volumen.
+    </p></dd><dt><span class="term"><span class="bold"><b>evMute</b></span></span></dt><dd><p>
+Silencia/activa el sonido.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetBalance</b></span></span></dt><dd><p>
+Establece el balance (puede ser usado por un potmetro; el
+valor relativo (0-100%) del potmetro será el que se use).
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetVolume</b></span></span></dt><dd><p>
+Establece el volumen (puede ser usado por un potmetro; el
+valor relativo (0-100%) del potmetro será el que se use).
+    </p></dd></dl></div><div class="variablelist"><p><b>Miscelánea:</b></p><dl><dt><span class="term"><span class="bold"><b>evAbout</b></span></span></dt><dd><p>
+Abre la ventana de acerca de.
+    </p></dd><dt><span class="term"><span class="bold"><b>evDropSubtitle</b></span></span></dt><dd><p>
+Desactiva el uso de subtítulos actual.
+    </p></dd><dt><span class="term"><span class="bold"><b>evEqualizer</b></span></span></dt><dd><p>
+Activa/desactiva el ecualizador.
+    </p></dd><dt><span class="term"><span class="bold"><b>evExit</b></span></span></dt><dd><p>
+Sale del programa.
+    </p></dd><dt><span class="term"><span class="bold"><b>evIconify</b></span></span></dt><dd><p>
+Iconifica la ventana.
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoad</b></span></span></dt><dd><p>
+Carga un archivo (abriendo una ventana del navegador de archivos, para que pueda elegir uno).
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoadPlay</b></span></span></dt><dd><p>
+Hace lo mismo que <tt>evLoad</tt>, pero inicia automáticamente la reproducción
+después de cargar el archivo.
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoadSubtitle</b></span></span></dt><dd><p>
+Carga un archivo de subtítulos (con el selector de archivos)
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoadAudioFile</b></span></span></dt><dd><p>
+Carga un archivo de audio (con el selector de archivos)
+    </p></dd><dt><span class="term"><span class="bold"><b>evNone</b></span></span></dt><dd><p>
+Mensaje vacío, no tiene efecto (excepto quizá en las versiones CVS :-)).
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlaylist</b></span></span></dt><dd><p>
+Abre/cierra la ventana de lista de reproducción.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlayDVD</b></span></span></dt><dd><p>
+Intenta abrir el disco en la unidad de DVD-ROM dada.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlayVCD</b></span></span></dt><dd><p>
+Intenta abrir el disco en la unidad de CD-ROM dada.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPreferences</b></span></span></dt><dd><p>
+Abre la ventana de preferencias.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetAspect</b></span></span></dt><dd><p>
+Establece el aspecto de la imagen mostrada.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetURL</b></span></span></dt><dd><p>
+Muestra la ventana de diálogo para URL.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSkinBrowser</b></span></span></dt><dd><p>
+Abre la ventana del navegador de skins.
+    </p></dd></dl></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-fonts.html">Anterior</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">Subir</a></td><td width="40%" align="right"> <a accesskey="n" href="users-vs-dev.html">Siguiente</a></td></tr><tr><td width="40%" align="left" valign="top">D.3. Tipografías </td><td width="20%" align="center"><a accesskey="h" href="index.html">Inicio</a></td><td width="40%" align="right" valign="top"> Apéndice E. Lloriqueos de desarrolladores</td></tr></table></div></body></html>

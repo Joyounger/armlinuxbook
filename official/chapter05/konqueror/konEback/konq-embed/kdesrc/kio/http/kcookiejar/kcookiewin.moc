@@ -1,0 +1,168 @@
+/****************************************************************************
+** KCookieDetail meta object code from reading C++ file 'kcookiewin.h'
+**
+** Created: Thu Nov 20 06:16:20 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "kcookiewin.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KCookieDetail::className() const
+{
+    return "KCookieDetail";
+}
+
+QMetaObject *KCookieDetail::metaObj = 0;
+
+#ifdef QWS
+static class KCookieDetail_metaObj_Unloader {
+public:
+    ~KCookieDetail_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KCookieDetail" );
+    }
+} KCookieDetail_metaObj_unloader;
+#endif
+
+void KCookieDetail::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QGroupBox::className(), "QGroupBox") != 0 )
+	badSuperclassWarning("KCookieDetail","QGroupBox");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KCookieDetail::tr(const char* s)
+{
+    return qApp->translate( "KCookieDetail", s, 0 );
+}
+
+QString KCookieDetail::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KCookieDetail", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KCookieDetail::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QGroupBox::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KCookieDetail::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &KCookieDetail::slotNextCookie;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotNextCookie()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Private;
+    metaObj = QMetaObject::new_metaobject(
+	"KCookieDetail", "QGroupBox",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+
+const char *KCookieWin::className() const
+{
+    return "KCookieWin";
+}
+
+QMetaObject *KCookieWin::metaObj = 0;
+
+#ifdef QWS
+static class KCookieWin_metaObj_Unloader {
+public:
+    ~KCookieWin_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KCookieWin" );
+    }
+} KCookieWin_metaObj_unloader;
+#endif
+
+void KCookieWin::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(KDialog::className(), "KDialog") != 0 )
+	badSuperclassWarning("KCookieWin","KDialog");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KCookieWin::tr(const char* s)
+{
+    return qApp->translate( "KCookieWin", s, 0 );
+}
+
+QString KCookieWin::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KCookieWin", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KCookieWin::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KDialog::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KCookieWin::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &KCookieWin::slotCookieDetails;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotCookieDetails()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Private;
+    metaObj = QMetaObject::new_metaobject(
+	"KCookieWin", "KDialog",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

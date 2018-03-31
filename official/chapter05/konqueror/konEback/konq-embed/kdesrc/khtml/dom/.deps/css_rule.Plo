@@ -1,0 +1,150 @@
+css_rule.lo: css_rule.cpp ./../css/css_ruleimpl.h ./dom_string.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h \
+  ./css_rule.h ./../dom/dom_string.h ./../dom/css_stylesheet.h \
+  ./../dom/dom_node.h ./../dom/css_value.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h \
+  ./../css/cssparser.h ./dom_misc.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h \
+  ./../misc/loader_client.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h css_stylesheet.h \
+  css_value.h dom_exception.h dom_string.h css_rule.h
+
+./../css/css_ruleimpl.h:
+
+./dom_string.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h:
+
+./css_rule.h:
+
+./../dom/dom_string.h:
+
+./../dom/css_stylesheet.h:
+
+./../dom/dom_node.h:
+
+./../dom/css_value.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h:
+
+./../css/cssparser.h:
+
+./dom_misc.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h:
+
+./../misc/loader_client.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h:
+
+css_stylesheet.h:
+
+css_value.h:
+
+dom_exception.h:
+
+dom_string.h:
+
+css_rule.h:

@@ -1,0 +1,380 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.2. Instalacja</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="intro.html" title="Rozdzia&#322; 1. Wprowadzenie"><link rel="previous" href="history.html" title="1.1. Historia"><link rel="next" href="gui.html" title="1.3. A co z GUI?"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.2. Instalacja</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="history.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 1. Wprowadzenie</th><td width="20%" align="right"> <a accesskey="n" href="gui.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="install"></a>1.2. Instalacja</h2></div></div><p>
+Przewodnik szybkiej instalacji znajdziesz w pliku <tt class="filename">README</tt>.
+Prosz&#281;, najpierw go przeczytaj, a pó&#378;niej wró&#263; do tego dokumentu
+po mro&#380;&#261;ce krew w &#380;y&#322;ach szczegó&#322;y.
+</p><p>
+W tym rozdziale postaram si&#281; przeprowadzi&#263; Ci&#281; przez kompilacj&#281;
+i konfiguracj&#281; <span class="application">MPlayera</span>. Nie b&#281;dzie to &#322;atwe,
+ale niekoniecznie te&#380; musi by&#263; trudne. Je&#380;eli zauwa&#380;ysz zachowanie inne ni&#380;
+to, które obja&#347;niam, prosz&#281; poszukaj w dokumentacji, a na pewno znajdziesz
+odpowiedzi. Je&#380;eli widzisz linki, &#347;led&#378; je i czytaj uwa&#380;nie ich zawarto&#347;&#263;.
+Zajmie to troch&#281; czasu, ale z pewno&#347;ci&#261; JEST tego warte.
+</p><p>
+Potrzebujesz do&#347;&#263; nowego sprz&#281;tu. Je&#347;li u&#380;ywasz Linuksa, zalecane s&#261; j&#261;dra z serii 2.4.x.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="softreq"></a>1.2.1. Wymagania sprz&#281;towe</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>binutils</b></span> - zalecana jest wersja <span class="bold"><b>2.11.x</b></span>.
+  Program ten odpowiedzialny jest za generowanie instrukcji MMX/ 3DNow!/itp.,
+  dlatego te&#380; jest bardzo wa&#380;ny.
+</p></li><li><p>
+  <span class="bold"><b>gcc</b></span> - zalecanymi wersjami s&#261;: <span class="bold"><b>2.95.3</b></span>
+  (mo&#380;e <span class="bold"><b>2.95.4</b></span>) i <span class="bold"><b>3.2+</b></span>.
+  <span class="bold"><b>Nigdy</b></span> nie u&#380;ywaj 2.96 lub 3.0.x! Generuj&#261; one
+  wadliwy kod <span class="application">MPlayera</span>. Je&#380;eli zdecydujesz si&#281;
+  na zmian&#281; gcc z 2.96, nie rób tego na korzy&#347;&#263; 3.x tylko dlatego, &#380;e jest nowsze! Wczesne
+  wydania 3.x mia&#322;y jeszcze wi&#281;cej b&#322;&#281;dów ni&#380; 2.96. Spróbuj obni&#380;y&#263; wersj&#281; do 2.95.x
+  (obni&#380; równie&#380; wersj&#281; <tt>libstdc++</tt>, inne
+  programy mog&#261; jej potrzebowa&#263;) lub nie zmieniaj wersji w ogóle (w tym wypadku b&#261;d&#378;
+  jednak przygotowany na b&#322;&#281;dy podczas uruchamiania). Je&#380;eli jednak dalej obstajesz
+  przy 3.x, spróbuj u&#380;y&#263; najnowszej wersji, wczesne wydania mia&#322;y liczne b&#322;&#281;dy,
+  wi&#281;c b&#261;d&#378; pewny, &#380;e u&#380;ywasz przynajmniej 3.1, by&#322;a ona sprawdzana i dzia&#322;a.
+  W rozdzia&#322;ach <a href="gcc-296.html" title="E.1. GCC 2.96">gcc 2.96</a> i <a href="faq.html">FAQ</a> s&#261; bardziej szczegó&#322;owe
+  informacje o b&#322;&#281;dach gcc 2.96 (które ci&#261;gle NIE s&#261; naprawione, zastosowano
+  jedynie ich obej&#347;cia w <span class="application">MPlayerze</span>!).
+  </p></li><li><p>
+  <span class="bold"><b>XFree86</b></span> - sugerowan&#261; wersj&#261; jest <span class="bold"><b>
+  zawsze najnowsza</b></span> (4.3). Przewa&#380;nie ka&#380;dy tego chce, poniewa&#380; zaczynaj&#261;c
+  od XFree86 4.0.2, zawiera on rozszerzenie <a href="video.html#xv" title="2.3.2.1. Xv">XVideo</a>
+  (czasami równie&#380; nazywane <span class="bold"><b>Xv</b></span>),
+  które jest potrzebne do w&#322;&#261;czenia sprz&#281;towej akceleracji YUV (szybkie wy&#347;wietlanie
+  obrazów) na kartach, które je obs&#322;uguj&#261;.
+  Upewnij si&#281;, &#380;e s&#261; zainstalowane równie&#380; <span class="bold"><b>pakiety rozwojowe</b></span>,
+  w przeciwnym wypadku nie zadzia&#322;a.
+  W przypadku niektórych kart nie potrzebujesz XFree86. Zobacz list&#281; poni&#380;ej.
+  </p></li><li><p>
+  <span class="bold"><b>make</b></span> - sugerowan&#261; wersj&#261; jest
+  <span class="bold"><b>zawsze najnowsza</b></span> (przynajmniej 3.79.x). W wi&#281;kszo&#347;ci
+  wypadków nie jest to jednak wa&#380;ne.
+  </p></li><li><p>
+  <span class="bold"><b>SDL</b></span> - nie jest konieczne, ale mo&#380;e pomóc w niektórych
+  wypadkach (z&#322;e karty d&#378;wi&#281;kowe, graficzne, które maj&#261; dziwne opó&#378;nienia ze sterownikiem Xv).
+  Zawsze u&#380;ywaj najnowszego (zaczynaj&#261;c od 1.2.x).
+  </p></li><li><p>
+  <span class="bold"><b>libjpeg</b></span> - opcjonalny dekoder JPEG, u&#380;ywany
+  przez opcj&#281; <tt class="option">-mf</tt> i niektóre pliki QT MOV. U&#380;yteczny zarówno dla
+  <span class="application">MPlayera</span>, jak i <span class="application">MEncodera</span>,
+  je&#380;eli zamierzasz pracowa&#263; z plikami jpeg.
+  </p></li><li><p>
+  <span class="bold"><b>libpng</b></span> - domy&#347;lny i zalecany dekoder (M)PNG.
+  Wymagany przez GUI. U&#380;yteczny zarówno dla <span class="application">MPlayera</span> jak
+  i <span class="application">MEncodera</span>.
+  </p></li><li><p>
+  <span class="bold"><b>lame</b></span> - zalecana, wymagana do zakodowania d&#378;wi&#281;ku
+  MP3 przez <span class="application">MEncodera</span>, sugerowan&#261; wersj&#261; jest
+  <span class="emphasis"><i>zawsze najnowsza</i></span> (przynajmniej 3.90).
+  </p></li><li><p>
+  <span class="bold"><b>zlib</b></span> - zalecana, wymagana dla skompresowanych
+  nag&#322;ówków MOV i obs&#322;ugi PNG.
+  </p></li><li><p>
+  <span class="bold"><b>libogg</b></span> - opcjonalna, wymagana do odtwarzania
+  plików zapisanych w formacie OGG.
+  </p></li><li><p>
+  <span class="bold"><b>libvorbis</b></span> - opcjonalna, wymagana do odtwarzania
+  d&#378;wi&#281;ku OGG Vorbis.
+  </p></li><li><p>
+  <span class="bold"><b><a href="http://www.live.com/mplayer/" target="_top">LIVE.COM Streaming Media</a></b></span>
+  - opcjonalna, wymagana do odtwarzania strumieni RTSP/RTP.
+  </p></li><li><p>
+  <span class="bold"><b>directfb</b></span> - opcjonalna, do pobrania z
+  <a href="http://www.directfb.org" target="_top">http://www.directfb.org</a>. Wymagana jest co najmniej
+  wersja 0.9.13.
+  </p></li><li><p>
+  <span class="bold"><b>cdparanoia</b></span> - opcjonalna, do obs&#322;ugi CDDA.
+  </p></li><li><p>
+  <span class="bold"><b>libfreetype</b></span> - opcjonalna, do obs&#322;ugi czcionek TTF.
+  Wymagana jest przynajmniej wersja 2.0.9.
+  </p></li><li><p>
+  <span class="bold"><b>libxmms</b></span> - opcjonalna, do obs&#322;ugi wtyczek wej&#347;ciowych
+  XMMS. Wymagana jest przynajmniej wersja 1.2.7.
+  </p></li><li><p>
+  <span class="bold"><b>libsmb</b></span> - opcjonalna, do obs&#322;ugi Samby.
+  </p></li><li><p>
+  <span class="bold"><b>ALSA</b></span> - opcjonalna, do obs&#322;ugi wyj&#347;cia d&#378;wi&#281;ku
+  przez ALSA. Wymagana jest przynajmniej wersja 0.9.0rc4.
+  </p></li><li><p>
+  <span class="bold"><b>bio2jack</b></span> - opcjonalna, do obs&#322;ugi wyj&#347;cia
+  d&#378;wi&#281;ku poprzez JACK, potrzebna jedynie w czasie kompilacji. Do pobrania z
+  <a href="http://bio2jack.sf.net/" target="_top">http://bio2jack.sf.net</a>. Poniewa&#380;
+  nie posiada ona opcji instalacji musisz samodzielnie umie&#347;ci&#263; plik
+  <tt class="filename">libbio2jack.a</tt> w swoim katalogu z bibliotekami
+  (np. <tt class="filename">/usr/local/lib/</tt>) lub u&#380;y&#263; opcji
+  <tt class="option">--with-bio2jack=KATALOG</tt> aby przekaza&#263; jego lokalizacj&#281; do
+  skryptu <tt class="filename">./configure</tt>.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2839596"></a>1.2.2. Kodeki</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b><tt>libavcodec</tt></b></span>:
+  Ten pakiet kodeków jest zdolny do dekodowania strumieni video zakodowanych
+  H.263/MJPEG/RV10/DivX3/DivX4/DivX5/MP41/MP42/WMV1/WMV2/SVQ1/SVQ3
+  i strumieni audio WMA (Windows Media Audio) v1/v2 na wielu platformach.
+  Jest równie&#380; uwa&#380;any za najszybszy. Przeczytaj rozdzia&#322;
+  <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec">FFmpeg</a>, a dowiesz si&#281; wi&#281;cej. Cechy:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    umo&#380;liwia dekodowanie wy&#380;ej wymienionych strumieni video na maszynach innych ni&#380; x86
+    </li><li>
+    kodowanie wi&#281;kszo&#347;ci&#261; wymienionych kodeków
+    </li><li>
+    ten kodek jest <span class="bold"><b>najszybszym dost&#281;pnym</b></span> dla
+    DivX/3/4/5 i innych rodzajów MPEG-4. Zalecany!
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>Kodeki Win32</b></span>: Je&#347;li zamierzasz u&#380;ywa&#263;
+  <span class="application">MPlayera</span> na architekturze x86, b&#281;dziesz ich prawdopodobnie
+  potrzebowa&#322;. &#346;ci&#261;gnij pakiet z naszej
+  <a href="http://www.mplayerhq.hu/homepage/design7/codecs.html" target="_top">strony kodeków</a>
+  i umie&#347;&#263; je w katalogu <tt class="filename">/usr/local/lib/codecs</tt>
+  <span class="bold"><b>PRZED</b></span> kompilacj&#261; <span class="application">MPlayera</span>,
+  w przeciwnym wypadku obs&#322;uga Win32 nie b&#281;dzie wkompilowana!
+  </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>Projekt avifile ma podobny pakiet kodeków, ale ró&#380;ni si&#281; on od naszego,
+  wi&#281;c je&#380;eli chcesz u&#380;ywa&#263; wszystkich, obs&#322;ugiwanych kodeków, skorzystaj z
+  naszej paczki (nie przejmuj si&#281;, avifile dzia&#322;a z ni&#261; bez problemów).</p></div><p>
+  Cechy:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    potrzebujesz tego do odtwarzania i zakodowania, na przyk&#322;ad, filmów nagranych z u&#380;yciem
+    ró&#380;nych kompresorów sprz&#281;towych, jak tunery, kamery cyfrowe
+    (na przyk&#322;ad: DV, ATI VCR, MJPEG)
+    </li><li>
+    wymagane je&#347;li chcesz odtwarza&#263; <span class="bold"><b>filmy WMV9/WMA9</b></span>.
+   </li><li>
+    Nie s&#261; potrzebne do starych plików video ASF z MP41 lub MP42 (mimo, &#380;e d&#378;wi&#281;k VoxWare
+    jest cz&#281;sto u&#380;ywany w tych plikach - realizowane jest to przez kodek Win32), lub WMV7.
+    Nie s&#261; równie&#380; potrzebne do WMA (Windows Media Audio),
+    <tt>libavcodec</tt> ma potrzebne do niego dekodery ze
+    &#347;wiata wolnego oprogramowania.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>Kodeki QuickTime</b></span>: na platformach x86 te kodeki
+  mog&#261; by&#263; u&#380;yte do dekodowania RPZA, innych sekwencji video QuickTime i
+  strumieni audio QDesign. Instrukcj&#281; instalacji mo&#380;esz znale&#378;&#263; w rozdziale
+  <a href="codecs.html#sorenson" title="2.2.1.9. Sorenson">kodek video Sorenson</a>.
+  </p></li><li><p>
+  <span class="bold"><b>DivX4/DivX5</b></span>: informacje o tym kodeku s&#261; dost&#281;pne
+  w rozdziale <a href="codecs.html#divx4-5" title="2.2.1.1. DivX4/DivX5">DivX4/DivX5</a>. Prawdopodobnie, nie chcesz
+  tego kodeka jako, &#380;e <span class="bold"><b><tt>libavcodec</tt></b></span>
+  (zobacz powy&#380;ej) jest o wiele szybszy i ma lepsz&#261; jako&#347;&#263;, zarówno dla dekodowania i
+  kodowania. Cechy:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    1 lub 2 przebiegowe kodowanie przy pomocy <a href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem">
+    <span class="application">MEncodera</span></a>
+    </li><li>
+    mo&#380;e odtwarza&#263; stare filmy <span class="bold"><b>DivX3</b></span> znacznie szybciej
+    ni&#380; biblioteki Win32 DLL, ale wolniej ni&#380;
+    <span class="bold"><b><tt>libavcodec</tt></b></span>!
+    </li><li>
+    ma zamkni&#281;te &#378;ród&#322;o i dost&#281;pna jest tylko wersja na x86.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>XviD</b></span>: Alternatywa do kodowania dla DivX4Linux
+  z otwartym &#378;ród&#322;em. Cechy:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    1 lub 2 przebiegowe kodowanie przy pomocy <a href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem">
+    <span class="application">MEncodera</span></a>
+    </li><li>
+    ma otwarte &#378;ród&#322;o, wi&#281;c jest wieloplatformowa.
+    </li><li>
+    jest oko&#322;o 2 razy szybsza od DivX4 podczas zakodowywania, a osi&#261;ga mniej wi&#281;cej t&#281; sam&#261; jako&#347;&#263;
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b><a href="codecs.html#xanim" title="2.2.1.3. kodeki XAnim">Kodeki XAnim</a></b></span>
+  s&#261; najlepsze (pe&#322;ny ekran, sprz&#281;towy zoom YUV) do dekodowania filmów
+  <span class="bold"><b>3ivx</b></span>, Indeo 3/4/5 i kilku starych formatów.
+  S&#261; wieloplatformowe, wi&#281;c s&#261; jednym sposobem, &#380;eby odtworzy&#263; Indeo na platformach
+  innych ni&#380; x86 (no, mo&#380;e poza u&#380;yciem XAnim:). Ale na przyk&#322;ad filmy Cinepak
+  s&#261; najlepiej odtwarzane przy pomocy <span class="application">MPlayerowego</span> dekodera Cinepak!
+  </p></li><li><p>
+  Do dekodowania d&#378;wi&#281;ku <span class="bold"><b>Ogg Vorbis</b></span>, b&#281;dziesz musia&#322;
+  poprawnie zainstalowa&#263; <tt>libvorbis</tt>.
+  &#377;ród&#322;a i odpowiednie pakiety binarne mo&#380;esz pobra&#263; ze
+  <a href="http://www.vorbis.com/download.psp" target="_top">strony ogg vorbis</a>.
+  </p></li><li><p>
+  <span class="application">MPlayer</span> mo&#380;e korzysta&#263; z bibliotek RealPlayer 8
+  lub RealONE, &#380;eby odtworzy&#263; pliki z obrazem w formacie
+  <span class="bold"><b>RealVideo 3.0 i 4.0</b></span>
+  i d&#378;wi&#281;kiem w Sipro/Cook. Zobacz rozdzia&#322;
+  <a href="formats.html#realmedia" title="2.1.1.7. Pliki RealMedia (RM)">format pliku RealMedia</a>,
+  znajdziesz tam instrukcje i kilka informacji.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="video-cards"></a>1.2.3. Karty graficzne</h3></div></div><p>
+S&#261; w&#322;a&#347;ciwie dwa rodzaje kart graficznych. Te nowsze maj&#261; obs&#322;ug&#281;
+<span class="bold"><b>sprz&#281;towego skalowania i akceleracji YUV</b></span>,
+te drugie nie.
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="yuv-cards"></a>1.2.3.1. Karty YUV</h4></div></div><p>
+Wy&#347;wietlaj&#261; i skaluj&#261; (zoom) obraz do jakiegokolwiek rozmiaru mieszcz&#261;cego
+si&#281; w ich pami&#281;ci, z <span class="bold"><b>ma&#322;ym zu&#380;yciem mocy CPU</b></span> (nawet przy
+zoomie), dlatego te&#380; tryb pe&#322;nego ekranu jest mi&#322;y i bardzo szybki.
+
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>Karty Matrox G200/G400/G450/G550</b></span>: mimo, &#380;e
+  dost&#281;pny jest <a href="video.html#vidix" title="2.3.2.13. VIDIX">sterownik Vidix</a>, zalecane
+  jest u&#380;ywanie modu&#322;u mga_vid zamiast niego, poniewa&#380; dzia&#322;a znacznie
+  lepiej. W rozdziale <a href="video.html#mga_vid" title="2.3.2.6. Bufor ramki Matrox (mga_vid)">mga_vid</a> znajdziesz informacje
+  o sposobie jego instalacji i u&#380;ycia. Wa&#380;ne jest wykonanie tych kroków
+  <span class="emphasis"><i>przed</i></span> kompilacj&#261; <span class="application">MPlayera</span>,
+  w przeciwnym wypadku obs&#322;uga mga_vid nie zostanie wkompilowana. Sprawd&#378; równie&#380;
+  rozdzia&#322; <a href="video.html#tvout-mga-g400" title="2.3.5.1. Karty Matrox G400">Matrox TV-out</a>.
+  <span class="bold"><b> Je&#380;eli nie korzystasz z Linuksa</b></span>, jedyn&#261; mo&#380;liwo&#347;ci&#261;
+  jest dla Ciebie sterownik VIDIX: przeczytaj rozdzia&#322; <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>.
+  </p></li><li><p>
+  <span class="bold"><b>Karty 3Dfx Voodoo3/Banshee</b></span>: przeczytaj rozdzia&#322;
+  po&#347;wi&#281;cony <a href="video.html#tdfxfb" title="2.3.2.7. Obs&#322;uga 3dfx YUV">tdfxfb</a>, &#380;eby dowiedzie&#263; si&#281;, jak uzyska&#263; znaczy
+  wzrost pr&#281;dko&#347;ci. Wa&#380;ne jest, aby&#347; wykona&#322; te kroki <span class="bold"><b>przed</b></span>
+  kompilacj&#261; <span class="application">MPlayera</span>, w przeciwnym wypadku obs&#322;uga
+  3Dfx nie b&#281;dzie wkompilowana. Przeczytaj równie&#380; rozdzia&#322; <a href="video.html#tvout-voodoo" title="2.3.5.4. Voodoo 3">
+  3dfx TV-out</a>. Je&#380;eli korzystasz z Xów, u&#380;ywaj przynajmniej wersji
+  <span class="bold"><b>4.2.0</b></span>, poniewa&#380; sterownik Xv dla 3dfx by&#322; uszkodzony
+  w wersji 4.1.0 i wcze&#347;niejszych.
+  </p></li><li><p>
+  <span class="bold"><b>Karty ATI</b></span>: sterownik <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>
+  obs&#322;uguje nast&#281;puj&#261;ce karty:
+  <span class="bold"><b>Radeon, Rage128, Mach64</b></span> (Rage XL/Mobility, Xpert98).
+  Przeczytaj równie&#380; rozdzia&#322; <a href="video.html#tvout-ati" title="2.3.5.3. karty ATI">karty ATI</a>
+  dokumentacji wyj&#347;cia TV, aby dowiedzie&#263; si&#281; czy wyj&#347;cie TV Twojej karty jest
+  obs&#322;ugiwane przez  Linuksa/<span class="application">MPlayera</span>.
+  </p></li><li><p>
+  <span class="bold"><b>Karty S3</b></span>: uk&#322;ady graficzne Savage i Virge/DX maj&#261;
+  sprz&#281;tow&#261; akceleracj&#281;. U&#380;ywaj jak najnowszej wersji XFree86, starsze sterowniki maj&#261;
+  liczne b&#322;&#281;dy. Uk&#322;ady Savage maj&#261; problemy z obrazem YV12, wi&#281;cej szczegó&#322;ów
+  znajdziesz w rozdziale <a href="video.html#s3" title="2.3.2.1.2. Karty S3">S3 Xv</a>. Starsze karty Trio nie obs&#322;uguj&#261;
+  w ogóle lub maj&#261; woln&#261; akceleracj&#281; sprz&#281;tow&#261;.
+  </p></li><li><p>
+  <span class="bold"><b>Karty nVidia</b></span>: mog&#261; lub nie mog&#261; by&#263; dobrym
+  wyborem do odtwarzania filmów. Je&#380;eli nie masz karty GeForce2 (lub nowszej),
+  nie spodziewaj si&#281; bezproblemowego dzia&#322;ania. <span class="bold"><b>
+  Wbudowany w XFree86 sterownik nVidia nie obs&#322;uguje sprz&#281;towej akceleracji
+  YUV na &#380;adnej z kart.</b></span> Musisz pobra&#263; zamkni&#281;te sterowniki
+  nVidia z <a href="http://nvidia.com" target="_top">nVidia.com</a>. Przeczytaj rozdzia&#322; <a href="video.html#nvidia" title="2.3.2.1.3. Karty nVidia">sterowniki nVidia Xv</a>, a dowiesz si&#281; wi&#281;cej. Sprawd&#378; równie&#380;
+  rozdzia&#322; <a href="video.html#tvout-nvidia" title="2.3.5.5. nVidia">nVidia TV-out</a>,
+  je&#347;li chcesz u&#380;ywa&#263; TV.
+  </p></li><li><p>
+  <span class="bold"><b>3DLabs GLINT R3 and Permedia3</b></span>: dost&#281;pny jest
+  sterownik VIDIX (pm3_vid). Dla uzyskanie bardziej szczegó&#322;owych informacji
+  przeczytaj rozdzia&#322; <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>.
+  </p></li><li><p>
+  <span class="bold"><b>Inne karty</b></span>: &#380;adna z powy&#380;szych?
+  </p><div class="itemizedlist"><ul type="round"><li>
+    Sprawd&#378;, czy sterownik XFree86 (i Twoja karta) obs&#322;uguj&#261; sprz&#281;tow&#261; akceleracj&#281;.
+    Przeczytaj rozdzia&#322; <a href="video.html#xv" title="2.3.2.1. Xv">Xv</a>, a znajdziesz wi&#281;cej informacji.
+    </li><li>
+    Je&#380;eli nie, oznacza to, &#380;e mo&#380;liwo&#347;ci Twojej karty nie s&#261; obs&#322;ugiwane
+    przez Twój system operacyjny :( Je&#380;eli sprz&#281;towe skalowanie dzia&#322;a pod
+    Windowsem, nie oznacza to, &#380;e b&#281;dzie dzia&#322;a&#322;o pod Linuksem lub gdzie indziej,
+    zale&#380;y to od sterowników. Wi&#281;kszo&#347;&#263; producentów, ani nie tworzy sterowników
+    dla Linuksa, ani nie publikuje specyfikacji swoich uk&#322;adów graficznych -
+    wi&#281;c masz pecha, je&#347;li u&#380;ywasz ich kart.
+    Przeczytaj <a href="install.html#non-yuv-cards">Karty nieobs&#322;uguj&#261;ce YUV</a>.
+    </li></ul></div><p>
+  </p></li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="non-yuv-cards"></a>1.2.3.2. Karty nieobs&#322;uguj&#261;ce YUV</h4></div></div><p>
+Odtwarzanie pe&#322;noekranowe mo&#380;e by&#263; uzyskane przez <span class="bold"><b> programowe
+skalowanie </b></span> (u&#380;yj opcji  <tt class="option">-zoom</tt> lub <tt class="option">-vf</tt>,
+ale ostrzegam Ci&#281;: to jest wolne) lub prze&#322;&#261;czenie na ni&#380;sz&#261; rozdzielczo&#347;&#263;,
+na przyk&#322;ad 352x288. Je&#380;eli nie masz akceleracji YUV, ta druga metoda jest zalecana.
+Prze&#322;&#261;czanie mi&#281;dzy trybami video umo&#380;liwia opcja <tt class="option">-vm</tt> i
+dzia&#322;a ona z nast&#281;puj&#261;cymi sterownikami:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>u&#380;ywasz</b></span> XFree86: sprawd&#378; szczegó&#322;y
+  w rozdziale <a href="video.html#dga" title="2.3.2.2. DGA">sterownik DGA</a> i
+  <a href="video.html#x11" title="2.3.2.12. X11">sterownik X11</a>. DGA jest zalecany! Spróbuj równie&#380;
+  DGA przez SDL, czasami jest to lepsze rozwi&#261;zanie.
+  </li><li>
+  <span class="bold"><b>nie u&#380;ywasz</b></span> XFree86: spróbuj u&#380;y&#263; którego&#347;
+  z ni&#380;ej wymienionych sterowników w podanej kolejno&#347;ci:
+  <a href="video.html#vesa" title="2.3.2.11. VESA - wyj&#347;cie na VESA BIOS">vesa</a>,
+  <a href="video.html#fbdev" title="2.3.2.5. Wyj&#347;cie bufora ramki (FBdev)">fbdev</a>,
+  <a href="video.html#svgalib" title="2.3.2.4. SVGAlib">svgalib</a>,
+  <a href="video.html#aalib" title="2.3.2.9. AAlib - wy&#347;wietlanie w trybie tekstowym">aalib</a>.
+  </li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="cirrus-logic-cards"></a>1.2.3.3. Karty Cirrus-Logic</h4></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  GD 7548: zintegrowana z p&#322;yt&#261; g&#322;ówn&#261; i przetestowana na serii notebooków
+  Compaq Armada 41xx.
+  </p><div class="itemizedlist"><ul type="round"><li>
+    XFree86 3: dzia&#322;a w trybach 8/16bpp. Jednak dla 800x600@16bpp sterownik jest bardzo wolny
+    i nie dzia&#322;a prawid&#322;owo. <span class="bold"><b>Zalecane: 640x480@16bpp</b></span>
+   </li><li>
+    XFree86 4: Xserver przestaje odpowiada&#263; krótko po starcie, chyba &#380;e
+    akceleracja jest wy&#322;&#261;czona, jednak wszystko dzia&#322;a wolniej ni&#380; na XFree86 3. Brak
+    obs&#322;ugi XVideo.
+   </li><li>
+    FBdev: framebuffer mo&#380;e by&#263; w&#322;&#261;czony poprzez sterownik <tt>clgenfb</tt>
+    znajduj&#261;cy si&#281; w j&#261;drze, jednak u mnie dzia&#322;a&#322; tylko w 8bpp, a wi&#281;c jest bezu&#380;yteczny.
+    &#377;ród&#322;o clgenfb musi by&#263; rozszerzone o ID 7548 przed kompilacj&#261;.
+   </li><li>
+    VESA: karta spe&#322;nia tylko standard VBE 1.2, wi&#281;c nie mo&#380;esz u&#380;y&#263; wyj&#347;cia VESA.
+    Nie mo&#380;esz zastosowa&#263; obej&#347;cia przez UniVBE.
+  </li><li>
+    SVGAlib: wykrywa starszy uk&#322;ad Cirrusa. Dzia&#322;a, chocia&#380; jest wolny z
+    <tt class="option">-bpp 8</tt>.
+  </li></ul></div><p>
+</p></li></ul></div></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="sound-cards"></a>1.2.4. Karty d&#378;wi&#281;kowe</h3></div></div><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>Soundblaster Live!</b></span>: z t&#261; kart&#261; mo&#380;esz u&#380;ywa&#263;
+  4 lub 6 (<span class="bold"><b>5.1</b></span>) kana&#322;owego dekodowania AC3, zamiast 2.
+  Przeczytaj rozdzia&#322; <a href="codecs.html#swac3" title="2.2.2.1. Programowe dekodowanie AC3">Programowe dekodowanie AC3</a>. Dla
+  sprz&#281;towej obróbki AC3 <span class="bold"><b>musisz</b></span> u&#380;y&#263; ALSA 0.9
+  z emulacj&#261; OSS!
+  </li><li>
+  <span class="bold"><b>C-Media z wyj&#347;ciem S/PDIF</b></span>: Mo&#380;liwa jest sprz&#281;towa
+  obróbka AC3 z tymi kartami, przeczytaj rozdzia&#322;
+  <a href="codecs.html#hwac3" title="2.2.2.2. Sprz&#281;towe dekodowanie AC3">Sprz&#281;towe dekodowanie AC3</a>.
+  </li><li>
+  Mo&#380;liwo&#347;ci <span class="bold"><b>innych kart</b></span> nie s&#261; obs&#322;ugiwane przez
+  <span class="application">MPlayera</span>. <span class="bold"><b>Zalecamy, aby&#347; przeczyta&#322;
+  sekcj&#281; <a href="audio.html" title="2.4. Urz&#261;dzenia wyj&#347;ciowe audio">karty d&#378;wi&#281;kowe</a>!</b></span>
+  </li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2841337"></a>1.2.5. Mo&#380;liwo&#347;ci</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  Zdecyduj czy potrzebujesz GUI. Je&#347;li tak, przeczytaj rozdzia&#322; <a href="gui.html" title="1.3. A co z GUI?">GUI
+  </a> przed kompilacj&#261;.
+  </p></li><li><p>
+  Je&#380;eli chcesz zainstalowa&#263; <span class="application">MEncodera</span> (naszego
+  wspania&#322;ego enkodera do wszelkich celów), przeczytaj sekcj&#281; <a href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem">
+  <span class="application">MEncoder</span></a>.
+  </p></li><li><p>
+  Je&#380;eli masz <span class="bold"><b>tuner TV</b></span> kompatybilny z V4L i
+  chcesz ogl&#261;da&#263;/przechwytywa&#263; i kodowa&#263; filmy przy pomocy <span class="application">MPlayera</span>,
+  przeczytaj rozdzia&#322; <a href="tv-input.html" title="2.5. Wej&#347;cie TV">wej&#347;cie TV</a>.
+  </p></li><li><p>
+  Dost&#281;pne jest mi&#322;e, gotowe do u&#380;ycia <span class="bold"><b>Menu OSD</b></span>.
+  Przeczytaj rozdzia&#322; <a href="subosd.html" title="1.4. Napisy i OSD">menu OSD</a>.
+  </p></li></ul></div><p>
+Potem skompiluj <span class="application">MPlayera</span>:
+<pre class="screen">
+./configure
+make
+make install</pre>
+</p><p>
+W tym momencie <span class="application">MPlayer</span> jest ju&#380; gotowy do u&#380;ycia.
+Katalog <tt class="filename">$PREFIX/share/mplayer</tt>
+zawiera plik <tt class="filename">codecs.conf</tt>, który informuje program o
+wszystkich, dost&#281;pnych kodekach i ich mo&#380;liwo&#347;ciach. Plik ten potrzebny Ci
+b&#281;dzie tylko wtedy, je&#380;eli b&#281;dziesz chcia&#322; zmodyfikowa&#263; jego ustawienia, jako &#380;e
+plik wykonywalny zawiera go ju&#380; w sobie. Sprawd&#378; czy masz
+<tt class="filename">codecs.conf</tt> ze starych wersji
+<span class="application">MPlayera</span> w swoim katalogu domowym
+(<tt class="filename">~/.mplayer/codecs.conf</tt>) i usu&#324; go.
+</p><p>
+Zauwa&#380;, &#380;e je&#380;eli masz <tt class="filename">codecs.conf</tt> w
+<tt class="filename">~/.mplayer/</tt>, wbudowany i systemowy
+<tt class="filename">codecs.conf</tt> b&#281;d&#261; ca&#322;kowicie zignorowane.
+Nie rób tak, chyba &#380;e chcesz pobawi&#263; si&#281; z ustawieniami wewn&#281;trznymi
+<span class="application">MPlayera</span>, poniewa&#380; mo&#380;e to spowodowa&#263; wiele
+problemów. Je&#380;eli chcesz zmieni&#263; kolejno&#347;&#263; szukania kodeków, skorzystaj
+z opcji <tt class="option">-vc</tt>, <tt class="option">-ac</tt>, <tt class="option">-vfm</tt>
+lub <tt class="option">-afm</tt> w linii polece&#324;, lub w Twoim pliku konfiguracyjnym
+(sprawd&#378; stron&#281; man).
+</p><p>
+U&#380;ytkownicy Debiana mog&#261; sobie zbudowa&#263; paczk&#281; .deb, jest
+to bardzo proste. Wykonaj
+<pre class="screen">fakeroot debian/rules binary</pre>
+w g&#322;ównym katalogu <span class="application">MPlayera</span>. Przeczytaj rozdzia&#322;
+<a href="linux.html#debian" title="6.1.1. Pakiety Debiana">paczki Debiana</a>, aby uzyska&#263; wi&#281;cej informacji.
+</p><p>
+<span class="bold"><b>Zawsze przejrzyj wyniki</b></span>
+<tt class="filename">./configure</tt> i plik
+<tt class="filename">configure.log</tt>, zawieraj&#261; one informacje o tym, co b&#281;dzie zbudowane,
+a co nie. Mo&#380;esz równie&#380; obejrze&#263; pliki
+<tt class="filename">config.h</tt> i <tt class="filename">config.mak</tt>.
+Je&#380;eli masz zainstalowane jakie&#347; biblioteki, ale nie s&#261; one wykrywane przez
+<tt class="filename">./configure</tt>, sprawd&#378; czy masz równie&#380; odpowiednie
+pliki nag&#322;ówkowe (przewa&#380;nie pakiety -dev) i ich wersje si&#281; zgadzaj&#261;. Plik
+<tt class="filename">configure.log</tt> zazwyczaj powie Ci, czego brakuje.
+</p><p>
+Chocia&#380; nie jest to konieczne, czcionki powinny by&#263; zainstalowane, &#380;eby&#347; móg&#322;
+korzysta&#263; z OSD i napisów. Zalecana jest instalacja czcionki TTF i ustawienie
+<span class="application">MPlayera</span> tak, &#380;eby z niej korzysta&#322;. Przeczytaj
+rozdzia&#322; <a href="subosd.html" title="1.4. Napisy i OSD">Napisy i OSD</a> dla uzyskania bardziej
+szczegó&#322;owych informacji.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="history.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="gui.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">1.1. Historia </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 1.3. A co z GUI?</td></tr></table></div></body></html>

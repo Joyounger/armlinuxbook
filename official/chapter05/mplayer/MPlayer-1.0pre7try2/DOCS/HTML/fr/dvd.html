@@ -1,0 +1,115 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.2. Lecture de DVDs</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="cd-dvd.html" title="Chapitre 5. Utilisation des CD/DVD"><link rel="previous" href="drives.html" title="5.1. Lecteurs CD/DVD"><link rel="next" href="vcd.html" title="5.3. Lecture de VCDs"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.2. Lecture de DVDs</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="drives.html">Précédent</a> </td><th width="60%" align="center">Chapitre 5. Utilisation des CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="vcd.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="dvd"></a>5.2. Lecture de DVDs</h2></div></div><p>
+Pour voir la liste complète des options disponibles, veuillez lire la page de man.
+La syntaxe pour lire un Digital Versatile Disc (DVD) est la suivante:
+<pre class="screen">mplayer dvd://<i><tt>&lt;piste&gt;</tt></i> [-dvd-device <i><tt>&lt;périphérique&gt;</tt></i>]</pre>
+</p><p>
+Exemple:
+<pre class="screen">mplayer dvd://<i><tt>1</tt></i> -dvd-device <i><tt>/dev/hdc</tt></i></pre>
+</p><p>
+Le périphérique DVD par défaut est <tt class="filename">/dev/dvd</tt>. Si votre
+installation diffère, faites un lien symbolique ou spécifiez le périphérique
+correct en ligne de commande avec l'option <tt class="option">-dvd-device</tt>.
+</p><p><b>Nouvelle méthode de lecture DVD (mpdvdkit2). </b>
+<span class="application">MPlayer</span> utilise <tt>libdvdread</tt> et
+<tt>libdvdcss</tt> pour le décryptage et la lecture de DVD.
+Ces deux bibliothèques sont incluses dans le sous-répertoire
+<tt class="filename">libmpdvdkit2/</tt> du répertoire
+source de <span class="application">MPlayer</span>, vous n'avez donc pas besoin de les 
+installer séparément. Nous avons opté pour cette solution car nous devions corriger 
+un bug de <tt>libdvdread</tt>, et appliquer un patch qui ajoute
+<span class="bold"><b>un cache pour les clés CSS cassées</b></span> à
+<tt>libdvdcss</tt>. Le résultat est bien plus rapide car les clés
+n'ont pas à être cassées à chaque lecture.
+</p><p>
+<span class="application">MPlayer</span> peut également utiliser les bibliothèques
+globales au système <tt>libdvdread</tt>
+et <tt>libdvdcss</tt> mais cette solution n'est
+<span class="bold"><b>pas</b></span> recommandée, car elle peut provoquer des
+bogues, des incompatibilités de librairies, et une vitesse moins importante.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+En cas de problème de décodage de DVD, essayez de désactiver supermount, et tout les
+outils de ce genre.
+</p></div><p><b>structure d'un DVD. </b>
+Les disques DVD utilisent tous des secteurs de 2048 octets par secondes avec ECC/CRC. Ils ont
+généralement un système de fichier UDF sur une seule piste, qui contient des fichiers variés (des
+petits fichiers .IFO et .BUK et de gros (1Go) fichiers .VOB). Ce sont de véritables fichiers et ils
+peuvent être joués/copiés depuis le système de fichier monté d'un DVD non-crypté.
+</p><p>
+Les fichiers .IFO contiennent les infos de navigation dans le film (carte des chapitres/titres/angles,
+table des langues, etc) et sont requis pour lire et interpréter le contenu des .VOB (le film). Les
+fichiers .BUK sont des backups de ces fichiers. Ils utilisent des <span class="bold"><b>secteurs</b></span>
+partout, donc vous avez besoin d'utiliser un adressage brut des secteurs sur le disque pour implémenter
+la navigation DVD. C'est également requis pour décrypter le contenu.
+</p><p>
+Le support DVD nécessite un accès brut aux secteurs du périphérique. Malheureusement
+vous devez (sous Linux) être root pour avoir accès aux secteurs d'un fichier. C'est
+pourquoi nous n'utilisons pas du tout le pilote de système de fichier du noyau, à
+la place nous l'avons réimplémenté en espace utilisateur. <tt>libdvdread</tt>
+0.9.x et <tt>libmpdvdkit</tt> font cela. Le pilote pour système
+de fichier UDF du noyau n'est pas requis puisqu'ils ont déjà leur pilote UDF incorporé.
+De plus le DVD n'a pas besoin d'être monté tant que l'accès brut aux secteurs est utilisé.
+</p><p>
+Parfois <tt class="filename">/dev/dvd</tt> ne peut être lu par les utilisateurs, les auteurs de
+<tt>libdvdread</tt> ont donc implémenté une couche d'émulation qui transforme les
+adresses des secteurs en noms de fichier+offsets, pour émuler l'accès brut sur un système de fichier
+monté ou même sur un disque dur.
+</p><p>
+<tt>libdvdread</tt> accepte même le point de montage au lieu du nom de périphérique
+pour l'accès brut et regarde dans <tt class="filename">/proc/mounts</tt> pour obtenir le nom de périphérique.
+Il a été développé pour Solaris, où les noms de périphériques sont alloués dynamiquement.
+</p><p>
+Le périphérique DVD par défaut est <tt class="filename">/dev/dvd</tt>. Si votre installation diffère, faites
+un lien symbolique ou spécifiez le bon périphérique en ligne de commande avec l'option
+<tt class="option">-dvd-device</tt>.
+</p><p><b>Certification DVD. </b>
+La nouvelle méthode de certification et de décryptage est fait par un <tt>libdvdcss</tt>
+patché (voir plus haut). La méthode peut être spécifiée avec la variable d'environnement <tt>DVDCSS_METHOD</tt>
+qui peut être initialisée à key, disk ou title.
+</p><p>
+Si rien n'est spécifié il essaie les méthodes suivantes (par défaut: clé, demande de titre):
+</p><div class="orderedlist"><ol type="1"><li><p>
+<span class="bold"><b>clé bus</b></span>: Cette clé est
+négociée durant l'authentification (une longue suite
+d'ioctls et d'échanges de diverses clefs cryptographiques) et est
+utilisé pour crypter le titre et la clef du
+disque avant de les envoyer sur un bus non protégé (pour
+empêcher les écoutes). La clef bus est nécessaire
+pour obtenir et pré-décrypter la clef disque cryptée.
+
+</p></li><li><p>
+<span class="bold"><b>clé mise en cache</b></span>: <span class="application">MPlayer</span>
+cherche une clé déjà cassée dans le répertoire
+<tt class="filename">~/.mplayer/DVDKeys</tt> (rapide ;).
+</p></li><li><p>
+<span class="bold"><b>clé</b></span>: Si aucune clé n'est disponible dans le cache,
+<span class="application">MPlayer</span> essaie de décrypter la clé disque avec un ensemble de clés incluses.
+</p></li><li><p>
+<span class="bold"><b>disque</b></span>: Si la méthode clé échoue (ex: pas de clés incluses),
+<span class="application">MPlayer</span> va casser la clé disque avec un algorithme brute force. Ce
+processus est intensif pour le CPU et requiert 60 Mo de mémoire (table de hachage 32Bit de 16M) pour
+stocker temporairement les données. Cette méthode devrait toujours fonctionner (lent).
+</p></li><li><p>
+<span class="bold"><b>demande de titre</b></span>: Avec les clés disque <span class="application">MPlayer</span>
+demande les clés titre cryptées, qui sont à l'intérieur de <span class="emphasis"><i>secteurs cachés</i></span>
+en utilisant <tt>ioctl()</tt>. La protection de région des lecteurs RPC-2 devrait
+opérer à cette étape et devrait échouer sur ces lecteurs. Si elle réussit, les clés titre seront
+cryptées avec les clés bus et disque.
+</p></li><li><p>
+<span class="bold"><b>titre</b></span>: Cette méthode est utilisée si la demande de titre a échoué et ne
+repose sur aucun échange de clé avec le lecteur DVD. Il utilise une attaque crypto pour deviner la clé
+titre directement (en trouvant un motif répété dans le contenu VOB décodé et en supposant que le texte
+en clair correspondant aux premiers octets cryptés est une continuation de ce motif). Cette méthode est
+également connue sous le nom de "known plaintext attack" ou "DeCSSPlus". Dans de
+rares cas cela peut échouer car il n'y a pas assez de données cryptées sur le disque pour pour faire
+une attaque statistique ou à cause des changements de clé au milieu du titre. C'est la seule façon de
+décrypter un DVD stocké sur le disque dur ou un DVD avec une mauvaise zone sur un lecteur RPC2 (lent).
+</p></li></ol></div><p>
+Les lecteurs DVD RPC-1 ne protègent les réglages de protection de zone que de façon logicielle. Les
+lecteurs RPC-2 ont une protection matérielle qui ne permet que 5 changements. Il peut être
+requis/recommandé d'upgrader le firmware en RPC-1 si vous avez un lecteur DVD RPC-2. Les upgrades
+firmware peuvent être trouvées sur cette <a href="http://www.firmware-flash.com" target="_top">page de firmware</a>.
+Si il n'y a pas d'upgrade de firmware disponible pour votre périphérique, utilisez l'
+<a href="http://www.linuxtv.org/download/dvd/dvd_disc_20000215.tar.gz" target="_top">outil de réglage de zone</a>
+pour changer le code de zone de votre lecteur DVD (sous Linux).
+<span class="bold"><b>Attention</b></span>: Vous ne pouvez régler la zone que 5 fois.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="drives.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="vcd.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">5.1. Lecteurs CD/DVD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 5.3. Lecture de VCDs</td></tr></table></div></body></html>

@@ -1,0 +1,57 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.1. P&#345;íkazový &#345;ádek</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="usage.html" title="Kapitola 3. Pou&#382;ití"><link rel="previous" href="usage.html" title="Kapitola 3. Pou&#382;ití"><link rel="next" href="control.html" title="3.2. Ovládání"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.1. P&#345;íkazový &#345;ádek</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="usage.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 3. Pou&#382;ití</th><td width="20%" align="right"> <a accesskey="n" href="control.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="commandline"></a>3.1. P&#345;íkazový &#345;ádek</h2></div></div><p>
+<span class="application">MPlayer</span> vyu&#382;ívá komplexní strukturu voleb. Ta sestává
+z globálních voleb uvád&#283;ných jako první, nap&#345;íklad:
+
+<pre class="screen">mplayer -vfm 5</pre>
+
+a voleb zapisovaných za jménem souboru, které se projeví pouze u tohoto jména
+souboru/URL/&#269;ehokoli, nap&#345;íklad:
+
+<pre class="screen">mplayer -vfm 5 <i><tt>film1.avi</tt></i> <i><tt>film2.avi</tt></i> -vfm 4</pre>
+</p><p>
+M&#367;&#382;ete seskupovat jména soubor&#367;/adresy URL pomocí <tt>{</tt> a
+<tt>}</tt>. Toho se dá vyu&#382;ít s volbou <tt class="option">-loop</tt>:
+
+<pre class="screen">mplayer { 1.avi -loop 2 2.avi } -loop 3</pre>
+
+Vý&#353;e uvedený p&#345;íkaz p&#345;ehraje soubory v tomto po&#345;adí: 1, 1, 2, 1, 1, 2, 1, 1, 2.
+</p><p>
+P&#345;ehrávání souboru:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>volby</tt></i>] [<i><tt>cesta</tt></i>/]<i><tt>soubor</tt></i>
+</pre>
+</p><p>
+P&#345;ehrávání více soubor&#367;:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>výchozí volby</tt></i>] [<i><tt>cesta</tt></i>/]<i><tt>soubor1</tt></i> [<i><tt>volby pro soubor1</tt></i>] <i><tt>soubor2</tt></i> [<i><tt>volby pro soubor2</tt></i>] ...
+</pre>
+</p><p>
+P&#345;ehrávání VCD:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>volby</tt></i>] vcd://<i><tt>&#269;íslo_stopy</tt></i> [-cdrom-device <i><tt>/dev/cdrom</tt></i>]
+</pre>
+</p><p>
+P&#345;ehrávání DVD:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>volby</tt></i>] dvd://<i><tt>&#269;íslo_titulu</tt></i> [-dvd-device <i><tt>/dev/dvd</tt></i>]
+</pre>
+</p><p>
+P&#345;ehrávání z WWW:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>volby</tt></i>] http://<i><tt>doména.com/soubor.asf</tt></i>
+</pre>
+(rovn&#283;&#382; lze pou&#382;ít playlisty)
+</p><p>
+P&#345;ehrávání z RTSP:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>volby</tt></i>] rtsp://<i><tt>server.priklad.com/JmenoProudu</tt></i>
+</pre>
+</p><p>
+P&#345;íklady:
+<pre class="screen">
+mplayer -vo x11 <i><tt>/mnt/Filmy/Kontakt/kontakt2.mpg</tt></i>
+mplayer vcd://<i><tt>2</tt></i> -cdrom-device <i><tt>/dev/hdc</tt></i>
+mplayer -afm 3 <i><tt>/mnt/DVDtrailery/alien4.vob</tt></i>
+mplayer dvd://<i><tt>1</tt></i> -dvd-device <i><tt>/dev/hdc</tt></i>
+mplayer -abs 65536 -delay -0.4 -nobps <i><tt>~/filmy/test.avi</tt></i></pre>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="usage.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="control.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">Kapitola 3. Pou&#382;ití </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> 3.2. Ovládání</td></tr></table></div></body></html>

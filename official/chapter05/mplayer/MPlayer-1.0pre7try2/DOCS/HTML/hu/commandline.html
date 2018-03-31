@@ -1,0 +1,57 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.1. Parancssor</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="usage.html" title="3. fejezet - Használat"><link rel="previous" href="usage.html" title="3. fejezet - Használat"><link rel="next" href="control.html" title="3.2. Vezérlés"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.1. Parancssor</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="usage.html">El&#337;z&#337;</a> </td><th width="60%" align="center">3. fejezet - Használat</th><td width="20%" align="right"> <a accesskey="n" href="control.html">Következ&#337;</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="commandline"></a>3.1. Parancssor</h2></div></div><p>
+Az <span class="application">MPlayer</span> egy komplex lejátszási sort használ. El&#337;ször a
+globális opciók szerepelnek, például
+
+<pre class="screen">mplayer -vfm 5</pre>
+
+majd a fájlnév után írt kapcsolók, amik csak a megadott fájlra/URL-re/bármire vonatkoznak,
+például:
+
+<pre class="screen">mplayer -vfm 5 <i><tt>movie1.avi</tt></i> <i><tt>movie2.avi</tt></i> -vfm 4</pre>
+</p><p>
+A fájlneveket/URL-eket csoportosíthatod a <tt>{</tt> és <tt>}</tt>
+segítségével. Ez f&#337;leg a <tt class="option">-loop</tt> kapcsolóval együtt hasznos:
+
+<pre class="screen">mplayer { 1.avi -loop 2 2.avi } -loop 3</pre>
+
+A fenti parancs a fájlokat ebben a sorrendben játsza le: 1, 1, 2, 1, 1, 2, 1, 1, 2.
+</p><p>
+Egy fájl lejátszása:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>kapcsolók</tt></i>] [<i><tt>elérési út</tt></i>/]<i><tt>fájlnév</tt></i>
+</pre>
+</p><p>
+Több fájl lejátszása:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>alapértelmezett kapcsolók</tt></i>] [<i><tt>elérési út</tt></i>/]<i><tt>fájlnév1</tt></i> [<i><tt>fájlnév1 kapcsolói</tt></i>] <i><tt>fájlnév2</tt></i> [<i><tt>fájlnév2 kapcsolói</tt></i>] ...
+</pre>
+</p><p>
+VCD lejátszása:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>kapcsolók</tt></i>] vcd://<i><tt>sávszám</tt></i> [-cdrom-device <i><tt>/dev/cdrom</tt></i>]
+</pre>
+</p><p>
+DVD lejátszása:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>kapcsolók</tt></i>] dvd://<i><tt>cím szám</tt></i> [-dvd-device <i><tt>/dev/dvd</tt></i>]
+</pre>
+</p><p>
+Lejátszás a WWW-r&#337;l:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>kapcsolók</tt></i>] http://<i><tt>site.com/file.asf</tt></i>
+</pre>
+(lejátszási listák is megadhatóak)
+</p><p>
+Lejátszás RTSP-r&#337;l:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>kapcsolók</tt></i>] rtsp://<i><tt>server.example.com/streamName</tt></i>
+</pre>
+</p><p>
+Példák:
+<pre class="screen">
+mplayer -vo x11 <i><tt>/mnt/Films/Contact/contact2.mpg</tt></i>
+mplayer vcd://<i><tt>2</tt></i> -cdrom-device <i><tt>/dev/hdc</tt></i>
+mplayer -afm 3 <i><tt>/mnt/DVDtrailers/alien4.vob</tt></i>
+mplayer dvd://<i><tt>1</tt></i> -dvd-device <i><tt>/dev/hdc</tt></i>
+mplayer -abs 65536 -delay -0.4 -nobps <i><tt>~/movies/test.avi</tt></i></pre>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="usage.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="control.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">3. fejezet - Használat </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 3.2. Vezérlés</td></tr></table></div></body></html>

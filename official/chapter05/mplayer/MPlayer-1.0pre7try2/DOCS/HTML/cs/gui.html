@@ -1,0 +1,24 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.3. Cht&#283;li byste GUI?</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="intro.html" title="Kapitola 1. P&#345;edstavení"><link rel="previous" href="install.html" title="1.2. Instalace"><link rel="next" href="subosd.html" title="1.4. Titulky a OSD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.3. Cht&#283;li byste GUI?</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="install.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 1. P&#345;edstavení</th><td width="20%" align="right"> <a accesskey="n" href="subosd.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="gui"></a>1.3. Cht&#283;li byste GUI?</h2></div></div><p>
+  GUI pot&#345;ebuje GTK 1.2.x (není pln&#283; GTK, ale panely jsou). Skiny jsou ulo&#382;eny
+  v PNG formátu,
+  tak&#382;e GTK, <tt>libpng</tt>
+  (a jejich p&#345;íslu&#353;enství, obvykle nazývané <tt>gtk-dev</tt>
+  a <tt>libpng-dev</tt>) musí být nainstalovány.
+  M&#367;&#382;ete jej zakompilovat p&#345;edáním volby <tt class="option">--enable-gui</tt> skriptu
+  <tt class="filename">./configure</tt>. Aktivaci GUI re&#382;imu pak provedete spu&#353;t&#283;ním
+  binárky <b>gmplayer</b>.
+</p><p>
+  V sou&#269;asnosti lze také p&#345;edat volbu <tt class="option">-gui</tt> na p&#345;íkazovém &#345;ádku,
+  z technických d&#367;vod&#367;.
+</p><p>
+  Proto&#382;e <span class="application">MPlayer</span> nemá p&#345;ibalen &#382;ádný skin, budete si
+  muset n&#283;jaký stáhnout abyste mohli pou&#382;ívat GUI. Viz na&#353;i <a href="http://www.mplayerhq.hu/homepage/dload.html" target="_top">download stránku</a>.
+  Skiny by m&#283;ly být rozbaleny do obvyklého systémového adresá&#345;e
+  (<tt class="filename">$PREFIX/share/mplayer/Skin</tt>),
+  nebo do <tt class="filename">$HOME/.mplayer/Skin</tt>.
+  <span class="application">MPlayer</span> ve výchozím stavu hledá v t&#283;chto adresá&#345;ích
+  podadresá&#345; jménem <tt class="filename">default</tt>, ale
+  m&#367;&#382;ete pou&#382;ít volbu <tt class="option">-skin <i><tt>nový_skin</tt></i></tt>
+  nebo direktivu <tt>skin=nový_skin</tt> konfigura&#269;ního souboru pro
+  pou&#382;ití skinu v adresá&#345;i <tt class="filename">*/Skin/nový_skin</tt>.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="install.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="subosd.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">1.2. Instalace </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> 1.4. Titulky a OSD</td></tr></table></div></body></html>

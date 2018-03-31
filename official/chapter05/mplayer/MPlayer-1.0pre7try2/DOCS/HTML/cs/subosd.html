@@ -1,0 +1,207 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.4. Titulky a OSD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="intro.html" title="Kapitola 1. P&#345;edstavení"><link rel="previous" href="gui.html" title="1.3. Cht&#283;li byste GUI?"><link rel="next" href="rtc.html" title="1.5. RTC"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.4. Titulky a OSD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="gui.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 1. P&#345;edstavení</th><td width="20%" align="right"> <a accesskey="n" href="rtc.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="subosd"></a>1.4. Titulky a OSD</h2></div></div><p>
+<span class="application">MPlayer</span> umí zobrazovat titulky spolu s filmem.
+V sou&#269;asnosti podporuje tyto formáty:
+</p><div class="itemizedlist"><ul type="disc"><li><p>VOBsub</p></li><li><p>OGM</p></li><li><p>CC (closed caption)</p></li><li><p>MicroDVD</p></li><li><p>SubRip</p></li><li><p>SubViewer</p></li><li><p>Sami</p></li><li><p>VPlayer</p></li><li><p>RT</p></li><li><p>SSA</p></li><li><p>PJS (Phoenix Japanimation Society)</p></li><li><p><a href="subosd.html#mpsub" title="1.4.1. Vlastní formát titulk&#367; MPlayeru (MPsub)">MPsub</a></p></li><li><p>AQTitle</p></li><li><p><a href="http://unicorn.us.com/jacosub/" target="_top">JACOsub</a></p></li></ul></div><p>
+</p><p>
+<span class="application">MPlayer</span> umí vyextrahovat vý&#353;e uvedené formáty titulk&#367;
+(<span class="bold"><b>s výjimkou prvních t&#345;ech</b></span>) do následujících
+cílových formát&#367; zadáním p&#345;íslu&#353;ných voleb:
+</p><div class="itemizedlist"><ul type="disc"><li><p>MPsub: <tt class="option">-dumpmpsub</tt></p></li><li><p>SubRip: <tt class="option">-dumpsrtsub</tt></p></li><li><p>MicroDVD: <tt class="option">-dumpmicrodvdsub</tt></p></li><li><p>JACOsub: <tt class="option">-dumpjacosub</tt></p></li><li><p>Sami: <tt class="option">-dumpsami</tt></p></li></ul></div><p>
+</p><p>
+<span class="application">MEncoder</span> umí vyextrahovat DVD titulky do formátu
+<a href="menc-feat-extractsub.html" title="7.7. Extracting DVD subtitles to VOBsub file">VOBsub</a>.
+</p><p>
+Volby p&#345;íkazového &#345;ádku se mírn&#283; li&#353;í pro r&#367;zné formáty:
+</p><p><b>VOBsub titulky. </b>
+VOBsub titulky sestávají z velkého (&#345;ádov&#283; megabajty) <tt class="filename">.SUB</tt> souboru,
+a volitelného <tt class="filename">.IDX</tt> a/nebo <tt class="filename">.IFO</tt>
+souboru. Pokud máte soubory jako
+<tt class="filename"><i><tt>p&#345;íklad.sub</tt></i></tt>,
+<tt class="filename"><i><tt>p&#345;íklad.ifo</tt></i></tt> (volitelné),
+<tt class="filename"><i><tt>p&#345;íklad.idx</tt></i></tt> - m&#283;li byste p&#345;edat
+<span class="application">MPlayer</span>u volby <tt class="option">-vobsub p&#345;íklad
+[-vobsubid <i><tt>id</tt></i>]</tt> (voliteln&#283; s plnou cestou).
+Volba <tt class="option">-vobsubid</tt> je jako volba
+<tt class="option">-sid</tt> pro DVD, její pomocí si m&#367;&#382;ete vybrat mezi titulkovými
+stopami (jazyky). Pokud vynecháte <tt class="option">-vobsubid</tt>, pokusí se
+<span class="application">MPlayer</span> pou&#382;ít jazyky p&#345;edané volbou
+<tt class="option">-slang</tt> a v p&#345;ípad&#283; selhání se vrátí zp&#283;t k
+<tt>langidx</tt>
+v souboru <tt class="filename">.IDX</tt> pro nastavení jazyku titulk&#367;. Pokud i zde
+sel&#382;e, nebudou titulky.
+</p><p><b>Ostatní titulky. </b>
+Ostatní formáty titulk&#367; sestávají z jediného textového souboru obsahujícího
+&#269;asování, umíst&#283;ní a text titulk&#367;. Pou&#382;ití: Máme-li soubor, nap&#345;íklad
+<tt class="filename"><i><tt>p&#345;íklad.txt</tt></i></tt>,
+m&#283;li byste zadat volbu <tt class="option">-sub <i><tt>p&#345;íklad.txt</tt></i></tt>
+(voliteln&#283; s plnou cestou).
+</p><div class="variablelist"><p><b>Nastavení &#269;asování a umíst&#283;ní titulk&#367;:</b></p><dl><dt><span class="term"><tt class="option">-subdelay <i><tt>sek</tt></i></tt></span></dt><dd>
+    Zpozdí titulky o <tt class="option"><i><tt>sek</tt></i></tt> sekund.
+    Hodnota m&#367;&#382;e být i záporná. Zadaná hodnota se p&#345;ipo&#269;te k ukazateli &#269;asové
+    pozice filmu.
+    </dd><dt><span class="term"><tt class="option">-subfps <i><tt>RYCHLOST</tt></i></tt></span></dt><dd>
+    Nastaví snímkovou rychlost souboru s titulky (desetinné &#269;íslo).
+    </dd><dt><span class="term"><tt class="option">-subpos <i><tt>0-100</tt></i></tt></span></dt><dd>
+    Nastavuje umíst&#283;ní titulk&#367;.
+    </dd></dl></div><p>
+Pokud se zv&#283;t&#353;uje rozdíl mezi filmem a titulky p&#345;i pou&#382;ití
+titulkového souboru ve formátu MicroDVD, je nejspí&#353; rozdílná snímková rychlost
+filmu a titulk&#367;. Poznamenejme, &#382;e formát titulk&#367; MicroDVD pou&#382;ívá absolutní
+&#269;ísla snímk&#367;
+pro své &#269;asování, ale neobsahuje údaj o své snímkové rychlosti. Proto byste m&#283;li
+pou&#382;ít volbu <tt class="option">-subfps</tt> s tímto formátem.
+Trvale lze snímkovou rychlost synchronizovat pouze manuální konverzí souboru
+s titulky.
+Konverzi m&#367;&#382;ete provést p&#345;ímo <span class="application">MPlayer</span>em
+(fps=snímková rychlost):
+
+<pre class="screen">mplayer -dumpmicrodvdsub -fps <i><tt>fps_titulk&#367;</tt></i> -subfps <i><tt>fps_filmu</tt></i> -sub <i><tt>soubor_s_titulky</tt></i> <i><tt>n&#283;jaké.avi</tt></i></pre>
+</p><p>
+Informace o DVD titulcích naleznete v sekci <a href="dvd.html" title="5.2. P&#345;ehrávání DVD">DVD</a>.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mpsub"></a>1.4.1. Vlastní formát titulk&#367; <span class="application">MPlayer</span>u (MPsub)</h3></div></div><p>
+<span class="application">MPlayer</span> vám p&#345;edstavuje nový formát titulk&#367; nazvaný
+<span class="bold"><b>MPsub</b></span>. Ten byl vyvinut Gabucinem.
+Jeho hlavním ú&#269;elem je být <span class="emphasis"><i>dynamicky</i></span> &#269;asov&#283;-orientovaný
+(a&#269;koli má i snímkový re&#382;im).  P&#345;íklad (z <a href="../../tech/mpsub.sub" target="_top">DOCS/tech/mpsub.sub</a>):
+<pre class="programlisting">
+FORMAT=TIME
+# první &#269;íslo  : vy&#269;kej takto dlouho po zmizení p&#345;edchozího titulku
+# druhé &#269;íslo  : Zobrazuj aktuální titulek tolik sekund
+
+15 3
+P&#345;ed dávnými &#269;asy...
+
+0 3
+ve velmi vzdálené galaxii...
+
+0 3
+Planeta Naboo byla napadena.</pre>
+</p><p>
+Jak vidíte, na&#353;ím hlavním cílem bylo <span class="bold"><b>ud&#283;lat
+editaci/&#269;asování/spojování/st&#345;íhání titulk&#367; co nejsnadn&#283;j&#353;í</b></span>.
+A pokud -&#345;ekn&#283;me - dostanete SSA titulky, ale &#353;patn&#283; &#269;asované/opo&#382;d&#283;né
+v&#367;&#269;i va&#353;í verzi filmu, jednodu&#353;e prove&#271;te
+<pre class="screen">mplayer <i><tt>dummy.avi</tt></i> -sub source.ssa -dumpmpsub</pre>
+To vytvo&#345;í soubor <tt class="filename">dump.mpsub</tt> v aktuálním adresá&#345;i, který
+bude obsahovat p&#367;vodní text titulk&#367;, ale ve formátu 
+<span class="bold"><b>MPsub</b></span>. Pak m&#367;&#382;ete dle libosti p&#345;idávat a ubírat
+sekundy z jednotlivých titulk&#367;.
+</p><p>
+Titulky jsou vykreslovány technikou zvanou <span class="bold"><b>'OSD',
+Display na obrazovce</b></span>. OSD je pou&#382;íváno k zobrazení &#269;asové pozice, pruh
+hlasitosti, pruh vyhledávání atd.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mpsub-install"></a>1.4.2. Instalace OSD a titulk&#367;</h3></div></div><p>
+Pot&#345;ebujete <span class="application">MPlayer</span>&#367;v balí&#269;ek s fonty pro pou&#382;ití
+OSD/TIT. Existuje mnoho zp&#367;sob&#367; jak jej získat:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  Pou&#382;ijte generátor font&#367; <tt class="filename">TOOLS/subfont-c</tt>. Je to úplný nástroj pro
+  konverzi z TTF/Type1/etc fontu na balí&#269;ek fontu pro mplayer (podrobnosti si
+  p&#345;e&#269;t&#283;te v <tt class="filename">TOOLS/subfont-c/README</tt>).
+  </p></li><li><p>
+  Pou&#382;ijte generátor fontu ve verzi pluginu pro <span class="application">GIMP</span>
+  z <tt class="filename">TOOLS/subfont-GIMP</tt>
+ (poznámka: musíte mít také HSI
+  RAW plugin, viz <a href="http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts" target="_top">http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts</a>).
+ </p></li><li><p>
+  pou&#382;itím TrueType (TTF) fontu, ve smyslu knihovny <tt>freetype</tt>.
+  Vy&#382;adována je verze 2.0.9 nebo vy&#353;&#353;í! Máte pak dv&#283; metody:
+  </p><div class="itemizedlist"><ul type="round"><li><p>
+      pou&#382;ijte volbu <tt class="option">-font <i><tt>/path/to/sample_font.ttf</tt></i></tt>
+      pro výb&#283;r fontu p&#345;i ka&#382;dé p&#345;íle&#382;itosti
+      </p></li><li><p>
+      vytvo&#345;te symlink:
+      <pre class="screen">ln -s <i><tt>/path/to/sample_font.ttf</tt></i> ~/.mplayer/subfont.ttf</pre>
+      </p></li></ul></div><p>
+  Pokud byl <span class="application">MPlayer</span> zkompilován s podporou
+  <tt>fontconfig</tt>, vý&#353;e uvedené metody
+  nebudou pracovat, místo toho <tt class="option">-font</tt> o&#269;ekává jméno fontu
+  <tt>fontconfig</tt>
+  a ve výchozím stavu pou&#382;ije bezpatkový (sans-serif) font. Pro seznam font&#367;
+  známých
+  <tt>fontconfig</tt>u,
+  pou&#382;ijte <b>fc-list</b>. P&#345;íklad: <tt class="option">-font
+  <i><tt>'Bitstream Vera Sans'</tt></i></tt>
+  </p></li><li><p>
+  Stáhn&#283;te si hotový balí&#269;ek fontu z <span class="application">MPlayer</span>ova
+  serveru. Poznámka: v sou&#269;asnosti jsou dostupné fonty omezeny na podporu
+  ISO 8859-1/2, ale existují i n&#283;které dal&#353;í (v&#269;etn&#283; Korejských, Ruských,
+  ISO 8859-8 atd) fonty v contrib/font sekci na FTP, vytvo&#345;ených u&#382;ivateli.
+  </p><p>
+  
+  Font by m&#283;l mít p&#345;íslu&#353;ný <tt class="filename">font.desc</tt> soubor mapující
+  unicode pozice fontu na aktuální kódovou stránku textu titulk&#367;.
+  Dal&#353;í mo&#382;ností je mít titulky kódovány v UTF-8 a pou&#382;ít volbu
+  <tt class="option">-utf8</tt> anebo pojmenujte soubor s titulky
+  <tt class="filename">&lt;jméno_filmu&gt;.utf</tt> a umíst&#283;te jej do adresá&#345;e s
+  filmem.
+  Záznam z r&#367;zných kódových stránek do UTF-8 m&#367;&#382;ete provést pou&#382;itím
+  programu <b>konwert</b> nebo <b>iconv</b>.
+  </p><p>
+
+  </p><div class="table"><p><b>Tabulka 1.1. N&#283;kolik URL</b></p><table summary="N&#283;kolik URL" border="1"><colgroup><col><col></colgroup><thead><tr><th>URL</th><th>Komentá&#345;</th></tr></thead><tbody><tr><td><a href="ftp://ftp.mplayerhq.hu/MPlayer/releases/fonts/" target="_top">ftp://ftp.mplayerhq.hu/MPlayer/releases/fonts/</a></td><td>
+    ISO fonty
+    </td></tr><tr><td><a href="ftp://ftp.mplayerhq.hu/MPlayer/contrib/fonts/" target="_top">ftp://ftp.mplayerhq.hu/MPlayer/contrib/fonts/</a></td><td>
+    r&#367;zné fonty od u&#382;ivatel&#367;
+    </td></tr><tr><td><a href="http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts" target="_top">http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts</a></td><td>
+    Korejské fonty a RAW plugin
+    </td></tr></tbody></table></div><p>
+
+  </p></li></ul></div><p>
+Pokud si zvolíte ne-TTF fonty, rozbalte sta&#382;ený soubor do adresá&#345;e <tt class="filename">~/.mplayer</tt> nebo <tt class="filename">$PREFIX/share/mplayer</tt>. Pak p&#345;ejmenujte nebo
+nalinkujte
+jeden z rozbalených adresá&#345;&#367; na <tt class="filename">font</tt>,
+nap&#345;íklad:
+
+<pre class="screen">ln -s <i><tt>~/.mplayer/arial-24</tt></i> ~/.mplayer/font</pre>
+
+Nyní byste m&#283;li vid&#283;t &#269;asova&#269; v levém horním rohu filmu (vypn&#283;te jej klávesou
+<span class="keycap"><b>o</b></span>).
+</p><p>
+(titulky jsou <span class="emphasis"><i>v&#382;dy zapnuty</i></span>, pokud je chcete vypnout,
+p&#345;e&#269;t&#283;te si prosím man stránku)
+</p><p>
+OSD má 4 stavy (p&#345;epínají se pomocí <span class="keycap"><b>o</b></span>):
+
+</p><div class="orderedlist"><ol type="1"><li>
+  pás hlasitosti + pás p&#345;evíjení (výchozí)
+  </li><li>
+  pás hlasitosti + pás p&#345;evíjení + &#269;asova&#269; + pozice v souboru v procentech p&#345;i
+  p&#345;evíjení
+  </li><li>
+  pás hlasitosti + pás p&#345;evíjení + &#269;asova&#269; + celkový &#269;as
+  </li><li>
+  pouze titulky
+  </li></ol></div><p>
+
+Výchozí chování m&#367;&#382;ete zm&#283;nit nastavením prom&#283;nné <tt>osdlevel</tt>
+v konfigura&#269;ním souboru, nebo volbou <tt class="option">-osdlevel</tt> na p&#345;íkazovém
+&#345;ádku.
+
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="osdmenu"></a>1.4.3. OSD menu</h3></div></div><p>
+<span class="application">MPlayer</span> má pln&#283; u&#382;ivatelsky definovatelné rozhraní OSD
+Menu (nabídka na obrazovce).
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Poznámka</h3><p>
+Menu Preferences NENÍ v sou&#269;asnosti IMPLEMENTOVÁNO!
+</p></div><div class="orderedlist"><p><b>Instalace</b></p><ol type="1"><li>
+  zkompilujte <span class="application">MPlayer</span> s volbou
+  <tt class="option">--enable-menu</tt>
+  p&#345;edanou do <tt class="filename">./configure</tt>
+  </li><li>
+  ujist&#283;te se &#382;e máte nainstalován OSD font
+  </li><li>
+  zkopírujte <tt class="filename">etc/menu.conf</tt> do svého
+  <tt class="filename">.mplayer</tt> adresá&#345;e
+  </li><li>
+  zkopírujte <tt class="filename">etc/menu.conf</tt> do svého
+  <tt class="filename">.mplayer</tt> adresá&#345;e, nebo do systémového
+  <span class="application">MPlayer</span> konfigura&#269;ního adresá&#345;e (výchozí:
+  <tt class="filename">/usr/local/etc/mplayer</tt>)
+  </li><li>
+  zkontrolujte a upravte <tt class="filename">input.conf</tt>, abyste zapnuli klávesy
+  pro pohyb v menu (to je popsáno zde).
+  </li><li><p>
+  spus&#357;te <span class="application">MPlayer</span> podle následujícího p&#345;íkladu:
+  <pre class="screen">$ mplayer -menu <i><tt>file.avi</tt></i></pre>
+  </p></li><li>
+  stiskn&#283;te n&#283;kterou z kláves, kterou jste definovali
+  </li></ol></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="gui.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="rtc.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">1.3. Cht&#283;li byste GUI? </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> 1.5. RTC</td></tr></table></div></body></html>

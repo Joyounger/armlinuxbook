@@ -1,0 +1,269 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.1. Supported formats</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="features.html" title="Chapter 2. Features"><link rel="previous" href="features.html" title="Chapter 2. Features"><link rel="next" href="codecs.html" title="2.2. Supported codecs"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.1. Supported formats</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="features.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Features</th><td width="20%" align="right"> <a accesskey="n" href="codecs.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="formats"></a>2.1. Supported formats</h2></div></div><p>
+It is important to clarify a common mistake. When people see a file with a
+<tt class="filename">.AVI</tt> extension, they immediately conclude that it is
+not an MPEG file.  That is not true. At least not entirely. Contrary to
+popular belief such a file <span class="emphasis"><i>can</i></span> contain MPEG-1 video.
+</p><p>
+You see, a <span class="bold"><b>codec</b></span> is not the same as a
+<span class="bold"><b>file format</b></span>.
+Examples of video <span class="bold"><b>codecs</b></span> are: MPEG-1, MPEG-2,
+MPEG-4 (DivX), Indeo5, 3ivx.
+Examples of file <span class="bold"><b>formats</b></span> are: MPG, AVI, ASF.
+</p><p>
+In theory, you can put an OpenDivX video and MP3 audio
+into an <span class="bold"><b>MPG format file</b></span>. However, most
+players will not play it, since they expect MPEG-1 video and MP2 audio (unlike
+<span class="bold"><b>AVI</b></span>, <span class="bold"><b>MPG</b></span>
+does not have the necessary fields to describe its video and audio streams).
+Or you might put MPEG-1 video into an AVI file.
+<a href="http://ffmpeg.org/" target="_top">FFmpeg</a> and
+<a href="mencoder.html" title="Chapter 7. Encoding with MEncoder"><span class="application">MEncoder</span></a> can create these files.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="video-formats"></a>2.1.1. Video formats</h3></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="mpg-vob-dat"></a>2.1.1.1. MPEG files</h4></div></div><p>
+MPEG files come in different guises:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  MPG: This is the most <span class="bold"><b>basic</b></span> form of the
+  MPEG file formats. It contains MPEG-1 video, and MP2 (MPEG-1 layer 2) or
+  rarely MP1 audio.
+  </li><li>
+  DAT: This is the very same format as MPG with a different extension. It
+  is used on <span class="bold"><b>Video CDs</b></span>. Due to the way VCDs
+  are created and Linux is designed, the DAT files cannot be played nor copied
+  from VCDs as regular files. You have to use <tt class="option">vcd://</tt>
+  to play a Video CD.
+  </li><li>
+  VOB: This is the MPEG file format on <span class="bold"><b>DVDs</b></span>.
+  It is the same as MPG, plus the capability to contain subtitles or non-MPEG
+  (AC3) audio. It contains encoded MPEG-2 video and usually AC3 audio, but DTS,
+  MP2 and uncompressed LPCM are allowed, too. <span class="bold"><b>Read the
+  <a href="dvd.html" title="5.2. DVD playback">DVD</a> section</b></span>!
+  </li><li>
+  TY: This is a TiVo MPEG stream. It contains MPEG PES data for audio and
+  video streams, as well as extra information like closed captions. The
+  container is not an MPEG program stream, but a closed format created by
+  TiVo. For more information on TiVo stream format, please refer to
+  <a href="http://dvd-create.sourceforge.net/tystudio/tystream.shtml" target="_top">
+  the TyStudio page</a>.
+  </li></ul></div><p>
+Series of frames form independent groups in MPEG files. This means that you
+can cut/join an MPEG file with standard file tools (like
+<b>dd</b>, <b>cut</b>), and it remains completely
+functional.
+</p><p>
+One important feature of MPGs is that they have a field to describe the
+aspect ratio of the video stream within. For example SVCDs have 480x480
+resolution video, and in the header that field is set to 4:3, so that it is
+played at 640x480. AVI files do not have this field, so they have to be
+rescaled during encoding or played with the <tt class="option">-aspect</tt>
+option.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="avi"></a>2.1.1.2. AVI files</h4></div></div><p>
+Designed by Microsoft, <span class="bold"><b>AVI (Audio Video Interleaved)</b></span>
+is a widespread multipurpose format currently used mostly for MPEG-4 (DivX and DivX4)
+video. It has many known drawbacks and shortcomings (for example in streaming). It
+supports one video stream and 0 to 99 audio streams and can be as big as
+2GB, but there exists an extension allowing bigger files called
+<span class="bold"><b>OpenDML</b></span>. Microsoft currently strongly
+discourages its use and encourages ASF/WMV. Not that anybody cares.
+</p><p>
+There is a hack that allows AVI files to contain an Ogg Vorbis audio
+stream, but makes them incompatible with standard AVI.
+<span class="application">MPlayer</span> supports playing these files. Seeking is
+also implemented but severely hampered by badly encoded files with
+confusing headers. Unfortunately the only encoder currently capable of
+creating these files, <span class="application">NanDub</span>, has this problem.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+DV cameras create raw DV streams that DV grabbing utilities convert to two
+different types of AVI files. The AVI will then contain either separate
+audio and video streams that <span class="application">MPlayer</span> can play or
+the raw DV stream for which support is under development.
+</p></div><p>
+There are two kinds of AVI files:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>Interleaved:</b></span> Audio and video content is
+  interleaved. This is the standard usage. Recommended and mostly used. Some tools
+  create interleaved AVIs with bad sync. <span class="application">MPlayer</span>
+  detects these as interleaved, and this climaxes in loss of A/V sync,
+  probably at seeking.  These files should be played as non-interleaved
+  (with the <tt class="option">-ni</tt> option).
+  </li><li>
+  <span class="bold"><b>Non-interleaved:</b></span> First comes the whole
+  video stream, then the whole audio stream. It thus needs a lot of seeking,
+  making playing from network or CD-ROM difficult.
+  </li></ul></div><p>
+</p><p>
+<span class="application">MPlayer</span> supports two kinds of timings for AVI
+files:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>bps-based:</b></span> It is based on the
+  bitrate/samplerate of the video/audio stream. This method is used by
+  most players, including <a href="http://avifile.sf.net" target="_top">avifile</a>
+  and <span class="application">Windows Media Player</span>. Files with broken
+  headers, and files created with VBR audio but not VBR-compliant encoder
+  will result in A/V desync with this method (mostly at seeking).
+  </li><li>
+  <span class="bold"><b>interleaving-based:</b></span> It does not use the bitrate
+  value of the header, instead it uses the relative position of interleaved
+  audio and video chunks, making badly encoded files with VBR audio playable.
+  </li></ul></div><p>
+</p><p>
+Any audio and video codec is allowed, but note that VBR audio is not well
+supported by most players. The file format makes it possible to use VBR
+audio, but most players expect CBR audio, thus they fail with VBR. VBR is
+uncommon and Microsoft's AVI specs only describe CBR audio. I also noticed
+that most AVI encoders/multiplexers create bad files when using VBR audio.
+There are only two known exceptions: <span class="application">NanDub</span> and
+<a href="mencoder.html" title="Chapter 7. Encoding with MEncoder"><span class="application">MEncoder</span></a>.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="asf-wmv"></a>2.1.1.3. ASF/WMV files</h4></div></div><p>
+ASF (Active Streaming Format) comes from Microsoft. They developed two
+variants of ASF, v1.0 and v2.0. v1.0 is used by their media tools (<span class="application">Windows
+Media Player</span> and <span class="application">Windows Media Encoder</span>)
+and is very secret. v2.0 is published and patented :). Of course they differ,
+there is no compatibility at all (it is just another legal game).
+<span class="application">MPlayer</span> supports only v1.0, as nobody has ever seen
+v2.0 files :). Note that ASF files nowadays come with the extension
+<tt class="filename">.WMA</tt> or <tt class="filename">.WMV</tt>.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="mov"></a>2.1.1.4. QuickTime/MOV files</h4></div></div><p>
+These formats were designed by Apple and can contain any codec, CBR or VBR.
+They usually have a <tt class="filename">.QT</tt> or <tt class="filename">.MOV</tt>
+extension. Note that since the MPEG-4 group chose QuickTime as the recommended
+file format for MPEG-4, their MOV files come with a <tt class="filename">.MPG</tt> or
+<tt class="filename">.MP4</tt> extension (Interestingly the video and audio
+streams in these files are real MPG and AAC files. You can even extract them with the
+<tt class="option">-dumpvideo</tt> and <tt class="option">-dumpaudio</tt> options.).
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+Most new QuickTime files use <span class="bold"><b>Sorenson</b></span> video and
+QDesign Music audio. See our <a href="codecs.html#sorenson" title="2.2.1.9. Sorenson">Sorenson</a> codec section.
+</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="vivo"></a>2.1.1.5. VIVO files</h4></div></div><p>
+<span class="application">MPlayer</span> happily demuxes VIVO file formats. The
+biggest disadvantage of the format is that it has no index block, nor a
+fixed packet size or sync bytes and most files lack even keyframes, so
+forget seeking!
+</p><p>
+The video codec of VIVO/1.0 files is standard <span class="bold"><b>h.263</b></span>.
+The video codec of VIVO/2.0 files is a modified, nonstandard
+<span class="bold"><b>h.263v2</b></span>. The audio is the same, it may be
+<span class="bold"><b>g.723 (standard)</b></span>, or
+<span class="bold"><b>Vivo Siren</b></span>.
+</p><p>
+See the
+<a href="codecs.html#vivo-video" title="2.2.1.4. VIVO video">VIVO video codec</a> and
+<a href="codecs.html#vivo-audio" title="2.2.2.4. VIVO audio">VIVO audio codec</a>
+sections for installation instructions.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="fli"></a>2.1.1.6. FLI files</h4></div></div><p>
+<span class="bold"><b>FLI</b></span> is a very old file format used by
+Autodesk Animator, but it is a common file format for short animations on the net.
+<span class="application">MPlayer</span> demuxes and decodes FLI movies and is
+even able to seek within them (useful when looping with the
+<tt class="option">-loop</tt> option). FLI files do not have keyframes, so the
+picture will be messy for a short time after seeking.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="realmedia"></a>2.1.1.7. RealMedia (RM) files</h4></div></div><p>
+Yes, <span class="application">MPlayer</span> can read (demux) RealMedia
+(<tt class="filename">.rm</tt>) files.
+Here are the lists of the supported <a href="codecs.html#realvideo" title="2.2.1.7. RealVideo">RealVideo</a> and <a href="codecs.html#realaudio" title="2.2.2.5. RealAudio">RealAudio</a> codecs.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="nuppelvideo"></a>2.1.1.8. NuppelVideo files</h4></div></div><p>
+<a href="http://frost.htu.tuwien.ac.at/~roman/nuppelvideo/" target="_top">NuppelVideo</a>
+is a TV grabber tool (AFAIK:). <span class="application">MPlayer</span> can read
+its <tt class="filename">.NUV</tt> files (only NuppelVideo 5.0). Those files can
+contain uncompressed YV12, YV12+RTJpeg compressed, YV12 RTJpeg+lzo
+compressed, and YV12+lzo compressed frames.
+<span class="application">MPlayer</span> decodes (and also <span class="bold"><b>encodes</b></span>
+them with <span class="application">MEncoder</span> to MPEG-4 (DivX)/etc!) them all.
+Seeking works.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="yuv4mpeg"></a>2.1.1.9. yuv4mpeg files</h4></div></div><p>
+<a href="http://mjpeg.sf.net" target="_top">yuv4mpeg / yuv4mpeg2</a>
+is a file format used by the
+<a href="http://mjpeg.sf.net" target="_top">mjpegtools programs</a>.
+You can grab, produce, filter or encode video in this format using these tools.
+The file format is really a sequence of uncompressed YUV 4:2:0 images.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="film"></a>2.1.1.10. FILM files</h4></div></div><p>
+This format is used on old Sega Saturn CD-ROM games.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="roq"></a>2.1.1.11. RoQ files</h4></div></div><p>
+RoQ files are multimedia files used in some ID games such as Quake III and
+Return to Castle Wolfenstein.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="ogg"></a>2.1.1.12. OGG/OGM files</h4></div></div><p>
+This is a new fileformat from <a href="http://www.xiph.org" target="_top">Xiphophorus</a>.
+It can contain any video or audio codec, CBR or VBR. You'll need
+<tt>libogg</tt> and
+<tt>libvorbis</tt> installed before
+compiling <span class="application">MPlayer</span> to be able to play it.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="sdp"></a>2.1.1.13. SDP files</h4></div></div><p>
+<a href="ftp://ftp.rfc-editor.org/in-notes/rfc2327.txt" target="_top">SDP</a> is an
+IETF standard format for describing video and/or audio RTP streams.
+(The "<a href="http://www.live.com/mplayer/" target="_top">LIVE.COM Streaming Media</a>"
+are required.)
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="pva"></a>2.1.1.14. PVA files</h4></div></div><p>
+PVA is an MPEG-like format used by DVB TV boards' software (e.g.:
+<span class="application">MultiDec</span>, <span class="application">WinTV</span> under Windows).
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="nsv"></a>2.1.1.15. NSV files</h4></div></div><p>
+NSV (NullSoft Video) is the file format used by the
+<span class="application">Winamp</span> player to stream audio and video.
+Video is VP3, VP5 or VP6, audio is MP3, AAC or VLB.
+The audio only version of NSV has the <tt class="filename">.nsa</tt> extension.
+<span class="application">MPlayer</span> can play both NSV streams and files.
+Please note that most files from the
+<a href="http://www.winamp.com" target="_top">Winamp site</a> use VLB audio, that
+can't be decoded yet. Moreover streams from that site need an extra
+depacketization layer that still has to be implemented (those files are
+unplayable anyway because they use VLB audio).
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="gif"></a>2.1.1.16. GIF files</h4></div></div><p>
+The <span class="bold"><b>GIF</b></span> format is a common format for web
+graphics. There are two versions of the GIF spec, GIF87a and GIF89a. The
+main difference is that GIF89a allows for animation. <span class="application">MPlayer</span>
+supports both formats through use of <tt>libungif</tt> or
+another libgif-compatible library. Non-animated GIFs will be displayed as
+single frame videos. (Use the <tt class="option">-loop</tt> and <tt class="option">-fixed-vo</tt>
+options to display these longer.)
+</p><p>
+<span class="application">MPlayer</span> currently does not support seeking in GIF
+files. GIF files do not necessarily have a fixed frame size, nor a fixed
+framerate. Rather, each frame is of independent size and is supposed to be
+positioned in a certain place on a field of fixed-size. The framerate is
+controlled by an optional block before each frame that specifies the next
+frame's delay in centiseconds.
+</p><p>
+Standard GIF files contain 24-bit RGB frames with at most an 8-bit indexed
+palette. These frames are usually LZW-compressed, although some GIF encoders
+produce uncompressed frames to avoid patent issues with LZW compression.
+</p><p>
+If your distribution does not come with <tt>libungif</tt>,
+download a copy from the
+<a href="http://sourceforge.net/projects/libungif" target="_top">libungif
+homepage</a>. For detailed technical information, have a look at the
+<a href="http://www.w3.org/Graphics/GIF/spec-gif89a.txt" target="_top">GIF89a specification</a>.
+</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="audio-formats"></a>2.1.2. Audio formats</h3></div></div><p>
+<span class="application">MPlayer</span> is a <span class="bold"><b>movie</b></span>
+and not a <span class="bold"><b>media</b></span> player, although it can play
+some audio file formats (they are listed in the sections below).  This is not
+a recommended usage of <span class="application">MPlayer</span>, you better use <a href="http://www.xmms.org" target="_top">XMMS</a>.
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="mp3"></a>2.1.2.1. MP3 files</h4></div></div><p>
+You may have problems playing certain MP3 files that
+<span class="application">MPlayer</span> will misdetect as MPEGs and play
+incorrectly or not at all. This cannot be fixed without dropping support
+for certain broken MPEG files and thus will remain like this for the
+foreseeable future. The <tt class="option">-demuxer</tt> flag described in the
+man page may help you in these cases.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="wav"></a>2.1.2.2. WAV files</h4></div></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="ogg-vorbis"></a>2.1.2.3. OGG/OGM files (Vorbis)</h4></div></div><p>
+Requires properly installed
+<tt>libogg</tt> and
+<tt>libvorbis</tt>.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="wma-asf"></a>2.1.2.4. WMA/ASF files</h4></div></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="mp4"></a>2.1.2.5. MP4 files</h4></div></div><p></p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="cdda"></a>2.1.2.6. CD audio</h4></div></div><p>
+<span class="application">MPlayer</span> can use <span class="application">cdparanoia</span>
+to play CDDA (Audio CD). The scope of this section does not contain enumerating
+<span class="application">cdparanoia</span>'s features.
+</p><p>
+See the man page's <tt class="option">-cdda</tt> option which can be used to pass
+options to <span class="application">cdparanoia</span>.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="xmms"></a>2.1.2.7. XMMS</h4></div></div><p>
+<span class="application">MPlayer</span> can use <span class="application">XMMS</span> input
+plugins to play many file formats. There are plugins for SNES game tunes, SID
+tunes (from Commodore 64), many Amiga formats, .xm, .it, VQF, musepack, Bonk,
+shorten and many others. You can find them at the
+<a href="http://www.xmms.org/plugins.php?category=input" target="_top">XMMS input plugin page</a>.
+</p><p>
+For this feature you need to have <span class="application">XMMS</span> and compile
+<span class="application">MPlayer</span> with <tt class="filename">./configure --enable-xmms</tt>.
+If that does not work, you might need to set the <span class="application">XMMS</span>
+plugin and library path explicitly by way of the <tt class="option">--with-xmmsplugindir</tt>
+and <tt class="option">--with-xmmslibdir</tt> options.
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="features.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="features.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="codecs.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. Features </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.2. Supported codecs</td></tr></table></div></body></html>

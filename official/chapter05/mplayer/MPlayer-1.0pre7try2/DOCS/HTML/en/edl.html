@@ -1,0 +1,39 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.5. Edit Decision Lists (EDL)</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="usage.html" title="Chapter 3. Usage"><link rel="previous" href="mpst.html" title="3.4. Remote streams"><link rel="next" href="faq.html" title="Chapter 4. Frequently Asked Questions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.5. Edit Decision Lists (EDL)</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="mpst.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Usage</th><td width="20%" align="right"> <a accesskey="n" href="faq.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="edl"></a>3.5. Edit Decision Lists (EDL)</h2></div></div><p>
+The edit decision list (EDL) system allows you to automatically skip
+or mute sections of videos during playback, based on a movie specific
+EDL configuration file.
+</p><p>
+This is useful for those who may want to watch a film in "family-friendly"
+mode. You can cut out any violence, profanity, Jar-Jar Binks .. from a movie
+according to your own personal preferences. Aside from this, there are other
+uses, like automatically skipping over commercials in video files you watch.
+</p><p>
+The EDL file format is pretty bare-bones. Once the EDL system has reached a
+certain level of maturity, an XML-based file format will probably be implemented
+(keeping backwards compatibility with previous EDL formats).
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="edl_using"></a>3.5.1. Using an EDL file</h3></div></div><p>
+Include the <tt class="option">-edl &lt;filename&gt;</tt> flag when you run
+<span class="application">MPlayer</span>, with the name of the EDL file you
+want applied to the video.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="edl_making"></a>3.5.2. Making an EDL file</h3></div></div><p>
+The current EDL file format is:
+<pre class="programlisting">
+[begin second] [end second] [action]
+</pre>
+Where the seconds are floating-point numbers and the action is either
+<tt>0</tt> for skip or <tt>1</tt> for mute. Example:
+<pre class="programlisting">
+5.3   7.1    0
+15    16.7   1
+420   422    0
+</pre>
+This will skip from second 5.3 to second 7.1 of the video, then mute at
+15 seconds, unmute at 16.7 seconds and skip from second 420 to second 422
+of the video. These actions will be performed when the playback timer
+reaches the times given in the file.
+</p><p>
+To create an EDL file to work from, use the <tt class="option">-edlout &lt;filename&gt;</tt>
+flag. During playback, when you want to mark the previous two seconds to skip over,
+hit <span class="keycap"><b>i</b></span>. A corresponding entry will be written to the file for
+that time. You can then go back and fine-tune the generated EDL file.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="mpst.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="faq.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.4. Remote streams </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 4. Frequently Asked Questions</td></tr></table></div></body></html>

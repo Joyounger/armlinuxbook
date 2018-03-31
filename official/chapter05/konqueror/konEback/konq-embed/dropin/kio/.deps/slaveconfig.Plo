@@ -1,0 +1,151 @@
+slaveconfig.lo: slaveconfig.cpp \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/assert.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h \
+  ./../../kdesrc/kio/slaveconfig.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qregion.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qiodevice.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qregexp.h \
+  ./../../kdesrc/kio/global.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmap.h \
+  ./../../kdesrc/kdecore/kurl.h
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/assert.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h:
+
+./../../kdesrc/kio/slaveconfig.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qregion.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qiodevice.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qregexp.h:
+
+./../../kdesrc/kio/global.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmap.h:
+
+./../../kdesrc/kdecore/kurl.h:

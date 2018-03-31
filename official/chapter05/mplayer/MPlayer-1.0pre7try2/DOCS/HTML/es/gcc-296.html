@@ -1,0 +1,85 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>E.1. GCC 2.96</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - El reproductor de Películas
+para LINUX"><link rel="up" href="users-vs-dev.html" title="Apéndice E. Lloriqueos de desarrolladores"><link rel="previous" href="users-vs-dev.html" title="Apéndice E. Lloriqueos de desarrolladores"><link rel="next" href="mplayer-binary.html" title="E.2. Distribución binaria"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">E.1. GCC 2.96</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="users-vs-dev.html">Anterior</a> </td><th width="60%" align="center">Apéndice E. Lloriqueos de desarrolladores</th><td width="20%" align="right"> <a accesskey="n" href="mplayer-binary.html">Siguiente</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="gcc-296"></a>E.1. GCC 2.96</h2></div></div><p><b>El escenario: </b>
+La serie <span class="bold"><b>2.95</b></span> de GCC es una liberación oficial
+de GNU y la verseión 2.95.3 de GCC es la serie más libre de errores que existe.
+Nunca se han tenido problemas de compilación derivados de gcc-2.95.3. Comenzando
+con Red Hat Linux 7.0, <span class="bold"><b>Red Hat</b></span> fue incluida una
+versión de CVS fuertemente parcheada de GCC en sus distribuciones y fue denominada
+<span class="bold"><b>2.96</b></span>. Red Hat incluyó esta versión en su
+distribución porque GCC 3.0 no estaba finalizada en ese momento, y necesitaban
+un compilador que funcionase bien en todas las plataformas soportadas, incluyendo
+IA64 y s390. El distribuidor de Linux <span class="bold"><b>Mandrake</b></span>
+también siguió el ejemplo de Red Hat y comenzó a llevar GCC 2.96 en su serie
+Linux-Mandrake 8.0.
+</p><p><b>Los hechos: </b>
+El equipo GCC renuncian cualquier vinculación con GCC 2.96 y publican una
+<a href="http://gcc.gnu.org/gcc-2.96.html" target="_top">respuesta oficial</a>
+sobre GCC 2.96. Algunos desarrolladores alrededor del mundo comienzan a tener
+problemas con GCC 2.96, y empiezan a recomendar otros compiladores. Ejemplos son
+<a href="http://www.mysql.com/downloads/mysql-3.23.html" target="_top">MySQL</a>,
+y
+<a href="http://avifile.sourceforge.net/news-old1.htm" target="_top">avifile</a>.
+Otros enlaces interesantes son
+<a href="http://www.atnf.csiro.au/people/rgooch/linux/docs/kernel-newsflash.html" target="_top">
+noticias instantáneas acerca del kernel de Linux 2.4.17</a>
+y
+<a href="http://www.voy.com/3516/572.html" target="_top">Voy Forum</a>.
+<span class="application">MPlayer</span> también sufre problemas intermitentes
+que son resueltos cambiando entre diferentes versiones de GCC. Varios
+proyectos empiezan a implementar variaciones de algunos aspectos de 2.96,
+pero se niegan a arreglar problemas de otras personas, especialmente porque
+algunos arreglos pueden implicar pérdidas de rendimiento.
+</p><p>
+GCC 2.96 no permite caracteres <tt>|</tt> (tuberías) en comentarios
+en ensamblador porque esto lo hace Intel igual que la sintaxis de AT&amp;T y
+el caracter <tt>|</tt> es un símbolo en la variante Intel. El problema
+es que <span class="emphasis"><i>silenciosamente</i></span> ignora el bloque de ensamblador
+por completo. Esto es supuestamente corregible ahora, GCC imprime un mensaje
+de advertencia en lugar de saltarse el bloque.
+</p><p><b>El presente: </b>
+Red Hat dice que GCC 2.96-85 y superior están arreglados. La situación ha sido
+mejorada, pero se siguen viendo informes de problemas en nuestras listas de correo
+que desaparecen con un compilador diferente. En cualquier caso esto no tiene
+más importancia. Alegremente, un maduro GCC 3.x ha resuelto bien los problemas. Si
+desea compilar con 2.96 puede indicar el parámetro
+<tt class="option">--disable-gcc-checking</tt> a <tt class="filename">configure</tt>. Recuerde que
+que es elección suya y <span class="bold"><b>no informe de problemas</b></span>. Si lo
+hace será expulsado de nuestras listas de correo porque ha sido avisao de manera
+más que suficiente de las guerras con GCC 2.96. Por favor, déjenos contarle el resto.
+</p><p>
+Si tiene problemas con GCC 2.96, puede obtener los paquetes 2.96-85 del
+<a href="ftp://updates.redhat.com" target="_top">servidor ftp</a> de Red Hat, o
+vaya directamente a por los <a href="ftp://people.redhat.com/jakub/gcc/3.2.3-11/" target="_top">
+paquetes gcc-3.2.3-11</a> (no oficiales, pero funcionan bien) y puede instalarlos junto
+con gcc-2.96 si ya lo tiene. <span class="application">MPlayer</span> detectará
+y usará 3.2 en lugar de 2.96. Si no desea o no puede usar los paquetes
+binarios, aquí tiene cómo compilar GCC 3 desde el código fuente:
+</p><div class="procedure"><ol type="1"><li><p>
+  Vaya a 
+  <a href="http://gcc.gnu.org/mirrors.html" target="_top">la web de sitios espejo de GCC</a>
+  y descargue <tt class="filename">gcc-core-<i><tt>XXX</tt></i>.tar.gz</tt>
+  donde <i><tt>XXX</tt></i> es el número de versión. Esto incluye el compilador
+  C completo y es suficiente para <span class="application">MPlayer</span>. Si también quiere
+  C++, Java, o algunas de las otras características avanzadas de GCC,
+  <tt class="filename">gcc-<i><tt>XXX</tt></i>.tar.gz</tt> suplirá mejor sus necesidades.
+  </p></li><li><p>
+  Extraiga el fichero con
+  <pre class="screen">tar -xvzf gcc-core-<i><tt>XXX</tt></i>.tar.gz</pre>
+  </p></li><li><p>
+  GCC no es construido dentro del directorio del código fuente como la mayoría
+  de los programas, sino que necesita un directorio fuera donde compilarse. Por eso
+  necesita crear ese directorio via
+  <pre class="screen">mkdir gcc-build</pre>
+  </p></li><li><p>
+  Entonces puede proceder a configurar gcc en el directorio build, pero puede
+  que necesite configurar desde el directorio de fuentes:
+  <pre class="screen">
+cd gcc-build
+../gcc-3.<i><tt>XXX</tt></i>/configure</pre>
+  </p></li><li><p>
+  Compile GCC usando esta orden en el directorio build:
+  <pre class="screen">make bootstrap</pre>
+  </p></li><li><p>
+  Ahora puede instalar GCC (como root) escribiendo
+  <pre class="screen">make install</pre>
+  </p></li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="users-vs-dev.html">Anterior</a> </td><td width="20%" align="center"><a accesskey="u" href="users-vs-dev.html">Subir</a></td><td width="40%" align="right"> <a accesskey="n" href="mplayer-binary.html">Siguiente</a></td></tr><tr><td width="40%" align="left" valign="top">Apéndice E. Lloriqueos de desarrolladores </td><td width="20%" align="center"><a accesskey="h" href="index.html">Inicio</a></td><td width="40%" align="right" valign="top"> E.2. Distribución binaria</td></tr></table></div></body></html>

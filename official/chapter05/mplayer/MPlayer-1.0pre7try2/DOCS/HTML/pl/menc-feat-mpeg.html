@@ -1,0 +1,19 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.2. Kodowanie do formatu MPEG</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem"><link rel="previous" href="menc-feat-mpeg4.html" title='7.1. Kodowanie dwu-przebiegowe MPEG-4 ("DivX")'><link rel="next" href="menc-feat-rescale.html" title="7.3. Przeskalowywanie filmów"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.2. Kodowanie do formatu MPEG</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-mpeg4.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 7. Kodowanie z MEncoderem</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-rescale.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-mpeg"></a>7.2. Kodowanie do formatu MPEG</h2></div></div><p>
+<span class="application">MEncoder</span> mo&#380;e tworzy&#263; pliki formatu MPEG (MPEG-PS).
+Jest to prawdopodobnie u&#380;yteczne tylko z kodekiem <span class="emphasis"><i>mpeg1video</i></span>
+pochodz&#261;cym z <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>, poniewa&#380; odtwarzacze - za wyj&#261;tkiem
+<span class="application">MPlayera</span> - oczekuj&#261; obrazu zakodowanego w MPEG-1 i
+strumienia d&#378;wi&#281;kowego w MPEG-1 warstwa (layer) 2 (MP2) w pliku MPEG.
+</p><p>
+Mo&#380;liwo&#347;&#263; ta nie jest zbytnio przydatna w tej chwili, poza tym
+zawiera prawdopodobnie wiele b&#322;&#281;dów, ale najwa&#380;niejsze jest to,
+&#380;e <span class="application">MEncoder</span> w tej chwili nie mo&#380;e kodowa&#263;
+2 warstwy MPEG-1 (MP2) audio której oczekuj&#261; wszystkie odtwarzacze w plikach MPEG.
+</p><p>
+Aby zmieni&#263; wyj&#347;ciowy format plików <span class="application">MEncodera</span>, u&#380;yj opcji <tt class="option">-of mpeg</tt>.
+</p><p>
+Przyk&#322;ad:
+<pre class="screen">
+mencoder -of mpeg -ovc lavc -lavcopts vcodec=mpeg1video -oac copy <i><tt>inne opcje</tt></i> <i><tt>media.avi </tt></i> -o <i><tt>wyjscie.mpg</tt></i>
+</pre>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-mpeg4.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-rescale.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">7.1. Kodowanie dwu-przebiegowe MPEG-4 ("DivX") </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 7.3. Przeskalowywanie filmów</td></tr></table></div></body></html>

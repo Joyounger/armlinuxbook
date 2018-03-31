@@ -1,0 +1,184 @@
+__________________________________________
+MPlayer code and documentation maintainers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+NOTE: This file (should) contain the up-to-date list of the maintainers of
+each part/module of the mplayer CVS / source tree, including docs & homepage.
+You should NOT commit non-trivial changes without the agreement by the
+maintainer of the given part. The job of the maintainer is commenting,
+refusing or accepting patches, suggestions.
+If you're listed here as maintainer of one or more parts, but you don't want
+it to be so, tell us and you will be removed... this list has been created
+based on maillist/cvs activity. It may be wrong.
+
+Always send the patches (first read DOCS/tech/patches.txt), comments to
+the mplayer-dev-eng mailing list!!!
+
+Everyone is free to nominate himself/herself for a maintainership.
+
+Administration:
+    * Project server: Arpad Gereöffy
+    * Mailing lists: Attila Kinali
+
+Homepage:
+    * Design: Diego Biurrun
+    * Content: Diego Biurrun, Alex Beregszaszi
+    * Codec packages: Roberto Togni
+
+English documentation:
+    * user docs: Diego Biurrun
+    * man page: Diego Biurrun
+    * Help Messages: Diego Biurrun
+    * input layer, LIRC, slave mode docs: Alban Bedel
+    * tech/* docs: Alex Beregszaszi
+    * tech/* documentation docs: Diego Biurrun
+
+man pages:
+    * Czech: Jiri Heryan
+    * French: Guillaume Poirier
+    * German: Sebastian Krämer (incomplete)
+    * Hungarian: Gabor Mizda
+    * Italian: Daniele Forghieri
+    * Polish: Waclaw Schiller
+    * Spanish: Juan Martin, Reynaldo H. Verdejo Pinochet (outdated)
+    * Swedish: Carl Fürstenberg (incomplete)
+
+Documentation translations:
+    * Chinese (simplified): Lu Ran (outdated)
+    * Czech: Jiri Heryan
+    * French: Nicolas Le Gaillart (outdated)
+    * German: outdated
+    * Hungarian: Gabor Mizda (incomplete)
+    * Italian: outdated
+    * Polish: Waclaw Schiller
+    * Russian: Dmitry Baryshkov (incomplete)
+    * Spanish: Juan Martin, Reynaldo H. Verdejo Pinochet (outdated)
+
+Platforms/ports: (see also DOCS/tech/porting-status.txt)
+    * Debian packaging: Dariusz Pietrzak
+    * RedHat/RPM packaging: Dominik Mierzejewski
+    * FreeBSD support: Vladimir Kushnir, Nexus
+    * BSD/OS support: Steven Schultz
+    * NetBSD support: Bernd Ernesti
+    * OpenBSD support: Björn Sandell
+    * Solaris 8 support: Jürgen Keil, Pierre Lombard
+    * MIPS support: Oliver Schoenbrunner
+    * Win32/Cygwin/MinGW support: Sascha Sommer, Joey Parrish, Diego Biurrun
+    * Mac OS X: Nicolas Plourde
+
+MPlayer code:
+    * A-V sync code, MPlayer/MEncoder core: Alex Beregszaszi
+    * libmpdemux, libmpcodecs: Alex Beregszaszi
+    * TV input/capture: Jindrich Makovicka
+    * DVD support (dvdread/dvdcss): None
+    * network streaming: Bertrand Baudet
+    * DVD/VOB subtitles: Kim Minh Kaplan
+    * config files & commandline parser: Alban Bedel, Alex Beregszaszi
+    * playtree, input layer: Alban Bedel
+    * postproc, colorspace converters: Michael Niedermayer
+    * DVB support: Nico Sabbi
+    * GUI: Zoltan Ponekker
+    * GUI skins: Diego Biurrun
+    * audio filters: None
+    * EDL code: Reynaldo H. Verdejo Pinochet
+
+Imported libs/projects:
+    * libavcodec, libavformat: Michael Niedermayer
+    * VIDIX core, libdha: Sascha Sommer
+    * mp3lib: Alex Beregszaszi
+    * loader, dshow: Alex Beregszaszi
+    * liba52: Alex Beregszaszi
+    * libmpeg2: None
+    * libmpdvdkit2: None
+    * libfaad2: Alex Beregszaszi
+    * realrtsp: Roberto Togni
+
+demuxers:
+    * demux_fli.c - Roberto Togni
+    * demux_gif.c - Joey Parrish
+    * demux_lavf.c - Michael Niedermayer
+    * demux_mkv.c - Moritz Bunkus
+    * demux_nsv.c - Reza Jelveh, Roberto Togni
+    * demux_ogg.c - Moritz Bunkus
+    * demux_realaud.c - Roberto Togni
+    * demux_rtp* - Ross Finlayson
+
+codec support:
+    * FFmpeg: Michael Niedermayer
+    * XviD: Ivan Kalvachev
+    * x264: Loren Merritt
+
+video filters:
+    * general: Richard Felker, Michael Niedermayer
+    * vf_filmdint.c - Zoltan Hidvegi
+
+libvo drivers:
+    * vo_3dfx.c - OBSOLETED, use xv or tdfxfb
+    * vo_aa.c - Alban Bedel
+    * vo_caca.c - Howell Tam (Pigeon)
+    * vo_bl.c - Rik Snel
+    * vo_cvidix.c - Sascha Sommer
+    * vo_dga.c - None
+    * vo_dfbmga.c - Ville Syrjälä
+    * vo_directfb[2].c - Jiri Svoboda
+    * vo_directx.c - Sascha Sommer
+    * vo_dxr2.c - Alban Bedel
+    * vo_dxr3.c - None
+    * vo_fbdev.c - Joey Parrish
+    * vo_fbdev2.c - Joey Parrish
+    * vo_ggi.c - Christoph Egger
+    * vo_gif89a.c - Joey Parrish
+    * vo_gl.c - Reimar Döffinger
+    * vo_gl2.c - Reimar Döffinger
+    * vo_jpeg.c - Ivo van Poorten
+    * vo_md5sum.c - Ivo van Poorten
+    * vo_mga.c - Attila Kinali
+    * vo_mpegpes.c - None
+    * vo_null.c - None
+    * vo_png.c - Felix Bünemann
+    * vo_pnm.c - Ivo van Poorten
+    * vo_quartz.c - Nicolas Plourde
+    * vo_sdl.c - Felix Bünemann
+    * vo_svga.c - Ivan Kalvachev
+    * vo_tdfxfb.c - Alban Bedel
+    * vo_tga.c - Daniele Forghieri
+    * vo_vesa.c - Aurelien Jacobs
+    * vo_winvidix.c - Sascha Sommer
+    * vo_x11.c - Alexander Strasser
+    * vo_xmga.c - Attila Kinali
+    * vo_xover.c - Alban Bedel
+    * vo_xv.c - Alexander Strasser
+    * vo_xvidix.c - Attila Kinali
+    * vo_xvmc.c - Ivan Kalvachev
+    * vo_yuv4mpeg.c - Robert Kesterson
+    * vo_zr.c - Rik Snel
+
+    * x11_common.c - Alexander Strasser
+
+VIDIX drivers:
+    * mach64_vid - None
+    * mga_vid - None
+    * nvidia_vid - Sascha Sommer
+    * radeon_vid - Sascha Sommer
+    * rage128_vid - None
+    * sis_vid - Jake Page
+
+libao2 drivers:
+    * ao_alsa5.c - None
+    * ao_alsa.c - Zsolt Barat
+    * ao_arts.c - None
+    * ao_dxr2.c - None
+    * ao_esd.c - None
+    * ao_mpegpes.c - None
+    * ao_nas.c - Tobias Diedrich
+    * ao_null.c - None
+    * ao_oss.c - None
+    * ao_pcm.c - None
+    * ao_plugin.c - None
+    * ao_sdl.c - None
+    * ao_sgi.c - None
+    * ao_sun.c - None
+    * ao_win32.c - Sascha Sommer
+
+audio filters:
+    * af_ladspa.c - Ivo van Poorten

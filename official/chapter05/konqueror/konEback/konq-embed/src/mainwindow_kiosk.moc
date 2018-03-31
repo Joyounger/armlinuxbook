@@ -1,0 +1,95 @@
+/****************************************************************************
+** MainWindowKiosk meta object code from reading C++ file 'mainwindow_kiosk.h'
+**
+** Created: Thu Nov 20 06:22:04 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "mainwindow_kiosk.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *MainWindowKiosk::className() const
+{
+    return "MainWindowKiosk";
+}
+
+QMetaObject *MainWindowKiosk::metaObj = 0;
+
+#ifdef QWS
+static class MainWindowKiosk_metaObj_Unloader {
+public:
+    ~MainWindowKiosk_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "MainWindowKiosk" );
+    }
+} MainWindowKiosk_metaObj_unloader;
+#endif
+
+void MainWindowKiosk::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(MainWindowBase::className(), "MainWindowBase") != 0 )
+	badSuperclassWarning("MainWindowKiosk","MainWindowBase");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString MainWindowKiosk::tr(const char* s)
+{
+    return qApp->translate( "MainWindowKiosk", s, 0 );
+}
+
+QString MainWindowKiosk::tr(const char* s, const char * c)
+{
+    return qApp->translate( "MainWindowKiosk", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* MainWindowKiosk::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) MainWindowBase::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (MainWindowKiosk::*m1_t0)(const QString&,const QPoint&);
+    typedef void (QObject::*om1_t0)(const QString&,const QPoint&);
+    m1_t0 v1_0 = &MainWindowKiosk::popupMenu;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "popupMenu(const QString&,const QPoint&)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Protected;
+    metaObj = QMetaObject::new_metaobject(
+	"MainWindowKiosk", "MainWindowBase",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

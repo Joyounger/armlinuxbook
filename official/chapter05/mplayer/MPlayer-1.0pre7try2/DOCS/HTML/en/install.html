@@ -1,0 +1,369 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.2. Installation</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="intro.html" title="Chapter 1. Introduction"><link rel="previous" href="history.html" title="1.1. History"><link rel="next" href="gui.html" title="1.3. What about the GUI?"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.2. Installation</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="history.html">Prev</a> </td><th width="60%" align="center">Chapter 1. Introduction</th><td width="20%" align="right"> <a accesskey="n" href="gui.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="install"></a>1.2. Installation</h2></div></div><p>
+A quick installation guide can be found in the <tt class="filename">README</tt>
+file. Please read it first and then come back here for the rest of the gory
+details.
+</p><p>
+In this section I'll try to guide you through the compiling and configuring
+process of <span class="application">MPlayer</span>. It's not easy, but it won't
+necessarily be hard. If you experience a different behavior than what I
+explain, please search through this documentation and you'll find your
+answers. If you see links, please follow them and read carefully what they
+contain. It will take some time, but it IS worth it.
+</p><p>
+You need a fairly recent system. On Linux, 2.4.x kernels are recommended.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="softreq"></a>1.2.1. Software requirements</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>binutils</b></span> - suggested version is <span class="bold"><b>2.11.x</b></span>.
+  This program is responsible for generating MMX/ 3DNow!/etc instructions,
+  thus very important.
+</p></li><li><p>
+  <span class="bold"><b>gcc</b></span> - suggested versions are: <span class="bold"><b>2.95.3</b></span>
+  (maybe <span class="bold"><b>2.95.4</b></span>) and <span class="bold"><b>3.2+</b></span>.
+  <span class="bold"><b>Never</b></span> use 2.96 or 3.0.x! They generate faulty code for
+  <span class="application">MPlayer</span>. If you decide to change gcc from
+  2.96, then don't decide in favor of 3.x just because it's newer! Early
+  releases of 3.x were even more buggy than 2.96. So downgrade to 2.95.x
+  (downgrade <tt>libstdc++</tt> too, other
+  programs may need it) or don't up/downgrade at all (but in this case, be
+  prepared for runtime problems). If you vote for 3.x, try to use the
+  latest version, early releases had various bugs, so be sure you use at
+  least 3.1, it's tested and working. For detailed information about gcc 2.96's
+  bugs (that are still NOT fixed, they have been WORKED AROUND in
+  <span class="application">MPlayer</span>!),see the <a href="gcc-296.html" title="E.1. GCC 2.96">gcc 2.96</a>
+  section and the <a href="faq.html">FAQ</a>.
+  </p></li><li><p>
+  <span class="bold"><b>XFree86</b></span> - suggested version is <span class="bold"><b>always the
+  newest</b></span> (4.3). Normally, everyone wants this, as starting
+  with XFree86 4.0.2, it contains the <a href="video.html#xv" title="2.3.2.1. Xv">XVideo</a>
+  extension (somewhere referred to as <span class="bold"><b>Xv</b></span>)
+  which is needed to enable the hardware YUV acceleration (fast image display)
+  on cards that support it.
+  Make sure its <span class="bold"><b>development package</b></span> is installed,
+  too, otherwise it won't work.
+  For some video cards you don't need XFree86. See list below.
+  </p></li><li><p>
+  <span class="bold"><b>make</b></span> - suggested version is
+  <span class="bold"><b>always the newest</b></span> (at least 3.79.x). This
+  usually isn't important.
+  </p></li><li><p>
+  <span class="bold"><b>SDL</b></span> - it's not mandatory, but can help in
+  some cases (bad audio, video cards that lag strangely with the xv driver).
+  Always use the newest (beginning from 1.2.x).
+  </p></li><li><p>
+  <span class="bold"><b>libjpeg</b></span> - optional JPEG decoder, used by the <tt class="option">-mf</tt>
+  option and some QT MOV files.  Useful for both <span class="application">MPlayer</span>
+  and <span class="application">MEncoder</span> if
+  you plan to work with jpeg files.
+  </p></li><li><p>
+  <span class="bold"><b>libpng</b></span> - recommended and default (M)PNG decoder. Required for GUI.
+  Useful for both <span class="application">MPlayer</span> and
+  <span class="application">MEncoder</span>.
+  </p></li><li><p>
+  <span class="bold"><b>lame</b></span> - recommended, needed for encoding MP3 audio with
+  <span class="application">MEncoder</span>, suggested version is
+  <span class="emphasis"><i>always the newest</i></span> (at least 3.90).
+  </p></li><li><p>
+  <span class="bold"><b>zlib</b></span> - recommended, necessary for compressed
+  MOV header and PNG support.
+  </p></li><li><p>
+  <span class="bold"><b>libogg</b></span> - optional, needed for playing OGG file format.
+  </p></li><li><p>
+  <span class="bold"><b>libvorbis</b></span> - optional, needed for playing OGG Vorbis audio.
+  </p></li><li><p>
+  <span class="bold"><b><a href="http://www.live.com/mplayer/" target="_top">LIVE.COM Streaming Media</a></b></span>
+  - optional, needed for playing RTSP/RTP streams.
+  </p></li><li><p>
+  <span class="bold"><b>directfb</b></span> - optional, from
+  <a href="http://www.directfb.org" target="_top">http://www.directfb.org</a>. At least 0.9.13 is required.
+  </p></li><li><p>
+  <span class="bold"><b>cdparanoia</b></span> - optional, for CDDA support
+  </p></li><li><p>
+  <span class="bold"><b>libfreetype</b></span> - optional, for TTF fonts
+  support. At least 2.0.9 is required.
+  </p></li><li><p>
+  <span class="bold"><b>libxmms</b></span> - optional, for XMMS input plugin
+  support. At least 1.2.7 is required.
+  </p></li><li><p>
+  <span class="bold"><b>libsmb</b></span> - optional, for Samba support.
+  </p></li><li><p>
+  <span class="bold"><b>ALSA</b></span> - optional, for ALSA audio output
+  support. At least 0.9.0rc4 is required.
+  </p></li><li><p>
+  <span class="bold"><b>bio2jack</b></span> - optional, for JACK audio output
+  support, needed only in compile time. You can obtain it from
+  <a href="http://bio2jack.sf.net/" target="_top">http://bio2jack.sf.net</a>. Since it
+  doesn't have install option you have to manually put the file
+  <tt class="filename">libbio2jack.a</tt> somewhere in your library path
+  (e.g. <tt class="filename">/usr/local/lib</tt>) or use the
+  <tt class="option">--with-bio2jack=DIR</tt> switch to tell
+  <tt class="filename">./configure</tt> where that file is.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2835188"></a>1.2.2. Codecs</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b><tt>libavcodec</tt></b></span>:
+  This codec package is capable
+  of decoding H.263/MJPEG/RV10/DivX3/DivX4/DivX5/MP41/MP42/WMV1/WMV2/SVQ1/SVQ3 encoded video
+  streams and WMA (Windows Media Audio) v1/v2 audio streams, on multiple
+  platforms. It is also known to be the fastest for this task. See
+  <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec">FFmpeg</a> section for details. Features:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    gain decoding of videos mentioned above, on non-x86 machines
+    </li><li>
+    encoding with most of the mentioned codecs
+    </li><li>
+    this codec is the <span class="bold"><b>fastest codec available</b></span> for
+    DivX/3/4/5 and other MPEG-4 types. Recommended!
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>Win32 codecs</b></span>: If you plan to use
+  <span class="application">MPlayer</span> on x86 architecture, you will possibly need
+  them. Download a codec package from our
+  <a href="http://www.mplayerhq.hu/homepage/design7/codecs.html" target="_top">codecs page</a>
+  and put the codecs in <tt class="filename">/usr/local/lib/codecs</tt>
+  <span class="bold"><b>BEFORE</b></span> compiling <span class="application">MPlayer</span>,
+  otherwise no Win32 support will be compiled!
+  </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The avifile project has similar codecs package, but it
+  differs from ours, so if you want to use all supported codecs, then use
+  our package (do not worry, avifile works with it without problems).</p></div><p>
+  Features:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    you need this if you want to play or encode for example movies recorded
+    with various hardware compressors, like tuner cards, digital cameras
+    (example: DV, ATI VCR, MJPEG)
+    </li><li>
+    needed if you want to play <span class="bold"><b>WMV9/WMA9 movies</b></span>.
+   </li><li>
+    Not needed for old ASF's with MP41 or MP42 video (though VoxWare audio is
+    frequent for these files - it's done by the Win32 codec), or WMV7. Also not
+    needed for WMA (Windows Media Audio),
+    <tt>libavcodec</tt> has open source decoder
+    for that.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>QuickTime codecs</b></span>: on x86 platforms these
+  codecs can be used to decode RPZA, and other QuickTime video,
+  and QDesign audio streams. Installation instructions can be found in the
+  <a href="codecs.html#sorenson" title="2.2.1.9. Sorenson">Sorenson video codec</a> section.
+  </p></li><li><p>
+  <span class="bold"><b>DivX4/DivX5</b></span>: information about this codec is
+  available in the <a href="codecs.html#divx4-5" title="2.2.1.1. DivX4/DivX5">DivX4/DivX5</a> section. You possibly
+  don't want this codec as
+  <span class="bold"><b><tt>libavcodec</tt></b></span>
+  (see above) is much faster and has better quality than this, for both decoding
+  and encoding. Features:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    one pass or two pass encoding with
+    <a href="mencoder.html" title="Chapter 7. Encoding with MEncoder"><span class="application">MEncoder</span></a>
+    </li><li>
+    can play old <span class="bold"><b>DivX3</b></span> movies much faster than
+    the Win32 DLL but slower than
+    <span class="bold"><b><tt>libavcodec</tt></b></span>!
+    </li><li>
+    it's closed-source, and only a x86 version is available.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>XviD</b></span>: Open source encoding alternative to
+  DivX4Linux. Features:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    one pass or two pass encoding with
+    <a href="mencoder.html" title="Chapter 7. Encoding with MEncoder"><span class="application">MEncoder</span></a>
+    </li><li>
+    it's open-source, so it's multiplatform.
+    </li><li>
+    it's about 2 times faster than divX4 when encoding - about the same
+    quality
+    </li></ul></div><p>
+  </p></li><li><p>
+  The <span class="bold"><b><a href="codecs.html#xanim" title="2.2.1.3. XAnim codecs">XAnim codecs</a></b></span>
+  are the best (full screen, hardware YUV zoom) for decoding
+  <span class="bold"><b>3ivx</b></span> and Indeo 3/4/5 movies, and some old
+  formats. And they are multiplatform, so this is the only way to play Indeo on
+  non-x86 platforms (well, apart from using XAnim:). But for example Cinepak movies
+  are best played with <span class="application">MPlayer</span>'s own Cinepak decoder!
+  </p></li><li><p>
+  For <span class="bold"><b>Ogg Vorbis</b></span> audio decoding you need to
+  install <tt>libvorbis</tt> properly.
+  You can get binary packages and source code from the
+  <a href="http://www.vorbis.com/download.psp" target="_top">Ogg Vorbis site</a>.
+  </p></li><li><p>
+  <span class="application">MPlayer</span> can use the libraries of RealPlayer 8
+  or RealONE to play files with
+  <span class="bold"><b>RealVideo 3.0 and 4.0</b></span>
+  video, and Sipro/Cook audio. See the
+  <a href="formats.html#realmedia" title="2.1.1.7. RealMedia (RM) files">RealMedia file format</a>
+  section for installation instructions and more information.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="video-cards"></a>1.2.3. Video cards</h3></div></div><p>
+There are generally two kind of video cards. One kind (the newer cards) has
+<span class="bold"><b>hardware scaling and YUV acceleration</b></span> support,
+the other cards don't.
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="yuv-cards"></a>1.2.3.1. YUV cards</h4></div></div><p>
+They can display and scale (zoom) the picture to any size that fits in
+their memory, with <span class="bold"><b>small CPU usage</b></span> (even when
+zooming), thus fullscreen is nice and very fast.
+
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>Matrox G200/G400/G450/G550 cards</b></span>: although a
+  <a href="video.html#vidix" title="2.3.2.13. VIDIX">Vidix driver</a> is provided, it is recommended to
+  use the mga_vid module instead, for it works much better.
+  Please see the <a href="video.html#mga_vid" title="2.3.2.6. Matrox framebuffer (mga_vid)">mga_vid</a> section about its
+  installation and usage. It is important to do these steps
+  <span class="emphasis"><i>before</i></span> compiling <span class="application">MPlayer</span>,
+  otherwise no mga_vid support will be built. Also check out the
+  <a href="video.html#tvout-mga-g400" title="2.3.5.1. Matrox G400 cards">Matrox TV-out</a> section.
+  <span class="bold"><b> If you don't use Linux</b></span>, your only
+  possibility is the VIDIX driver: read the <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a> section.
+  </p></li><li><p>
+  <span class="bold"><b>3Dfx Voodoo3/Banshee cards</b></span>: please see
+  <a href="video.html#tdfxfb" title="2.3.2.7. 3Dfx YUV support">tdfxfb</a> section in order to gain big speedup.
+  It is important to do these steps <span class="bold"><b>before</b></span>
+  compiling <span class="application">MPlayer</span>, otherwise no 3Dfx support will be
+  built. Also see the <a href="video.html#tvout-voodoo" title="2.3.5.4. Voodoo 3">3dfx TV-out</a> section.
+  If you use X, use at least <span class="bold"><b>4.2.0</b></span>, as 3dfx Xv
+  driver was broken in 4.1.0, and earlier releases.
+  </p></li><li><p>
+  <span class="bold"><b>ATI cards</b></span>: <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>
+  driver is provided for the following cards:
+  <span class="bold"><b>Radeon, Rage128, Mach64</b></span> (Rage XL/Mobility, Xpert98).
+  Also see the <a href="video.html#tvout-ati" title="2.3.5.3. ATI cards">ATI cards</a> section of the TV-out documentation,
+  to know if you card's TV-out is supported under Linux/<span class="application">MPlayer</span>.
+  </p></li><li><p>
+  <span class="bold"><b>S3 cards</b></span>: the Savage and Virge/DX chips have
+  hardware acceleration. Use as new XFree86 version as possible, older drivers are
+  buggy. Savage chips have problems with YV12 display, see <a href="video.html#s3" title="2.3.2.1.2. S3 cards">S3 Xv</a>
+  section for details. Older, Trio cards have no, or slow hardware support.
+  </p></li><li><p>
+  <span class="bold"><b>nVidia cards</b></span>: may or may not be good choice for video playing.
+  If you do not have a GeForce2 (or newer) card, it's not likely to work without bugs.
+  <span class="bold"><b>the built-in nVidia driver in XFree86 does not support
+  hardware YUV acceleration on all nVidia cards.</b></span> You have
+  to download nVidia's closed-source drivers from <a href="http://nvidia.com" target="_top">nVidia.com</a>.
+  See the <a href="video.html#nvidia" title="2.3.2.1.3. nVidia cards">nVidia Xv driver</a> section for details. Please also check
+  the <a href="video.html#tvout-nvidia" title="2.3.5.5. nVidia">nVidia TV-out</a> section if you wish to
+  use a TV.
+  </p></li><li><p>
+  <span class="bold"><b>3DLabs GLINT R3 and Permedia3</b></span>: a VIDIX driver
+  is provided (pm3_vid). Please see the <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a> section
+  for details.
+  </p></li><li><p>
+  <span class="bold"><b>Other cards</b></span>: none of the above?
+  </p><div class="itemizedlist"><ul type="round"><li>
+    Try if the XFree86 driver (and your card) supports hardware
+    acceleration. See the <a href="video.html#xv" title="2.3.2.1. Xv">Xv</a> section for details.
+    </li><li>
+    If it doesn't, then your card's video features aren't supported under
+    your operating system :( If hardware scaling works under Windows, it
+    doesn't mean it will work under Linux or other operating system, it depends on
+    the drivers. Most manufacturers neither make Linux drivers nor release
+    specifications of their chips - so you are unlucky if using their cards.
+    See <a href="install.html#non-yuv-cards">Non-YUV cards</a>.
+    </li></ul></div><p>
+  </p></li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="non-yuv-cards"></a>1.2.3.2. Non-YUV cards</h4></div></div><p>
+Fullscreen playing can be achieved by either enabling <span class="bold"><b>
+software scaling</b></span> (use the <tt class="option">-zoom</tt> or <tt class="option">-vf</tt> option,
+but I warn you: this is slow), or switching to a smaller video mode, for example
+352x288. If you don't have YUV acceleration, this latter method is recommended.
+Video mode switching can be enabled by using the <tt class="option">-vm</tt> option and
+it works with the following drivers:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>using</b></span> XFree86: see details in <a href="video.html#dga" title="2.3.2.2. DGA">DGA driver</a> and
+  <a href="video.html#x11" title="2.3.2.12. X11">X11 driver</a> sections. DGA is recommended! Also
+  try DGA via SDL, sometimes it's better.
+  </li><li>
+  <span class="bold"><b>not using</b></span> XFree86: try the drivers in the
+  following order:
+  <a href="video.html#vesa" title="2.3.2.11. VESA - output to VESA BIOS">vesa</a>,
+  <a href="video.html#fbdev" title="2.3.2.5. Framebuffer output (FBdev)">fbdev</a>,
+  <a href="video.html#svgalib" title="2.3.2.4. SVGAlib">svgalib</a>,
+  <a href="video.html#aalib" title="2.3.2.9. AAlib - text mode displaying">aalib</a>.
+  </li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="cirrus-logic-cards"></a>1.2.3.3. Cirrus-Logic cards</h4></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  GD 7548: present on-board and tested in Compaq Armada 41xx notebook series.
+  </p><div class="itemizedlist"><ul type="round"><li>
+    XFree86 3: works in 8/16bpp modes. However, the driver is dramatically slow
+    and buggy in 800x600@16bpp. <span class="bold"><b>Recommended: 640x480@16bpp</b></span>
+   </li><li>
+    XFree86 4: the Xserver freezes soon after start unless acceleration is
+    disabled, but then the whole thing gets slower than XFree86 3. No XVideo.
+   </li><li>
+    FBdev: framebuffer can be turned on with the <tt>clgenfb</tt>
+    driver in the kernel, though for me it worked only in 8bpp, thus unusable.
+    The clgenfb source had to be extended with the 7548 ID before compilation.
+   </li><li>
+    VESA: the card is only VBE 1.2 capable, so VESA output can't be used. Can't
+    be workarounded with UniVBE.
+  </li><li>
+    SVGAlib: detects an older Cirrus chip. Usable but slow with
+    <tt class="option">-bpp 8</tt>.
+  </li></ul></div><p>
+</p></li></ul></div></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="sound-cards"></a>1.2.4. Sound cards</h3></div></div><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>Soundblaster Live!</b></span>: with this card you can use
+  4 or 6 (<span class="bold"><b>5.1</b></span>) channels AC3 decoding instead of 2. Read the
+  <a href="codecs.html#swac3" title="2.2.2.1. Software AC3 decoding">Software AC3 decoding</a> section. For hardware AC3
+  passthrough you <span class="bold"><b>must</b></span> use ALSA 0.9 with OSS emulation!
+  </li><li>
+  <span class="bold"><b>C-Media with S/PDIF out</b></span>: hardware AC3
+  passthrough is possible with these cards, see
+  <a href="codecs.html#hwac3" title="2.2.2.2. Hardware AC3 decoding">Hardware AC3 decoding</a> section.
+  </li><li>
+  Features of <span class="bold"><b>other cards</b></span> aren't supported by
+  <span class="application">MPlayer</span>. <span class="bold"><b>It's very recommended
+  to read the <a href="audio.html" title="2.4. Audio output devices">sound card</a> section!</b></span>
+  </li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2836746"></a>1.2.5. Features</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  Decide if you need GUI. If you do, see the <a href="gui.html" title="1.3. What about the GUI?">GUI</a>
+  section before compiling.
+  </p></li><li><p>
+  If you want to install <span class="application">MEncoder</span> (our great
+  all-purpose encoder), see the
+  <a href="mencoder.html" title="Chapter 7. Encoding with MEncoder"><span class="application">MEncoder</span></a> section.
+  </p></li><li><p>
+  If you have a V4L compatible <span class="bold"><b>TV tuner</b></span> card,
+  and wish to watch/grab and encode movies with <span class="application">MPlayer</span>,
+  read the <a href="tv-input.html" title="2.5. TV input">TV input</a> section.
+  </p></li><li><p>
+  There is a neat <span class="bold"><b>OSD Menu</b></span> support ready to be
+  used. Check the <a href="subosd.html" title="1.4. Subtitles and OSD">OSD menu</a> section.
+  </p></li></ul></div><p>
+Then build <span class="application">MPlayer</span>:
+<pre class="screen">
+./configure
+make
+make install</pre>
+</p><p>
+At this point, <span class="application">MPlayer</span> is ready to use. The
+directory <tt class="filename">$PREFIX/share/mplayer</tt>
+contains the <tt class="filename">codecs.conf</tt> file, which is used to tell
+the program all the codecs and their capabilities. This file is needed only
+when you want to change its properties, as the main binary contains an internal
+copy of it. Check if you have
+<tt class="filename">codecs.conf</tt> in your home directory
+(<tt class="filename">~/.mplayer/codecs.conf</tt>) left from old
+<span class="application">MPlayer</span> versions, and remove it.
+</p><p>
+Note that if you have a <tt class="filename">codecs.conf</tt> in
+<tt class="filename">~/.mplayer/</tt>,  the builtin and system
+<tt class="filename">codecs.conf</tt> will be ignored completely.
+Do not do this unless you want to fiddle with <span class="application">MPlayer</span>
+internals as this can can cause many problems. If you want to change the codecs
+search order, use the <tt class="option">-vc</tt>, <tt class="option">-ac</tt>, <tt class="option">-vfm</tt>,
+or <tt class="option">-afm</tt> options either on the command line or in your
+config file (see the manual page).
+</p><p>
+Debian users can build a .deb package for themselves, it's very simple.
+Just exec
+<pre class="screen">fakeroot debian/rules binary</pre>
+in <span class="application">MPlayer</span>'s root directory. See
+<a href="linux.html#debian" title="6.1.1. Debian packaging">Debian packaging</a> for detailed instructions.
+</p><p>
+<span class="bold"><b>Always browse the output of</b></span>
+<tt class="filename">./configure</tt>, and the
+<tt class="filename">configure.log</tt> file, they contain information about
+what will be built, and what will not. You may also want to view
+<tt class="filename">config.h</tt> and <tt class="filename">config.mak</tt> files.
+If you have some libraries installed, but not detected by
+<tt class="filename">./configure</tt>, then check if you also have the proper
+header files (usually the -dev packages) and their version matches. The
+<tt class="filename">configure.log</tt> file usually tells you what is missing.
+</p><p>
+Though not mandatory, the fonts should be installed in order to gain OSD,
+and subtitle functionality. The recommended method is installing a TTF
+font file and telling <span class="application">MPlayer</span> to use it.
+See the <a href="subosd.html" title="1.4. Subtitles and OSD">Subtitles and OSD</a> section for details.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="history.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="gui.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">1.1. History </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 1.3. What about the GUI?</td></tr></table></div></body></html>

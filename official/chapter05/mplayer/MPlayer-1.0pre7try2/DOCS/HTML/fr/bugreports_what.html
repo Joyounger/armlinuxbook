@@ -1,0 +1,121 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>B.4. Que rapporter</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="bugreports.html" title="Annexe B. Comment rapporter les bogues"><link rel="previous" href="bugreports_where.html" title="B.3. Où rapporter les bogues"><link rel="next" href="bugreports_advusers.html" title="B.5. Je sais ce que je fait..."></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">B.4. Que rapporter</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="bugreports_where.html">Précédent</a> </td><th width="60%" align="center">Annexe B. Comment rapporter les bogues</th><td width="20%" align="right"> <a accesskey="n" href="bugreports_advusers.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="bugreports_what"></a>B.4. Que rapporter</h2></div></div><p>
+Vous pouvez avoir besoin d'inclure des fichiers de log, de configuration ou
+d'échantillon. Si certains sont très gros alors il vaut mieux les uploader sur notre
+<a href="ftp://mplayerhq.hu/MPlayer/incoming/" target="_top">serveur FTP</a> en format
+compressé (gzip et bzip2 préférés) et indiquer uniquement leur chemin et nom dans le
+rapport de bogue. Nos listes de diffusion ont une taille de message limite de 80k, si
+vous avez quelque chose de plus gros vous devrez le compresser ou l'uploader.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_system"></a>B.4.1. Information Système</h3></div></div><p>
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+Votre distribution Linux ou système d'exploitation et version c-a-d:
+  </p><div class="itemizedlist"><ul type="round"><li><p>Red Hat 7.1</p></li><li><p>Slackware 7.0 + paquets de développement de la 7.1 ...</p></li></ul></div><p>
+</p></li><li><p>
+version du noyau:
+<pre class="screen">uname -a</pre>
+</p></li><li><p>
+version de la libc:
+<pre class="screen">ls -l /lib/libc[.-]*</pre>
+</p></li><li><p>
+versions de gcc et ld :
+<pre class="screen">
+gcc -v
+ld -v
+</pre>
+</p></li><li><p>
+version des binutils:
+<pre class="screen">as --version</pre>
+</p></li><li><p>
+Si vous avez des problèmes avec le mode plein-écran:
+  </p><div class="itemizedlist"><ul type="round"><li><p>Type de gestionnaire de fenêtre et version</p></li></ul></div><p>
+</p></li><li><p>
+Si vous avez des problèmes avec XVIDIX:
+  </p><div class="itemizedlist"><ul type="round"><li><p>profondeur de couleur de X:
+<pre class="screen">xdpyinfo | grep "depth of root"</pre>
+    </p></li></ul></div><p>
+</p></li><li><p>
+Si seule la GUI est boguée:
+  </p><div class="itemizedlist"><ul type="round"><li><p>version de GTK</p></li><li><p>version de GLIB</p></li><li><p>version de libpng</p></li><li><p>Endroit de la GUI où le bogue se produit</p></li></ul></div><p>
+</p></li></ul></div><p>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_hardware"></a>B.4.2. Matériel et pilotes</h3></div></div><p>
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+Info CPU (cela ne fonctionne que sous Linux):
+<pre class="screen">cat /proc/cpuinfo</pre>
+</p></li><li><p>
+Fabricant et modèle de votre carte vidéo, ex.:
+  </p><div class="itemizedlist"><ul type="round"><li><p>chip ASUS V3800U: nVidia TNT2 Ultra pro 32Mo SDRAM</p></li><li><p>Matrox G400 DH 32Mo SGRAM</p></li></ul></div><p>
+</p></li><li><p>
+Type et version des drivers vidéo, ex.:
+  </p><div class="itemizedlist"><ul type="round"><li><p>Pilote X intégré</p></li><li><p>nVidia 0.9.623</p></li><li><p>Utah-GLX CVS 2001-02-17</p></li><li><p>DRI de X 4.0.3</p></li></ul></div><p>
+</p></li><li><p>
+Type de carte son et pilote, ex.:
+  </p><div class="itemizedlist"><ul type="round"><li><p>Creative SBLive! Gold avec pilote OSS de oss.creative.com</p></li><li><p>Creative SB16 avec pilotes noyau OSS</p></li><li><p>GUS PnP avec émulation OSS ALSA</p></li></ul></div><p>
+</p></li><li><p>
+En cas de doute, joignez-y le résultat de <b>lspci -vv</b> sur les systèmes Linux.
+</p></li></ul></div><p>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_configure"></a>B.4.3. Problèmes de configuration</h3></div></div><p>
+Si vous rencontrez des erreurs pendant l'éxecution de <b>./configure</b>,
+ou si l'auto-détection ou autre chose échoue, lisez <tt class="filename">configure.log</tt>.
+Vous pourriez y trouver la réponse, par exemple des versions multiples de la même
+librairie mélangées dans votre système, ou vous avez oublié d'installer les paquets de
+développement (ceux avec le suffixe -dev). Si vous pensez que c'est un bogue, incluez
+<tt class="filename">configure.log</tt> dans votre rapport de bogue.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_conpilation"></a>B.4.4. Problèmes de compilation</h3></div></div><p>
+Veuillez inclure ces fichiers:
+</p><div class="itemizedlist"><ul type="disc"><li><p>config.h</p></li><li><p>config.mak</p></li></ul></div><p>
+Uniquement si la compilation échoue à partir d'un de ces répertoires, incluez ces fichiers:
+</p><div class="itemizedlist"><ul type="disc"><li><p>Gui/config.mak</p></li><li><p>libvo/config.mak</p></li><li><p>libao2/config.mak</p></li></ul></div><p>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_playback"></a>B.4.5. Pour les problèmes de lecture</h3></div></div><p>
+Merci d'inclure la sortie de <span class="application">MPlayer</span> en verbosité niveau 1,
+mais rappelez-vous de <span class="bold"><b>ne pas tronquer la sortie</b></span> en le
+copiant dans votre mail. Les développeurs ont besoin de tous les messages pour
+diagnostiquer correctement un problème. Vous pouvez rediriger la sortie dans un fichier
+comme ceci:
+<pre class="screen">mplayer -v <i><tt>options</tt></i> <i><tt>nomfichier</tt></i> &gt; mplayer.log 2&gt;&amp;1</pre>
+</p><p>
+Si votre problème est spécifique à un ou plusieurs fichiers, alors merci d'uploader
+le(s) fautif(s) sur:
+<a href="ftp://mplayerhq.hu/MPlayer/incoming/" target="_top">ftp://mplayerhq.hu/MPlayer/incoming/</a>
+</p><p>
+Uploadez aussi un petit fichier texte ayant le même nom que votre fichier mais avec une
+extension .txt. Décrivez le problème que vous avez avec ce fichier et incluez votre
+adresse e-mail ainsi que la sortie de MPlayer en verbosité niveau 1. Généralement les
+premiers 1-5 Mo sont suffisants pour reproduire le problème, mais pour être sûrs nous
+vous demandons de faire:
+<pre class="screen">dd if=<i><tt>votre fichier</tt></i> of=<i><tt>petit fichier</tt></i> bs=1024k count=5</pre>
+Cela coupera les 5 premiers Mo de '<span class="bold"><b>votre fichier</b></span>'
+et les sauvera dans '<span class="bold"><b>petit fichier</b></span>'. Essayez alors de
+lire le petit fichier, et si le bogue persiste vous pouvez envoyer le petit fichier par
+ftp. <span class="bold"><b>N'envoyez jamais</b></span> ces fichiers par e-mail SVP !
+Envoyez les par FTP, et postez seulement leur nom/adresse sur ce FTP. Si le fichier est
+accessible en téléchargement, envoyez seulement son adresse <span class="bold"><b>exacte</b></span>.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_crash"></a>B.4.6. Plantages</h3></div></div><p>
+Vous devez lancer <span class="application">MPlayer</span> à l'intérieur de <b>gdb</b>
+et nous envoyer le résultat complet ou si vous avez un core dump du plantage vous
+pouvez extraire des informations utiles du fichier <tt class="filename">core</tt>. Voici comment:
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="bugreports_debug"></a>B.4.6.1. Comment conserver les informations avec un plantage reproductible</h4></div></div><p>
+Recompilez <span class="application">MPlayer</span> avec les instructions de déboguage:
+<pre class="screen">
+./configure --enable-debug=3
+make
+</pre>
+ et ensuite lancez MPlayer à l'intérieur de gdb en utilisant:
+<pre class="screen">gdb ./mplayer</pre>
+Vous êtes maintenant à l'intérieur de gdb. Tapez:
+<pre class="screen">run -v <i><tt>options-pour-mplayer</tt></i> <i><tt>nomfichier</tt></i></pre>
+et reproduisez votre plantage. Aussitôt que vous l'avez fait, gdb va vous renvoyer à la
+ligne de commande où vous devrez entrer
+<pre class="screen">
+bt
+disass $pc-32 $pc+32
+info all-registers
+</pre>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="bugreports_core"></a>B.4.6.2. Comment extraire les informations significatives d'un core dump</h4></div></div><p>
+Veuillez créer le fichier de commande suivant:
+<pre class="screen">
+bt
+disass $pc-32 $pc+32
+info all-registers
+</pre>
+Ensuite exécutez simplement:
+<pre class="screen">gdb mplayer --core=core -batch --command=<i><tt>fichier_de_commande</tt></i> &gt; mplayer.bug</pre>
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="bugreports_where.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="bugreports.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="bugreports_advusers.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">B.3. Où rapporter les bogues </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> B.5. Je sais ce que je fait...</td></tr></table></div></body></html>

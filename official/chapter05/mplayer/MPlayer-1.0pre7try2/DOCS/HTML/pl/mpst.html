@@ -1,0 +1,35 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.4. Strumienie zdalne</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="usage.html" title="Rozdzia&#322; 3. Sposób u&#380;ycia"><link rel="previous" href="streaming.html" title="3.3. Strumieniowanie z sieci i potoków"><link rel="next" href="edl.html" title="3.5. Decyzyjne Listy Edycji (Edit Decision Lists - EDL)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.4. Strumienie zdalne</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="streaming.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 3. Sposób u&#380;ycia</th><td width="20%" align="right"> <a accesskey="n" href="edl.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="mpst"></a>3.4. Strumienie zdalne</h2></div></div><p>
+Strumienie zdalne pozwalaj&#261; na dost&#281;p do wi&#281;kszo&#347;ci strumieni obs&#322;ugiwanych
+przez <span class="application">MPlayera</span> ze zdalnego hosta. G&#322;ównym celem tej
+funkcji jest umo&#380;liwienie bezpo&#347;redniego korzystania z nap&#281;du CD lub DVD innego
+komputera w sieci (pod warunkiem posiadania odpowiedniej przepustowo&#347;ci).
+Niestety niektóre typy strumieni (aktualnie TV oraz MF) nie s&#261; dost&#281;pne zdalnie,
+gdy&#380; s&#261; zaimplementowane na poziomie demultipleksera. Jest to przykre w
+przypadku MF, gdy&#380; TV i tak by wymaga&#322;o szalonej przepustowo&#347;ci.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="compile_mpst_server"></a>3.4.1. Kompilacja serwera</h3></div></div><p>
+Po kompilacji <span class="application">MPlayera</span> wejd&#378; do katalogu
+<tt class="filename">TOOLS/netstream</tt> i wpisz <span class="application">make</span>
+by zbudowa&#263; program serwera. Mo&#380;esz wtedy skopiowa&#263; program
+<span class="application">nestream</span> do odpowiedniego miejsca w Twoim
+systemie (przewa&#380;nie <tt class="filename">/usr/local/bin</tt>
+pod Linuksem).
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="use_mpst"></a>3.4.2. U&#380;ywanie strumieni zdalnych</h3></div></div><p>
+Najpierw musisz uruchomi&#263; serwer na komputerze, do którego masz zamiar mie&#263;
+dost&#281;p zdalny. Aktualnie serwer jest bardzo podstawowy i nie ma &#380;adnych
+argumentów wiersza polece&#324;, wi&#281;c po prostu wpisz <tt class="filename">netstream</tt>.
+Teraz mo&#380;esz np. odtworzy&#263; drug&#261; &#347;cie&#380;k&#281; VCD na serwerze za pomoc&#261;:
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://nazwa_serwera/vcd://2</tt></i>
+</pre>
+Masz równie&#380; dost&#281;p do plików na tym serwerze:
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://nazwa_serwera//usr/local/movies/lol.avi</tt></i>
+</pre>
+Zauwa&#380;, &#380;e &#347;cie&#380;ki, które nie zaczynaj&#261; si&#281; na "/" b&#281;d&#261; wzgl&#281;dne do katalogu,
+w którym uruchomiono serwer. Opcja <tt class="option">-cache</tt> nie jest wymagana,
+lecz bardzo zalecana.
+</p><p>
+Miej na uwadze to, &#380;e aktualnie serwer nie ma &#380;adnych zabezpiecze&#324;. Nie narzekaj
+wi&#281;c na liczne nadu&#380;ycia, które s&#261; przez to mo&#380;liwe. Zamiast tego wy&#347;lij jak&#261;&#347;
+(dobr&#261;) &#322;atk&#281;, by sta&#322; si&#281; lepszy lub napisz swój w&#322;asny serwer.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="streaming.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="edl.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">3.3. Strumieniowanie z sieci i potoków </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 3.5. Decyzyjne Listy Edycji (Edit Decision Lists - EDL)</td></tr></table></div></body></html>

@@ -1,0 +1,89 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.1. Histoire</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="intro.html" title="Chapitre 1. Introduction"><link rel="previous" href="intro.html" title="Chapitre 1. Introduction"><link rel="next" href="install.html" title="1.2. Installation"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.1. Histoire</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="intro.html">Précédent</a> </td><th width="60%" align="center">Chapitre 1. Introduction</th><td width="20%" align="right"> <a accesskey="n" href="install.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="history"></a>1.1. Histoire</h2></div></div><blockquote class="blockquote"><p>
+Cela a commencé un an auparavant...
+J'ai essayé de nombreux lecteurs de vidéos sous GNU/Linux (<span class="application">mtv</span>, <span class="application">xmps</span>,
+<span class="application">dvdview</span>, <span class="application">livid/oms</span>,
+<span class="application">videolan</span>, <span class="application">xine</span>,
+<span class="application">xanim</span>, <span class="application">avifile</span>,
+<span class="application">xmmp</span>) mais ils présentaient tous des défauts, particulièrement sur
+certains fichiers ou avec la synchronisation audio/vidéo. La plupart étaient incapables de lire à
+la fois les fichiers MPEG-1, MPEG-2 et AVI (DivX). De plus ils avaient des problèmes de vitesse/qualité
+d'images. J'ai donc décidé d'en écrire/modifier un...
+</p></blockquote><p>A'rpi, 2001</p><p>
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b><span class="application">mpg12play</span> v0.1-v0.3</b></span>: 22-25 Sep 2000
+  </p><p>Le premier essai, réalisé en une demi-heure !
+  J'ai utilisé libmpeg3 de <a href="http://www.heroinewarrior.com" target="_top">http://www.heroinewarrior.com</a>
+  dans sa version 0.3, mais il présentait des problèmes graves;mes de
+  vitesse/qualité d'images.
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">mpg12play</span> v0.5-v0.87</b></span>: 28 Sep-20 Oct 2000
+  </p><p>Le codec MPEG a été remplacé par DVDview de Dirk Farin, du bon boulot,
+    mais c'était lent et écrit en C++ (A'rpi déteste le C++!!!)
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">mpg12play</span> v0.9-v0.95pre5</b></span>: 21 Oct-2 Nov 2000
+  </p><p>Le codec MPEG était libmpeg2 (mpeg2dec) par Aaron Holtzman et Michel Lespinasse.
+    Il est excellent, un code C rapide et bien optimisé; avec une qualité d'image parfaite
+    et 100% compatible avec les standards MPEG.
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> v0.3-v0.9</b></span>: 18 Nov-4 Dec 2000
+  </p><p>Un condensé de deux programmes: mpg12playv0.95pre6 et mon nouveau lecteur de AVI 'avip'
+    basé sur le chargeur de DLL Win32 de avifile.
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> v0.10</b></span>: 1er Jan 2001
+  </p><p>Les lecteurs MPEG et AVI dans un seul binaire !
+  </p></li><li><p>
+  <span class="bold"><b>série <span class="application">MPlayer</span> v0.11pre</b></span>:
+  </p><p>De nouveaux développeurs ont joint le projet et depuis la version 0.11 le projet
+    MPlayer est un travail d'équipe ! Ajout du support des fichiers .ASF, et
+    de l'encodage/décodage OpenDivX (c.f. <a href="http://www.projectmayo.com" target="_top">http://www.projectmayo.com</a>).
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> v0.17a "The IdegCounter"</b></span> 27 Avr 2001
+  </p><p>La finalisation de la version 0.11pre après 4 mois de développement intensif !
+    Essayez la, et soyez conquis ! Des dizaines de nouvelles fonctionnalités ont été apportées, le code existant amélioré et sécurisé, et de nombreux bogues ont été corrigés..
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 0.18 "The BugCounter"</b></span> 9 Juillet 2001
+  </p><p>Deux mois après la 0.17, une nouvelle parution.. Compléter le support ASF,
+    plus de formats pour les sous-titres, introduction de libao (similaire et libvo pour l'audio),
+    encore plus stable et performant.... C'est un MUST !
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 0.50 "The Faszom(C)ounter"</b></span> 8 Oct 2001
+  </p><p>Hmm. Une nouvelle sortie. Des tonnes de nouvelles fonctionnalités, une GUI en version
+    bêta, des bogues fixés, de nouveaux drivers vo et ao, portage
+    sur de nombreux systèmes, incluant les codecs DivX Open-Source, et bien plus
+    encore... Essayez le !
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 0.60 "The RTFMCounter"</b></span> 3 Jan 2002
+  </p><p>Support des formats de fichier MOV/VIVO/RM/FLI/NUV, CRAM natif, Cinepak,
+    codecs ADPCM, et support des codecs XAnim binaires; support des sous-titres DVD,
+    première sortie de <span class="application">MEncoder</span>, capture TV, cache, liba52, réparations innombrables.
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 0.90pre10 "The BirthdayCounter"</b></span> 11 Nov 2002
+  </p><p>MPlayer 0.90pre10 "The BirthdayCounter" 11 Nov 2002
+    Bien que ce ne soit pas une version officielle, je la mentionne parce qu'elle est sortie 2 ans
+    après MPlayer v0.01. Joyeux anniversaire, MPlayer !
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 0.90rc1 "The CodecCounter"</b></span> 7 Dec 2002
+  </p><p>Là encore, pas une version officielle, mais après l'ajout du support Sorenson 3 (QuickTime)
+    et Windows Media 9, MPlayer est le premier lecteur de film au monde qui supporte
+    tous les formats vidéos connus!
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 0.90 "The CounterCounter"</b></span> 6 Avr 2003
+  </p><p>
+  </p><p>Après plus d'un an, nous avons finalement conclu que le code était
+  de nouveau suffisamment stable, et prêt à sortir en temps que version officielle.
+  Malheureusement nous avons oublié d'incrémenter le numéro de version, et d'autres
+  bogues ennuyeux sont apparus, donc préparez-vous pour...
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 0.91</b></span> 13 Août 2003
+  </p><p>Des corrections ont été apportées à ce qui est dit ci-dessus,
+    ainsi qu'à d'autres bogues. Ceci est la dernière version stable.
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 1.0pre1 "Développement sur la plage"</b></span> 1er Sep 2003
+  </p><p>Bien que ce ne soit pas une version stable, je la mentionne car
+   c'est la première pré-version de la série 1.0 de MPlayer et qu'elle est destinée
+   à aider la <span class="emphasis"><i>grande chasse aux bogues</i></span>. C'est un pas en avant
+   énorme !
+  </p></li><li><p>
+  <span class="bold"><b><span class="application">MPlayer</span> 1.0</b></span> date encore inconnue
+  </p></li></ul></div><p>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="intro.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="install.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">Chapitre 1. Introduction </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 1.2. Installation</td></tr></table></div></body></html>

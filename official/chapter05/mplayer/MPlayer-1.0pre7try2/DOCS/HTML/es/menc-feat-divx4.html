@@ -1,0 +1,64 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.1. Codificación MPEG-4 en 2 o 3-pasadas ("DivX")</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - El reproductor de Películas
+para LINUX"><link rel="up" href="mencoder.html" title="Capítulo 7. Codificando con MEncoder"><link rel="previous" href="mencoder.html" title="Capítulo 7. Codificando con MEncoder"><link rel="next" href="menc-feat-mpeg.html" title="7.2. Codificando a formato MPEG"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.1. Codificación MPEG-4 en 2 o 3-pasadas ("DivX")</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="mencoder.html">Anterior</a> </td><th width="60%" align="center">Capítulo 7. Codificando con MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-mpeg.html">Siguiente</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-divx4"></a>7.1. Codificación MPEG-4 en 2 o 3-pasadas ("DivX")</h2></div></div><p><b>Codificación en 2-pasadas. </b>
+El nombre viene del hecho de que este método codifica el archivo
+<span class="emphasis"><i>dos veces</i></span>. La primera codificación (pasada aislada) crea algunos
+archivos temporales (<tt class="filename">*.log</tt>) con un tamaño de unos pocos megabytes,
+no los borre todavía (puede borrar el AVI). En la segunda pasada, el archivo de salida
+de 2-pasadas es creado, usando los datos de tasa de bits de los archivos temporales. El
+archivo resultante debe tener así mucha más calidad de imagen. Si es la primera vez que
+oye hablar de esto, debería consultar algunas guías disponibles en la Red.
+</p><p>
+Este ejemplo muestra como codificar un DVD a AVI MPEG-4 de 2-pasadas ("DivX").
+Solo se necesitan dos órdenes:
+<pre class="screen">rm frameno.avi</pre>
+borre este archivo, que puede ser de una codificación previa en 3-pasadas (e interfiere
+con el actual)
+<pre class="screen">
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=1 -oac copy -o <i><tt>pelicula.avi</tt></i>
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=2 -oac copy -o <i><tt>pelicula.avi</tt></i>
+</pre>
+</p><p><b>Codificación en 3-pasadas. </b>
+Esta es una extensión de la codificación en 2-pasadas, donde la codificación
+del au dio se hace en una pasada diferente. Este método estima la tasa de bits
+de video necesaria para ajustar el tamaño para un CD. Además, el audio es
+codificado una sola vez, y no como en el modo 2-pasadas. De manera esquemática:
+</p><div class="procedure"><ol type="1"><li><p>
+  Borre el archivo temporal conflictivo:
+  <pre class="screen">rm frameno.avi</pre>
+  </p></li><li><p>
+  <span class="emphasis"><i>Primera pasada:</i></span>
+
+  <pre class="screen">mencoder <i><tt>file/DVD</tt></i> -ovc frameno -oac mp3lame -lameopts vbr=3 -o frameno.avi</pre>
+  
+  Se crea un archivo avi solo-audio, que contiene
+  <span class="bold"><b>únicamente</b></span> el flujo de audio requerido. No olvide
+  <tt class="option">-lameopts</tt>, si necesita establecer algunos parámetros. Si está
+  codificando una película larga, <span class="application">MEncoder</span> muestra las
+  tasas de bits recomendadas para tamaños 650MB, 700MB, y 800MB, una vez que finaliza
+  esta pasada.
+  </p></li><li><p>
+  <span class="emphasis"><i>Segunda pasada:</i></span>
+  <pre class="screen">
+mencoder <i><tt>file/DVD</tt></i> -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vpass=1:vbitrate=<i><tt>bitrate</tt></i></pre>
+Esta es la primera pasada de la codificación de video. Opcionalmente puede
+especificar la tasa de bits de video que predijo
+<span class="application">MEncoder</span> cuando terminó la primera pasada.
+  </p></li><li><p>
+  <span class="emphasis"><i>Tercera pasada:</i></span>
+<pre class="screen">
+mencoder <i><tt>file/DVD</tt></i> -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vpass=2:vbitrate=<i><tt>bitrate</tt></i>
+</pre>
+Esta es la segunda pasada de la codificación del video. Especifique la
+misma tasa de bits que en la pasada anterior a menos que sepa realmente
+lo que está haciendo. En esta pasada, el audio de <tt class="filename">frameno.avi</tt>
+se inserta en el archivo de destino... y ¡ya está todo hecho!
+</p></li></ol></div><div class="example"><p><b>Ejemplo 7.1. Ejemplo de codificación en 3-pasadas</b></p><p>
+<pre class="screen">rm frameno.avi</pre>
+borre este archivo, que puede ser de una codificación en 3-pasadas
+anterior (e interferir con el actual)
+<pre class="screen">
+mencoder dvd://2 -ovc frameno -o frameno.avi -oac mp3lame -lameopts vbr=3
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=1 -oac copy -o <i><tt>pelicula.avi</tt></i>
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=2 -oac copy -o <i><tt>pelicula.avi</tt></i>
+</pre>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="mencoder.html">Anterior</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Subir</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-mpeg.html">Siguiente</a></td></tr><tr><td width="40%" align="left" valign="top">Capítulo 7. Codificando con MEncoder </td><td width="20%" align="center"><a accesskey="h" href="index.html">Inicio</a></td><td width="40%" align="right" valign="top"> 7.2. Codificando a formato MPEG</td></tr></table></div></body></html>

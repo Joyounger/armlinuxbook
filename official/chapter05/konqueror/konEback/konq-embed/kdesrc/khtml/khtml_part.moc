@@ -1,0 +1,584 @@
+/****************************************************************************
+** KHTMLPart meta object code from reading C++ file 'khtml_part.h'
+**
+** Created: Thu Nov 20 06:20:14 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "khtml_part.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KHTMLPart::className() const
+{
+    return "KHTMLPart";
+}
+
+QMetaObject *KHTMLPart::metaObj = 0;
+
+#ifdef QWS
+static class KHTMLPart_metaObj_Unloader {
+public:
+    ~KHTMLPart_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KHTMLPart" );
+    }
+} KHTMLPart_metaObj_unloader;
+#endif
+
+void KHTMLPart::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(ReadOnlyPart::className(), "KParts::ReadOnlyPart") != 0 )
+	badSuperclassWarning("KHTMLPart","KParts::ReadOnlyPart");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KHTMLPart::tr(const char* s)
+{
+    return qApp->translate( "KHTMLPart", s, 0 );
+}
+
+QString KHTMLPart::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KHTMLPart", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KHTMLPart::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KParts::ReadOnlyPart::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+    typedef bool (KHTMLPart::*m3_t0)()const;
+    typedef bool (QObject::*om3_t0)()const;
+    typedef void (KHTMLPart::*m3_t1)(bool);
+    typedef void (QObject::*om3_t1)(bool);
+    typedef bool (KHTMLPart::*m3_t3)()const;
+    typedef bool (QObject::*om3_t3)()const;
+    typedef void (KHTMLPart::*m3_t4)(bool);
+    typedef void (QObject::*om3_t4)(bool);
+    typedef bool (KHTMLPart::*m3_t6)()const;
+    typedef bool (QObject::*om3_t6)()const;
+    typedef void (KHTMLPart::*m3_t7)(bool);
+    typedef void (QObject::*om3_t7)(bool);
+    typedef bool (KHTMLPart::*m3_t9)()const;
+    typedef bool (QObject::*om3_t9)()const;
+    typedef void (KHTMLPart::*m3_t10)(bool);
+    typedef void (QObject::*om3_t10)(bool);
+    typedef bool (KHTMLPart::*m3_t12)()const;
+    typedef bool (QObject::*om3_t12)()const;
+    typedef void (KHTMLPart::*m3_t13)(bool);
+    typedef void (QObject::*om3_t13)(bool);
+    typedef bool (KHTMLPart::*m3_t15)()const;
+    typedef bool (QObject::*om3_t15)()const;
+    typedef void (KHTMLPart::*m3_t16)(bool);
+    typedef void (QObject::*om3_t16)(bool);
+    m3_t0 v3_0 = &KHTMLPart::jScriptEnabled;
+    om3_t0 ov3_0 = (om3_t0)v3_0;
+    m3_t1 v3_1 = &KHTMLPart::enableJScript;
+    om3_t1 ov3_1 = (om3_t1)v3_1;
+    m3_t3 v3_3 = &KHTMLPart::javaEnabled;
+    om3_t3 ov3_3 = (om3_t3)v3_3;
+    m3_t4 v3_4 = &KHTMLPart::setJavaEnabled;
+    om3_t4 ov3_4 = (om3_t4)v3_4;
+    m3_t6 v3_6 = &KHTMLPart::autoloadImages;
+    om3_t6 ov3_6 = (om3_t6)v3_6;
+    m3_t7 v3_7 = &KHTMLPart::setAutoloadImages;
+    om3_t7 ov3_7 = (om3_t7)v3_7;
+    m3_t9 v3_9 = &KHTMLPart::dndEnabled;
+    om3_t9 ov3_9 = (om3_t9)v3_9;
+    m3_t10 v3_10 = &KHTMLPart::setDNDEnabled;
+    om3_t10 ov3_10 = (om3_t10)v3_10;
+    m3_t12 v3_12 = &KHTMLPart::pluginsEnabled;
+    om3_t12 ov3_12 = (om3_t12)v3_12;
+    m3_t13 v3_13 = &KHTMLPart::setPluginsEnabled;
+    om3_t13 ov3_13 = (om3_t13)v3_13;
+    m3_t15 v3_15 = &KHTMLPart::onlyLocalReferences;
+    om3_t15 ov3_15 = (om3_t15)v3_15;
+    m3_t16 v3_16 = &KHTMLPart::setOnlyLocalReferences;
+    om3_t16 ov3_16 = (om3_t16)v3_16;
+    QMetaProperty *props_tbl = QMetaObject::new_metaproperty( 6 );
+    props_tbl[0].t = "bool";
+    props_tbl[0].n = "javaScriptEnabled";
+    props_tbl[0].get = (QMember)ov3_0;
+    props_tbl[0].set = (QMember)ov3_1;
+    props_tbl[0].reset = 0;
+    props_tbl[0].gspec = QMetaProperty::Class;
+    props_tbl[0].sspec = QMetaProperty::Class;
+    props_tbl[1].t = "bool";
+    props_tbl[1].n = "javaEnabled";
+    props_tbl[1].get = (QMember)ov3_3;
+    props_tbl[1].set = (QMember)ov3_4;
+    props_tbl[1].reset = 0;
+    props_tbl[1].gspec = QMetaProperty::Class;
+    props_tbl[1].sspec = QMetaProperty::Class;
+    props_tbl[1].setFlags(QMetaProperty::StdSet);
+    props_tbl[2].t = "bool";
+    props_tbl[2].n = "autoloadImages";
+    props_tbl[2].get = (QMember)ov3_6;
+    props_tbl[2].set = (QMember)ov3_7;
+    props_tbl[2].reset = 0;
+    props_tbl[2].gspec = QMetaProperty::Class;
+    props_tbl[2].sspec = QMetaProperty::Class;
+    props_tbl[2].setFlags(QMetaProperty::StdSet);
+    props_tbl[3].t = "bool";
+    props_tbl[3].n = "dndEnabled";
+    props_tbl[3].get = (QMember)ov3_9;
+    props_tbl[3].set = (QMember)ov3_10;
+    props_tbl[3].reset = 0;
+    props_tbl[3].gspec = QMetaProperty::Class;
+    props_tbl[3].sspec = QMetaProperty::Class;
+    props_tbl[4].t = "bool";
+    props_tbl[4].n = "pluginsEnabled";
+    props_tbl[4].get = (QMember)ov3_12;
+    props_tbl[4].set = (QMember)ov3_13;
+    props_tbl[4].reset = 0;
+    props_tbl[4].gspec = QMetaProperty::Class;
+    props_tbl[4].sspec = QMetaProperty::Class;
+    props_tbl[4].setFlags(QMetaProperty::StdSet);
+    props_tbl[5].t = "bool";
+    props_tbl[5].n = "onlyLocalReferences";
+    props_tbl[5].get = (QMember)ov3_15;
+    props_tbl[5].set = (QMember)ov3_16;
+    props_tbl[5].reset = 0;
+    props_tbl[5].gspec = QMetaProperty::Class;
+    props_tbl[5].sspec = QMetaProperty::Class;
+    props_tbl[5].setFlags(QMetaProperty::StdSet);
+#endif // QT_NO_PROPERTIES
+    typedef void (KHTMLPart::*m1_t0)(const DOM::Node&);
+    typedef void (QObject::*om1_t0)(const DOM::Node&);
+    typedef void (KHTMLPart::*m1_t1)();
+    typedef void (QObject::*om1_t1)();
+    typedef void (KHTMLPart::*m1_t2)();
+    typedef void (QObject::*om1_t2)();
+    typedef void (KHTMLPart::*m1_t3)(KIO::Job*,const QByteArray&);
+    typedef void (QObject::*om1_t3)(KIO::Job*,const QByteArray&);
+    typedef void (KHTMLPart::*m1_t4)(const QByteArray&);
+    typedef void (QObject::*om1_t4)(const QByteArray&);
+    typedef void (KHTMLPart::*m1_t5)(KIO::Job*);
+    typedef void (QObject::*om1_t5)(KIO::Job*);
+    typedef void (KHTMLPart::*m1_t6)();
+    typedef void (QObject::*om1_t6)();
+    typedef void (KHTMLPart::*m1_t7)();
+    typedef void (QObject::*om1_t7)();
+    typedef void (KHTMLPart::*m1_t8)(KIO::Job*,const KURL&);
+    typedef void (QObject::*om1_t8)(KIO::Job*,const KURL&);
+    typedef void (KHTMLPart::*m1_t9)();
+    typedef void (QObject::*om1_t9)();
+    typedef void (KHTMLPart::*m1_t10)();
+    typedef void (QObject::*om1_t10)();
+    typedef void (KHTMLPart::*m1_t11)();
+    typedef void (QObject::*om1_t11)();
+    typedef void (KHTMLPart::*m1_t12)();
+    typedef void (QObject::*om1_t12)();
+    typedef void (KHTMLPart::*m1_t13)();
+    typedef void (QObject::*om1_t13)();
+    typedef void (KHTMLPart::*m1_t14)();
+    typedef void (QObject::*om1_t14)();
+    typedef void (KHTMLPart::*m1_t15)();
+    typedef void (QObject::*om1_t15)();
+    typedef void (KHTMLPart::*m1_t16)();
+    typedef void (QObject::*om1_t16)();
+    typedef void (KHTMLPart::*m1_t17)();
+    typedef void (QObject::*om1_t17)();
+    typedef void (KHTMLPart::*m1_t18)();
+    typedef void (QObject::*om1_t18)();
+    typedef void (KHTMLPart::*m1_t19)();
+    typedef void (QObject::*om1_t19)();
+    typedef void (KHTMLPart::*m1_t20)();
+    typedef void (QObject::*om1_t20)();
+    typedef void (KHTMLPart::*m1_t21)();
+    typedef void (QObject::*om1_t21)();
+    typedef void (KHTMLPart::*m1_t22)();
+    typedef void (QObject::*om1_t22)();
+    typedef void (KHTMLPart::*m1_t23)();
+    typedef void (QObject::*om1_t23)();
+    typedef void (KHTMLPart::*m1_t24)();
+    typedef void (QObject::*om1_t24)();
+    typedef void (KHTMLPart::*m1_t25)();
+    typedef void (QObject::*om1_t25)();
+    typedef void (KHTMLPart::*m1_t26)(KParts::Part*);
+    typedef void (QObject::*om1_t26)(KParts::Part*);
+    typedef void (KHTMLPart::*m1_t27)(KParts::Part*);
+    typedef void (QObject::*om1_t27)(KParts::Part*);
+    typedef void (KHTMLPart::*m1_t28)(KIO::Job*);
+    typedef void (QObject::*om1_t28)(KIO::Job*);
+    typedef void (KHTMLPart::*m1_t29)();
+    typedef void (QObject::*om1_t29)();
+    typedef void (KHTMLPart::*m1_t30)(bool);
+    typedef void (QObject::*om1_t30)(bool);
+    typedef void (KHTMLPart::*m1_t31)(bool);
+    typedef void (QObject::*om1_t31)(bool);
+    typedef void (KHTMLPart::*m1_t32)(const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*om1_t32)(const KURL&,const KParts::URLArgs&);
+    typedef void (KHTMLPart::*m1_t33)(const DOM::DOMString&,khtml::CachedObject*);
+    typedef void (QObject::*om1_t33)(const DOM::DOMString&,khtml::CachedObject*);
+    typedef void (KHTMLPart::*m1_t34)();
+    typedef void (QObject::*om1_t34)();
+    typedef void (KHTMLPart::*m1_t35)(const QString&,const QString&);
+    typedef void (QObject::*om1_t35)(const QString&,const QString&);
+    typedef void (KHTMLPart::*m1_t36)();
+    typedef void (QObject::*om1_t36)();
+    typedef void (KHTMLPart::*m1_t37)();
+    typedef void (QObject::*om1_t37)();
+    typedef void (KHTMLPart::*m1_t38)();
+    typedef void (QObject::*om1_t38)();
+    m1_t0 v1_0 = &KHTMLPart::setActiveNode;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &KHTMLPart::stopAnimations;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    m1_t2 v1_2 = &KHTMLPart::reparseConfiguration;
+    om1_t2 ov1_2 = (om1_t2)v1_2;
+    m1_t3 v1_3 = &KHTMLPart::slotData;
+    om1_t3 ov1_3 = (om1_t3)v1_3;
+    m1_t4 v1_4 = &KHTMLPart::slotRestoreData;
+    om1_t4 ov1_4 = (om1_t4)v1_4;
+    m1_t5 v1_5 = &KHTMLPart::slotFinished;
+    om1_t5 ov1_5 = (om1_t5)v1_5;
+    m1_t6 v1_6 = &KHTMLPart::slotFinishedParsing;
+    om1_t6 ov1_6 = (om1_t6)v1_6;
+    m1_t7 v1_7 = &KHTMLPart::slotRedirect;
+    om1_t7 ov1_7 = (om1_t7)v1_7;
+    m1_t8 v1_8 = &KHTMLPart::slotRedirection;
+    om1_t8 ov1_8 = (om1_t8)v1_8;
+    m1_t9 v1_9 = &KHTMLPart::slotDebugDOMTree;
+    om1_t9 ov1_9 = (om1_t9)v1_9;
+    m1_t10 v1_10 = &KHTMLPart::slotDebugRenderTree;
+    om1_t10 ov1_10 = (om1_t10)v1_10;
+    m1_t11 v1_11 = &KHTMLPart::slotViewDocumentSource;
+    om1_t11 ov1_11 = (om1_t11)v1_11;
+    m1_t12 v1_12 = &KHTMLPart::slotViewFrameSource;
+    om1_t12 ov1_12 = (om1_t12)v1_12;
+    m1_t13 v1_13 = &KHTMLPart::slotSaveBackground;
+    om1_t13 ov1_13 = (om1_t13)v1_13;
+    m1_t14 v1_14 = &KHTMLPart::slotSaveDocument;
+    om1_t14 ov1_14 = (om1_t14)v1_14;
+    m1_t15 v1_15 = &KHTMLPart::slotSaveFrame;
+    om1_t15 ov1_15 = (om1_t15)v1_15;
+    m1_t16 v1_16 = &KHTMLPart::slotSecurity;
+    om1_t16 ov1_16 = (om1_t16)v1_16;
+    m1_t17 v1_17 = &KHTMLPart::slotSetEncoding;
+    om1_t17 ov1_17 = (om1_t17)v1_17;
+    m1_t18 v1_18 = &KHTMLPart::slotFind;
+    om1_t18 ov1_18 = (om1_t18)v1_18;
+    m1_t19 v1_19 = &KHTMLPart::slotFindDone;
+    om1_t19 ov1_19 = (om1_t19)v1_19;
+    m1_t20 v1_20 = &KHTMLPart::slotFindDialogDestroyed;
+    om1_t20 ov1_20 = (om1_t20)v1_20;
+    m1_t21 v1_21 = &KHTMLPart::slotIncFontSizes;
+    om1_t21 ov1_21 = (om1_t21)v1_21;
+    m1_t22 v1_22 = &KHTMLPart::slotDecFontSizes;
+    om1_t22 ov1_22 = (om1_t22)v1_22;
+    m1_t23 v1_23 = &KHTMLPart::slotLoadImages;
+    om1_t23 ov1_23 = (om1_t23)v1_23;
+    m1_t24 v1_24 = &KHTMLPart::submitFormAgain;
+    om1_t24 ov1_24 = (om1_t24)v1_24;
+    m1_t25 v1_25 = &KHTMLPart::updateActions;
+    om1_t25 ov1_25 = (om1_t25)v1_25;
+    m1_t26 v1_26 = &KHTMLPart::slotPartRemoved;
+    om1_t26 ov1_26 = (om1_t26)v1_26;
+    m1_t27 v1_27 = &KHTMLPart::slotActiveFrameChanged;
+    om1_t27 ov1_27 = (om1_t27)v1_27;
+    m1_t28 v1_28 = &KHTMLPart::slotChildStarted;
+    om1_t28 ov1_28 = (om1_t28)v1_28;
+    m1_t29 v1_29 = &KHTMLPart::slotChildCompleted;
+    om1_t29 ov1_29 = (om1_t29)v1_29;
+    m1_t30 v1_30 = &KHTMLPart::slotChildCompleted;
+    om1_t30 ov1_30 = (om1_t30)v1_30;
+    m1_t31 v1_31 = &KHTMLPart::slotParentCompleted;
+    om1_t31 ov1_31 = (om1_t31)v1_31;
+    m1_t32 v1_32 = &KHTMLPart::slotChildURLRequest;
+    om1_t32 ov1_32 = (om1_t32)v1_32;
+    m1_t33 v1_33 = &KHTMLPart::slotLoaderRequestDone;
+    om1_t33 ov1_33 = (om1_t33)v1_33;
+    m1_t34 v1_34 = &KHTMLPart::checkCompleted;
+    om1_t34 ov1_34 = (om1_t34)v1_34;
+    m1_t35 v1_35 = &KHTMLPart::slotShowDocument;
+    om1_t35 ov1_35 = (om1_t35)v1_35;
+    m1_t36 v1_36 = &KHTMLPart::slotAutoScroll;
+    om1_t36 ov1_36 = (om1_t36)v1_36;
+    m1_t37 v1_37 = &KHTMLPart::slotPrintFrame;
+    om1_t37 ov1_37 = (om1_t37)v1_37;
+    m1_t38 v1_38 = &KHTMLPart::slotSelectAll;
+    om1_t38 ov1_38 = (om1_t38)v1_38;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(39);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(39);
+    slot_tbl[0].name = "setActiveNode(const DOM::Node&)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "stopAnimations()";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    slot_tbl[2].name = "reparseConfiguration()";
+    slot_tbl[2].ptr = (QMember)ov1_2;
+    slot_tbl_access[2] = QMetaData::Protected;
+    slot_tbl[3].name = "slotData(KIO::Job*,const QByteArray&)";
+    slot_tbl[3].ptr = (QMember)ov1_3;
+    slot_tbl_access[3] = QMetaData::Private;
+    slot_tbl[4].name = "slotRestoreData(const QByteArray&)";
+    slot_tbl[4].ptr = (QMember)ov1_4;
+    slot_tbl_access[4] = QMetaData::Private;
+    slot_tbl[5].name = "slotFinished(KIO::Job*)";
+    slot_tbl[5].ptr = (QMember)ov1_5;
+    slot_tbl_access[5] = QMetaData::Private;
+    slot_tbl[6].name = "slotFinishedParsing()";
+    slot_tbl[6].ptr = (QMember)ov1_6;
+    slot_tbl_access[6] = QMetaData::Private;
+    slot_tbl[7].name = "slotRedirect()";
+    slot_tbl[7].ptr = (QMember)ov1_7;
+    slot_tbl_access[7] = QMetaData::Private;
+    slot_tbl[8].name = "slotRedirection(KIO::Job*,const KURL&)";
+    slot_tbl[8].ptr = (QMember)ov1_8;
+    slot_tbl_access[8] = QMetaData::Private;
+    slot_tbl[9].name = "slotDebugDOMTree()";
+    slot_tbl[9].ptr = (QMember)ov1_9;
+    slot_tbl_access[9] = QMetaData::Private;
+    slot_tbl[10].name = "slotDebugRenderTree()";
+    slot_tbl[10].ptr = (QMember)ov1_10;
+    slot_tbl_access[10] = QMetaData::Private;
+    slot_tbl[11].name = "slotViewDocumentSource()";
+    slot_tbl[11].ptr = (QMember)ov1_11;
+    slot_tbl_access[11] = QMetaData::Private;
+    slot_tbl[12].name = "slotViewFrameSource()";
+    slot_tbl[12].ptr = (QMember)ov1_12;
+    slot_tbl_access[12] = QMetaData::Private;
+    slot_tbl[13].name = "slotSaveBackground()";
+    slot_tbl[13].ptr = (QMember)ov1_13;
+    slot_tbl_access[13] = QMetaData::Private;
+    slot_tbl[14].name = "slotSaveDocument()";
+    slot_tbl[14].ptr = (QMember)ov1_14;
+    slot_tbl_access[14] = QMetaData::Private;
+    slot_tbl[15].name = "slotSaveFrame()";
+    slot_tbl[15].ptr = (QMember)ov1_15;
+    slot_tbl_access[15] = QMetaData::Private;
+    slot_tbl[16].name = "slotSecurity()";
+    slot_tbl[16].ptr = (QMember)ov1_16;
+    slot_tbl_access[16] = QMetaData::Private;
+    slot_tbl[17].name = "slotSetEncoding()";
+    slot_tbl[17].ptr = (QMember)ov1_17;
+    slot_tbl_access[17] = QMetaData::Private;
+    slot_tbl[18].name = "slotFind()";
+    slot_tbl[18].ptr = (QMember)ov1_18;
+    slot_tbl_access[18] = QMetaData::Private;
+    slot_tbl[19].name = "slotFindDone()";
+    slot_tbl[19].ptr = (QMember)ov1_19;
+    slot_tbl_access[19] = QMetaData::Private;
+    slot_tbl[20].name = "slotFindDialogDestroyed()";
+    slot_tbl[20].ptr = (QMember)ov1_20;
+    slot_tbl_access[20] = QMetaData::Private;
+    slot_tbl[21].name = "slotIncFontSizes()";
+    slot_tbl[21].ptr = (QMember)ov1_21;
+    slot_tbl_access[21] = QMetaData::Private;
+    slot_tbl[22].name = "slotDecFontSizes()";
+    slot_tbl[22].ptr = (QMember)ov1_22;
+    slot_tbl_access[22] = QMetaData::Private;
+    slot_tbl[23].name = "slotLoadImages()";
+    slot_tbl[23].ptr = (QMember)ov1_23;
+    slot_tbl_access[23] = QMetaData::Private;
+    slot_tbl[24].name = "submitFormAgain()";
+    slot_tbl[24].ptr = (QMember)ov1_24;
+    slot_tbl_access[24] = QMetaData::Private;
+    slot_tbl[25].name = "updateActions()";
+    slot_tbl[25].ptr = (QMember)ov1_25;
+    slot_tbl_access[25] = QMetaData::Private;
+    slot_tbl[26].name = "slotPartRemoved(KParts::Part*)";
+    slot_tbl[26].ptr = (QMember)ov1_26;
+    slot_tbl_access[26] = QMetaData::Private;
+    slot_tbl[27].name = "slotActiveFrameChanged(KParts::Part*)";
+    slot_tbl[27].ptr = (QMember)ov1_27;
+    slot_tbl_access[27] = QMetaData::Private;
+    slot_tbl[28].name = "slotChildStarted(KIO::Job*)";
+    slot_tbl[28].ptr = (QMember)ov1_28;
+    slot_tbl_access[28] = QMetaData::Private;
+    slot_tbl[29].name = "slotChildCompleted()";
+    slot_tbl[29].ptr = (QMember)ov1_29;
+    slot_tbl_access[29] = QMetaData::Private;
+    slot_tbl[30].name = "slotChildCompleted(bool)";
+    slot_tbl[30].ptr = (QMember)ov1_30;
+    slot_tbl_access[30] = QMetaData::Private;
+    slot_tbl[31].name = "slotParentCompleted(bool)";
+    slot_tbl[31].ptr = (QMember)ov1_31;
+    slot_tbl_access[31] = QMetaData::Private;
+    slot_tbl[32].name = "slotChildURLRequest(const KURL&,const KParts::URLArgs&)";
+    slot_tbl[32].ptr = (QMember)ov1_32;
+    slot_tbl_access[32] = QMetaData::Private;
+    slot_tbl[33].name = "slotLoaderRequestDone(const DOM::DOMString&,khtml::CachedObject*)";
+    slot_tbl[33].ptr = (QMember)ov1_33;
+    slot_tbl_access[33] = QMetaData::Private;
+    slot_tbl[34].name = "checkCompleted()";
+    slot_tbl[34].ptr = (QMember)ov1_34;
+    slot_tbl_access[34] = QMetaData::Private;
+    slot_tbl[35].name = "slotShowDocument(const QString&,const QString&)";
+    slot_tbl[35].ptr = (QMember)ov1_35;
+    slot_tbl_access[35] = QMetaData::Private;
+    slot_tbl[36].name = "slotAutoScroll()";
+    slot_tbl[36].ptr = (QMember)ov1_36;
+    slot_tbl_access[36] = QMetaData::Private;
+    slot_tbl[37].name = "slotPrintFrame()";
+    slot_tbl[37].ptr = (QMember)ov1_37;
+    slot_tbl_access[37] = QMetaData::Private;
+    slot_tbl[38].name = "slotSelectAll()";
+    slot_tbl[38].ptr = (QMember)ov1_38;
+    slot_tbl_access[38] = QMetaData::Private;
+    typedef void (KHTMLPart::*m2_t0)(const QString&);
+    typedef void (QObject::*om2_t0)(const QString&);
+    typedef void (KHTMLPart::*m2_t1)(const QString&,const QPoint&);
+    typedef void (QObject::*om2_t1)(const QString&,const QPoint&);
+    typedef void (KHTMLPart::*m2_t2)();
+    typedef void (QObject::*om2_t2)();
+    typedef void (KHTMLPart::*m2_t3)(const DOM::Node&);
+    typedef void (QObject::*om2_t3)(const DOM::Node&);
+    m2_t0 v2_0 = &KHTMLPart::onURL;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KHTMLPart::popupMenu;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    m2_t2 v2_2 = &KHTMLPart::selectionChanged;
+    om2_t2 ov2_2 = (om2_t2)v2_2;
+    m2_t3 v2_3 = &KHTMLPart::nodeActivated;
+    om2_t3 ov2_3 = (om2_t3)v2_3;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(4);
+    signal_tbl[0].name = "onURL(const QString&)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "popupMenu(const QString&,const QPoint&)";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    signal_tbl[2].name = "selectionChanged()";
+    signal_tbl[2].ptr = (QMember)ov2_2;
+    signal_tbl[3].name = "nodeActivated(const DOM::Node&)";
+    signal_tbl[3].ptr = (QMember)ov2_3;
+    metaObj = QMetaObject::new_metaobject(
+	"KHTMLPart", "KParts::ReadOnlyPart",
+	slot_tbl, 39,
+	signal_tbl, 4,
+#ifndef QT_NO_PROPERTIES
+	props_tbl, 6,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL onURL
+void KHTMLPart::onURL( const QString& t0 )
+{
+    activate_signal_strref( "onURL(const QString&)", t0 );
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL popupMenu
+void KHTMLPart::popupMenu( const QString& t0, const QPoint& t1 )
+{
+    // No builtin function for signal parameter type const QString&,const QPoint&
+    QConnectionList *clist = receivers("popupMenu(const QString&,const QPoint&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QString&);
+    typedef void (QObject::*RT2)(const QString&,const QPoint&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}
+
+// SIGNAL selectionChanged
+void KHTMLPart::selectionChanged()
+{
+    activate_signal( "selectionChanged()" );
+}
+
+// SIGNAL nodeActivated
+void KHTMLPart::nodeActivated( const DOM::Node& t0 )
+{
+    // No builtin function for signal parameter type const DOM::Node&
+    QConnectionList *clist = receivers("nodeActivated(const DOM::Node&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const DOM::Node&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}

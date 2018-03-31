@@ -1,0 +1,85 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.7. Windows</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="ports.html" title="Kapitola 6. Ports"><link rel="previous" href="qnx.html" title="6.6. QNX"><link rel="next" href="macos.html" title="6.8. Mac OS"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.7. Windows</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="qnx.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 6. Ports</th><td width="20%" align="right"> <a accesskey="n" href="macos.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="windows"></a>6.7. Windows</h2></div></div><p>Yes, <span class="application">MPlayer</span> runs on Windows under
+  <a href="http://www.cygwin.com/" target="_top"><span class="application">Cygwin</span></a> and
+  <a href="http://www.mingw.org/" target="_top"><span class="application">MinGW</span></a>.
+  It does not have a GUI yet, but the command line version is almost completely
+  functional. <a href="../../tech/patches.txt" target="_top">Patches</a> are always welcome.
+  You should check out the
+  <a href="http://mplayerhq.hu/mailman/listinfo/mplayer-cygwin/" target="_top">MPlayer-cygwin</a>
+  mailing list for help and latest information.</p><p>Best results are achieved with the native DirectX video output driver
+  (<tt class="option">-vo directx</tt>) and the native Windows waveout audio driver
+  (<tt class="option">-ao win32</tt>). Alternatives are OpenGL and SDL, but OpenGL
+  performance varies greatly between systems and SDL is known to
+  distort sound and video or crash on some systems. If the image is
+  distorted, try turning off hardware acceleration with
+  <tt class="option">-vo directx:noaccel</tt>. Download
+  <a href="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/contrib/dx7headers.tgz" target="_top">DirectX 7 header files</a>
+  to compile the DirectX video output driver. Furthermore you need to have
+  DirectX 7 or later installed for the DirectX video output driver to work.
+  </p><p><a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a> now works under Windows as
+  <tt class="option">-vo winvidix</tt>, although it is still experimental
+  and needs a bit of manual setup. Download
+  <a href="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/dhahelperwin/dhahelper.sys" target="_top">dhahelper.sys</a> or
+  <a href="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/dhahelperwin/withmtrr/dhahelper.sys" target="_top">dhahelper.sys (with MTRR support)</a>
+  and copy it to the
+  <tt class="filename">libdha/dhahelperwin</tt> directory in your
+  <span class="application">MPlayer</span> source tree.
+  Open a console and change to that directory. Then type
+
+  <pre class="screen">gcc -o dhasetup.exe dhasetup.c</pre>
+
+  and execute
+
+  <pre class="screen">dhasetup.exe install</pre>
+
+  as Administrator. After that you will have to reboot. When you are
+  done, copy the <tt>.so</tt> files from
+  <tt class="filename">vidix/drivers</tt> to the
+  <tt class="filename">mplayer/vidix</tt> directory
+  relative to your <tt class="filename">mplayer.exe</tt>.</p><p>For best results <span class="application">MPlayer</span> should use a
+  colorspace that your video card supports in hardware. Unfortunately many
+  Windows graphics drivers wrongly report some colorspaces as supported in
+  hardware. To find out which, try
+
+  <pre class="screen">mplayer -benchmark -nosound -frames 100 -vf format=<i><tt>colorspace</tt></i> <i><tt>movie</tt></i></pre>
+
+  where <i><tt>colorspace</tt></i> can be any colorspace
+  printed by the <tt class="option">-vf format=fmt=help</tt> option. If you
+  find a colorspace your card handles particularly bad
+  <tt class="option">-vf noformat=<i><tt>colorspace</tt></i></tt>
+  will keep it from being used. Add this to your config file to permanently
+  keep it from being used.</p><p>There are special codec packages for Windows available on our
+  <a href="http://mplayerhq.hu/homepage/design7/codecs.html" target="_top">codecs page</a>
+  to allow playing formats for which there is no native support yet.
+  Put the codecs somewhere in your path or pass
+  <tt class="option">--with-codecsdir=<i><tt>c:/path/to/your/codecs</tt></i></tt>
+  (alternatively
+  <tt class="option">--with-codecsdir=<i><tt>/path/to/your/codecs</tt></i></tt>
+  only on <span class="application">Cygwin</span>) to <tt class="filename">configure</tt>.
+  We have had some reports that Real DLLs need to be writable by the user
+  running <span class="application">MPlayer</span>, but only on some systems (NT4).
+  Try making them writable if you have problems.</p><p>You can play VCDs by playing the <tt class="filename">.DAT</tt> or <tt class="filename">.MPG</tt> files
+  that Windows exposes on VCDs. It works like this (adjust for the drive letter
+  of your CD-ROM):</p><pre class="screen">mplayer <i><tt>d:/mpegav/avseq01.dat</tt></i></pre><p>DVDs also work, adjust <tt class="option">-dvd-device</tt> for the drive letter
+  of your DVD-ROM:</p><pre class="screen">mplayer dvd://<i><tt>&lt;title&gt;</tt></i> -dvd-device <i><tt>d</tt></i>:</pre><p>The <span class="application">Cygwin</span>/<span class="application">MinGW</span>
+  console is rather slow. Redirecting output or using the
+  <tt class="option">-quiet</tt> option has been reported to improve performance on
+  some systems. Direct rendering (<tt class="option">-dr</tt>) may also help.
+  You can prevent OSD flicker through double buffering with the
+  <tt class="option">-double</tt> option. If playback is jerky, try
+  <tt class="option">-autosync 100</tt>. If some of these options help you, you
+  may want to put them in your config file.</p><p>Sascha Sommer releases official Windows binaries from time to time,
+  Joey Parrish makes unofficial Windows packages complete with installer.
+  Look for these in the Windows section of
+  <a href="http://www.mplayerhq.hu/homepage/design7/projects.html#windows" target="_top">our projects page</a>.</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="cygwin"></a>6.7.1. <span class="application">Cygwin</span></h3></div></div><p>You need to run <span class="application">Cygwin</span> 1.5.0 or later in
+  order to compile <span class="application">MPlayer</span>.</p><p>DirectX header files need to be extracted to <tt class="filename">/usr/include/</tt> or
+  <tt class="filename">/usr/local/include/</tt>.</p><p>Instructions and files for making SDL run under
+  <span class="application">Cygwin</span> can be found on the
+  <a href="http://www.libsdl.org/extras/win32/cygwin/" target="_top">libsdl site</a>.</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mingw"></a>6.7.2. <span class="application">MinGW</span></h3></div></div><p>Installing a version of <span class="application">MinGW</span> that could
+  compile <span class="application">MPlayer</span> used to be quite tricky, but it
+  works out of the box now. Just install <span class="application">MinGW</span>
+  3.1.0 or later and MSYS 1.0.9 or later and tell the MSYS postinstall that
+  <span class="application">MinGW</span> is installed.</p><p>Extract DirectX header files to <tt class="filename">/mingw/include/</tt>.</p><p>MOV compressed header support requires
+  <a href="http://www.gzip.org/zlib/" target="_top">zlib</a>, which
+  <span class="application">MinGW</span> does not provide by default.
+  Configure it with <tt class="option">--prefix=/mingw</tt> and install
+  it before compiling <span class="application">MPlayer</span>.</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="qnx.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="macos.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">6.6. QNX </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> 6.8. Mac OS</td></tr></table></div></body></html>

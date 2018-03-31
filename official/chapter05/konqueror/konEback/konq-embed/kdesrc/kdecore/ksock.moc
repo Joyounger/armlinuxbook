@@ -1,0 +1,360 @@
+/****************************************************************************
+** KSocket meta object code from reading C++ file 'ksock.h'
+**
+** Created: Thu Nov 20 06:14:40 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "ksock.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KSocket::className() const
+{
+    return "KSocket";
+}
+
+QMetaObject *KSocket::metaObj = 0;
+
+#ifdef QWS
+static class KSocket_metaObj_Unloader {
+public:
+    ~KSocket_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KSocket" );
+    }
+} KSocket_metaObj_unloader;
+#endif
+
+void KSocket::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KSocket","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KSocket::tr(const char* s)
+{
+    return qApp->translate( "KSocket", s, 0 );
+}
+
+QString KSocket::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KSocket", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KSocket::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KSocket::*m1_t0)(int);
+    typedef void (QObject::*om1_t0)(int);
+    typedef void (KSocket::*m1_t1)(int);
+    typedef void (QObject::*om1_t1)(int);
+    m1_t0 v1_0 = &KSocket::slotWrite;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &KSocket::slotRead;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(2);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(2);
+    slot_tbl[0].name = "slotWrite(int)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "slotRead(int)";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    typedef void (KSocket::*m2_t0)(KSocket*);
+    typedef void (QObject::*om2_t0)(KSocket*);
+    typedef void (KSocket::*m2_t1)(KSocket*);
+    typedef void (QObject::*om2_t1)(KSocket*);
+    typedef void (KSocket::*m2_t2)(KSocket*);
+    typedef void (QObject::*om2_t2)(KSocket*);
+    m2_t0 v2_0 = &KSocket::readEvent;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KSocket::writeEvent;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    m2_t2 v2_2 = &KSocket::closeEvent;
+    om2_t2 ov2_2 = (om2_t2)v2_2;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(3);
+    signal_tbl[0].name = "readEvent(KSocket*)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "writeEvent(KSocket*)";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    signal_tbl[2].name = "closeEvent(KSocket*)";
+    signal_tbl[2].ptr = (QMember)ov2_2;
+    metaObj = QMetaObject::new_metaobject(
+	"KSocket", "QObject",
+	slot_tbl, 2,
+	signal_tbl, 3,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL readEvent
+void KSocket::readEvent( KSocket* t0 )
+{
+    // No builtin function for signal parameter type KSocket*
+    QConnectionList *clist = receivers("readEvent(KSocket*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KSocket*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL writeEvent
+void KSocket::writeEvent( KSocket* t0 )
+{
+    // No builtin function for signal parameter type KSocket*
+    QConnectionList *clist = receivers("writeEvent(KSocket*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KSocket*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL closeEvent
+void KSocket::closeEvent( KSocket* t0 )
+{
+    // No builtin function for signal parameter type KSocket*
+    QConnectionList *clist = receivers("closeEvent(KSocket*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KSocket*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+
+const char *KServerSocket::className() const
+{
+    return "KServerSocket";
+}
+
+QMetaObject *KServerSocket::metaObj = 0;
+
+#ifdef QWS
+static class KServerSocket_metaObj_Unloader {
+public:
+    ~KServerSocket_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KServerSocket" );
+    }
+} KServerSocket_metaObj_unloader;
+#endif
+
+void KServerSocket::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KServerSocket","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KServerSocket::tr(const char* s)
+{
+    return qApp->translate( "KServerSocket", s, 0 );
+}
+
+QString KServerSocket::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KServerSocket", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KServerSocket::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KServerSocket::*m1_t0)(int);
+    typedef void (QObject::*om1_t0)(int);
+    m1_t0 v1_0 = &KServerSocket::slotAccept;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotAccept(int)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    typedef void (KServerSocket::*m2_t0)(KSocket*);
+    typedef void (QObject::*om2_t0)(KSocket*);
+    m2_t0 v2_0 = &KServerSocket::accepted;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "accepted(KSocket*)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"KServerSocket", "QObject",
+	slot_tbl, 1,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL accepted
+void KServerSocket::accepted( KSocket* t0 )
+{
+    // No builtin function for signal parameter type KSocket*
+    QConnectionList *clist = receivers("accepted(KSocket*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KSocket*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}

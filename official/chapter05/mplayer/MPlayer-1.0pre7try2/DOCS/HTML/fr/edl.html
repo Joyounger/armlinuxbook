@@ -1,0 +1,43 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.5. Listes d'Edition de Décision (EDL)</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="usage.html" title="Chapitre 3. Utilisation"><link rel="previous" href="mpst.html" title="3.4. Flux distants"><link rel="next" href="faq.html" title="Chapitre 4. Foire Aux Questions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.5. Listes d'Edition de Décision (EDL)</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="mpst.html">Précédent</a> </td><th width="60%" align="center">Chapitre 3. Utilisation</th><td width="20%" align="right"> <a accesskey="n" href="faq.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="edl"></a>3.5. Listes d'Edition de Décision (EDL)</h2></div></div><p>
+Le système de liste d'édition de décision (Edit Decision Lists - EDL) vous
+permet de sauter ou rendre muet des sections de vidéos pendant la lecture,
+basé sur un fichier de configuration EDL spécifique au film.
+</p><p>
+Ceci est utile pour ceux qui veulent voir un film en mode "tout public".
+Vous pouvez couper toute violence, profanation, Jar-Jar Binks .. d'un film
+suivant vos préférences personnelles. A part ça, il y a d'autres
+utilisations, comme sauter automatiquement les publicités dans les fichiers vidéos
+que vous regardez.
+</p><p>
+Le format de fichier EDL est plutôt rudimentaire. Une fois que le système EDL
+aura atteint un certain niveau de maturité, un format de fichier basé sur XML
+sera probablement implémenté (en gardant une compatibilité descendante avec les
+précédents formats EDL).
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="edl_using"></a>3.5.1. Utiliser un fichier EDL</h3></div></div><p>
+Incluez l'option <tt class="option">-edl &lt;nomfichier&gt;</tt> quand vous lancez
+<span class="application">MPlayer</span>, avec le nom du fichier EDL que vous voulez
+appliquer à la video.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="edl_making"></a>3.5.2. Faire un fichier EDL</h3></div></div><p>
+Le format de fichier actuel EDL est:
+<pre class="programlisting">
+[seconde de départ] [seconde de fin] [action]
+</pre>
+Où les secondes sont des nombres à virgule et l'action est soit
+<tt>0</tt> pour sauter, soit <tt>1</tt> pour couper le son.
+Exemple:
+<pre class="programlisting">
+5.3   7.1    0
+15    16.7   1
+420   422    0
+</pre>
+Cela va sauter de la seconde 5.3 à la seconde 7.1 de la vidéo, puis va couper
+le son à 15 secondes, le remettre à 16.7 secondes et sauter de la seconde 420
+à la seconde 422 de la vidéo. Ces actions seront appliquées quand le temps de
+lecture atteint le temps indiqué dans le fichier.
+</p><p>
+Pour créer un fichier EDL à partir duquel travailler, utilisez l'option
+<tt class="option">-edlout &lt;nomfichier&gt;</tt>. Durant la lecture, quand vous
+voulez marquer les deux secondes précédentes à sauter, tapez sur <span class="keycap"><b>i</b></span>.
+Une entrée correspondante sera écrite dans le fichier. Vous pouvez ensuite revenir
+et affiner le fichier EDL généré.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="mpst.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="faq.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">3.4. Flux distants </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> Chapitre 4. Foire Aux Questions</td></tr></table></div></body></html>

@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.1. CD/DVD drives</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="cd-dvd.html" title="Chapter 5. CD/DVD usage"><link rel="previous" href="cd-dvd.html" title="Chapter 5. CD/DVD usage"><link rel="next" href="dvd.html" title="5.2. DVD playback"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.1. CD/DVD drives</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="cd-dvd.html">Prev</a> </td><th width="60%" align="center">Chapter 5. CD/DVD usage</th><td width="20%" align="right"> <a accesskey="n" href="dvd.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="drives"></a>5.1. CD/DVD drives</h2></div></div><p>
+Linux documentation excerpt:
+</p><p>
+Modern CD-ROM drives can attain very high head speeds, yet some CD-ROM drives
+are capable of running at reduced speeds. There are several reasons that might
+make you consider changing the speed of a CD-ROM drive:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+There have been reports of read errors at high speeds, especially
+with badly pressed CD-ROMs. Reducing the speed can prevent data loss under
+these circumstances.
+</p></li><li><p>
+Many CD-ROM drives are annoyingly loud, a lower speed may reduce the noise.
+</p></li></ul></div><p>
+You can reduce the speed of IDE CD-ROM drives with <b>hdparm</b> or a
+program called <b>setcd</b>. It works like this:
+<pre class="screen">hdparm -E <i><tt>[speed]</tt></i> <i><tt>[cdrom device]</tt></i></pre>
+<pre class="screen">setcd -x <i><tt>[speed]</tt></i> <i><tt>[cdrom device]</tt></i></pre>
+</p><p>
+If you have root privileges the following command may also help:
+<pre class="screen">echo file_readahead:2000000 &gt; /proc/ide/<i><tt>[cdrom device]</tt></i>/settings</pre>
+</p><p>
+This sets prefetched file reading to 2MB, which helps with scratched CD-ROMs.
+If you set it to too high, the drive will continuously spin up and down, and
+will dramatically decrease the performance.
+It is recommended that you also tune your CD-ROM drive with <b>hdparm</b>:
+<pre class="screen">hdparm -d1 -a8 -u1 <i><tt>cdrom device</tt></i></pre>
+</p><p>
+This enables DMA access, read-ahead, and IRQ unmasking (read the <b>hdparm</b>
+man page for a detailed explanation).
+</p><p>
+Please refer to "<tt class="filename">/proc/ide/<i><tt>cdrom device</tt></i>/settings"</tt>
+for fine-tuning your CD-ROM.
+</p><p>
+SCSI drives do not have a uniform way of setting these parameters (Do you know one?
+Tell us!) There is a tool that works for
+<a href="http://das.ist.org/~georg/" target="_top">Plextor SCSI drives</a>.
+</p><p>FreeBSD:</p><p>Speed: <b>cdcontrol [-f <i><tt>device</tt></i>] speed <i><tt>speed</tt></i></b></p><p>DMA: <b>sysctl hw.ata.atapi_dma=1</b></p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="cd-dvd.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="dvd.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 5. CD/DVD usage </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 5.2. DVD playback</td></tr></table></div></body></html>

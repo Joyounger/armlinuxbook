@@ -1,0 +1,41 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>C.2. Ró&#380;ne problemy z synchronizacj&#261; A-V i d&#378;wi&#281;kiem</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="bugs.html" title="Dodatek C. Znane b&#322;&#281;dy"><link rel="previous" href="bugs-special.html" title="C.1. Specjalne systemowe/specyficzne dla procesora b&#322;&#281;dy/problemy"><link rel="next" href="skin.html" title="Dodatek D. Format skórki MPlayera"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">C.2. Ró&#380;ne problemy z synchronizacj&#261; A-V i d&#378;wi&#281;kiem</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="bugs-special.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek C. Znane b&#322;&#281;dy</th><td width="20%" align="right"> <a accesskey="n" href="skin.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="bugs-audio"></a>C.2. Ró&#380;ne problemy z synchronizacj&#261; A-V i d&#378;wi&#281;kiem</h2></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-delay-all"></a>C.2.1. Ogólne opó&#378;nienie audio lub "d&#322;awi&#261;cy si&#281;" d&#378;wi&#281;k (wyst&#281;puje przy wszystkich lub wielu plikach)</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+najcz&#281;&#347;ciej: zepsuty sterownik d&#378;wi&#281;ku! - spróbuj u&#380;y&#263; innych sterowników, np.
+emulacji OSS ALSY 0.9 za pomoc&#261; opcji <tt class="option">-ao oss</tt>. Spróbuj tak&#380;e
+<tt class="option">-ao sdl</tt>. Opcje te czasem pomagaj&#261;. Je&#347;li Twój plik odtwarza si&#281;
+bez problemów z opcj&#261; <tt class="option">-nosound</tt>, to mo&#380;esz by&#263; pewien, &#380;e to
+wina karty d&#378;wi&#281;kowej lub jej sterownika.
+</p></li></ul></div><div class="itemizedlist"><ul type="disc"><li><p>problemy z buforem audio (&#378;le wykryty rozmiar bufora)</p><p>Obej&#347;cie: opcja <span class="application">MPlayera</span> <tt class="option">-abs</tt></p></li></ul></div><div class="itemizedlist"><ul type="disc"><li><p>
+problemy z cz&#281;stotliwo&#347;ci&#261; próbkowania - by&#263; mo&#380;e Twoja karta nie obs&#322;uguje
+cz&#281;stotliwo&#347;ci próbkowania u&#380;ytych w Twoich plikach - spróbuj filtru resample
+(<tt class="option">-af resample=...</tt>)
+</p></li></ul></div><div class="itemizedlist"><ul type="disc"><li><p>powolna maszyna (procesor lub karta graficzna)</p><p>spróbuj opcji <tt class="option">-vo null</tt>, je&#347;li odtwarza dobrze, oznacza
+to, &#380;e masz zbyt woln&#261; kart&#281; graficzn&#261; lub jej sterownik</p><p>Obej&#347;cie: kup szybsz&#261; kart&#281; lub poczytaj t&#281; dokumentacj&#281; by dowiedzie&#263; si&#281;
+jak przyspieszy&#263; odtwarzanie</p><p>Spróbuj równie&#380; opcji<tt class="option">-framedrop</tt></p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-delay-specific"></a>C.2.2. Opó&#378;nienia/desynchronizacja d&#378;wi&#281;ku specyficzne dla jednego lub kilku plików</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>z&#322;y plik</p><p>
+Obej&#347;cia:
+  </p><div class="itemizedlist"><ul type="round"><li><p>opcje <tt class="option">-ni</tt> lub <tt class="option">-nobps</tt> (dla plików
+    bez przeplotu lub uszkodzonych)</p><p>i/lub</p></li><li><p>opcja <tt class="option">-mc 0</tt> (wymagana dla plików ze
+    z&#322;ym przeplotem d&#378;wi&#281;ku VBR)</p><p>i/lub</p></li><li><p>opcja <tt class="option">-delay</tt> lub klawisze <span class="keycap"><b>+</b></span>/<span class="keycap"><b>-</b></span>
+    w trakcie odtwarzania do regulacji opó&#378;nienia</p></li></ul></div><p>
+Je&#347;li &#380;adne z wymienionych rozwi&#261;za&#324; nie przynosz&#261; efektu, przy&#347;lij nam plik, a
+my to sprawdzimy (i naprawimy).
+</p></li><li><p>Twoja karta d&#378;wi&#281;kowa nie obs&#322;uguje próbkowania 48kHz</p><p>Obej&#347;cie: kup lepsz&#261; kart&#281;... lub spróbuj zmniejszy&#263; liczb&#281; klatek na
+sekund&#281; o 10% (u&#380;ywaj&#261;c opcji <tt class="option">-fps 27</tt> dla filmu o 30 klatkach
+na sekund&#281;) lub u&#380;yj filtru resample</p></li><li><p>powolna maszyna (je&#347;li A-V nie jest w okolicach 0 i ostatnia liczba w
+statusie zwi&#281;ksza si&#281;)</p><p>Obej&#347;cie: opcja <tt class="option">-framedrop</tt></p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-nosound"></a>C.2.3. Zupe&#322;ny brak d&#378;wi&#281;ku</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>Twój plik u&#380;ywa nieobs&#322;ugiwanego kodeka audio</p><p>Obej&#347;cie: poczytaj dokumentacj&#281; i pomó&#380; nam doda&#263; jego obs&#322;ug&#281;</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-nopicture"></a>C.2.4. Zupe&#322;ny brak obrazu (jedynie puste, szare lub zielone okno)</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>Twój plik u&#380;ywa nieobs&#322;ugiwanego kodeka video</p><p>Obej&#347;cie: poczytaj dokumentacj&#281; i pomó&#380; nam doda&#263; jego obs&#322;ug&#281;</p></li><li><p>
+automatycznie wybrany kodek nie potrafi dekodowa&#263; pliku, spróbuj u&#380;y&#263; innego
+za pomoc&#261; opcji <tt class="option">-vc</tt> lub <tt class="option">-vfm</tt>
+</p></li><li><p>
+próbujesz odtwarza&#263; plik DivX 3.x za pomoc&#261; kodeka OpenDivX lub XviD (opcja
+<tt class="option">-vc odivx</tt>) - zainstaluj DivX4Linux i przekompiluj odtwarzacz
+</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-video"></a>C.2.5. Problemy z wyj&#347;ciem video</h3></div></div><p>
+Pierwsza uwaga: opcje <tt class="option">-fs -vm</tt> i <tt class="option">-zoom</tt> s&#261;
+jedynie zaleceniami, nieobs&#322;ugiwanymi (jeszcze) przez wszystkie sterowniki. Nie
+jest to wi&#281;c b&#322;&#261;d, je&#347;li nie dzia&#322;aj&#261;. Tylko niektóre sterowniki obs&#322;uguj&#261;
+skalowanie/powi&#281;kszanie i nie oczekuj tego od x11 lub dga.
+</p><p><b>Migotanie OSD/napisów. </b>
+<div class="itemizedlist"><ul type="disc"><li><p>sterownik x11: przykro nam, ale nie da si&#281; tego teraz naprawi&#263;</p></li><li><p>sterownik xv: u&#380;yj opcji <tt class="option">-double</tt></p></li></ul></div>
+</p><p><b>Zielony obraz przy u&#380;yciu mga_vid (<tt class="option">-vo mga</tt> / <tt class="option">-vo xmga</tt>). </b>
+<div class="itemizedlist"><ul type="disc"><li><p>mga_vid &#378;le wykry&#322; ilo&#347;&#263; pami&#281;ci RAM na Twojej karcie, prze&#322;aduj
+go u&#380;ywaj&#261;c opcji <tt class="option">mga_ram_size</tt>.
+</p></li></ul></div>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="bugs-special.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="bugs.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="skin.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">C.1. Specjalne systemowe/specyficzne dla procesora b&#322;&#281;dy/problemy </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> Dodatek D. Format skórki MPlayera</td></tr></table></div></body></html>

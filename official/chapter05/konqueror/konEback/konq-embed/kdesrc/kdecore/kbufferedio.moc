@@ -1,0 +1,112 @@
+/****************************************************************************
+** KBufferedIO meta object code from reading C++ file 'kbufferedio.h'
+**
+** Created: Thu Nov 20 06:14:57 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "kbufferedio.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KBufferedIO::className() const
+{
+    return "KBufferedIO";
+}
+
+QMetaObject *KBufferedIO::metaObj = 0;
+
+#ifdef QWS
+static class KBufferedIO_metaObj_Unloader {
+public:
+    ~KBufferedIO_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KBufferedIO" );
+    }
+} KBufferedIO_metaObj_unloader;
+#endif
+
+void KBufferedIO::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(KAsyncIO::className(), "KAsyncIO") != 0 )
+	badSuperclassWarning("KBufferedIO","KAsyncIO");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KBufferedIO::tr(const char* s)
+{
+    return qApp->translate( "KBufferedIO", s, 0 );
+}
+
+QString KBufferedIO::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KBufferedIO", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KBufferedIO::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KAsyncIO::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    typedef void (KBufferedIO::*m2_t0)(int);
+    typedef void (QObject::*om2_t0)(int);
+    typedef void (KBufferedIO::*m2_t1)(int);
+    typedef void (QObject::*om2_t1)(int);
+    m2_t0 v2_0 = &KBufferedIO::bytesWritten;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KBufferedIO::closed;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(2);
+    signal_tbl[0].name = "bytesWritten(int)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "closed(int)";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    metaObj = QMetaObject::new_metaobject(
+	"KBufferedIO", "KAsyncIO",
+	0, 0,
+	signal_tbl, 2,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL bytesWritten
+void KBufferedIO::bytesWritten( int t0 )
+{
+    activate_signal( "bytesWritten(int)", t0 );
+}
+
+// SIGNAL closed
+void KBufferedIO::closed( int t0 )
+{
+    activate_signal( "closed(int)", t0 );
+}

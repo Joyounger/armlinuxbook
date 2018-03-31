@@ -1,0 +1,17 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.4. Copie de flux</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="mencoder.html" title="Chapitre 7. Encodage avec MEncoder"><link rel="previous" href="menc-feat-rescale.html" title="7.3. Redimensionnement des films"><link rel="next" href="menc-feat-fix-avi.html" title="7.5. Réparer les fichiers AVIs ayant un index défectueux"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.4. Copie de flux</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-rescale.html">Précédent</a> </td><th width="60%" align="center">Chapitre 7. Encodage avec MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-fix-avi.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-streamcopy"></a>7.4. Copie de flux</h2></div></div><p>
+<span class="application">MEncoder</span> peut gérer les flux entrant de deux façons: les
+<span class="bold"><b>encoder</b></span> ou les <span class="bold"><b>copier</b></span>
+Cette section parle de la <span class="bold"><b>copie</b></span>.
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>Flux vidéo</b></span> (option <tt class="option">-ovc copy</tt>):
+  on peut faire des choses sympa :) comme, placer (pas convertir) de la vidéo FLI
+  ou VIVO ou MPEG1 dans un fichier AVI ! Bien sûr seul <span class="application">MPlayer</span>
+  peut lire de tels fichiers :) et ça n'a probablement aucun intérêt.
+  Concrètement: copier des flux vidéo peut être utile par exemple quand seul le flux
+  audio doit être encodé (comme du PCM non-compressé en MP3).
+  </p></li><li><p>
+  <span class="bold"><b>Flux audio</b></span> (option <tt class="option">-oac copy</tt>):
+  très simple. Il est possible de prendre un fichier audio externe (MP3, WAV) et
+  de le multiplexer dans le flux sortant. Utilisez l'option
+  <tt class="option">-audiofile <i><tt>nomfichier</tt></i></tt> pour cela.
+  </p></li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-rescale.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-fix-avi.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">7.3. Redimensionnement des films </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 7.5. Réparer les fichiers AVIs ayant un index défectueux</td></tr></table></div></body></html>

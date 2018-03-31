@@ -1,0 +1,1148 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4. fejezet - Gyakran ismételt kérdések</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="index.html" title="MPlayer - The Movie Player"><link rel="previous" href="edl.html" title="3.5. Edit Decision Lists (EDL)"><link rel="next" href="cd-dvd.html" title="5. fejezet - CD/DVD használat"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4. fejezet - Gyakran ismételt kérdések</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="edl.html">El&#337;z&#337;</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="cd-dvd.html">Következ&#337;</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="faq"></a>4. fejezet - Gyakran ismételt kérdések</h2></div></div><div class="qandaset"><dl><dt>4.1.  <a href="faq.html#faq-development">Fejlesztés</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2884306">
+Hogyan készítsek egy megfelel&#337; patchet az MPlayerhez?
+</a></dt><dt>Kérdés <a href="faq.html#id2884341">
+Hogyan fordíthatom le az MPlayert egy új nyelvre?
+</a></dt><dt>Kérdés <a href="faq.html#id2886200">
+Hogyan támogathatom az MPlayer fejlesztését?
+</a></dt><dt>Kérdés <a href="faq.html#id2886241">
+Hogyan lehetek én is MPlayer fejleszt&#337;?
+</a></dt><dt>Kérdés <a href="faq.html#id2888700">
+Miért nem használjátok az autoconf/automake párost?
+</a></dt></dl></dd><dt>4.2.  <a href="faq.html#faq-compilation">Fordítás</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2888744">
+A fordítás leáll hibaüzenettel és a gcc valami
+titokzatos üzenetet ad ki magából, ami a
+internal compiler error vagy
+unable to find a register to spill sorokat
+tartalmazza.
+</a></dt><dt>Kérdés <a href="faq.html#id2888818">
+Vannak bináris (RPM/deb) csomagok az MPlayerb&#337;l?
+</a></dt><dt>Kérdés <a href="faq.html#id2888861">
+Hogyan fordíthatok 32 bites MPlayert 64 bites Athlon-on?
+</a></dt><dt>Kérdés <a href="faq.html#id2888896">
+A fordítás megáll egy ehhez hasonló üzenettel:
+
+    cfft.c: In function`passf2':
+    cfft.c:556: unable to find a register to spill in class `FLOAT_REGS'
+    cfft.c:556: this is the insn:
+    (insn 235 233 246 (set (subreg:SF (reg/v:DI 29 rmm0 [110]) 0)
+            (minus:SF (mem:SF (plus:SI (mult:SI (reg:SI 1 edx [112])
+                            (const_int 8 [0x8]))
+                        (reg/v/f:SI 3 ebx [62])) [4 S4 A32])
+                (reg:SF 8 st(0) [132]))) 533 {*fop_sf_1_nosse} (insn_list
+    232 (nil))    (expr_list:REG_DEAD (reg:SF 8 st(0) [132])
+            (nil)))
+    cfft.c:556: confused by earlier errors, bailing out
+
+</a></dt><dt>Kérdés <a href="faq.html#id2888964">
+A fordítás megáll egy ehhez hasonló üzenettel:
+
+    In file included from mplayer.c:34:
+    mw.h: In function `mplMainDraw':
+    mw.h:209: Internal compiler error in print_rtl_and_abort, at flow.c:6458
+    Please submit a full bug report,
+    with preprocessed source if appropriate.
+
+</a></dt><dt>Kérdés <a href="faq.html#id2889012">
+A konfiguráció ezzel a szöveggel ér véget és az MPlayer nem fordul le!
+Your gcc does not support even i386 for '-march' and '-mcpu'
+</a></dt><dt>Kérdés <a href="faq.html#id2889054">
+Mi a probléma a gcc 2.96-tal?
+</a></dt><dt>Kérdés <a href="faq.html#id2889127">
+Nagyszer&#369;, gcc 3.0.1-em van a Red Hattól/Mandraket&#337;l, most már jó!
+</a></dt><dt>Kérdés <a href="faq.html#id2889165">
+.. gcc 2.96 ... (Igen, néhány ember MÉG MINDIG flame-l a gcc 2.96 miatt!)
+</a></dt><dt>Kérdés <a href="faq.html#id2889304">
+Az SDL kimenet nem m&#369;ködik vagy nem fordul. A probléma...
+</a></dt><dt>Kérdés <a href="faq.html#id2889336">
+Még mindig gondjaim vannak az SDL támogatás forgatásával. A gcc vmi
+undefined reference to SDL_EnableKeyRepeat dologról beszél.
+Hogyan tovább?
+</a></dt><dt>Kérdés <a href="faq.html#id2889406">
+Van egy Matrox G200/G400/G450/G550 kártyám, hogyan tudom leforgatni/használni
+az mga_vid vezérl&#337;t?
+</a></dt><dt>Kérdés <a href="faq.html#id2889434">
+A 'make' közben az MPlayer X11 könyvtárak miatt panaszkodik.
+Nem értem, VAN telepítve X-em!?
+</a></dt><dt>Kérdés <a href="faq.html#id2889537">
+Nem tudom lefordítani az SVGAlib-et. 2.3/2.4-es kernelt használok...
+</a></dt><dt>Kérdés <a href="faq.html#id2885822">
+Lefordítottam az MPlayert libdvdcss/libdivxdecore támogatással,
+de amikor megpróbálom elindítani, azt mondja:
+
+error while loading shared libraries: lib*.so.0: cannot load shared object file: No such file or directory
+
+Megnéztem, és VAN ilyen fájl a /usr/local/lib könyvtárban...
+</a></dt><dt>Kérdés <a href="faq.html#id2885894">
+A MEncoder fordítás közben szegfaulttal elszáll a szerkesztésnél!
+</a></dt><dt>Kérdés <a href="faq.html#id2885931">
+Az MPlayer meghal szegfaulttal a pthread ellen&#337;rzés alatt!
+</a></dt><dt>Kérdés <a href="faq.html#id2885962">
+Szeretnék MPlayert fordítani Minixen!
+</a></dt></dl></dd><dt>4.3.  <a href="faq.html#faq-general">Általános kérdések</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2885998">
+Van MPlayerrel foglalkozó levelezési lista?
+</a></dt><dt>Kérdés <a href="faq.html#id2886030">
+Találtam egy csúnya hibát, amikor megpróbáltam lejátszani a kedvenc videómat! Kit értesítsek?
+</a></dt><dt>Kérdés <a href="faq.html#id2886061">
+Problémám van a ... codeckel történ&#337; lejátszással. Egyáltalán használható?
+</a></dt><dt>Kérdés <a href="faq.html#id2886110">
+Ha elindítom a lejátszást, ezt az üzenetet kapom, de látszólag minden rendben van:
+Linux RTC init: ioctl (rtc_pie_on): Permission denied
+</a></dt><dt>Kérdés <a href="faq.html#id2886151">
+Hogyan készíthetek mentést a képerny&#337;r&#337;l?
+</a></dt><dt>Kérdés <a href="faq.html#id2890322">
+Van egy óra a bal fels&#337; sarokban. Hogyan szabadulhatok meg t&#337;le?
+</a></dt><dt>Kérdés <a href="faq.html#id2890352">
+A -xy vagy -fs kapcsolók nem m&#369;ködnek az
+x11 vezérl&#337;vel (-vo x11) ...
+</a></dt><dt>Kérdés <a href="faq.html#id2890430">
+Mit jelentenek a számok a státusz sorban?
+</a></dt><dt>Kérdés <a href="faq.html#id2890568">
+Mi van, ha nem akarom, hogy megjelenjenek?
+</a></dt><dt>Kérdés <a href="faq.html#id2890590">
+Miért zérus (0%) a video_out CPU használata néhány fájlnál?
+</a></dt><dt>Kérdés <a href="faq.html#id2890634">
+Üzeneteket kapok a /usr/local/lib/codecs/ könyvtárban nem található fájlokról...
+</a></dt><dt>Kérdés <a href="faq.html#id2890670">
+Umm, mi az az "IdegCounter"?
+</a></dt><dt>Kérdés <a href="faq.html#id2890696">
+És mi az a "Faszom(C)ounter"?
+</a></dt><dt>Kérdés <a href="faq.html#id2890726">
+A feliratok gyönyör&#369;ek, a legszebbek, amit valaha láttam, de lelassítják
+a lejátszást! Tudom, hogy hihetetlen ...
+</a></dt><dt>Kérdés <a href="faq.html#id2890775">
+Tulajdonképpen mi is egészen pontosan ez a libavcodec dolog?
+</a></dt><dt>Kérdés <a href="faq.html#id2890817">
+De a configure azt mondja, hogy
+Checking for libavcodec ... no
+</a></dt><dt>Kérdés <a href="faq.html#id2890867">
+Nem érem el a GUI menüt. Jobb gombbal kattintok, de semelyik menüelemet sem tudom
+elérni!
+</a></dt><dt>Kérdés <a href="faq.html#id2890922">
+Hogy tudom az MPlayer a háttérben futtatni?
+</a></dt></dl></dd><dt>4.4.  <a href="faq.html#faq-playback">Lejátszási problémák</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2890977">
+Nem találom néhány érdekes lejátszási probléma okát.
+</a></dt><dt>Kérdés <a href="faq.html#id2891052">
+Hogyan tudok audió/felirat sávot választani a DVD, OGM, Matroska vagy NUT fájlban?
+</a></dt><dt>Kérdés <a href="faq.html#id2891117">
+Egy véletlen stream-et szeretnék lejátszani az Internetr&#337;l, de nem sikerül.
+</a></dt><dt>Kérdés <a href="faq.html#id2891142">
+Letöltöttem egy videót egy P2P hálózatról és nem megy!
+</a></dt><dt>Kérdés <a href="faq.html#id2891171">
+Most telepítettem az MPlayert. Amikor meg akarok
+nyitni vele egy videó fájlt, végzetes hibával elszáll:
+
+Error opening/initializing the selected video_out (-vo) device.
+
+Hogyan oldhatom meg ezt a problémát?
+</a></dt><dt>Kérdés <a href="faq.html#id2891261">
+Gondjaim vannak a feliratok megjelenítésével, segítsetek!!
+</a></dt><dt>Kérdés <a href="faq.html#id2891312">
+Miért nem m&#369;ködik az MPlayer Fedora Core-on?
+</a></dt><dt>Kérdés <a href="faq.html#id2891518">
+... m&#369;ködik xine/vlc/...-lal, de nem megy
+MPlayerrel.
+</a></dt><dt>Kérdés <a href="faq.html#id2891590">
+AVI fájl lejátszásakor elveszik az audió szinkronizáció.
+</a></dt><dt>Kérdés <a href="faq.html#id2891627">
+Az MPlayer valamilyen hibával kilép ha l3codeca.acm-t használok.
+</a></dt><dt>Kérdés <a href="faq.html#id2891731">
+A számítógépem az MS DivX AVI-kat ~ 640x300-as felbontásban játssza le, sztereo MP3
+hanggal, és lassú. Ha használom a -nosound kapcsolót, minden rendben (csak nincs hang).
+</a></dt><dt>Kérdés <a href="faq.html#id2891762">
+Az MPlayer meghal ezzel:
+MPlayer interrupted by signal 4 in module: decode_video
+</a></dt><dt>Kérdés <a href="faq.html#id2891822">
+Problémám van a [ablakkezel&#337;d] és a teljes képerny&#337;s xv/xmga/sdl/x11 módokkal ...
+</a></dt><dt>Kérdés <a href="faq.html#id2891857">
+Ezt kapom MPEG fájlok lejátszásakor: Can't find codec for video format 0x10000001!
+</a></dt><dt>Kérdés <a href="faq.html#id2891928">
+Ha elindítom az MPlayert KDE alatt, csak egy üres
+képet kapok és semmi sem történik. Majd kb. egy perc után elindul a videó
+lejátszás.
+</a></dt><dt>Kérdés <a href="faq.html#id2889554">
+Van egy AVI fájlom, ami szürke képerny&#337;t produkál -vc odivx
+kapcsolóval történ&#337; lejátszáskor és zöldet a -vc divx4 kapcsolóval.
+</a></dt><dt>Kérdés <a href="faq.html#id2889622">
+Amikor filmet játszok le, szétesik a videó-audió szinkron és/vagy az MPlayer
+összeomlik ezzel az üzenettel:
+DEMUXER: Too many (945 in 8390980 bytes) video packets in the buffer!
+</a></dt><dt>Kérdés <a href="faq.html#id2889741">
+Van egy MJPEG fájlom, ami más lejátszókkal megy, de csak fekete képerny&#337;t kapok
+MPlayerrel.
+</a></dt><dt>Kérdés <a href="faq.html#id2889773">
+Ha menteni próbálok a tuneremr&#337;l, m&#369;ködik, de a színek érdekesek lesznek. Más alkalmazásokkal
+minden rendben van.
+</a></dt><dt>Kérdés <a href="faq.html#id2889808">
+A/V szinkronizálási problémáim vannak. Néhány AVI fájlom rendesen lejátszódik, de néhány
+dupla sebességgel megy!
+</a></dt><dt>Kérdés <a href="faq.html#id2889836">
+Az összes WMV (és más...) fájl, amit lejátszok, egy zöld/szürke ablakot nyit meg,
+és csak hang van! Az MPlayer ezt írja:
+Detected video codec: [null] drv:0 (NULL codec (no decoding))
+</a></dt><dt>Kérdés <a href="faq.html#id2889908">
+Furcsa százalékos értékeket kapok (nagyon magasak), miközben a notebook-omon játszok le
+fájlokat.
+</a></dt><dt>Kérdés <a href="faq.html#id2889950">
+Az audió/videó teljesen elveszti a szinkront ha az MPlayert
+root-ként futtatom a notebookon. Normálisan m&#369;ködik, ha felhasználóként futtatom.
+</a></dt><dt>Kérdés <a href="faq.html#id2889994">
+Film lejátszása közben hirtelen szaggatottá válik és a következ&#337; üzenetet kapom:
+Badly interleaved AVI file detected - switching to -ni mode...
+</a></dt><dt>Kérdés <a href="faq.html#id2890031">
+Hogyan tudok lejátszani MPEG Layer 2 (MP2) audió fájlokat?
+</a></dt></dl></dd><dt>4.5.  <a href="faq.html#faq-driver">Videó/audió vezérl&#337; problémák (vo/ao)</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2890068">
+Hogy tudom használni a dmix-et az
+MPlayerrel?
+</a></dt><dt>Kérdés <a href="faq.html#id2890111">
+Nincs hang videó lejátszása közben, és egy ehhez hasonló üzenetet kapok:
+
+    AO: [oss] 44100Hz 2ch Signed 16-bit (Little-Endian)
+    audio_setup: Can't open audio device /dev/dsp: Device or resource busy
+    couldn't open/init audio device -&gt; NOSOUND
+    Audio: no sound!!!
+    Start playing...
+
+</a></dt><dt>Kérdés <a href="faq.html#id2890173">
+Mi van a DGA vezérl&#337;vel? Nem találom!
+</a></dt><dt>Kérdés <a href="faq.html#id2890228">
+Oké, -vo help mutatja a DGA vezérl&#337;t, de engedélyekr&#337;l panaszkodik.
+Segítsetek!
+</a></dt><dt>Kérdés <a href="faq.html#id2893548">
+Ha XVideo-t használok, a Voodoo 3/Banshee-m azt mondja:
+
+X Error of failed request: BadAccess (attempt to access private resource denied)
+   Major opcode of failed request: 147 (MIT-SHM)
+   Minor opcode of failed request: 1 (X_ShmAttach)
+   Serial number of failed request: 26
+   Current serial number in output stream:27
+
+</a></dt><dt>Kérdés <a href="faq.html#id2893609">
+Az OpenGL (-vo gl) kimenet nem m&#369;ködik (megáll/fekete ablak/X11
+hibák/...).
+</a></dt><dt>Kérdés <a href="faq.html#id2893642">
+Van egy nVidia TNT/TNT2 kártyám, és sávom furcsa szinekkel, pont a film alatt!
+Kinek a hibája ez?
+</a></dt><dt>Kérdés <a href="faq.html#id2893672">
+Van egy nVidia XYZ kártyám és amikor kattintok a GUI képerny&#337; ablakán, hogy megjelenjen
+a GUI panel, egy fekete négyzet t&#369;nik fel ott, ahol kattintottam. A legújabb vezérl&#337;m
+van.
+</a></dt><dt>Kérdés <a href="faq.html#id2893709">
+Nincs igazság a földön ...! Az SDL-nek csak x11 kimenete van,
+nincs xv!
+</a></dt></dl></dd><dt>4.6.  <a href="faq.html#faq-dvd">DVD lejátszás</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2893790">
+Mi van a DVD navigációval/menükkel?
+</a></dt><dt>Kérdés <a href="faq.html#id2893852">
+DVD lejátszás közben ezzel a hibával találkozok:
+mplayer: ifo_read.c:1143: ifoRead_C_ADT_internal: Assertion nfo_length / sizeof(cell_adr_t) &gt;= c_adt-&gt;nr_of_vobs' failed.
+</a></dt><dt>Kérdés <a href="faq.html#id2893896">
+Le tudom fordítani a libdvdread-ot és libdvdcss-et a kedves kis SPARC gépemen Solaris alatt?
+</a></dt><dt>Kérdés <a href="faq.html#id2893938">
+Mi van a feliratokkal? Meg tudja &#337;ket jeleníteni az MPlayer?
+</a></dt><dt>Kérdés <a href="faq.html#id2893971">
+Hogy tudom beállítani a DVD meghajtóm régió kódját? Nincs Windows-om!
+</a></dt><dt>Kérdés <a href="faq.html#id2893999">
+Muszáj (setuid) root-nak lennem, hogy DVD-t nézhessek?
+</a></dt><dt>Kérdés <a href="faq.html#id2894028">
+Honnan tudom megszerezni a libdvdread és libdvdcss csomagokat?
+</a></dt><dt>Kérdés <a href="faq.html#id2894072">
+Lehetséges, hogy csak a kijelölt fejezeteket játszam le/kódoljam?
+</a></dt><dt>Kérdés <a href="faq.html#id2894095">
+A DVD lejátszásom lassú!
+</a></dt><dt>Kérdés <a href="faq.html#id2894135">
+Másoltam egy DVD-t vobcopy-val. Hogyan tudom lejátszani/elkódolni a merevlemezemr&#337;l?
+</a></dt></dl></dd><dt>4.7.  <a href="faq.html#faq-features">Speciális kérések</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2894182">
+Ha az MPlayert megállítom és megpróbálok ugrani vagy megnyomok bármilyen
+gombot, az MPlayer felfüggeszti a megállítást. Szeretnék keresni a
+megállított filmben.
+</a></dt><dt>Kérdés <a href="faq.html#id2894222">
+Szeretnék +/- 1 képkockát ugrani a 10 másodperc helyett.
+</a></dt><dt>Kérdés <a href="faq.html#id2894254">
+Hogyan tudom rávenni az MPlayert, hogy emlékezzen az opciókra
+amiket használtam egy bizonyos fájlnál, pl. movie.avi?
+</a></dt></dl></dd><dt>4.8.  <a href="faq.html#faq-encoding">Elkódolás</a></dt><dd><dl><dt>Kérdés <a href="faq.html#id2894322">
+Hogy tudok kódolni?
+</a></dt><dt>Kérdés <a href="faq.html#id2894348">
+Hogy tudok VCD-t készíteni?
+</a></dt><dt>Kérdés <a href="faq.html#id2894387">
+Hogy tudok összef&#369;zni két videó fájlt?
+</a></dt><dt>Kérdés <a href="faq.html#id2894452">
+Hogyan tudom megjavítani a hibás index&#369; vagy átlapolt AVI fájlokat?
+</a></dt><dt>Kérdés <a href="faq.html#id2894508">
+Nem tudok DVD feliratot kódolni az AVI fájlba!
+</a></dt><dt>Kérdés <a href="faq.html#id2894529">
+Csak a kiválasztott fejezeteket tudom elkódolni a DVD-r&#337;l?
+</a></dt><dt>Kérdés <a href="faq.html#id2894556">
+2GB+ méret&#369; fájlokkal próbálok dolgozni VFAT fájlrendszeren. M&#369;ködni fog?
+</a></dt><dt>Kérdés <a href="faq.html#id2894576">
+Miért negatív a MEncoder által kiírt javasolt bitráta?
+</a></dt><dt>Kérdés <a href="faq.html#id2894606">
+Nem tudok elkódolni ASF fájlokat AVI/MPEG-4 (DivX)-be, mert 1000 fps-t használ?
+</a></dt><dt>Kérdés <a href="faq.html#id2894634">
+Hogy tudok feliratot tenni a kimeneti fájlba?
+</a></dt><dt>Kérdés <a href="faq.html#id2894668">
+Hogyan tudom csak a zenét elkódolni egy zenés videóból?
+</a></dt></dl></dd></dl><table border="0"><col align="left" width="1%"><tbody><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-development"></a><h3 class="title"><a name="faq-development"></a>4.1.  Fejlesztés</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2884302"></a><a name="id2884306"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan készítsek egy megfelel&#337; patchet az <span class="application">MPlayer</span>hez?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Készítettünk egy <a href="../../tech/patches.txt" target="_top">rövid leírást</a>,
+melyben minden fontos dolgot megtalálsz. Kérünk kövesd az utasításait!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2884338"></a><a name="id2884341"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan fordíthatom le az <span class="application">MPlayer</span>t egy új nyelvre?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Olvasd el a <a href="../../tech/translations.txt" target="_top">fordítás HOGYAN</a>-t,
+az elmagyaráz mindent. További segítséget kaphatsz az
+<a href="http://mplayerhq.hu/mailman/listinfo/mplayer-docs" target="_top">MPlayer-docs</a>
+levelezési listán.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2886197"></a><a name="id2886200"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan támogathatom az <span class="application">MPlayer</span> fejlesztését?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Több mint örömmel fogadjuk a hardver és szoftver
+<a href="http://www.mplayerhq.hu/homepage/donations.html" target="_top">felajánlásokat</a>.
+Ezek segítenek nekünk az <span class="application">MPlayer</span> folyamatos fejlesztésében.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2886238"></a><a name="id2886241"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan lehetek én is <span class="application">MPlayer</span> fejleszt&#337;?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Mindig örömmel várjuk a programozókat és a dokumentáció készít&#337;ket. Olvasd el a
+<a href="../../tech/" target="_top">technikai dokumentációt</a>
+hogy egy kicsit megértsd a dolgokat. Majd fel kell iratkoznod az
+<a href="http://mplayerhq.hu/mailman/listinfo/mplayer-dev-eng" target="_top">MPlayer-dev-eng</a>
+levelezési listára és elkezdeni kódolni. Ha a dokumentáció készítésében szeretnél segíteni,
+csatlakozz az <a href="http://mplayerhq.hu/mailman/listinfo/mplayer-docs" target="_top">MPlayer-docs</a>
+levelezési listához!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2888697"></a><a name="id2888700"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Miért nem használjátok az autoconf/automake párost?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Van egy saját, moduláris fordító rendszerünk. Meglehet&#337;sen jól teszi
+a dolgát, így hát miért váltsunk? Ezonkívül nem szeretjük az auto* eszközöket,
+mint ahogy <a href="http://freshmeat.net/articles/view/889/" target="_top">mások sem</a>.
+</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-compilation"></a><h3 class="title"><a name="faq-compilation"></a>4.2.  Fordítás</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2888741"></a><a name="id2888744"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A fordítás leáll hibaüzenettel és a <span class="application">gcc</span> valami
+titokzatos üzenetet ad ki magából, ami a
+<tt>internal compiler error</tt> vagy
+<tt>unable to find a register to spill</tt> sorokat
+tartalmazza.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Belebotlottál egy <span class="application">gcc</span> hibába. Kérjük
+<a href="http://gcc.gnu.org/bugs.html" target="_top">jelentsd a gcc csapatnak</a>
+és ne nekünk. Valamiért úgy t&#369;nik az <span class="application">MPlayer</span>
+folyamatosan fordító hibákat idéz el&#337;. Azonban mi ezeket nem tudjuk javítani
+és nem teszünk "kerül&#337;utakat" a kódba a fordító hibái miatt. Hogy elkerüld
+ezt a problémát, vagy használj ismert és megbízható, stabil verziót a
+fordítóból vagy frissítsd rendszeresen.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2888815"></a><a name="id2888818"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Vannak bináris (RPM/deb) csomagok az <span class="application">MPlayer</span>b&#337;l?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nézd meg a <a href="linux.html#debian" title="6.1.1. Debian csomagolás">Debian</a> és az <a href="linux.html#rpm" title="6.1.2. RedHat csomagolás">RPM</a>
+részt b&#337;vebb infókért!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2888858"></a><a name="id2888861"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan fordíthatok 32 bites <span class="application">MPlayer</span>t 64 bites Athlon-on?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Próbáld meg a következ&#337; configure kapcsolókkal:
+<pre class="screen">
+./configure --target=athlon_xp --cc="gcc -m32" --as="as --32" --with-extralibdir=/usr/lib
+</pre>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2888893"></a><a name="id2888896"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A fordítás megáll egy ehhez hasonló üzenettel:
+<pre class="screen">
+    cfft.c: In function`passf2':
+    cfft.c:556: unable to find a register to spill in class `FLOAT_REGS'
+    cfft.c:556: this is the insn:
+    (insn 235 233 246 (set (subreg:SF (reg/v:DI 29 rmm0 [110]) 0)
+            (minus:SF (mem:SF (plus:SI (mult:SI (reg:SI 1 edx [112])
+                            (const_int 8 [0x8]))
+                        (reg/v/f:SI 3 ebx [62])) [4 S4 A32])
+                (reg:SF 8 st(0) [132]))) 533 {*fop_sf_1_nosse} (insn_list
+    232 (nil))    (expr_list:REG_DEAD (reg:SF 8 st(0) [132])
+            (nil)))
+    cfft.c:556: confused by earlier errors, bailing out
+</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ez a <span class="application">gcc</span> 3.2-es verziójának egy ismert hibája,
+frissíts 3.3-ra a probléma megoldásához. A gcc telepítésének folyamata le van írva
+a <a href="gcc-296.html" title="E.1. GCC 2.96">gcc 2.96</a> részben. Alternatívaként használhatod
+a küls&#337; FAAD függvény könyvtárat, amint az le van írva az
+<a href="codecs.html#aac" title="2.2.2.8. AAC codec">AAC</a> fejezetben.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2888962"></a><a name="id2888964"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A fordítás megáll egy ehhez hasonló üzenettel:
+<pre class="screen">
+    In file included from mplayer.c:34:
+    mw.h: In function `mplMainDraw':
+    mw.h:209: Internal compiler error in print_rtl_and_abort, at flow.c:6458
+    Please submit a full bug report,
+    with preprocessed source if appropriate.
+</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ez a <span class="application">gcc</span> 3.0.4 egy ismert hibája, frissíts
+a 3.1-re a probléma megoldásához. A gcc telepítésének folyamata le van írva
+a <a href="gcc-296.html" title="E.1. GCC 2.96">gcc 2.96</a> részben.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889010"></a><a name="id2889012"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A konfiguráció ezzel a szöveggel ér véget és az <span class="application">MPlayer</span> nem fordul le!
+<pre class="screen">Your gcc does not support even i386 for '-march' and '-mcpu'</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A gcc-d nincs megfelel&#337;en installálva, ellen&#337;rizd a <tt class="filename">configure.log</tt> fájlt
+a részletekért!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889051"></a><a name="id2889054"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Mi a probléma a gcc 2.96-tal?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+<span class="bold"><b>Nem javasoljuk a gcc 2.96 használatát!</b></span>
+Olvasd el <a href="gcc-296.html" title="E.1. GCC 2.96">ezt</a> a dokumentumot a részletekért, miért
+adta ki a Red Hat a gcc 2.96-ot és mi ezzel a probléma. Ha még ezután is tényleg
+ezt akarod használni, gy&#337;z&#337;dj meg róla, hogy a legújabb kiadásod van és add meg
+a <tt class="option">--disable-gcc-checking</tt> kapcsolót konfiguráláskor. Emlékezz, hogy
+ez esetben innent&#337;l a magad ura vagy. <span class="bold"><b>Ne</b></span> jelents
+hibákat, <span class="bold"><b>ne</b></span> kérj segítséget a levelezési listákon.
+<span class="bold"><b>Nem</b></span> fogunk segítséget adni, ha problémákba ütközöl.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889124"></a><a name="id2889127"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nagyszer&#369;, gcc 3.0.1-em van a Red Hattól/Mandraket&#337;l, most már jó!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nem, mert ezekkel a fordítókkal is voltak/vannak gondok.
+Megnézheted az <span class="application">MPlayer</span> által támogatott fordítók
+státuszának listáját a <a href="install.html" title="1.2. Telepítés">telepítési</a> részben.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889163"></a><a name="id2889165"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+.. gcc 2.96 ... (Igen, néhány ember MÉG MINDIG flame-l a gcc 2.96 miatt!)
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Idézet egy <a href="http://www.mplayerhq.hu/pipermail/mplayer-users/2001-October/005351.html" target="_top">levélb&#337;l</a>,
+amit Árpi küldött az <a href="http://mplayerhq.hu/pipermail/mplayer-users/" target="_top">MPlayer-users</a>
+listára (az 'ideg' szó leírása alább található):
+</p><blockquote class="blockquote"><p>
+És nekünk idegeink vannak. És az idegcounter-ünk (idegszámlálónk)
+újra és újra túlcsordul.
+</p><p>
+Sajnos az <span class="application">MPlayer</span> elszabadult.
+Lámerek használják, Linux felhasználók, akik Windowst se tudnak használni,
+és soha nem próbáltak egy kernelt sem fordítani. Telepítették (alapértelmezett
+opciókkal) a Mandrake vagy Red Hat vagy SuSE rendszerüket, és anélkül, hogy
+RTFM-elnének, küldik az üzeneteket, mondván, hogy 'nem m&#369;ködik! segítsetek!
+kérlek! új vagyok Linuxban! segítsetek! oh! segítsetek!'.
+Nem lehet megállítani &#337;ket, de legalább RTFM-re próbáljuk kényszeríteni &#337;ket
+hogy elolvassák a ./configure és az <span class="application">MPlayer</span>
+üzeneteit.
+</p><p>
+És ti, okos skacok jöttök és flame-eltek velünk a gcc 2.96-ról és a bináris
+csomagokról. Ahelyett, hogy segítenétek a felhasználóknak vagy készítenétek
+a javításokat, hogy megoldjátok a problémáikat.
+</p><p>
+A szabad id&#337;nk fele arra megy el, hogy hülye levelekre válaszolgatunk itt
+és új trükköket és ellen&#337;rzéseket találunk ki elkerülésükre.
+</p><p>
+Van egy mérlegünk. Az egyik oldalon ti vagytok, okos skacok, akik azt
+mondjátok, hogy gonoszak vagyunk, mert nem szeretjük a hibás gcc 2.96-ot,
+a másik oldalon pedig a 'Linuxban új' srácok vannak, akik megmutatják
+nekünk, hogy a gcc 2.96 hibás.
+</p><p>
+Végkövetkeztetés: Nem lehetünk jók. Az emberek fele mindig azt fogja mondani,
+hogy rosszak vagyunk.
+</p><p>
+Talán le kellene zárni a projektet, zárt forráskódúvá tenni, kereskedelmivé
+és telepítési támogatást adni hozzá. Akkor abbahagyhatnánk a mostani munkánkat,
+így a fejlesztés gyorsabban menne és rengeteg pénzt kereshetnénk vele, vehetnénk
+egy nagy házat, stb. stb. Tényleg ezt akarjátok? Úgy néz ki.
+</p></blockquote><p>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889301"></a><a name="id2889304"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Az SDL kimenet nem m&#369;ködik vagy nem fordul. A probléma...
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Le lett tesztelve és m&#369;ködik SDL 1.2.x verzióival és talán az SDL 1.1.7+-osokkal
+is. <span class="bold"><b>Nem</b></span> m&#369;ködik semelyik korábbi verzióval. Így
+ha ilyen verziót akarsz használni, a magad ura vagy.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889334"></a><a name="id2889336"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Még mindig gondjaim vannak az SDL támogatás forgatásával. A gcc vmi
+<pre class="screen">undefined reference to SDL_EnableKeyRepeat</pre> dologról beszél.
+Hogyan tovább?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Hova telepítetted az SDL könyvtárat? Ha a
+<tt class="filename">/usr/local</tt> könyvtárba (alapértelmezett),
+akkor szerkeszd át a legfels&#337; <tt class="filename">config.mak</tt> fájlt és írd bele
+a <tt>-L/usr/local/lib</tt> sort a <tt>X_LIBS=</tt>
+után. Majd írd be, hogy <b>make</b>. És készen is vagy!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889402"></a><a name="id2889406"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Van egy Matrox G200/G400/G450/G550 kártyám, hogyan tudom leforgatni/használni
+az mga_vid vezérl&#337;t?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Olvasd el az <a href="video.html#mga_vid" title="2.3.2.6. Matrox framebuffer (mga_vid)">mga_vid</a> részt.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889431"></a><a name="id2889434"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A 'make' közben az <span class="application">MPlayer</span> X11 könyvtárak miatt panaszkodik.
+Nem értem, VAN telepítve X-em!?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+... de nincsenek telepítve az X fejleszt&#337;i csomagjai. Vagy rosszul vannak fent.
+<tt class="filename">XFree86-devel*</tt> a nevük Red Hat alatt és
+<tt class="filename">xlibs-dev</tt> Debian Woody ill. <tt class="filename">libx11-dev</tt>
+Debian Sarge alatt. Nézd meg azt is, hogy
+a <tt class="filename">/usr/X11</tt> és a
+<tt class="filename">/usr/include/X11</tt> szimbolikus linkek
+léteznek-e (ez Mandrake rendszereken lehet probléma). Ezzel a paranccsal
+hozhatod létre &#337;ket:
+<pre class="screen">
+     # ln -sf /usr/X11R6 /usr/X11
+     # ln -sf /usr/X11R6/include/X11 /usr/include/X11
+</pre>
+A disztribúciód valószín&#369;leg különbözik a
+<a href="http://www.pathname.com/fhs/" target="_top">Fájlrendszer Hierarchia Szabványtól</a>
+(magyarul <a href="http://www.hup.hu/wiki/wiki.phtml?title=Filesystem_Hierarchy_Standard" target="_top">itt</a>).
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889534"></a><a name="id2889537"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nem tudom lefordítani az SVGAlib-et. 2.3/2.4-es kernelt használok...
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Át kell írnod az SVGAlib <tt class="filename">Makefile.cfg</tt> fájlát és kikommentezni
+a <tt>BACKGROUND = y</tt> sort.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2885819"></a><a name="id2885822"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Lefordítottam az <span class="application">MPlayer</span>t libdvdcss/libdivxdecore támogatással,
+de amikor megpróbálom elindítani, azt mondja:
+<pre class="screen">
+error while loading shared libraries: lib*.so.0: cannot load shared object file: No such file or directory
+</pre>
+Megnéztem, és VAN ilyen fájl a <tt class="filename">/usr/local/lib</tt> könyvtárban...
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Add hozzá a <tt class="filename">/usr/local/lib</tt> könyvtárat a
+<tt class="filename">/etc/ld.so.conf</tt> fájlhoz és futtasd le az <b>ldconfig</b>
+parancsot.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2885890"></a><a name="id2885894"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A <span class="application">MEncoder</span> fordítás közben szegfaulttal elszáll a szerkesztésnél!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ez a szerkeszt&#337; (linker) problémája. A binutils frissítése segíthet
+(2.11.92.* vagy újabb jó lesz). Mivel ez nem a mi hibánk, kérünk
+<span class="bold"><b>ne</b></span> küldj jelentést!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2885928"></a><a name="id2885931"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Az <span class="application">MPlayer</span> meghal szegfaulttal a pthread ellen&#337;rzés alatt!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+<b>chmod 644 /usr/lib/libc.so</b>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2885958"></a><a name="id2885962"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Szeretnék <span class="application">MPlayer</span>t fordítani Minixen!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Mi is. :)
+</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-general"></a><h3 class="title"><a name="faq-general"></a>4.3.  Általános kérdések</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2885995"></a><a name="id2885998"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Van <span class="application">MPlayer</span>rel foglalkozó levelezési lista?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Igen. Lásd a <a href="mailinglists.html" title="A. függelék - Levelezési listák">levelezési listák</a> részt!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2886027"></a><a name="id2886030"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Találtam egy csúnya hibát, amikor megpróbáltam lejátszani a kedvenc videómat! Kit értesítsek?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Kérünk olvasd el a <a href="bugreports.html" title="B. függelék - Hogyan jelentsd a hibákat">hiba jelentési útmutatót</a>
+és kövesd az utasításait.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2886059"></a><a name="id2886061"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Problémám van a ... codeckel történ&#337; lejátszással. Egyáltalán használható?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ellen&#337;rizd a <a href="http://www.mplayerhq.hu/homepage/codecs-status.html" target="_top">codec státusz</a>
+oldalt, ha nem tartalmazza a te codecedet, olvasd el a <a href="codecs.html" title="2.2. Támogatott codec-ek">codec dokumentációt</a>,
+különösen a <a href="codecs.html#codec-importing" title="2.2.3. Win32 codec importálási HOGYAN">codec importálás HOGYAN</a>-t és keress meg minket.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2886107"></a><a name="id2886110"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Ha elindítom a lejátszást, ezt az üzenetet kapom, de látszólag minden rendben van:
+<pre class="screen">Linux RTC init: ioctl (rtc_pie_on): Permission denied</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Rendszergazdai (root) jogok kellenek vagy speciálisan beállított kernel az új
+id&#337;zít&#337; kód használatához. A részletekért lásd az <a href="rtc.html" title="1.5. RTC">RTC</a>
+részt a dokumentációban.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2886148"></a><a name="id2886151"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan készíthetek mentést a képerny&#337;r&#337;l?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Olyan videó kimeneti vezérl&#337;t kell használnod, ami nem átlapolva dolgozik,
+csak így tudod elmenteni a képet. X11 alatt a <tt class="option">-vo x11</tt> megteszi,
+Windows alatt a <tt class="option">-vo directx:noaccel</tt> m&#369;ködik.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890320"></a><a name="id2890322"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Van egy óra a bal fels&#337; sarokban. Hogyan szabadulhatok meg t&#337;le?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nyomd meg az <span class="keycap"><b>o</b></span> billenty&#369;t és nézd meg az <tt class="option">-osdlevel</tt> kapcsolót.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890348"></a><a name="id2890352"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A <tt class="option">-xy</tt> vagy <tt class="option">-fs</tt> kapcsolók nem m&#369;ködnek az
+x11 vezérl&#337;vel (<tt class="option">-vo x11</tt>) ...
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+M&#369;ködnek, de pontosan meg kell adnod a szoftveres méretezést (nagyon lassú) a
+<tt class="option">-zoom</tt> kapcsolóval. Jobb ha az XF86VidMode támogatást használod:
+meg kell adnod a <tt class="option">-vm</tt> és a <tt class="option">-fs</tt> kapcsolót, és kész.
+Nézd meg, hogy jó modeline-ok vannak az <tt class="filename">XF86Config</tt> fájlodban
+és próbáld meg beüzemelni a <a href="video.html#dga" title="2.3.2.2. DGA">DGA vezérl&#337;t</a> és az
+<a href="video.html#sdl" title="2.3.2.3. SDL">SDL DGA vezérl&#337;jét</a>. Sokkal gyorsabb. Ha az SDL DGA-ja
+m&#369;ködik, használd azt, ez még gyorsabb lesz.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890428"></a><a name="id2890430"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Mit jelentenek a számok a státusz sorban?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Például:
+<pre class="screen">A: 2.1 V: 2.2 A-V: -0.167 ct: 0.042 57/57 41% 0% 2.6% 0 4 49%</pre>
+</p><div class="itemizedlist"><ul type="disc"><li><p>A: audió pozíció másodpercekben</p></li><li><p>V: videó pozíció másodpercekben</p></li><li><p>A-V: audió-videó különbség másodpercekben (késleltetés)</p></li><li><p>ct: teljes elvégzett A-V sync javítás</p></li><li><p>lejátszott képkockák (az utolsó keresés óta)</p></li><li><p>dekódolt képkockák (az utolsó keresés óta)</p></li><li><p>a videó codec CPU használata százalékban (szeleteknél és DR-nél ebben benne van
+a video_out is)</p></li><li><p>video_out CPU használata</p></li><li><p>audió codec CPU használata százalékban</p></li><li><p>képkockák száma, amiket el kellett dobni az A-V sync fenntartásához</p></li><li><p>a kép utófeldolgozás aktuális szintje (ha a
+<tt class="option">-autoq</tt> kapcsolót használod)</p></li><li><p>aktuálisan használt cache mérete (50% körül normális)</p></li><li><p>lejátszás sebessége az eredeti sebesség függvényében</p></li></ul></div><p>
+A legtöbbjük hibakeresés céljából szerepel, id&#337;vel el lesznek távolítva.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890565"></a><a name="id2890568"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Mi van, ha nem akarom, hogy megjelenjenek?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Használd a <tt class="option">-quiet</tt> kapcsolót és olvasd el a man oldalt.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890587"></a><a name="id2890590"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Miért zérus (0%) a video_out CPU használata néhány fájlnál?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nem nulla, de a codec hívja és így külön nem lehet mérni. Próbáld meg lejátszani
+a fájlt a <tt class="option">-vo null</tt> majd a <tt class="option">-vo ...</tt> kapcsolóval
+és ellen&#337;rizd le a különbséget, hogy megtudd a video_out sebességét.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Direkt renderelést használsz, ahol a codec maga renderel a videó memóriába.
+Ebben az esetben a dekódolás százaléka tartalmazza a megjelenítés százalékát is.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890631"></a><a name="id2890634"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Üzeneteket kapok a <tt class="filename">/usr/local/lib/codecs/</tt> könyvtárban nem található fájlokról...
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Töltsd le a Win32 codeceket a
+<a href="http://www.mplayerhq.hu/MPlayer/releases/codecs/" target="_top">codec oldalunkról</a>
+(az avifile codec csomagja már DLL összeállítást tartalmaz) és telepítsd.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890667"></a><a name="id2890670"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Umm, mi az az "IdegCounter"?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Egy magyar és egy angol szó keveréke. Az "Ideg" a magyarban olyan, mint az
+angol "nerve", kiejtése olyasmi, mint a "ydaegh". El&#337;ször az
+idegesség mérésére használta Árpi, majd néhány (umm) "titokzatos" CVS kód
+elt&#369;nésre. ;)
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890693"></a><a name="id2890696"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+És mi az a "Faszom(C)ounter"?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A "Fasz" egy olyan magyar szó, aminek a jelentését nem akarod tudni, a többi az
+<span class="application">MPlayer</span> fejleszt&#337;k perverz fantáziájához kapcsolódik.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890723"></a><a name="id2890726"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A feliratok gyönyör&#369;ek, a legszebbek, amit valaha láttam, de lelassítják
+a lejátszást! Tudom, hogy hihetetlen ...
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Miután lefuttattad a <tt class="filename">./configure</tt>-t, írd át a <tt class="filename">config.h</tt>
+fájlt és cseréld ki az <tt>#undef FAST_OSD</tt> sort
+<tt>#define FAST_OSD</tt>-re. Aztán forgass újra.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890773"></a><a name="id2890775"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Tulajdonképpen mi is egészen pontosan ez a <tt>libavcodec</tt> dolog?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Lásd a
+<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>
+részt.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890815"></a><a name="id2890817"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+De a configure azt mondja, hogy
+<pre class="screen">Checking for libavcodec ... no</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Be kell szerezned a <tt>libavcodec</tt> az
+FFmpeg CVS-éb&#337;l. Olvasd el az utasításokat a
+<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>
+fejezetben.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890865"></a><a name="id2890867"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nem érem el a GUI menüt. Jobb gombbal kattintok, de semelyik menüelemet sem tudom
+elérni!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+FVWM-et használsz? Próbáld ki ezt:
+</p><div class="orderedlist"><ol type="1"><li><p>Start -&gt; Settings -&gt; Configuration -&gt; Base Configuration</p></li><li><p>Állítsd át a <tt>Use Applications position hints</tt>-et
+<tt>Yes</tt>-re</p></li></ol></div><p>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890919"></a><a name="id2890922"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogy tudom az <span class="application">MPlayer</span> a háttérben futtatni?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Így:
+<pre class="screen">mplayer <i><tt>kapcsolók</tt></i> <i><tt>fájlnév</tt></i> &lt; /dev/null &amp;</pre>
+</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-playback"></a><h3 class="title"><a name="faq-playback"></a>4.4.  Lejátszási problémák</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890974"></a><a name="id2890977"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nem találom néhány érdekes lejátszási probléma okát.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nem maradt valahol egy <tt class="filename">codecs.conf</tt> fájlod a
+<tt class="filename">~/.mplayer/</tt>, <tt class="filename">/etc/</tt>,
+<tt class="filename">/usr/local/etc/</tt> vagy hasonló helyen? Töröld le,
+egy régi <tt class="filename">codecs.conf</tt> fájl ismeretlen problémákat
+okozhat és csak a fejleszt&#337;knek lett szánva a codec támogatások elkészítéséhez.
+Felülbírálja az <span class="application">MPlayer</span> bels&#337; codec beállításait,
+ami megbosszulja magát, ha az újabb verziókban inkompatibilis változások
+jelennek meg. Hacsak nem vagy hozzáért&#337;, ez a tuti recept a láthatóan
+véletlenszer&#369; és nehezen azonosítható fagyások és lejátszási problémák esetén.
+Ha még valahol megtalálható a rendszereden, most azonnal töröld le!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891049"></a><a name="id2891052"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan tudok audió/felirat sávot választani a DVD, OGM, Matroska vagy NUT fájlban?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A <tt class="option">-aid</tt> (audio ID) vagy <tt class="option">-alang</tt>
+(audió nyelv), <tt class="option">-sid</tt>(felirat ID) vagy <tt class="option">-slang</tt>
+(felirat nyelv) kapcsolókkal, például:
+<pre class="screen">
+mplayer example.mkv -alang eng -slang eng
+mplayer example.mkv -aid 1 -sid 1
+</pre>
+Ha kiváncsi vagy, hogy melyek elérhet&#337;ek:
+<pre class="screen">
+mplayer -vo null -ao null -frames 0 -v <i><tt>fájlenév</tt></i> | grep sid
+mplayer -vo null -ao null -frames 0 -v <i><tt>fájlenév</tt></i> | grep aid
+</pre>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891114"></a><a name="id2891117"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Egy véletlen stream-et szeretnék lejátszani az Internetr&#337;l, de nem sikerül.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Próbáld meg lejátszani a stream-et a <tt class="option">-playlist</tt> kapcsolóval.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891138"></a><a name="id2891142"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Letöltöttem egy videót egy P2P hálózatról és nem megy!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A fájlod valószín&#369;leg sérült vagy fake. Ha egy ismer&#337;st&#337;l kaptad és &#337;
+azt mondja, hogy m&#369;ködik, hasonlítsd össze az 
+<span class="application">md5sum</span> hash-eket.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891168"></a><a name="id2891171"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Most telepítettem az <span class="application">MPlayer</span>t. Amikor meg akarok
+nyitni vele egy videó fájlt, végzetes hibával elszáll:
+<pre class="screen">
+Error opening/initializing the selected video_out (-vo) device.
+</pre>
+Hogyan oldhatom meg ezt a problémát?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Csak változtass a videó kimeneti eszközön. Írd be a következ&#337; parancsot
+a használható videó kimeneti vezérl&#337;k listájához:
+<pre class="screen">
+mplayer -vo help
+</pre>
+Miután kiválasztottad a megfelel&#337; videó kimeneti vezérl&#337;t, írd be a konfigurációs
+fájlodba. Ezt egy
+<pre class="programlisting">
+ vo = <i><tt>selected_vo</tt></i>
+</pre>
+sor <tt class="filename">~/.mplayer/config</tt> fájlhoz adásával és/vagy
+<pre class="programlisting">
+vo_driver = <i><tt>selected_vo</tt></i>
+</pre>
+<tt class="filename">~/.mplayer/gui.conf</tt> fájlba írásával teheted meg.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891258"></a><a name="id2891261"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Gondjaim vannak a feliratok megjelenítésével, segítsetek!!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Gy&#337;z&#337;dj meg róla, hogy helyesen telepítetted a bet&#369;típusokat. Fuss át a lépésein újra
+a <a href="subosd.html#mpsub-install" title="1.4.2. Az OSD és a feliratok telepítése">OSD és felirat</a> részben a telepítési fejezetben.
+Ha TrueType bet&#369;típusokat használsz, ellen&#337;rizd, hogy van
+<tt>FreeType</tt> függvénykönyvtárad telepítve.
+Ellen&#337;rizheted még a feliratodat egy szövegszerkeszt&#337;ben vagy másik lejátszóval.
+Próbáld meg átkonvertálni másik formátumra.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891310"></a><a name="id2891312"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Miért nem m&#369;ködik az <span class="application">MPlayer</span> Fedora Core-on?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Rossz az együttm&#369;ködés a Fedora-n az exec-shield, prelink és néhány
+Windows DLL-eket használó alkalmazás (mint például az <span class="application">MPlayer</span>)
+között.
+</p><p>
+A probléma az, hogy az exec-shield véletlenszer&#369;síti az összes rendszer
+függvény könyvtár betöltési helyét. Ez a véletlenszer&#369;sítés prelink id&#337;ben
+történik meg (kéthetente egyszer).
+</p><p>
+Amikor az <span class="application">MPlayer</span> megpróbálja betölteni egy
+Windows DLL-t, egy speciális címre akarja tenni (0x400000). Ha egy fontos
+rendszer függvény könyvtár már épp ott van, az <span class="application">MPlayer</span>
+összeomlik.
+(Tipikus jele ennek a Windows Media 9 fájlok lejátszásakor bekövetkez&#337;
+szegmentálási hiba.)
+</p><p>
+Ha egy ilyenbe belefutsz, két lehet&#337;séged van:
+</p><div class="itemizedlist"><ul type="disc"><li><p>Várj két hetet. Akkor újra m&#369;ködni fog.</p></li><li><p>Szerkeszd újra a rendszer összes binárisát egy másik
+prelink opcióval. Itt van lépésr&#337;l lépésre:</p><p>
+</p><div class="orderedlist"><ol type="1"><li><p>Írd át a <tt class="filename">/etc/syconfig/prelink</tt> fájlt és változtasd meg a</p><p>
+<pre class="programlisting">
+PRELINK_OPTS=-mR
+</pre>
+</p><p>
+sort erre:
+<pre class="programlisting">
+PRELINK_OPTS="-mR --no-exec-shield"
+</pre>
+</p></li><li><p><b>touch /var/lib/misc/prelink.force</b></p></li><li><p><b>/etc/cron.daily/prelink</b>
+(Ez újraszerkeszti az összes alkalmazást, ami elég sokáig tart.)</p></li><li><p><b>execstack -s <i><tt>/eleresi/ut/</tt></i>mplayer</b>
+(Ez kikapcsolja az exec-shield-et az <span class="application">MPlayer</span> binárisán.)
+</p></li></ol></div><p>
+</p></li></ul></div><p>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891515"></a><a name="id2891518"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+... m&#369;ködik <span class="application">xine/vlc/...</span>-lal, de nem megy
+<span class="application">MPlayer</span>rel.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Az <span class="application">MPlayer</span> nem <span class="application">xine/vlc/...</span>.
+Bár van közös kód ezekben a lejátszókban, a codec (DLL) gy&#369;jtemények,
+szinkronizáció, demultiplexelés, stb. különböz&#337; és nem összehasonlítható.
+Ha van olyan fájlod, amit az <span class="application">MPlayer</span> nem tud lejátszani
+helyesen de m&#369;ködik más lejátszóval, kérünk olvasd el a
+<a href="bugreports.html" title="B. függelék - Hogyan jelentsd a hibákat">hiba jelentési leírást</a> és töltsd fel a
+fájlt az FTP szerverünkre.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891587"></a><a name="id2891590"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+AVI fájl lejátszásakor elveszik az audió szinkronizáció.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Próbáld meg a <tt class="option">-bps</tt> vagy a <tt class="option">-nobps</tt> kapcsolót. Ha nem
+javul, olvasd el a <a href="bugreports.html" title="B. függelék - Hogyan jelentsd a hibákat">hibajelentési útmutatót</a> és töltsd
+fel a fájlt az FTP-re.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891625"></a><a name="id2891627"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Az <span class="application">MPlayer</span> valamilyen hibával kilép ha <tt class="filename">l3codeca.acm</tt>-t használok.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nézd meg az <b>ldd /usr/local/bin/mplayer</b> kimenetét. Ha tartalmazza ezt:
+<pre class="screen">libc.so.6 =&gt; /lib/libc.so.6 (0x4???????)</pre>
+ahol a "?" helyén bármilyen szám áll, akkor jó, a hiba nem ott van. Ha ezt látod:
+<pre class="screen">libc.so.6 =&gt; /lib/libc.so.6 (0x00??????)</pre>
+akkor a probléma a kerneleddel/libc-ddel van. Talán valamilyen biztonsági javítást
+használsz (például Solar Designer OpenWall patch-e) ami a függvény könyvtárakat nagyon
+alacsony címre tölti be. Mivel az <tt class="filename">l3codeca.acm</tt> egy nem újraallokálható
+DLL, muszáj a <tt>0x40000000</tt> címre betölteni, ezt nem változtathatjuk meg.
+Javítás nélküli kernelt kellene használnod, vagy használd az <span class="application">MPlayer</span>
+<tt class="option">-afm 1</tt> kapcsolóját, hogy letiltsd az <tt class="filename">l3codeca.acm</tt> használatát.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891728"></a><a name="id2891731"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A számítógépem az MS DivX AVI-kat ~ 640x300-as felbontásban játssza le, sztereo MP3
+hanggal, és lassú. Ha használom a <tt class="option">-nosound</tt> kapcsolót, minden rendben (csak nincs hang).
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A géped túl lassú vagy a hangkártyád vezérl&#337;je hibás. Nézd végig a dokumentációt,
+hogy megtudd, hogyan javíthatsz a teljesítményen.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891759"></a><a name="id2891762"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Az <span class="application">MPlayer</span> meghal ezzel:
+<pre class="screen">MPlayer interrupted by signal 4 in module: decode_video</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Próbáld meg futtatni az <span class="application">MPlayer</span>t azon a gépen, ahol lefordítottad.
+Vagy fordítsd újra futásidej&#369; CPU felismeréssel
+(<b>./configure --enable-runtime-cpudetection</b>).
+Ne használd az <span class="application">MPlayer</span>t más CPU-n, mint amin fordítva
+lett, annélkül, hogy a fenti tulajdonságát használnád.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891819"></a><a name="id2891822"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Problémám van a [ablakkezel&#337;d] és a teljes képerny&#337;s xv/xmga/sdl/x11 módokkal ...
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Olvasd el a <a href="bugreports.html" title="B. függelék - Hogyan jelentsd a hibákat">hiba jelentési leírást</a> és küldj egy
+megfelel&#337; hiba jelentést.
+Vagy próbaként kísérletezhetsz a <tt class="option">-fstype</tt> kapcsolóval.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891855"></a><a name="id2891857"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Ezt kapom MPEG fájlok lejátszásakor: Can't find codec for video format 0x10000001!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Túl régi, idejétmúlt <tt class="filename">codecs.conf</tt> van a
+<tt class="filename">~/.mplayer/</tt>,
+<tt class="filename">/etc/</tt>,
+<tt class="filename">/usr/local/etc/</tt> vagy valamelyik hasonló
+könyvtárban. Töröld le, már nincs rá szükség.
+<span class="bold"><b>VAGY</b></span> van <tt class="option">vc=</tt> vagy más hasonló
+opció a konfigurációs fájl(aid)ban.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2891925"></a><a name="id2891928"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Ha elindítom az <span class="application">MPlayer</span>t KDE alatt, csak egy üres
+képet kapok és semmi sem történik. Majd kb. egy perc után elindul a videó
+lejátszás.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A KDE arts zene démonja blokkolja a hang eszközt. Vagy megvárod, amíg a videó
+elindul vagy kikapcsolod az arts-démont a vezérl&#337;panelben. Ha arts-ot akarsz
+használni, add meg az audió kimenetnek a mi saját, natív arts audió vezérl&#337;nket
+(<tt class="option">-ao arts</tt>). Ha nem m&#369;ködik vagy nincs beforgatva, próbáld meg az
+SDL-t (<tt class="option">-ao sdl</tt>) és gy&#337;z&#337;dj meg róla, hogy az SDL tudja kezelni az
+arts-ot. Másik lehet&#337;ség, hogy az <span class="application">MPlayer</span>t artsdsp-vel
+indítod.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889551"></a><a name="id2889554"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Van egy AVI fájlom, ami szürke képerny&#337;t produkál <tt class="option">-vc odivx</tt>
+kapcsolóval történ&#337; lejátszáskor és zöldet a <tt class="option">-vc divx4</tt> kapcsolóval.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ez nem DivX fájl, hanem egy MS MPEG4v3.
+Ha régi verziójú <tt class="filename">codecs.conf</tt> fájlod van a
+<tt class="filename">~/.mplayer/</tt>,
+<tt class="filename">/etc/</tt>,
+<tt class="filename">/usr/local/etc/</tt> vagy hasonló
+helyen, töröld le.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889620"></a><a name="id2889622"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Amikor filmet játszok le, szétesik a videó-audió szinkron és/vagy az <span class="application">MPlayer</span>
+összeomlik ezzel az üzenettel:
+<pre class="screen">DEMUXER: Too many (945 in 8390980 bytes) video packets in the buffer!</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ennek több oka lehet.
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+A CPU-d <span class="bold"><b>és/vagy</b></span> videó kártyád <span class="bold"><b>és/vagy</b></span>
+buszod túl lassú. Az <span class="application">MPlayer</span> ebben az esetben írja ki ezt az üzenetet
+(és az eldobott képkockák száma gyorsan n&#337;).
+</p></li><li><p>
+Ha ez egy AVI fájl, talán rossz az interleaving. Próbáld meg a <tt class="option">-ni</tt> kapcsolót.
+</p></li><li><p>
+A hang vezérl&#337;d hibás, vagy ALSA 0.5-öt használsz az <tt class="option">-ao oss</tt> kapcsolóval.
+Lásd a <a href="audio.html" title="2.4. Audió kimeneti eszközök">hangkártya részt</a>.
+</p></li><li><p>
+Ha az AVI-nak hibás a fejléce, próbáld meg a <tt class="option">-nobps</tt> és/vagy a <tt class="option">-mc 0</tt>
+kapcsolót.
+</p></li></ul></div><p>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889738"></a><a name="id2889741"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Van egy MJPEG fájlom, ami más lejátszókkal megy, de csak fekete képerny&#337;t kapok
+<span class="application">MPlayer</span>rel.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Használj másik codec-et a fájl lejátszásához, próbáld meg a <tt class="option">-vc ffmjpeg</tt>-et.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889770"></a><a name="id2889773"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Ha menteni próbálok a tuneremr&#337;l, m&#369;ködik, de a színek érdekesek lesznek. Más alkalmazásokkal
+minden rendben van.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A kártyád valószín&#369;leg támogatottként jelöl meg bizonyos színtereketet, miközben nem
+támogatja &#337;ket. Próbáld meg YUY2-vel az alapértelmezett YV12 helyett (lásd a
+<a href="tv-input.html" title="2.5. TV bemenet">TV</a> fejezetet).
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889806"></a><a name="id2889808"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A/V szinkronizálási problémáim vannak. Néhány AVI fájlom rendesen lejátszódik, de néhány
+dupla sebességgel megy!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Hibás hang kártyád/vezérl&#337;d van. Legvalószín&#369;bb, hogy rögzítve van 44100Hz-en, és olyan
+fájlt akarsz lejátszani, amiben 22050Hz-es audió van. Próbáld ki a resample audió sz&#369;r&#337;t.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889832"></a><a name="id2889836"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Az összes WMV (és más...) fájl, amit lejátszok, egy zöld/szürke ablakot nyit meg,
+és csak hang van! Az <span class="application">MPlayer</span> ezt írja:
+<pre class="screen">Detected video codec: [null] drv:0 (NULL codec (no decoding))</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ha van egy régi <tt class="filename">codecs.conf</tt> fájlod a
+<tt class="filename">~/.mplayer/</tt>,
+<tt class="filename">/etc/</tt>,
+<tt class="filename">/usr/local/etc/</tt> vagy hasonló könyvtárban,
+töröld le.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889905"></a><a name="id2889908"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Furcsa százalékos értékeket kapok (nagyon magasak), miközben a notebook-omon játszok le
+fájlokat.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A notebookod energia menedzsel&#337; / energia takarékoskodó rendszerének (BIOS, nem kernel)
+hatása. Dugd be a küls&#337; áramkábelt <span class="bold"><b>miel&#337;tt</b></span> bekapcsolod
+a notebookodat. Megnézheted, hogy a <a href="http://www.brodo.de/cpufreq/" target="_top">cpufreq</a>
+(SpeedStep interfész Linuxra) segít-e neked.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889947"></a><a name="id2889950"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Az audió/videó teljesen elveszti a szinkront ha az <span class="application">MPlayer</span>t
+root-ként futtatom a notebookon. Normálisan m&#369;ködik, ha felhasználóként futtatom.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ez megint csak az energia menedzsment hatása (lásd feljebb). Dugd be a küls&#337; áramkábelt
+<span class="bold"><b>miel&#337;tt</b></span> bekapcsolod a notebookodat vagy
+használd a <tt class="option">-nortc</tt> kapcsolót.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2889991"></a><a name="id2889994"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Film lejátszása közben hirtelen szaggatottá válik és a következ&#337; üzenetet kapom:
+<pre class="screen">Badly interleaved AVI file detected - switching to -ni mode...</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Rossz a fájl interleave-je és a <tt class="option">-cache</tt> sem m&#369;ködik jól.
+Próbáld meg a <tt class="option">-nocache</tt> kapcsolót.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890028"></a><a name="id2890031"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan tudok lejátszani MPEG Layer 2 (MP2) audió fájlokat?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A <tt class="option">-rawaudio on:format=0x50</tt> kapcsolót kell használnod.
+</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-driver"></a><h3 class="title"><a name="faq-driver"></a>4.5.  Videó/audió vezérl&#337; problémák (vo/ao)</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890065"></a><a name="id2890068"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogy tudom használni a <span class="application">dmix</span>-et az
+<span class="application">MPlayer</span>rel?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Miután beállítottad az
+<a href="http://alsa.opensrc.org/index.php?page=DmixPlugin" target="_top">asoundrc</a>-t
+használd a <tt class="option">-ao alsa:device=dmix</tt> kapcsolót.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890108"></a><a name="id2890111"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nincs hang videó lejátszása közben, és egy ehhez hasonló üzenetet kapok:
+<pre class="screen">
+    AO: [oss] 44100Hz 2ch Signed 16-bit (Little-Endian)
+    audio_setup: Can't open audio device /dev/dsp: Device or resource busy
+    couldn't open/init audio device -&gt; NOSOUND
+    Audio: no sound!!!
+    Start playing...
+</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+KDE-t vagy GNOME-ot futtatsz ARTS vagy ESD hang démonnal? Próbáld meg kikapcsolni
+a hang démont vagy használd a <tt class="option">-ao arts</tt> vagy <tt class="option">-ao esd</tt>
+kapcsolót, hogy az <span class="application">MPlayer</span> ARTS-ot vagy ESD-t használjon.
+Talán az ALSA-t OSS emuláció nélkül futtatod, próbáld meg betölteni az ALSA OSS
+kernel modulját vagy megadni a <tt class="option">-ao alsa</tt> kapcsolót a parancssorban
+a közvetlen ALSA audió kimeneti vezérl&#337; használatához.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890170"></a><a name="id2890173"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Mi van a DGA vezérl&#337;vel? Nem találom!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+<tt class="filename">./configure</tt> automatikusan megtalálja a DGA vezérl&#337;det. Ha a <tt class="option">-vo help</tt>
+nem írja a DGA-t, akkor gond van az X telepítéseddel. Próbáld ki a
+<b>./configure --enable-dga</b> parancsot és olvasd el a
+<a href="video.html#dga" title="2.3.2.2. DGA">DGA</a> részt. Alternatívaként próbáld ki az SDL DGA
+vezérl&#337;jét a <tt class="option">-vo sdl:dga</tt> kapcsolóval.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2890225"></a><a name="id2890228"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Oké, <tt class="option">-vo help</tt> mutatja a DGA vezérl&#337;t, de engedélyekr&#337;l panaszkodik.
+Segítsetek!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Csak akkor m&#369;ködik, ha root-ként futtatod! Ez egy DGA korlátozás. Root-tá kell válnod
+(<b>su -</b>), és újra próbálni. A másik megoldás, hogy az
+<span class="application">MPlayer</span>t SUID root-tá teszed, de ez nem javasolt!
+<pre class="screen">
+     chown root /usr/local/bin/mplayer
+     chmod 755 /usr/local/bin/mplayer
+     chmod +s /usr/local/bin/mplayer
+ </pre>
+</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Figyelem</h3><p>
+Ez egy <span class="bold"><b>nagy</b></span> biztonsági kockázat! <span class="bold"><b>Soha</b></span>
+ne csináld ezt meg egy szerveren vagy egy számítógépen, amit nem ellen&#337;rzöl teljesen, mert
+más felhasználók root jogokat szerezhetnek a SUID root-os <span class="application">MPlayer</span>
+segítségével.
+<span class="bold"><b>Mi figyelmeztettünk</b></span>.
+</p></div><p>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893545"></a><a name="id2893548"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Ha XVideo-t használok, a Voodoo 3/Banshee-m azt mondja:
+<pre class="screen">
+X Error of failed request: BadAccess (attempt to access private resource denied)
+   Major opcode of failed request: 147 (MIT-SHM)
+   Minor opcode of failed request: 1 (X_ShmAttach)
+   Serial number of failed request: 26
+   Current serial number in output stream:27
+</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+A <tt>tdfx</tt> vezérl&#337; az XFree86 4.0.2/4.0.3-ban hibás volt. Ezt
+javította az <a href="http://www.xfree86.org/cvs/changes_4_1.html" target="_top">XFree86
+4.1.0 CVS log #621 hibajavító foltja</a>. Frissíts hát XFree86 4.1.0 vagy kés&#337;bbi
+verzióra. Alternatívaként vagy töltsd le (legalább) a DRI 0.6-os verzióját a
+<a href="http://dri.sf.net" target="_top">DRI weboldaláról</a>, vagy használd a
+DRI CVS-ét.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893606"></a><a name="id2893609"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Az OpenGL (<tt class="option">-vo gl</tt>) kimenet nem m&#369;ködik (megáll/fekete ablak/X11
+hibák/...).
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Az OpenGL vezérl&#337;d nem támogatja a dinamikus textúra váltást (glTexSubImage).
+Tudvalev&#337;, hogy nem m&#369;ködik az nVidia bináris szemetével. M&#369;ködik az Utah-GLX/DRI
+és a Matrox G400 kártyákkal, valamint a DRI-vel és Radeon kártyákkal. Nem m&#369;ködik
+DRI-vel és egyéb kártyákkal. Nem megy 3DFX kártyákkal, mert 256x256-os textúra
+méret határuk van.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893639"></a><a name="id2893642"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Van egy nVidia TNT/TNT2 kártyám, és sávom furcsa szinekkel, pont a film alatt!
+Kinek a hibája ez?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ez az nVidia bináris X vezérl&#337;jének a hibája. Ezek a hibák CSAK a TNT/TNT2
+kártyákkal jelentkeznek, és mi semmit sem tehetünk az ügyben. A probléma javításához
+frissíts a legújabb nVidia bináris vezérl&#337;re. Ha még mindig rossz, panaszkodj az
+nVidia-nak!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893669"></a><a name="id2893672"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Van egy nVidia XYZ kártyám és amikor kattintok a GUI képerny&#337; ablakán, hogy megjelenjen
+a GUI panel, egy fekete négyzet t&#369;nik fel ott, ahol kattintottam. A legújabb vezérl&#337;m
+van.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Igen, az nVidia javította az el&#337;z&#337; hibát (feljebb) és bemutatott egy újat.
+Gratulálj nekik. FRISSÍTÉS: Az <a href="video.html#nvidia" title="2.3.2.1.3. nVidia kártyák">nVidia</a> szerint már ez
+is javítva lett.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893706"></a><a name="id2893709"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nincs igazság a földön ...! Az SDL-nek csak <tt>x11</tt> kimenete van,
+nincs <tt>xv</tt>!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Próbáld meg újra azt az <tt>x11</tt> kimenetet újra. Majd próbáld meg
+a <tt class="option">-vo x11 -fs -zoom</tt> kapcsolót. Látod a különbséget? Nem?! Oké, jön a
+felhomályosítás: az SDL <tt>x11</tt> kimenete xv-t használ, ha elérhet&#337;,
+emiatt nem kell aggódnod... Megjegyzés: Az SDL-lel el&#337;írhatod/letilthatod az Xv
+használatot a <tt class="option">-forcexv</tt> és <tt class="option">-noxv</tt> kapcsolókkal.
+</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-dvd"></a><h3 class="title"><a name="faq-dvd"></a>4.6.  DVD lejátszás</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893787"></a><a name="id2893790"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Mi van a DVD navigációval/menükkel?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Az <span class="application">MPlayer</span> nem támogatja a DVD menüket súlyos
+tervezési korlátok miatt, amik megakadályozzák a still images és az interaktív
+tartalom használatát. Ha szép menüket akarsz használni, másik lejátszót kell
+használnod, mint pl. a <span class="application">xine</span>,
+a <span class="application">vlc</span> vagy az <span class="application">Ogle</span>.
+Ha DVD navigációt akarsz látni az <span class="application">MPlayer</span>ben,
+neked magadnak kell megcsinálnod, de vigyázz, nagy fába vágod a fejszédet.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893849"></a><a name="id2893852"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+DVD lejátszás közben ezzel a hibával találkozok:
+<pre class="screen">mplayer: ifo_read.c:1143: ifoRead_C_ADT_internal: Assertion nfo_length / sizeof(cell_adr_t) &gt;= c_adt-&gt;nr_of_vobs' failed.</pre>
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ez egy ismert libdvdread 0.9.1/0.9.2 hiba. Használd a <span class="bold"><b>libmpdvdkit2</b></span>-t,
+ami benne van az <span class="application">MPlayer</span> forrásában és alapértelmezett.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893893"></a><a name="id2893896"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Le tudom fordítani a libdvdread-ot és libdvdcss-et a kedves kis SPARC gépemen Solaris alatt?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ki tudja... Azt mondják, hogy m&#369;ködik, légy szíves teszteld és küld róla véleményt.
+Olvasd el a libdvdread dokumentációját és a weboldalukat. Nem mi vagyunk a
+libdvdread készít&#337;i. Használd a <span class="bold"><b>libmpdvdkit2</b></span>-t, ami benne
+van az <span class="application">MPlayer</span> forrásában, és alapértelmezett.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893935"></a><a name="id2893938"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Mi van a feliratokkal? Meg tudja &#337;ket jeleníteni az <span class="application">MPlayer</span>?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Igen. Lásd a <a href="dvd.html" title="5.2. DVD lejátszás">DVD fejezetet</a>.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893969"></a><a name="id2893971"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogy tudom beállítani a DVD meghajtóm régió kódját? Nincs Windows-om!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Használd a <a href="http://linvdr.org/projects/regionset/" target="_top">regionset eszközt</a>.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2893996"></a><a name="id2893999"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Muszáj (setuid) root-nak lennem, hogy DVD-t nézhessek?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nem. De megfelel&#337; jogokkal kell rendelkezned a DVD eszköz bejegyzésére
+(a <tt class="filename">/dev/</tt> könyvtárban).
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894026"></a><a name="id2894028"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Honnan tudom megszerezni a libdvdread és libdvdcss csomagokat?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nem kell. Használd a <span class="bold"><b>libmpdvdkit2</b></span>-t, ami benne
+van az <span class="application">MPlayer</span> forrásában, és alapértelmezett.
+Az említett csomagokat beszerezheted az
+<a href="http://www.dtek.chalmers.se/groups/dvd/" target="_top">Ogle siteról</a>.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894069"></a><a name="id2894072"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Lehetséges, hogy csak a kijelölt fejezeteket játszam le/kódoljam?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Igen, próbáld ki a <tt class="option">-chapter</tt> kapcsolót.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894092"></a><a name="id2894095"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+A DVD lejátszásom lassú!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Használd a <tt class="option">-cache</tt> kapcsolót (ahogy le van írva a man oldalon) és
+próbáld meg engedélyezni a DMA-t a DVD meghajtóra a <b>hdparm</b> eszközzel
+(ahogy le van írva a <a href="drives.html" title="5.1. CD/DVD vezérl&#337;k">CD fejezetben</a>).
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894132"></a><a name="id2894135"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Másoltam egy DVD-t vobcopy-val. Hogyan tudom lejátszani/elkódolni a merevlemezemr&#337;l?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Használd a <tt class="option">-dvd-device</tt> kapcsolót, amivel megadhatod a könyvtárat, ahol
+a fájlok vannak:
+<pre class="screen">
+mplayer dvd://1 -dvd-device /eleresi/ut/a/konyvtarhoz
+</pre>
+</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-features"></a><h3 class="title"><a name="faq-features"></a>4.7.  Speciális kérések</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894179"></a><a name="id2894182"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Ha az <span class="application">MPlayer</span>t megállítom és megpróbálok ugrani vagy megnyomok bármilyen
+gombot, az <span class="application">MPlayer</span> felfüggeszti a megállítást. Szeretnék keresni a
+megállított filmben.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Ezt megvalósítani nagyon nehéz lenne az A/V szinkronizáció elveszítése nélkül.
+Az összes kísérlet eddig kudarcba fulladt, de örömmel fogadjuk a javításokat.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894219"></a><a name="id2894222"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Szeretnék +/- 1 képkockát ugrani a 10 másodperc helyett.
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Egy képkockával el&#337;re léphetsz a <span class="keycap"><b>.</b></span> gombbal.
+Ha a film nem volt megállítva, akkor ezután megáll
+(lásd a man oldalt a részletekért).
+A visszafelé lépés valószín&#369;leg nem lesz mostanában megvalósítva.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894251"></a><a name="id2894254"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan tudom rávenni az <span class="application">MPlayer</span>t, hogy emlékezzen az opciókra
+amiket használtam egy bizonyos fájlnál, pl. <tt class="filename">movie.avi</tt>?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Hozz létre egy <tt class="filename">movie.avi.conf</tt> nev&#369; fájlt a fájl-specifikus
+kapcsolókkal és tedd a <tt class="filename">~/.mplayer</tt> vagy
+a filmmel azonos könyvtárba.
+</p></td></tr><tr class="qandadiv"><td align="left" valign="top" colspan="2"><a name="faq-encoding"></a><h3 class="title"><a name="faq-encoding"></a>4.8.  Elkódolás</h3></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894319"></a><a name="id2894322"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogy tudok kódolni?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Olvasd el a <a href="mencoder.html" title="7. fejezet - Encoding with MEncoder"><span class="application">MEncoder</span></a>
+részt.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894346"></a><a name="id2894348"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogy tudok VCD-t készíteni?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Használd a <tt class="filename">mencvcd</tt> szkriptet a <tt class="filename">TOOLS</tt>
+alkönyvtárból. Ezzel DVD-ket és más filmeket tudsz VCD vagy SVCD formátumba
+kódolni és még közvetlenül CD-re is írhatod &#337;ket.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894385"></a><a name="id2894387"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogy tudok összef&#369;zni két videó fájlt?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Az MPEG fájlok csak szerencsés esetben f&#369;zhet&#337;ek össze egy fájlba.
+AVI fájlokhoz használhatod a <span class="application">MEncoder</span>
+több fájl támogatását így:
+<pre class="screen">
+mencoder -ovc copy -oac copy -o out.avi file1.avi file2.avi     
+</pre>
+Ez csak akkor m&#369;ködik, ha a fájlok ugyan felbontásúak és ugyanolyan codec-kel
+készültek. Megpróbálhatod az
+<a href="http://fixounet.free.fr/avidemux/" target="_top">avidemux</a>-ot és az
+<span class="application">avimerge</span>-t (a
+<a href="http://www.transcoding.org/" target="_top">transcode</a>
+eszközcsomag részei).
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894449"></a><a name="id2894452"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan tudom megjavítani a hibás index&#369; vagy átlapolt AVI fájlokat?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Egyszer&#369;en csak másold át a videó és az audió folyamokat egy új fájlba és
+a <span class="application">MEncoder</span> legenerálja az index-et.
+Természetesen ezzel nem tudod kijavítani a videó és/vagy audió folyamban
+lév&#337; esetleges hibákat. Ez megjavítja a hibás átlapolású fájlokat is,
+így a <tt class="option">-ni</tt> kapcsolót ezután már nem kell használni hozzájuk.
+<pre class="screen">
+mencoder -idx <i><tt>input.avi</tt></i> -ovc copy -oac copy -o <i><tt>output.avi</tt></i>
+</pre>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894504"></a><a name="id2894508"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nem tudok DVD feliratot kódolni az AVI fájlba!
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Helyesen kell megadnod a <tt class="option">-sid</tt> kapcsolót!
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894526"></a><a name="id2894529"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Csak a kiválasztott fejezeteket tudom elkódolni a DVD-r&#337;l?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Használd a <tt class="option">-chapter</tt> kapcsolót pontosan, például: <tt class="option">-chapter 5-7</tt>
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894553"></a><a name="id2894556"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+2GB+ méret&#369; fájlokkal próbálok dolgozni VFAT fájlrendszeren. M&#369;ködni fog?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Nem, a VFAT nem támogatja a 2GB+ fájlokat.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894573"></a><a name="id2894576"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Miért negatív a <span class="application">MEncoder</span> által kiírt javasolt bitráta?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Mert a bitráta, amivel kódoltad az audiót túl nagy ahhoz, hogy a film ráférjen
+bármilyen CD-re. Ellen&#337;rizd, hogy a libmp3lame megfelel&#337;en van-e telepítve.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894603"></a><a name="id2894606"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Nem tudok elkódolni ASF fájlokat AVI/MPEG-4 (DivX)-be, mert 1000 fps-t használ?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Mivel az ASF változó képkocka arányokat használ, az AVI pedig fix értéket, kézzel
+kell megadnod a <tt class="option">-ofps</tt> kapcsoló segítségével.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894631"></a><a name="id2894634"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogy tudok feliratot tenni a kimeneti fájlba?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Csak add meg a <tt class="option">-sub &lt;fájlnév&gt;</tt> (vagy <tt class="option">-sid</tt>,
+megfelel&#337;en) kapcsolót a <span class="application">MEncoder</span>nek.
+</p></td></tr><tr class="question"><td align="left" valign="top"><a name="id2894664"></a><a name="id2894668"></a><b>Kérdés</b></td><td align="left" valign="top"><p>
+Hogyan tudom csak a zenét elkódolni egy zenés videóból?
+</p></td></tr><tr class="answer"><td align="left" valign="top"><b>Válasz</b></td><td align="left" valign="top"><p>
+Közvetlenül nem lehetséges, de megpróbálhatod a következ&#337;t (figyelj a
+<span class="bold"><b>&amp;</b></span> jelre az
+<b>mplayer</b> parancs végén):
+<pre class="screen">
+	mkfifo encode
+	mplayer -ao pcm -aofile encode dvd://1 &amp;
+	lame <i><tt>kapcsoloid</tt></i> encode music.mp3
+	rm encode
+</pre>
+Így bármilyen kódolót használhatsz, nem csak a <span class="application">LAME</span>-t,
+csak cseréld ki a <b>lame</b>-t a kedvenc audió kódolóddal a fenti
+parancsban.
+</p></td></tr></tbody></table></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="edl.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="cd-dvd.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">3.5. Edit Decision Lists (EDL) </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 5. fejezet - CD/DVD használat</td></tr></table></div></body></html>

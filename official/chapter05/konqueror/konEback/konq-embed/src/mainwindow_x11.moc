@@ -1,0 +1,87 @@
+/****************************************************************************
+** MainWindowX11 meta object code from reading C++ file 'mainwindow_x11.h'
+**
+** Created: Thu Nov 20 06:22:03 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "mainwindow_x11.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *MainWindowX11::className() const
+{
+    return "MainWindowX11";
+}
+
+QMetaObject *MainWindowX11::metaObj = 0;
+
+#ifdef QWS
+static class MainWindowX11_metaObj_Unloader {
+public:
+    ~MainWindowX11_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "MainWindowX11" );
+    }
+} MainWindowX11_metaObj_unloader;
+#endif
+
+void MainWindowX11::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(MainWindowBase::className(), "MainWindowBase") != 0 )
+	badSuperclassWarning("MainWindowX11","MainWindowBase");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString MainWindowX11::tr(const char* s)
+{
+    return qApp->translate( "MainWindowX11", s, 0 );
+}
+
+QString MainWindowX11::tr(const char* s, const char * c)
+{
+    return qApp->translate( "MainWindowX11", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* MainWindowX11::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) MainWindowBase::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"MainWindowX11", "MainWindowBase",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

@@ -1,0 +1,343 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.12. Jak radzi&#263; sobie telecine i przeplotem w NTSC DVD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem"><link rel="previous" href="menc-feat-dvd-mpeg4.html" title='7.11. Rippowanie DVD do wysokiej jako&#347;ci pliku MPEG-4 ("DivX")'><link rel="next" href="mailinglists.html" title="Dodatek A. Listy dyskusyjne"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.12. Jak radzi&#263; sobie telecine i przeplotem w NTSC DVD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-dvd-mpeg4.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 7. Kodowanie z MEncoderem</th><td width="20%" align="right"> <a accesskey="n" href="mailinglists.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-telecine"></a>7.12. Jak radzi&#263; sobie telecine i przeplotem w NTSC DVD</h2></div></div><p><b>Wprowadzenie. </b>
+  Radz&#281; aby&#347; odwiedzi&#322; poni&#380;sz&#261; stron&#281; je&#380;eli nie za bardzo rozumiesz co 
+  jest napisane w tym dokumencie:
+  <a href="http://www.divx.com/support/guides/guide.php?gid=10" target="_top">http://www.divx.com/support/guides/guide.php?gid=10</a>
+  Ten URL prowadzi do zrozumia&#322;ego i rozs&#261;dnej wielko&#347;ci przewodnika traktuj&#261;cego o tym 
+  czym jest telecine.
+</p><p>
+  Z przyczyn technicznych odnosz&#261;cych si&#281; do wczesnych 
+  urz&#261;dze&#324; telwizyjnych, ka&#380;de video które mia&#322;o by&#263; odtwarzane 
+  na telewizorze NTSC musia&#322;o by&#263; ustawione na 59,94 pola na sekund&#281;.
+  Filmy i programy nagrane dla telewizji s&#261; najcz&#281;&#347;ciej ograniczone
+  bezpo&#347;rednio do 59,94 pól na sekund&#281;, ale wi&#281;kszo&#347;&#263; filmów kinowych
+  jest nagrywanych w 24 lub 23,976 klatkach na sekund&#281;. Kiedy DVD z kinowym
+  filmem jest odtwarzane, video jest konwertowane dla telewizji przy pomocy procesu
+  nazywanego telecine.
+</p><p>
+  Obraz na DVD, tak naprawd&#281; nigdy nie jest przechowywany jako
+  59,94 pól na sekund&#281;. Dla obrazu który oryginalnie by&#322; 59,94, ka&#380;da 
+  para pól jest &#322;&#261;czona w ramk&#281;, co daje rezultat 29,97 ramek na sekund&#281;.
+  Sprz&#281;towe odtwarzacze DVD odczytuj&#261; flag&#281; osadzon&#261; w strumieniu video
+  aby okre&#347;li&#263; czy parzyste czy nieparzyste linie powinny formowa&#263; pierwsze pole.
+</p><p>
+  Zazwyczaj, informacja o 23,976 ramkach na sekund&#281; mówi
+  odtwarzaczowi DVD, &#380;e musi przeprowadzi&#263; telecine w locie.
+  Czasami, jednak, proces telecine na obrazie przeprowadzony jest 
+  <span class="emphasis"><i>przed</i></span> umieszczeniem go na DVD; Nawet
+  je&#380;eli by&#322; on nagrany jako  23,976 ramek na sekund&#281;, staje si&#281; on 59,94 
+  pola na sekund&#281; i jest przechowywany na dysku jako 29,97 ramek na sekund&#281;.
+</p><p>
+  Patrz&#261;c na indywidualne ramki uformowane z ztelecinowanego 
+  obrazu 59,94 pól na sekund&#281;, przeplot jest wyra&#378;nie widoczny przy ruchu, 
+  poniewa&#380; jedno pole (powiedzmy parzyste linie) reprezentuj&#261; moment
+  w czasie o 1/59,94 sekundy pó&#378;niej ni&#380; pozosta&#322;e. Odtwarzanie video z przeplotem
+  na komputerze wygl&#261;da ohydnie, z dwóch przyczyn, poniewa&#380; monitor jest wi&#281;kszej
+  rozdzielczo&#347;ci i obraz jest wy&#347;wietlany ramka-po-ramce zamiast pole-po-polu.
+</p><p>
+Notki:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  Ta sekcja odnosi si&#281; tylko do NTSC DVD, nie do PAL.
+  </p></li><li><p>
+  Przyk&#322;adowe komendy <span class="application">MEncodera</span> w tym dokumencie
+  <span class="bold"><b>nie</b></span> s&#261; przeznaczone do prawdziwego u&#380;ycia.
+  S&#261; one po prostu minimum do kodowania danej kategorii video. Jak zrobi&#263; dobre ripy DVD
+  lub precyzyjnie-ustawi&#263; <tt>libavcodec</tt> dla
+  najlepszej jako&#347;ci nie s&#261; zagadnieniami dla tego tego dokumentu.
+  </p></li><li><p>
+   Jest kilka przypisów do tego dokumentu, zaznaczonych tak: 
+  <a href="menc-feat-telecine.html#menc-feat-telecine-footnotes" title="7.12.3. Notatki">[1]</a>
+  </p></li></ul></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-telecine-ident"></a>7.12.1. Jak ustali&#263; jaki typ video masz</h3></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-ident-progressive"></a>7.12.1.1. Progresywny</h4></div></div><p>
+  Progresywne video by&#322;o oryginalnie filmowane przy 23.976 fps (ramek na sekund&#281; - przyp. t&#322;um.), i
+  przechowywane na DVD bez zmian.
+</p><p>
+  Kiedy odtwarzasz progresywne DVD w <span class="application">MPlayerze</span>,
+  <span class="application">MPlayer</span> wy&#347;wietli nastepuj&#261;cy wiersz zaraz gdy film zacznie by&#263; odtwarzany:
+
+  <pre class="screen"> demux_mpg: 24fps progressive NTSC content detected, switching framerate.</pre>
+  
+  Od tego momentu, demux_mpg niepowinien nigdy powiedzie&#263; i&#380; znalaz&#322;
+  "30fps NTSC content."
+</p><p>
+  Kiedy ogl&#261;dasz progresywne video, nie powiniene&#347; zauwa&#380;y&#263; &#380;adnego
+  przeplotu. B&#261;d&#378; jednak czujny poniewa&#380; jest tam czasami wmiksowany ma&#322;y
+  kawa&#322;ek telecine, tam gdzie si&#281; go nie spodziewasz. Napotka&#322;em DVD z programami
+  telewizyjnymi w których przy ka&#380;dej zmianie sceny i  w losowych miejscach by&#322;a jedna 
+  sekunda telecine. Raz ogl&#261;da&#322;em DVD który mia&#322; jedn&#261; po&#322;ow&#281;
+  progresywn&#261;, a drug&#261; ztelecinowan&#261;. Je&#380;eli chcesz by&#263; <span class="emphasis"><i>naprawd&#281;</i></span>
+  pewny, mo&#380;esz przeskanowa&#263; ca&#322;y film:
+
+  <pre class="screen">mplayer dvd://1 -nosound -vo null -benchmark</pre>
+
+  U&#380;ycie opcji <tt class="option">-benchmark</tt> przekazuje
+  <span class="application">MPlayerowi</span> aby odtwarza&#322; film 
+  tak szybko jak tylko mo&#380;e; ci&#261;gle jednak, jako &#380;e jest zale&#380;ny od Twojego sprz&#281;tu
+  mo&#380;e to zaj&#261;c troch&#281; czasu. Za ka&#380;dym razem demux_mpg zg&#322;asza zmian&#281; liczby 
+  ramek na sekund&#281;, pierwsza linia nad poka&#380;e czas w którym nast&#261;pi&#322;a ta zmiana.
+</p><p>
+ Progresywne video jest czasami nazywane "mi&#281;kkie-telecine"
+ poniewa&#380; jest ono stworzone aby odtwarzac DVD wykona&#322; na nim proces telecine.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-ident-telecined"></a>7.12.1.2. Ztelecinowany</h4></div></div><p>
+  Obraz "ztelecinowany" by&#322; oryginalnie sfilmowany jako 23,976, ale
+  zosta&#322; poddany procesowi telecine <span class="emphasis"><i>przed</i></span>
+  zapisaniem go na p&#322;ycie DVD.
+</p><p>
+  
+  <span class="application">MPlayer</span> (nigdy) nie zwraca
+  &#380;adnych zmian ilo&#347;ci ramek na sekund&#281; kiedy 
+  odtwarza ztelecinowane video.
+</p><p>
+  Podczas ogl&#261;dania video poddanego procesowi telecine, zobaczysz
+  artefakty przeplotu które wydaj&#261; si&#281; "miga&#263;": szybko 
+  pojawiaj&#261; si&#281; i znikaj&#261;. Mo&#380;esz si&#281; im bli&#380;ej przyjrze&#263; wpisuj&#261;c
+  </p><div class="orderedlist"><ol type="1"><li><pre class="screen">mplayer dvd://1 -speed 0.1</pre></li><li><p>
+    Przewi&#324; na dynamiczne sceny.
+    </p></li><li><p>
+  
+    Popatrz na wzór przeploto-wygl&#261;daj&#261;cych i progresywnie-wygl&#261;daj&#261;cych
+    ramek. Je&#380;eli wzór który widzisz wyg&#261;da jak PPPII,PPPII,PPPII,... wtedy video
+    ztelecinowane. Je&#380;eli widzisz inny wzór, wtedy mo&#380;liwe jest &#380;e video zosta&#322;o
+    niestandartowo poddane procesowi telecine i <span class="application">MEncoder</span>
+    nie mo&#380;e bezstratnie przekonwertowa&#263; go do progresywnego video. Je&#380;eli
+    nie widzisz &#380;adnego wzoru, wtedy najprawdopodobniej video zawiera tylko przeplot.
+    </p></li></ol></div><p>
+</p><p>
+  Czasami video poddane procesowi telecine nazywane jest "twarde-telecine".
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-ident-interlaced"></a>7.12.1.3. Przepleciony</h4></div></div><p>
+  Przeplecione video by&#322;o oryginalnie sfilmowane jako 59,94 pól na sekund&#281;
+  i przechowywane na DVD jako 29,97 fps. Przeplot to rezultat po&#322;&#261;czenia 
+  par pól w ramk&#281;, poniewa&#380; w ka&#380;dej ramce, ka&#380;de pole jest oddzielone o 
+  1/59,94 sekundy.
+</p><p>
+   Tak jak przy ztelecinowanym video, podczas odtwarzania filmu z przeplotem
+  <span class="application">MPlayer</span> nigdy nie
+  powinien powiadamia&#263; o zmianie ilo&#347;ci ramek na sekund&#281;.
+ 
+</p><p>
+  Kiedy z bliska ogl&#261;dasz przeplecione video z <tt class="option">-speed 0.1</tt>
+  zobaczysz, i&#380; ka&#380;da pojedy&#324;cza klatka jest przepleciona.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-ident-mixedpt"></a>7.12.1.4. Mieszane progresywne i telecine</h4></div></div><p>
+  Wszystkie "wymieszane progresywne i telecine" video
+  by&#322;y oryginalnie nagrane jako 23.976 ramek na sekund&#281;, ale 
+  niektóre cz&#281;&#347;ci sko&#324;czy&#322;y jako ztelecinowane.
+</p><p>
+  Kiedy <span class="application">MPlayer</span> odtwarza t&#281; kategori&#281;, b&#281;dzie on
+  (zazwyczaj bardzo szybko) prze&#322;&#261;cza&#322; si&#281; tam i z powrotem mi&#281;dzy "30fps
+  NTSC" i "24fps progresywne NTSC". Przyjrzyj si&#281; wyj&#347;ciu 
+  <span class="application">MPlayera</span> (na konsoli - przyp. tlum.) aby zobaczy&#263;
+  te wiadomo&#347;ci.
+</p><p>
+ Powiniene&#347; przyjrze&#263; si&#281; sekcji "30fps NTSC" aby upewni&#263; si&#281;
+ czy s&#261; one na pewno telecine a nie tylko przeplecione.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-ident-mixedpi"></a>7.12.1.5. Mieszane progresywne i telecine</h4></div></div><p>
+  W "mieszanej progresywnej i przeplecionej" zawarto&#347;ci, 
+  progresywne i przeplecione video zosta&#322;o po&#322;&#261;czone razem.
+</p><p>
+  Ta kategoria wygl&#261;da zupe&#322;nie jak "mieszane progresywne i telecine",
+  do momentu kiedy przyjrzysz si&#281; fragmentom 30fps i zobaczysz i&#380; nie maja one wzoru telecine.
+</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-telecine-encode"></a>7.12.2. Jak zakodowa&#263; ka&#380;d&#261; kategori&#281;</h3></div></div><p>
+ Jak ju&#380; wspomnia&#322;em na pocz&#261;tku, przyk&#322;adowe polecenia <span class="application">MEncodera</span>
+ poni&#380;ej <span class="bold"><b>nie</b></span> s&#261; przewidziane do rzeczywistego
+ u&#380;ycia; demonstruj&#261; one tylko minimalne parametry potrzebne do prawid&#322;owego zakodowanie danej kategorii.
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-encode-progressive"></a>7.12.2.1. Progresywne</h4></div></div><p>
+  Progresywne video nie wymaga &#380;adnego specjalnego filtrowania do kodowania.
+  Jedynym koniecznym paramterem jaki musisz u&#380;y&#263; jest   <tt class="option">-ofps 23.976</tt>.
+  Inaczej, <span class="application">MEncoder</span> b&#281;dzie próbowa&#322; kodowa&#263; przy pr&#281;dko&#347;ci 29,97
+  i duplikowa&#263; ramki.
+</p><p>
+  <pre class="screen">mencoder dvd://1 -nosound -ovc lavc -ofps 23.976</pre>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-encode-telecined"></a>7.12.2.2. Ztelecinowane</h4></div></div><p>
+ Proces telecine mo&#380;e zosta&#263; odwrócony, aby odzyska&#263; oryginaln&#261; zawarto&#347;&#263;
+ 23,976, przy u&#380;yciu metody o nazwie odwrócone-telecine.
+ <span class="application">MPlayer</span> zawiera dwa filtry które s&#261; w stanie dokona&#263; tego:
+ <tt class="option">detc</tt> i <tt class="option">ivtc</tt>. Mo&#380;esz przeczyta&#263; stron&#281; man
+ aby dowiedzie&#263; si&#281; co je ró&#380;ni, ale je&#380;eli chodzi o DVD to nigdy nie mia&#322;em
+ problemu z <tt class="option">ivtc</tt>. Pami&#281;taj, &#380;e
+ przed przeskalowywaniem powiniene&#347; <span class="bold"><b>zawsze</b></span>
+ odwróci&#263; telecine; odwró&#263; telecine tak&#380;e przed
+cropowaniem, chyba &#380;e naprawd&#281; wiesz co robisz <a href="menc-feat-telecine.html#menc-feat-telecine-footnotes" title="7.12.3. Notatki">[1]</a>. 
+ </p><p>
+  <pre class="screen">mencoder dvd://1 -nosound -vf ivtc=1 -ovc lavc -ofps 23.976</pre>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-encode-interlaced"></a>7.12.2.3. Przeplecione</h4></div></div><p>
+  Dla wi&#281;kszo&#347;ci praktycznych przypadków nie jest mo&#380;liwe ca&#322;kowite
+  odzyskanie progresywnego video z przeplecionej zawarto&#347;ci. 
+  Jedynym sposobem bez gubienia po&#322;owy pionowej rozdzielczo&#347;ci
+  jest podwojenie ilo&#347;ci ramek na sekund&#281; i "zgadni&#281;cie" co powinno
+  zast&#261;pi&#263; odpowiadaj&#261;ce linie ka&#380;dego pola (ma to pewne wady - zobacz trzeci&#261; metod&#281;).
+</p><div class="orderedlist"><ol type="1"><li><p>
+ Kodowanie video z przeplotem. Normalnie, przeplot niszczy szanse enkodera
+ na dobre zakodowanie, lecz <tt>libavcodec</tt>
+ posiada dwie opcje pozwalaj&#261;ce przechowywa&#263; video z przeplotem ciut lepiej:
+ <tt class="option"> ildct</tt> i <tt class="option">ilme</tt>.
+ U&#380;ycie <tt class="option">mbd=2</tt> jest tak&#380;e zalecane <a href="menc-feat-telecine.html#menc-feat-telecine-footnotes" title="7.12.3. Notatki">[2] </a>
+ poniewa&#380; zakoduje on makrobloki bez przeplotu w miejscach gdzie nie ma ruchu
+ Zauwa&#380; i&#380; opcja <tt class="option">-ofps</tt> NIE jest tu potrzebna.
+
+  <pre class="screen">mencoder dvd://1 -nosound -ovc lavc -lavcopts ildct:ilme:mbd=2</pre>
+  </p></li><li><p>  
+  U&#380;ycie filtru likwiduj&#261;cego przeplot przed kodowaniem. Jest kilka takich 
+  filtrów, ka&#380;dy ma swoje wady i zalety. Skonsultuj <tt class="option">mplayer -pphelp</tt>
+  aby zobaczy&#263; co jest dost&#281;pne (grepuj "deint") i przeszukaj
+  <a href="http://www.mplayerhq.hu/homepage/design6/info.html#mailing_lists" target="_top">
+  listy dyskusyjne MPlayera</a> aby znale&#378;&#263; wiele dyskusji na temat ró&#380;nych filtrów.
+  Ilo&#347;&#263; ramek na sekund&#281; znów si&#281; nie zmienia, wi&#281;c nie u&#380;ywamy <tt class="option">-ofps</tt>.
+  Likwidowanie przeplotu powinno zosta&#263; zrobione po kadrowaniu 
+  <a href="menc-feat-telecine.html#menc-feat-telecine-footnotes" title="7.12.3. Notatki">[1]</a> i przed skalowaniem.
+
+  <pre class="screen">mencoder dvd://1 -nosound -vf pp=lb -ovc lavc</pre>
+  </p></li><li><p>
+  Niestety ta opcja zawiera b&#322;&#281;dy w <span class="application">MEncoderze</span>; 
+  B&#281;dzie dzia&#322;a&#263; w <span class="application">MEncoder G2</span>, którego jeszcze nie ma.
+  Na razie mo&#380;esz do&#347;wiadczy&#263; nieoczekiwanych wywale&#324;.
+  
+  
+  Celem opcji <tt class="option">-vf tfields</tt> jest stworzenie pe&#322;nej klatki z ka&#380;dego pola,
+  co w efekcie daje framerate 59,94. Zalet&#261; tego podej&#347;cia jest zerowa utrata danych;
+  jednak ze wzgl&#281;du na to, i&#380; ka&#380;da ramka pochodzi od jednego pola pozosta&#322;e linie musz&#261;
+  by&#263; jako&#347; zinterpolowane. S&#261; niezbyt dobre metody generowania brakuj&#261;cych
+  danych, a rezultaty b&#281;d&#261; podobne do tych jakie otrzymamy przy filtrach 
+  likwiduj&#261;cych przeplot. Generowanie brakuj&#261;cych linii tworzy kolejne problemy, 
+  po prostu ilo&#347;&#263; danych si&#281; podwaja. Wi&#281;c, aby zachowa&#263; jako&#347;&#263; potrzebny jest 
+  wi&#281;kszy koduj&#261;cy bitrate i wi&#281;ksza cze&#347;&#263; mocy procesora jest u&#380;ywana do kodowania jak
+  i dekodowania. tfields posiada kilka ró&#380;nych opcji do generowania brakuj&#261;cych linii. Je&#380;eli
+  u&#380;ywasz tej metody, odwo&#322;aj si&#281; do manuala  i wybierz opcj&#281; która
+  najbardziej odpowiada Twojemu materia&#322;owi. Zauwa&#380;, &#380;e gdy u&#380;ywasz <tt class="option">tfields</tt>
+   <span class="bold"><b>musisz</b></span> poda&#263; i <tt class="option">-fps</tt>
+   i <tt class="option">-ofps</tt> aby podwoi&#263; ilo&#347;&#263; ramek na sekund&#281; Twojego &#378;ród&#322;a.
+  
+  <pre class="screen">mencoder dvd://1 -nosound -vf tfields=2 -ovc lavc -fps 59.94 -ofps 59.94</pre>
+  </p></li><li><p>   
+  Je&#380;eli planujesz drastyczne zmniejszenie rozdzielczo&#347;ci mo&#380;esz odci&#261;&#263; i zakodowa&#263;
+  tylko jedno z dwóch pól. Oczywi&#347;cie stracisz po&#322;ow&#281; pionowej rozdzielczo&#347;ci,
+   ale je&#347;li chcesz zeskalowa&#263; do mniej ni&#380; po&#322;owy pionowej rozdzielczo&#347;ci, strata  
+   nie b&#281;dzie mia&#322;a du&#380;ego znaczenia. Rezultatem b&#281;dzie progresywny plik o pr&#281;dko&#347;ci
+   29,97 ramek na sekund&#281;. Procedura wymaga u&#380;ycia <tt class="option">-vf field</tt>,
+   potem wykadrowania <a href="menc-feat-telecine.html#menc-feat-telecine-footnotes" title="7.12.3. Notatki">[1]</a>
+   i wyskalowania. Pami&#281;taj, i&#380; b&#281;dziesz musia&#322; skompensowa&#263; po&#322;ow&#281; pionowej
+   rozdzielczo&#347;ci odpowiedni&#261; skal&#261;.
+   <pre class="screen">mencoder dvd://1 -nosound -vf field=0 -ovc lavc</pre>
+  </p></li></ol></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-encode-mixedpt"></a>7.12.2.4. Mieszane progresywne i telecine</h4></div></div><p>
+  W celu zmienienia zmieszanego video w ca&#322;kowicie progresywne, cz&#281;&#347;ci
+  ztelecinowane b&#281;d&#261; musia&#322;y by&#263; poddane procesowi odwróconego telecine.
+  S&#261; dwa filtry które tego dokonaj&#261; natywnie, ale najlepszym sposobem 
+  jest u&#380;ycie ich obu po&#322;&#261;czonych (czytaj dalej aby dowiedzie&#263; si&#281; wi&#281;cej).
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  Obecnie najbardziej niezawodn&#261; metod&#261; na poradzenie sobie z tym 
+  typem video, jest nie odwracanie telecine ztelecinowanych cz&#281;&#347;ci, ale 
+  ztelecinowa&#263; nie-ztelecinowane cz&#281;&#347;ci i odwróci&#263; telecine ca&#322;ego video.
+  Brzmi skomplikowanie? softpulldown jest filtrem który zamienia ca&#322;e video
+  na telecine. Je&#380;eli po softpulldown nast&#261;pi <tt class="option">detc</tt> lub
+  <tt class="option">ivtc</tt>, ko&#324;cowym rezultatem b&#281;dzie w ca&#322;o&#347;ci progresywne video.
+  Kadrowanie i skalowanie powinno by&#263; zrobione po operacjach odwracaj&#261;cych telecine
+  z opcj&#261; <tt class="option"> -ofps 23.976</tt>.
+
+  <pre class="screen">mencoder dvd://1 -nosound -vf softpulldown,ivtc=1 -ovc lavc -ofps 23.976</pre>
+  </p></li><li><p>
+  <tt class="option">-vf pullup</tt> jest zaprojektowane aby odwraca&#263; telecine 
+  ztelecinowanego materia&#322;u, a progresywne dane zostawia&#263; w spokoju.
+  Pullup nie dzia&#322;a za dobrze
+  z obecnym <span class="application">MEncoderem</span>, ale b&#281;dzie dzia&#322;a&#322; z 
+  <span class="application">MEncoder G2</span> (kiedy ten b&#281;dzie tylko gotowy).
+  Dzia&#322;a dobrze bez opcji <tt class="option">-ofps</tt>, ale <tt class="option">-ofps</tt>
+  jest potrzebne aby zapobiec poszatkowanemu wyj&#347;ciu . Z  
+  <tt class="option">-ofps</tt> pullup czasami zawodzi. Problem wywodzi si&#281; z zachowania
+  <span class="application">MEncodera</span> który zrzuca ramki aby zachowa&#263;
+  synchronizacj&#281; mi&#281;dzy d&#378;wi&#281;kiem i obrazem: zrzuca ramki raczej przed wys&#322;aniem ich przez
+  &#322;a&#324;cuch filtrów, ni&#380; po. W rezultacie <tt class="option">pullup</tt> jest czasami pozbawiony danych
+  których potrzebuje.
+  </p><p>
+  Je&#380;eli <span class="application">MEncoder</span> zrzuca za du&#380;o ramek pod rz&#261;d, 
+  zag&#322;adza bufor <tt class="option">pullupa</tt> i powoduje jego nieoczekiwane zamkni&#281;cie.
+  </p><p>
+  Je&#380;eli nawet <span class="application">MEncoder</span> zrzuca jedn&#261; ramk&#281;,
+   <tt class="option">pullup</tt> wci&#261;&#380; nie widzi jej i operuje na z&#322;ej sekwencji ramek.
+  Nawet je&#347;li to nie powoduje nieoczekiwanego zako&#324;czenia,
+  <tt class="option">pullup</tt> nie b&#281;dzie w stanie podj&#261;&#263; w&#322;a&#347;ciwych decyzji jak
+  po&#322;&#261;czy&#263; progresywne ramki i albo b&#281;dzie niew&#322;a&#347;ciwie dopasowywa&#322; do siebie
+   pola albo zrzuca&#322; par&#281; pól aby skompensowa&#263;.
+  </p></li><li><p>
+  Nie u&#380;ywa&#322;em <tt class="option">-vf filmdint</tt> osobi&#347;cie, ale zobacz co
+  ma do powiedzenia na ten temat D Richard Felker III:
+
+  </p><blockquote class="blockquote"><p>To jest w porz&#261;dku, ale IMO (MZ - Moim zdaniem - przyp. t&#322;um.)
+  to raczej próbuje usun&#261;&#263; przeplot ni&#380; odwróci&#263; telecine (podobnie
+  jak odtwarzacze DVD settop &amp; progresywne TV)
+  czego skutkiem jest ohydne miganie i inne artefakty. 
+  Je&#380;eli zamierzasz u&#380;ywa&#263; tego, musisz chocia&#380; sp&#281;dzi troch&#281; czasu
+  na dopasowaniu opcji i ogl&#261;daniu rezultatów aby upewni&#263; si&#281;, &#380;e si&#281; nie 
+  kaszani.</p></blockquote><p>
+  </p></li></ul></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="menc-feat-telecine-encode-mixedpi"></a>7.12.2.5. Mieszane progresywne i z przeplotem</h4></div></div><p>
+  S&#261; dwie metody na poradzenie sobie z t&#261; kategori&#261;, ka&#380;da jest pewnym 
+  kompromisem. Powiniene&#347; zdecydowa&#263; na podstawie czasu trwania/miejsca ka&#380;dego
+  typu.
+  </p><div class="itemizedlist"><ul type="disc"><li><p>
+  Traktuj video jak progresywne. Cz&#281;&#347;ci z przeplotem b&#281;d&#261; wygl&#261;da&#322;y jak 
+  z przeplotem i niektóre przeplecione pola b&#281;d&#261; musia&#322;y by&#263; zrzucone, czego
+  rezultatem b&#281;dzie niemiarowe skakanie. Je&#347;li chcesz mo&#380;esz u&#380;y&#263; filtrów
+  postprocessingu, ale mo&#380;e to nieznacznie zdegradowa&#263; progresywne cz&#281;&#347;ci.
+  </p><p>
+  Ta opcja na pewno nie powinna by&#263; u&#380;ywana je&#347;li docelowo masz zamiar
+  wy&#347;wietla&#263; video na urz&#261;dzeniu wykorzystuj&#261;cym przeplot (np. z kart&#261; TV)
+  Je&#380;eli masz ramki z przeplotem 23,937 fps, b&#281;d&#261; one ztelecinowane razem 
+  z progresywnymi ramkami. Po&#322;owa "ramek" z przeplotem b&#281;dzie wy&#347;wietlona
+  w czasie wy&#347;wietlania trzech pól (3/59.94 sekund), co w rezultacie da migaj&#261;cy
+  "skok wstecz w czasie" efekt który kiepsko wygl&#261;da. Je&#380;eli próbowa&#322;e&#347;
+  tego <span class="bold"><b>musisz</b></span> u&#380;y&#263; filtru
+  likwiduj&#261;cego przeplot jak <tt class="option">lb</tt> lub <tt class="option">l5</tt>.
+  </p><p>
+  To mo&#380;e by&#263; równie&#380; z&#322;y pomys&#322; dla progresywnego obrazu. 
+  Zrzuci to pary nieprzerwanych przeplecionych pól, daj&#261;c w rezultacie nieci&#261;g&#322;o&#347;&#263;
+  która mo&#380;e by&#263; bardziej widoczna ni&#380; w drugim przypadku który pokazuje
+  niektóre ramki dwa razy. Video z przeplotem 29,97 fps jest ju&#380; troch&#281;
+  poszatkowane poniewa&#380; powinno by&#263; wy&#347;wietlanie z pr&#281;dko&#347;ci&#261;
+  59,94 pól na sekund&#281;, wi&#281;c zduplikowane pola nie s&#261; a&#380; tak widoczne.
+  </p><p>
+  W ka&#380;dym przypadku najlepiej jest rozpatrywa&#263; materia&#322; i to gdzie masz zamiar 
+  go wy&#347;wietla&#263;. Je&#347;li video jest w 90% progresywne i nie masz zamiaru nigdy go wy&#347;wietla&#263;
+  na TV, powiniene&#347; faworyzowa&#263; progresywne podej&#347;cie. Je&#380;eli jest tylko w po&#322;owie
+  progresywne, b&#281;dziesz pewnie chcia&#322; je kodowa&#263; tak jakby by&#322;o
+  w ca&#322;o&#347;ci z przeplotem.
+  </p></li><li><p>
+  Traktuj video jakby by&#322;o z przeplotem. Niektóre klatki z progresywnych
+  cz&#281;&#347;ci b&#281;d&#261; musia&#322;y by&#263; zduplikowane, daj&#261;c w rezultacie niemiarowe skoki.
+  Znów filtry  likwiduj&#261;ce przeplot mog&#261; nieznacznie zdegradowa&#263; progresywne cz&#281;&#347;ci.
+  </p></li></ul></div></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-telecine-footnotes"></a>7.12.3. Notatki</h3></div></div><div class="orderedlist"><ol type="1"><li><p><b>O kadrowaniu: </b>
+  Video na DVD jest przechowywane w formacie nazywanym YUV 4:2:0.
+  W video YUV luma ("jasno&#347;&#263;") i chroma ("kolor")
+  s&#261; przechowywane osobno. Poniewa&#380; ludzkie oczy s&#261; mniej wra&#380;liwe na
+  kolor ni&#380; na jasno&#347;&#263;, w obrazie YUV 4:2:0 na cztery piksele luma przypada jeden
+  piksel chroma. W progresywnym obrazie, ka&#380;dy kwadrat czterech pikseli luma 
+  (dwa na ka&#380;dym boku) ma jeden wspólny piksel chroma. Musisz wykadrowa&#263; progresywne 
+  video YUV 4:2:0 do parzystych rozdzielczo&#347;ci, i u&#380;ywa&#263; parzystych przesuni&#281;&#263;. Na przyk&#322;ad 
+  <tt class="option">crop=716:380:2:26</tt> jest OK ale
+  <tt class="option">crop=716:380:3:26 </tt> nie jest.
+  </p><p>
+  Kiedy masz do czynienia z YUV 4:2:0 z przeplotem, sytuacja jest
+  troch&#281; bardziej skomplikowana. Zamiast ka&#380;dych czterech pikseli
+  luma w <span class="emphasis"><i>ramce</i></span> dziel&#261;cych jeden piksel
+  chroma, ka&#380;de cztery piksele w <span class="emphasis"><i>polu</i></span>
+  dziel&#261; jeden piksel chroma. Kiedy pola s&#261; przeplatane aby stworzy&#263;
+  ramk&#281;, ka&#380;da linia skanuj&#261;ca jest wysoko&#347;ci jednego piksela.
+  Teraz, zamiast czterech pikseli luma w kwadracie, s&#261; dwa bok-przy-boku
+  i dwa nast&#281;pne bok-przy-boku dwie linie skanuj&#261;ce ni&#380;ej. Ca&#322;e to zamieszanie
+   powoduje, &#380;e pionowe rozmiary kadru i przesuni&#281;cia musz&#261; by&#263;
+  wielokrotno&#347;ciami czterech. Wymiary poziome mog&#261; pozosta&#263; parzyste.
+  </p><p>
+  Dla telecinowanego video, zalecam kadrowa&#263; po procesie odwracania
+  telecine. Kiedy video jest ju&#380; progresywne wymagane jest tylko kadrowanie do
+  parzystych wymiarów. Je&#347;li naprawd&#281; potrzebujesz lekkiego przyspieszenia
+  jakie da kadrowanie najpierw musisz kadrowa&#263; pionowo do wielokrotno&#347;ci
+  czterech, inaczej filtr odwracaj&#261;cy telecine nie b&#281;dzie otrzymywa&#322; prawid&#322;owych danych.
+  </p><p>
+  Przy video z przeplotem (nie telecine), musisz zawsze kadrowa&#263;
+   pionowo do wielokrotno&#347;ci czwórki, chyba &#380;e u&#380;ywasz opcji 
+  <tt class="option">-vf field</tt> przed kadrowaniem.
+  </p></li><li><p><b>O parametrach i jako&#347;ci kodowania: </b>
+  Tylko to, &#380;e poleci&#322;em <tt class="option">mbd=2</tt> tutaj nie znaczy &#380;e
+  nie mo&#380;e by&#263; on u&#380;ywany gdzie indziej. Razem z <tt class="option">trell</tt>, 
+  <tt class="option">mbd=2</tt> jest jedn&#261; z dwóch najbardziej podnosz&#261;cych jako&#347;&#263; opcji
+  biblioteki <tt>libavcodec</tt>, których zawsze
+  powiniene&#347; u&#380;ywa&#263;, chyba &#380;e spadek szybko&#347;ci kodowania jest niedopuszczalny
+  (np. kodowanie w czasie rzeczywistym). Biblioteka <tt>libavcodec</tt>
+  ma wiele opcji umo&#380;liwiaj&#261;cych zwi&#281;kszenie jako&#347;ci wyj&#347;ciowej kodowania (i zmniejszyenie
+  pr&#281;dko&#347;ci) ale ten temat jest poza zakresem tego dokumentu.
+  </p></li></ol></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-dvd-mpeg4.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="mailinglists.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">7.11. Rippowanie DVD do wysokiej jako&#347;ci pliku MPEG-4 ("DivX") </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> Dodatek A. Listy dyskusyjne</td></tr></table></div></body></html>

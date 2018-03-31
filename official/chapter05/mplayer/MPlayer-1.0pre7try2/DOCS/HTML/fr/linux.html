@@ -1,0 +1,59 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.1. Linux</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="ports.html" title="Chapitre 6. Ports"><link rel="previous" href="ports.html" title="Chapitre 6. Ports"><link rel="next" href="bsd.html" title="6.2. *BSD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.1. Linux</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ports.html">Précédent</a> </td><th width="60%" align="center">Chapitre 6. Ports</th><td width="20%" align="right"> <a accesskey="n" href="bsd.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="linux"></a>6.1. Linux</h2></div></div><p>
+La plateforme principale de développement est Linux sur x86, bien que
+<span class="application">MPlayer</span> fonctionne sur de nombreux autres ports Linux.
+Des binaires de <span class="application">MPlayer</span> sont disponibles depuis de nombreuses sources. Par contre,
+<span class="bold"><b>aucun de ces paquets n'est supporté</b></span>.
+Rapportez les problèmes à leurs auteurs, pas à nous.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="debian"></a>6.1.1. Paquets Debian</h3></div></div><p>
+Pour construire le paquet Debian, lancez la commande suivante dans le 
+répertoire source de <span class="application">MPlayer</span>:
+
+<pre class="screen">fakeroot debian/rules binary</pre>
+
+Si vous voulez passer des options particulières à configure, vous pouvez
+définir la variable d'environnement <tt>DEB_BUILD_OPTIONS</tt>.
+Par exemple, si vous voulez le support de la GUI et de l'OSD, faites:
+
+<pre class="screen">DEB_BUILD_OPTIONS="--enable-gui --enable-menu" fakeroot debian/rules binary</pre>
+
+Vous pouvez aussi passer quelques variables au Makefile. Par exemple, si
+vous voulez compiler avec gcc 3.4 même si ce n'est pas celui par défaut:
+
+<pre class="screen">CC=gcc-3.4 DEB_BUILD_OPTIONS="--enable-gui" fakeroot debian/rules binary</pre>
+
+Pour nettoyer l'arborescence des sources, exécutez la commande suivante:
+
+<pre class="screen">fakeroot debian/rules clean</pre>
+
+En tant que root installez le paquet <tt class="filename">.deb</tt> comme d'habitude:
+
+<pre class="screen">dpkg -i ../mplayer_<i><tt>version</tt></i>.deb</pre>
+</p><p>
+Christian Marillat a construit des paquets Debian non-officiels pour 
+<span class="application">MPlayer</span>, <span class="application">MEncoder</span> et les
+polices depuis un certain temps, vous pouvez les obtenir (apt-get) depuis sa
+<a href="http://hpisi.nerim.net/" target="_top">page web</a>.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="rpm"></a>6.1.2. Paquets RPM</h3></div></div><p>
+Dominik Mierzejewski a créé et maintient des paquets Red Hat RPM officiels de
+<span class="application">MPlayer</span>. Ils sont disponibles sur sa
+<a href="http://greysector.rangers.eu.org/mplayer.html" target="_top">page web</a>.
+</p><p>
+Les paquets Mandrake sont disponibles sur le <a href="http://plf.zarb.org/" target="_top">P.L.F.</a>,
+SuSE incluait une version limitée de <span class="application">MPlayer</span> dans sa
+distribution. Ils l'ont retiré dans leurs dernières versions. Vous pouvez obtenir
+des RPMs fonctionnels sur
+<a href="http://packman.links2linux.de/?action=128" target="_top">links2linux.de</a>.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="arm"></a>6.1.3. ARM</h3></div></div><p>
+<span class="application">MPlayer</span> fonctionne sur les PDAs Linux avec un 
+CPU ARM c-a-d Sharp Zaurus, Compaq Ipaq. La manière
+la plus facile d'obtenir <span class="application">MPlayer</span> est de récupérer un des paquets
+<a href="http://www.openzaurus.org" target="_top">OpenZaurus</a>. Si vous voulez le compiler vous-même,
+vous devriez regarder les répertoires
+<a href="http://openzaurus.bkbits.net:8080/buildroot/src/packages/mplayer?nav=index.html%7Csrc/.%7Csrc/packages" target="_top">mplayer</a>
+et
+<a href="http://openzaurus.bkbits.net:8080/buildroot/src/packages/libavcodec?nav=index.html%7Csrc/.%7Csrc/packages" target="_top">libavcodec</a>
+du répertoire raçine de la distribution OpenZaurus. Ils ont toujours les derniers Makefile et patches
+utilisés pour contruire un <span class="application">MPlayer</span> CVS avec 
+<tt>libavcodec</tt>. Si vous avez besoin d'une GUI, vous pouvez
+utiliser xmms-embedded.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ports.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="bsd.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">Chapitre 6. Ports </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 6.2. *BSD</td></tr></table></div></body></html>

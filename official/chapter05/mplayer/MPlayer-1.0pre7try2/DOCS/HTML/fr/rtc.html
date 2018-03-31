@@ -1,0 +1,45 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.5. RTC</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="intro.html" title="Chapitre 1. Introduction"><link rel="previous" href="subosd.html" title="1.4. Sous-titres et OSD"><link rel="next" href="features.html" title="Chapitre 2. Fonctionnalités"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.5. RTC</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="subosd.html">Précédent</a> </td><th width="60%" align="center">Chapitre 1. Introduction</th><td width="20%" align="right"> <a accesskey="n" href="features.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="rtc"></a>1.5. RTC</h2></div></div><p>
+Il y a trois méthodes de synchro dans <span class="application">MPlayer</span>.
+
+</p><div class="itemizedlist"><ul type="disc"><li>
+<span class="bold"><b>Pour utiliser l'ancienne méthode</b></span>, vous n'avez 
+rien à faire. Elle utilise <tt>usleep()</tt> pour régler la 
+synchro A/V, avec une précision de +/- 10ms. Cependant parfois la synchro doit être 
+réglé encore plus finement.
+  </li><li><p>
+<span class="bold"><b>Le nouveau code de synchro</b></span> utilise la RTC 
+(Real Time Clock) du PC pour cette tâche, car elle à des timers précis à 1ms près. 
+Il est automatiquement activé si disponible, mais requiert des droits root, un binaire 
+<span class="application">MPlayer</span> <span class="emphasis"><i>setuid root</i></span> ou un noyau 
+configuré dans ce but. Si vous utilisez un noyau 2.4.19pre8 ou plus récent, vous 
+pouvez ajouter la fréquence maxi de la RTC pour les utilisateurs normaux au travers 
+du système de fichier /proc. Utilisez cette commande pour activer la RTC pour les utilisateurs normaux:
+<pre class="screen">echo 1024 &gt; /proc/sys/dev/rtc/max-user-freq</pre>
+Si vous n'avez pas un noyau si récent, vous pouvez aussi changer une ligne du fichier 
+<tt class="filename">drivers/char/rtc.c</tt> et recompiler votre noyau. Trouvez la section suivante
+  <pre class="programlisting">
+       * We don't really want Joe User enabling more
+       * than 64Hz of interrupts on a multi-user machine.
+       */
+      if ((rtc_freq &gt; 64) &amp;&amp; (!capable(CAP_SYS_RESOURCE)))
+   </pre>
+   et changez le 64 en 1024. Cependant, vous devriez savoir ce que vous faites.
+   Vous pouvez voir l'efficacité du nouveau timer sur la ligne d'état.
+   Les fonctions d'économie d'énergie du BIOS de certains portables qui contrôlent
+   la vitesse des processeurs interfèrent avec la RTC. L'audio et la vidéo peuvent alors
+   se désynchroniser. Brancher l'alimentation sur secteur avant de démarrer le portable
+   semble aider. Vous pouvez toujours désactiver le support RTC avec l'option 
+   <tt class="option">-nortc</tt>. Dans certaines configurations matérielles (confirmé durant 
+   l'utilisation d'un lecteur DVD sans DMA sur une carte ALi1541), l'utilisation de la RTC 
+   peut causer une image qui saute. Dans ce cas, il est recommandé d'utiliser 
+   la troisième méthode.
+  </p></li><li>
+  <span class="bold"><b>La troisième méthode de synchro</b></span> est activé par l'option 
+  <tt class="option">-softsleep</tt>. Il à la précision de la RTC, mais n'utilise pas la RTC. 
+  D'un autre côté, il nécessite plus de CPU.
+  </li></ul></div><p>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p><span class="bold"><b>Ne JAMAIS installer un binaire 
+<span class="application">MPlayer</span> setuid root sur un système multi-utilisateur !</b></span>
+C'est une manière facile pour n'importe qui de devenir root.
+</p></div><p>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="subosd.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="features.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">1.4. Sous-titres et OSD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> Chapitre 2. Fonctionnalités</td></tr></table></div></body></html>

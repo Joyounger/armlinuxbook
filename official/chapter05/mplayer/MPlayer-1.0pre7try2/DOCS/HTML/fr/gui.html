@@ -1,0 +1,22 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.3. À propos de l'interface graphique ?</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="intro.html" title="Chapitre 1. Introduction"><link rel="previous" href="install.html" title="1.2. Installation"><link rel="next" href="subosd.html" title="1.4. Sous-titres et OSD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.3. À propos de l'interface graphique ?</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="install.html">Précédent</a> </td><th width="60%" align="center">Chapitre 1. Introduction</th><td width="20%" align="right"> <a accesskey="n" href="subosd.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="gui"></a>1.3. À propos de l'interface graphique ?</h2></div></div><p>
+La GUI à besoin de GTK 1.2.x (elle n'est pas entièrement basée dessus, mais les 
+menus le sont). Les skins sont stockées au format PNG, donc GTK, 
+<tt>libpng</tt> (ainsi que leurs paquets de dev,
+généralement nommés <tt>gtk-dev</tt> et <tt>libpng-dev</tt>)
+doivent être installés. Vous pouver la compiler en spécifiant l'option 
+<tt class="option">--enable-gui</tt> durant l'étape
+<tt class="filename">./configure</tt>. Ensuite, pour l'activer vous devrez exécuter
+le binaire <b>gmplayer</b>.
+</p><p>
+Actuellement vous ne pouvez pas utiliser l'option <tt class="option">-gui</tt> en ligne de commande,
+ceci pour des raisons techniques.
+</p><p>
+<span class="application">MPlayer</span> n'ayant pas de skin par défaut, vous
+devrez la télécharger si vous voulez utiliser la GUI. Voir la <a href="http://www.mplayerhq.hu/homepage/dload.html" target="_top">page des téléchargements</a>.
+Elles pourront se placer dans le répertoire commun (<tt class="filename">
+$PREFIX/share/mplayer/Skin</tt>), ou dans <tt class="filename">$HOME/.mplayer/Skin</tt>.
+Par défaut, <span class="application">MPlayer</span> consulte ces répertoires à la recherche
+d'un répertoire nommé <tt class="filename">default</tt>, mais vous pouvez utiliser l'option
+<tt class="option">-skin <i><tt>nouvelleskin</tt></i></tt>, ou placer <tt>skin=nouvelleskin</tt>
+dans votre fichier de configuration pour utiliser la skin dans le répertoire <tt class="filename">*/Skin/newskin</tt>.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="install.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="subosd.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">1.2. Installation </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 1.4. Sous-titres et OSD</td></tr></table></div></body></html>

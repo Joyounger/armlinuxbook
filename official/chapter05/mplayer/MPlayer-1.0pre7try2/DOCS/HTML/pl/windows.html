@@ -1,0 +1,89 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.7. Windows</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="ports.html" title="Rozdzia&#322; 6. Porty"><link rel="previous" href="qnx.html" title="6.6. QNX"><link rel="next" href="macos.html" title="6.8. Mac OS"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.7. Windows</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="qnx.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 6. Porty</th><td width="20%" align="right"> <a accesskey="n" href="macos.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="windows"></a>6.7. Windows</h2></div></div><p>Tak, <span class="application">MPlayer</span> dzia&#322;a na Windowsie pod
+  <a href="http://www.cygwin.com/" target="_top"><span class="application">Cygwinem</span></a> i
+  <a href="http://www.mingw.org/" target="_top"><span class="application">MinGW</span></a>.
+  Nie ma jeszcze interfejsu GUI, ale wersja dla wiersza polece&#324; jest ju&#380; prawie w pe&#322;ni
+  funkcjonalna. <a href="../../tech/patches.txt" target="_top">&#321;atki</a> s&#261; zawsze mile widziane.
+  Powiniene&#347; sprawdzi&#263; list&#281;
+  <a href="http://mplayerhq.hu/mailman/listinfo/mplayer-cygwin/" target="_top">MPlayer-cygwin</a>,
+  aby uzyska&#263; pomoc albo otrzyma&#263; najnowsze informacje.</p><p>Najlepsze wyniki s&#261; osi&#261;gane ze sterownikami wyj&#347;ciowymi video DirectX
+  (<tt class="option">-vo directx</tt>) i rdzennym wyj&#347;ciem d&#378;wi&#281;kowym wave Windows
+  (<tt class="option">-ao win32</tt>). Mo&#380;esz skorzysta&#263; równie&#380; z OpenGL lub SDL, jednak
+  wydajno&#347;&#263; OpenGL w znacznym stopniu zale&#380;y od systemu, a SDL mo&#380;e powodowa&#263; powstanie
+  zak&#322;óce&#324; w d&#378;wi&#281;ku i obrazie albo wywo&#322;a&#263; b&#322;&#261;d, i zako&#324;czy&#263; dzia&#322;anie programu.
+  Je&#380;eli wyst&#281;puj&#261; zak&#322;ócenia obrazu, spróbuj
+  wy&#322;&#261;czy&#263; sprz&#281;tow&#261; akceleracj&#281; przez opcj&#281; <tt class="option">-vo directx:noaccel</tt>. &#346;ci&#261;gnij
+  <a href="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/contrib/dx7headers.tgz" target="_top">pliki
+  nag&#322;ówkowe DirectX 7</a>, &#380;eby skompilowa&#263; sterownik do wyj&#347;cia video
+  DirectX. Co wi&#281;cej, musisz mie&#263; zainstalowany DirectX 7 lub nowszy,
+  aby to wyj&#347;cie zadzia&#322;a&#322;o.</p><p><a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a> dzia&#322;a teraz równie&#380; pod Windowsem jako
+  <tt class="option">-vo winvidix</tt>, chocia&#380; jego obs&#322;uga jest eksperymentalna i wymaga
+  troch&#281; r&#281;cznego przygotowania. Pobierz
+  <a href="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/dhahelperwin/dhahelper.sys" target="_top">dhahelper.sys</a>
+  lub
+  <a href="http://www.mplayerhq.hu/MPlayer/releases/win32-beta/dhahelperwin/withmtrr/dhahelper.sys" target="_top">dhahelper.sys
+  (z obs&#322;ug&#261; MTRR)</a>
+  i skopiuj go do
+  <tt class="filename">libdha/dhahelperwin</tt> w drzewie &#378;ród&#322;owym
+  <span class="application">MPlayera</span>. Uruchom konsol&#281;, nast&#281;pnie przejd&#378; do tego katalogu i wykonaj
+
+  <pre class="screen">gcc -o dhasetup.exe dhasetup.c</pre>
+
+  i
+
+  <pre class="screen">dhasetup.exe install</pre>
+
+  jako Administrator. B&#281;dziesz musia&#322; ponownie uruchomi&#263; komputer. Teraz, skopiuj wszystkie pliki
+  z rozszerzeniem <tt>.so</tt> z katalogu
+  <tt class="filename">vidix/drivers</tt> do
+  <tt class="filename">mplayer/vidix</tt>
+  wzgl&#281;dem po&#322;o&#380;nia pliku <tt class="filename">mplayer.exe</tt>.</p><p>&#379;eby osi&#261;gn&#261;&#263; najlepsze wyniki <span class="application">MPlayer</span> powinien
+  korzysta&#263; z przestrzeni kolorów, któr&#261; Twoja karta wspomaga sprz&#281;towo. Niestety
+  wiele sterowników graficznych Windowsa &#378;le informuje o obs&#322;ugiwanych przez kart&#281;
+  przestrzeniach. Aby sprawdzi&#263; które s&#261; &#378;le obs&#322;ugiwane, wykonaj poni&#380;sz&#261; komend&#281;:
+
+  <pre class="screen">mplayer -benchmark -nosound -frames 100 -vf format=<i><tt>przestrze&#324;</tt></i> <i><tt>film</tt></i></pre>
+
+  gdzie <i><tt>przestrze&#324;</tt></i> mo&#380;e by&#263; jak&#261;kolwiek
+  warto&#347;ci&#261; spo&#347;ród tych uzyskanych przez opcj&#281; <tt class="option">-vf format=fmt=help</tt>.
+  Je&#347;li która&#347; z nich dzia&#322;a szczególnie &#378;le, opcja
+  <tt class="option">-vf noformat=<i><tt>przestrze&#324;</tt></i></tt>
+  zapobiegnie jej u&#380;ywaniu. Mo&#380;esz to na sta&#322;e doda&#263; do Twojego pliku konfiguracyjnego.</p><p>Dost&#281;pne s&#261; specjalne zbiory z kodekami przeznaczone dla systemu Windows, znajdziesz je na
+  <a href="http://mplayerhq.hu/homepage/design7/codecs.html" target="_top">stronie kodeków</a>.
+  Pozwol&#261; Ci one na odtwarzanie formatów, które nie s&#261; jeszcze bezpo&#347;rednio obs&#322;ugiwane w
+  <span class="application">MPlayerze</span>. Umie&#347;&#263; je, gdzie&#347; w swojej &#347;cie&#380;ce (w katalogu podanym w
+  zmiennej PATH - przyp. t&#322;umacza) lub przeka&#380; opcj&#281;
+  <tt class="option">--with-codecsdir=<i><tt>c:/&#347;cie&#380;ka/do/Twoich/kodeków</tt></i></tt>
+  (lub, tylko w &#347;rodowkisku Cygwin,
+  <tt class="option">--with-codecsdir=<i><tt>/&#347;cie&#380;ka/do/Twoich/kodeków</tt></i></tt>)
+  do skryptu <tt class="filename">configure</tt>.
+  Mieli&#347;my doniesienia, &#380;e biblioteki Real, musz&#261; by&#263; zapisywalne dla u&#380;ytkownika, który
+  uruchamia <span class="application">MPlayera</span>, ale tylko na niektórych systemach (NT4).
+  Spróbuj nada&#263; im atrybut zapisywalno&#347;ci.</p><p>Mo&#380;esz odtwarza&#263; VCD, odtwarzaj&#261;c pliki <tt class="filename">.DAT</tt> lub <tt class="filename">.MPG</tt>,
+  które Windows pokazuje na VCD. To dzia&#322;a mniej wi&#281;cej tak (dopasuj liter&#281; dysku do Twojego
+  CD-ROMu):</p><pre class="screen">mplayer <i><tt>d:/mpegav/avseq01.dat</tt></i></pre><p>DVD równie&#380; dzia&#322;a, podaj liter&#281; Twojego DVD-ROMu przez
+  opcj&#281; <tt class="option">-dvd-device</tt>:</p><pre class="screen">mplayer dvd://<i><tt>&lt;tytu&#322;&gt;</tt></i> -dvd-device <i><tt>d</tt></i>:</pre><p>Konsola <span class="application">Cygwin</span>/<span class="application">MinGW</span>
+  jest raczej wolna. Zg&#322;oszono, &#380;e przekierowywanie wyj&#347;cia albo u&#380;ywanie
+  opcji <tt class="option">-quiet</tt> poprawia wydajno&#347;&#263; na
+  niektórych systemach. Bezpo&#347;rednie renderowanie (<tt class="option">-dr</tt>) równie&#380;
+  mo&#380;e pomóc. Mo&#380;esz zapobiec migotaniu OSD, w&#322;&#261;czaj&#261;c podwójne buforowanie
+  opcj&#261; <tt class="option">-double</tt>. Je&#380;eli odtwarzanie jest nierówne, spróbuj u&#380;y&#263;
+  <tt class="option">-autosync 100</tt>. Je&#380;eli którakolwiek z tych opcji Ci pomog&#322;a,
+  mo&#380;e b&#281;dziesz chcia&#322; umie&#347;ci&#263; j&#261; w swoim pliku konfiguracyjnym.</p><p>Sascha Sommer wydaje, od czasu do czasu, oficjalne paczki dla Windowsa,
+  Joey Parrish tworzy nieoficjalne paczki z instalatorem.
+  Poszukaj ich w sekcji Windows
+  <a href="http://www.mplayerhq.hu/homepage/design7/projects.html#windows" target="_top">na stronie
+  naszych projektów</a>.</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="cygwin"></a>6.7.1. <span class="application">Cygwin</span></h3></div></div><p>Aby skompilowa&#263; <span class="application">MPlayera</span> wymagana jest wersja
+    <span class="application">Cygwina</span> 1.5.0 lub pó&#378;niejsza.</p><p>Pliki nag&#322;ówkowe DirectX musz&#261; by&#263; rozpakowane do
+  <tt class="filename">/usr/include/</tt> lub
+  <tt class="filename">/usr/local/include/</tt>.</p><p>Instrukcje i pliki potrzebne do kompilacji SDLa dla <span class="application">Cygwin</span>
+  s&#261; dost&#281;pne na
+  <a href="http://www.libsdl.org/extras/win32/cygwin/" target="_top">stronie libsdl</a>.</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mingw"></a>6.7.2. <span class="application">MinGW</span></h3></div></div><p>Zainstalowanie <span class="application">MinGW</span>, który umo&#380;liwi&#322;by
+  kompilacj&#281; <span class="application">MPlayera</span> by&#322;o zawi&#322;e,
+  ale teraz sk&#322;ada si&#281; tylko z trzech prostych kroków i nied&#322;ugo powinno
+  dzia&#322;a&#263; "prosto z pude&#322;ka". Zainstaluj <span class="application">MinGW</span>
+  3.0.0 lub nowszy. Zainstaluj MSYS 1.0.9 lub nowszy i wska&#380; systemowi poinstalacyjnemu
+  MSYSa, &#380;e <span class="application">MinGW</span> jest zainstalowane.</p><p>Rozpakuj pliki nag&#322;ówkowe DirectX do <tt class="filename">/mingw/include/</tt>.</p><p>Do obs&#322;ugi skompresowanych nag&#322;ówków MOV wymagana jest biblioteka
+  <a href="http://www.gzip.org/zlib/" target="_top">zlib</a>, która nie jest
+  domy&#347;lnie dost&#281;pna w <span class="application">MinGW</span>.
+  Skonfiguruj j&#261; z opcj&#261; <tt class="option">--prefix=/mingw</tt> i zainstaluj
+  przed kompilacj&#261; <span class="application">MPlayera</span>.</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="qnx.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="macos.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">6.6. QNX </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 6.8. Mac OS</td></tr></table></div></body></html>

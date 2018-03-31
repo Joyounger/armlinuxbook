@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="koi8-r"?>
+<!-- synced with 1.4 -->
+<chapter id="features">
+<title>Возможности</title>
+
+&formats.xml;
+&codecs.xml;
+
+&video.xml;
+&audio.xml;
+
+&tvinput.xml;
+
+</chapter>

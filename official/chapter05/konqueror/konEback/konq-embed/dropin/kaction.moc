@@ -1,0 +1,411 @@
+/****************************************************************************
+** KActionCollection meta object code from reading C++ file 'kaction.h'
+**
+** Created: Thu Nov 20 06:13:01 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "kaction.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KActionCollection::className() const
+{
+    return "KActionCollection";
+}
+
+QMetaObject *KActionCollection::metaObj = 0;
+
+#ifdef QWS
+static class KActionCollection_metaObj_Unloader {
+public:
+    ~KActionCollection_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KActionCollection" );
+    }
+} KActionCollection_metaObj_unloader;
+#endif
+
+void KActionCollection::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KActionCollection","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KActionCollection::tr(const char* s)
+{
+    return qApp->translate( "KActionCollection", s, 0 );
+}
+
+QString KActionCollection::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KActionCollection", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KActionCollection::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KActionCollection::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &KActionCollection::insertNotify;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "insertNotify()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Private;
+    typedef void (KActionCollection::*m2_t0)(KAction*);
+    typedef void (QObject::*om2_t0)(KAction*);
+    typedef void (KActionCollection::*m2_t1)(const char*);
+    typedef void (QObject::*om2_t1)(const char*);
+    typedef void (KActionCollection::*m2_t2)(KAction*);
+    typedef void (QObject::*om2_t2)(KAction*);
+    typedef void (KActionCollection::*m2_t3)(const char*);
+    typedef void (QObject::*om2_t3)(const char*);
+    m2_t0 v2_0 = &KActionCollection::inserted;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KActionCollection::inserted;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    m2_t2 v2_2 = &KActionCollection::removed;
+    om2_t2 ov2_2 = (om2_t2)v2_2;
+    m2_t3 v2_3 = &KActionCollection::removed;
+    om2_t3 ov2_3 = (om2_t3)v2_3;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(4);
+    signal_tbl[0].name = "inserted(KAction*)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "inserted(const char*)";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    signal_tbl[2].name = "removed(KAction*)";
+    signal_tbl[2].ptr = (QMember)ov2_2;
+    signal_tbl[3].name = "removed(const char*)";
+    signal_tbl[3].ptr = (QMember)ov2_3;
+    metaObj = QMetaObject::new_metaobject(
+	"KActionCollection", "QObject",
+	slot_tbl, 1,
+	signal_tbl, 4,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL inserted
+void KActionCollection::inserted( KAction* t0 )
+{
+    // No builtin function for signal parameter type KAction*
+    QConnectionList *clist = receivers("inserted(KAction*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KAction*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL inserted
+void KActionCollection::inserted( const char* t0 )
+{
+    activate_signal( "inserted(const char*)", t0 );
+}
+
+// SIGNAL removed
+void KActionCollection::removed( KAction* t0 )
+{
+    // No builtin function for signal parameter type KAction*
+    QConnectionList *clist = receivers("removed(KAction*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KAction*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}
+
+// SIGNAL removed
+void KActionCollection::removed( const char* t0 )
+{
+    activate_signal( "removed(const char*)", t0 );
+}
+
+
+const char *KAction::className() const
+{
+    return "KAction";
+}
+
+QMetaObject *KAction::metaObj = 0;
+
+#ifdef QWS
+static class KAction_metaObj_Unloader {
+public:
+    ~KAction_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KAction" );
+    }
+} KAction_metaObj_unloader;
+#endif
+
+void KAction::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KAction","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KAction::tr(const char* s)
+{
+    return qApp->translate( "KAction", s, 0 );
+}
+
+QString KAction::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KAction", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KAction::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KAction::*m1_t0)(bool);
+    typedef void (QObject::*om1_t0)(bool);
+    typedef void (KAction::*m1_t1)();
+    typedef void (QObject::*om1_t1)();
+    m1_t0 v1_0 = &KAction::setEnabled;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &KAction::activate;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(2);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(2);
+    slot_tbl[0].name = "setEnabled(bool)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "activate()";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    typedef void (KAction::*m2_t0)();
+    typedef void (QObject::*om2_t0)();
+    typedef void (KAction::*m2_t1)(bool);
+    typedef void (QObject::*om2_t1)(bool);
+    m2_t0 v2_0 = &KAction::activated;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &KAction::enabled;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(2);
+    signal_tbl[0].name = "activated()";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "enabled(bool)";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    metaObj = QMetaObject::new_metaobject(
+	"KAction", "QObject",
+	slot_tbl, 2,
+	signal_tbl, 2,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL activated
+void KAction::activated()
+{
+    activate_signal( "activated()" );
+}
+
+// SIGNAL enabled
+void KAction::enabled( bool t0 )
+{
+    activate_signal_bool( "enabled(bool)", t0 );
+}
+
+
+const char *KToggleAction::className() const
+{
+    return "KToggleAction";
+}
+
+QMetaObject *KToggleAction::metaObj = 0;
+
+#ifdef QWS
+static class KToggleAction_metaObj_Unloader {
+public:
+    ~KToggleAction_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KToggleAction" );
+    }
+} KToggleAction_metaObj_unloader;
+#endif
+
+void KToggleAction::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(KAction::className(), "KAction") != 0 )
+	badSuperclassWarning("KToggleAction","KAction");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KToggleAction::tr(const char* s)
+{
+    return qApp->translate( "KToggleAction", s, 0 );
+}
+
+QString KToggleAction::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KToggleAction", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KToggleAction::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KAction::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KToggleAction::*m1_t0)(bool);
+    typedef void (QObject::*om1_t0)(bool);
+    typedef void (KToggleAction::*m1_t1)(bool);
+    typedef void (QObject::*om1_t1)(bool);
+    m1_t0 v1_0 = &KToggleAction::setChecked;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &KToggleAction::slotChecked;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(2);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(2);
+    slot_tbl[0].name = "setChecked(bool)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "slotChecked(bool)";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Protected;
+    typedef void (KToggleAction::*m2_t0)(bool);
+    typedef void (QObject::*om2_t0)(bool);
+    m2_t0 v2_0 = &KToggleAction::toggled;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "toggled(bool)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"KToggleAction", "KAction",
+	slot_tbl, 2,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL toggled
+void KToggleAction::toggled( bool t0 )
+{
+    activate_signal_bool( "toggled(bool)", t0 );
+}

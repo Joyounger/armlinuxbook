@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.4. Flux distants</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="usage.html" title="Chapitre 3. Utilisation"><link rel="previous" href="streaming.html" title="3.3. Streaming depuis le réseau ou les pipes"><link rel="next" href="edl.html" title="3.5. Listes d'Edition de Décision (EDL)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.4. Flux distants</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="streaming.html">Précédent</a> </td><th width="60%" align="center">Chapitre 3. Utilisation</th><td width="20%" align="right"> <a accesskey="n" href="edl.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="mpst"></a>3.4. Flux distants</h2></div></div><p>
+Les flux distants vous permettent d'accéder à la plupart des types de flux de
+<span class="application">MPlayer</span> depuis un hôte distant. Le but de cette fonction
+est de rendre possible l'utilisation du lecteur CD ou DVD d'un autre ordinateur
+sur le réseau (en supposant que vous ayez une bande passante suffisante). Malheureusement
+certains types de flux (pour l'instant TV et MF) ne sont pas utilisables à
+distance car ils sont implémentés au niveau du demuxer. C'est triste pour les
+flux MF mais les flux TV nécessiteraient une bande passante incensée.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="compile_mpst_server"></a>3.4.1. Compilation du serveur</h3></div></div><p>
+Après avoir compilé <span class="application">MPlayer</span>, allez dans le répertoire
+<tt class="filename">TOOLS/netstream</tt> et tapez
+<span class="application">make</span> pour compiler le serveur.
+Vous pouvez ensuite copier le binaire <span class="application">netstream</span>
+dans l'endroit approprié sur votre système (généralement
+<tt class="filename">/usr/local/bin</tt> sous Linux).
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="use_mpst"></a>3.4.2. Utilisation de flux distants</h3></div></div><p>
+Tout d'abord vous devez lancer le serveur sur l'ordinateur auquel vous souhaitez
+accéder à distance. Actuellement le serveur est très basique et n'accepte aucun
+argument en ligne de commande, donc tapez juste <tt class="filename">netstream</tt>.
+Maintenant vous pouvez par exemple jouer la seconde piste d'un VCD sur le serveur avec:
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://serveur/vcd://2</tt></i>
+</pre>
+Vous pouvez aussi accéder aux fichiers de ce serveur:
+
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://serveur//usr/local/films/lol.avi</tt></i>
+</pre>
+Veuillez noter que les chemins qui ne commencent pas par un / seront relatifs
+au répertoire dans lequel le serveur fonctionne. L'option <tt class="option">-cache</tt>
+n'est pas requise mais vivement recommandée.
+</p><p>
+Soyez conscient que pour l'instant le serveur n'est pas sécurisé du tout. Donc
+ne vous plaignez pas des nombreuses attaques possibles par cette voie. À la place
+envoyez-nous quelques (bons) patches pour le rendre meilleur ou écrivez votre propre
+serveur.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="streaming.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="edl.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">3.3. Streaming depuis le réseau ou les pipes </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 3.5. Listes d'Edition de Décision (EDL)</td></tr></table></div></body></html>

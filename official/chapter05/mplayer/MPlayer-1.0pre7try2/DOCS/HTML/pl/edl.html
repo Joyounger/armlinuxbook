@@ -1,0 +1,44 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.5. Decyzyjne Listy Edycji (Edit Decision Lists - EDL)</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="usage.html" title="Rozdzia&#322; 3. Sposób u&#380;ycia"><link rel="previous" href="mpst.html" title="3.4. Strumienie zdalne"><link rel="next" href="faq.html" title="Rozdzia&#322; 4. FAQ - Cz&#281;sto Zadawane Pytania"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.5. Decyzyjne Listy Edycji (Edit Decision Lists - EDL)</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="mpst.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 3. Sposób u&#380;ycia</th><td width="20%" align="right"> <a accesskey="n" href="faq.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="edl"></a>3.5. Decyzyjne Listy Edycji (Edit Decision Lists - EDL)</h2></div></div><p>
+Decyzyjna lista edycji (EDL) pozwala na automatyczne omijanie, b&#261;d&#378; wyciszanie
+fragmentów filmów podczas ich odtwarzania, na podstawie pliku konfiguracji EDL
+dla danego filmu.
+</p><p>
+Funkcja ta jest u&#380;yteczna dla osób, które zechc&#261; obejrze&#263; film w "przyjaznym
+dla rodziny" trybie. Mo&#380;esz usun&#261;&#263; z filmu przemoc, przekle&#324;stwa, Jar-Jar
+Binksa zgodnie z w&#322;asnymi preferencjami. Ponadto istniej&#261; tak&#380;e inne
+zastosowania, jak automatyczne pomijanie reklam w ogl&#261;danych filmach.
+</p><p>
+Format pliku EDL jest raczej "go&#322;y". Gdy system EDL osi&#261;gnie pewien
+stopie&#324; dojrza&#322;o&#347;ci, prawdopodobnie zostanie zaimplamentowany format pliku
+bazuj&#261;cy na XML. (zachowuj&#261;c wsteczn&#261; kompatybilno&#347;&#263; z wcze&#347;niejszymi formatami
+EDL).
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="edl_using"></a>3.5.1. U&#380;ywanie pliku EDL</h3></div></div><p>
+U&#380;yj podczas uruchamiania <span class="application">MPlayera</span> flagi
+<tt class="option">-edl &lt;nazwa pliku&gt;</tt> z nazw&#261; pliku EDL, który ma by&#263;
+zastosowany do filmu.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="edl_making"></a>3.5.2. Tworzenie pliku EDL</h3></div></div><p>
+Aktualny format pliku EDL jest nast&#281;puj&#261;cy:
+<pre class="programlisting">
+[sekunda pocz&#261;tkowa] [sekunda ko&#324;cowa] [akcja]
+</pre>
+gdzie liczby odpowiadaj&#261;ce sekundom nie musz&#261; by&#263; ca&#322;kowite, za&#347; akcja mo&#380;e
+przyjmowa&#263; warto&#347;&#263; <tt>0</tt> dla pomini&#281;cia b&#261;d&#378;
+<tt>1</tt> dla wyciszenia.
+Na przyk&#322;ad: 
+<pre class="programlisting">
+5.3   7.1    0
+15    16.7   1
+420   422    0
+</pre>
+Oznacza to pomini&#281;cie filmu mi&#281;dzy 5,3 sekund&#261;, a 7,1 sekund&#261; filmu, nast&#281;pnie
+wyciszenie od 15-tej sekundy do 16,7 sekundy i wreszcie pomini&#281;cie filmu
+pomi&#281;dzy 420 a 422 sekund&#261; Akcje te s&#261; wykonywane, gdy licznik czasu filmu
+osi&#261;gnie zadeklarowan&#261; warto&#347;&#263;.
+</p><p>
+Aby stworzy&#263; plik EDL, b&#281;d&#261;cy punktem wyj&#347;cia do dalszej edycji, u&#380;yj flagi
+<tt class="option">-edlout &lt;nazwa pliku&gt;</tt>.
+Nast&#281;pnie, podczas odtwarzania filmu, gdy zechcesz oznaczy&#263; ostatnie dwie
+sekundy do pomini&#281;cia, naci&#347;nij <span class="keycap"><b>i</b></span>. Odpowiedni wpis zostanie
+utworzony w pliku. Wtedy mo&#380;esz wróci&#263; do edycji i "dostrajania" wygenerowanego
+pliku EDL.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="mpst.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="faq.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">3.4. Strumienie zdalne </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> Rozdzia&#322; 4. FAQ - Cz&#281;sto Zadawane Pytania</td></tr></table></div></body></html>

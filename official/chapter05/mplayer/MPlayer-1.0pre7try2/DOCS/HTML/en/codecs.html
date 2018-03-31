@@ -1,0 +1,544 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.2. Supported codecs</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="features.html" title="Chapter 2. Features"><link rel="previous" href="formats.html" title="2.1. Supported formats"><link rel="next" href="video.html" title="2.3. Video output devices"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.2. Supported codecs</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="formats.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Features</th><td width="20%" align="right"> <a accesskey="n" href="video.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="codecs"></a>2.2. Supported codecs</h2></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="video-codecs"></a>2.2.1. Video codecs</h3></div></div><p>
+See the <a href="http://www.mplayerhq.hu/homepage/codecs-status.html" target="_top">codec status table</a>
+for the complete, daily generated list. Quite a few codecs are available for
+download from our homepage. Grab them from our
+<a href="http://www.mplayerhq.hu/MPlayer/releases/codecs/" target="_top">codecs page</a>.
+</p><p>
+The most important ones above all:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>MPEG-1</b></span> (<span class="bold"><b>VCD</b></span>) and
+  <span class="bold"><b>MPEG-2</b></span> (<span class="bold"><b>DVD</b></span>) video
+  </li><li>
+  native decoders for <span class="bold"><b>DivX ;-), OpenDivX (DivX4),
+  DivX 5 (Pro), 3ivX, M$ MPEG-4</b></span> v1, v2 and other MPEG-4 variants
+  </li><li>
+  native decoder for <span class="bold"><b>Windows Media Video 7/8</b></span>
+  (<span class="bold"><b>WMV1/WMV2</b></span>), and Win32 DLL decoder
+  for <span class="bold"><b>Windows Media Video 9</b></span>
+  (<span class="bold"><b>WMV3</b></span>), both used in <tt class="filename">.wmv</tt>
+  files
+  </li><li>
+  native <span class="bold"><b>Sorenson 1 (SVQ1)</b></span> decoder
+  </li><li>
+  native <span class="bold"><b>Sorenson 3 (SVQ3)</b></span> decoder
+  </li><li>
+  <span class="bold"><b>3ivx</b></span> v1, v2 decoder
+  </li><li>
+  Cinepak and <span class="bold"><b>Intel Indeo</b></span> codecs (3.1,3.2,4.1,5.0)
+  </li><li>
+  <span class="bold"><b>MJPEG</b></span>, AVID, VCR2, ASV2 and other hardware
+  formats
+  </li><li>
+  VIVO 1.0, 2.0, I263 and other <span class="bold"><b>H.263(+)</b></span> variants
+  </li><li>
+  FLI/FLC
+  </li><li>
+  <span class="bold"><b>RealVideo 1.0 &amp; 2.0</b></span> from
+  <tt>libavcodec</tt>, and
+  <span class="bold"><b>RealVideo 3.0 &amp; 4.0</b></span> codecs using RealPlayer
+  libraries
+  </li><li>
+  native decoder for HuffYUV
+  </li><li>
+  Various old simple RLE-like formats
+  </li></ul></div><p>
+If you have a Win32 codec not listed here which is not supported yet,
+please read the <a href="codecs.html#codec-importing" title="2.2.3. Win32 codecs importing HOWTO">codec importing HOWTO</a>
+and help us add support for it.
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="divx4-5"></a>2.2.1.1. DivX4/DivX5</h4></div></div><p>
+This section contains information about the DivX4 and DivX5 codecs of
+<a href="http://www.projectmayo.com" target="_top">Project Mayo</a>.
+Their first available alpha version was OpenDivX 4.0 alpha 47 and 48.
+Support for this was included in <span class="application">MPlayer</span> in the
+past, and built by default. We also used its postprocessing code to
+optionally enhance visual quality of MPEG-1/2 movies. Now we use our own,
+for all file types.
+</p><p>
+The new generation of this codec is called DivX4 and can even decode
+movies made with the infamous DivX codec! In addition it is much faster
+than the native Win32 DivX DLLs but slower than
+<tt>libavcodec</tt>.
+Hence its usage as a decoder is
+<span class="bold"><b>discouraged</b></span>. However, it is useful for
+encoding. One disadvantage of this codec is that it is not available under an
+Open Source license.
+</p><p>
+DivX4 works in two modes:
+</p><div class="variablelist"><dl><dt><span class="term"><tt class="option">-vc odivx</tt></span></dt><dd>
+  Uses the codec in OpenDivX fashion. In this case it produces YV12 images
+  in its own buffer, and <span class="application">MPlayer</span> does colorspace
+  conversion via libvo. (<span class="bold"><b>Fast, recommended!</b></span>)
+  </dd><dt><span class="term"><tt class="option">-vc divx4</tt></span></dt><dd>
+  Uses the colorspace conversion of the codec.  In this mode you can use
+  YUY2/UYVY, too. (<span class="bold"><b>SLOW</b></span>)
+  </dd></dl></div><p>
+</p><p>
+The <tt class="option">-vc odivx</tt> method is usually faster, due to the fact
+that it transfers image data in YV12 (planar YUV 4:2:0) format, thus
+requiring much less bandwidth on the bus. For packed YUV modes (YUY2, UYVY)
+use the <tt class="option">-vc divx4</tt> method. For RGB modes the speed is the
+same, differing at best according to your current color depth.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+If your <tt class="option">-vo</tt> driver supports direct rendering, then <tt class="option">-vc
+divx4</tt> may be faster, or even the fastest solution.
+</p><p>
+The DivX4/5 binary codec library can be downloaded from
+<a href="http://avifile.sf.net" target="_top">avifile</a> or
+<a href="http://www.divx.com" target="_top">divx.com</a>
+Unpack it, run <tt class="filename">./install.sh</tt> as root and do not forget adding
+<tt class="filename">/usr/local/lib</tt> to your
+<tt class="filename">/etc/ld.so.conf</tt> and running <b>ldconfig</b>.
+</p><p>
+Get the CVS version of the OLD OpenDivX core library like this:
+</p><div class="procedure"><ol type="1"><li><p>
+<pre class="screen">cvs -d:pserver:anonymous@cvs.projectmayo.com:/cvsroot login</pre>
+</p></li><li><p>
+<pre class="screen">cvs -d:pserver:anonymous@cvs.projectmayo.com:/cvsroot co divxcore</pre>
+</p></li><li><p>
+This core library is split into a decore and encore library that have to be
+compiled separately. For the decore Library, simply type
+<pre class="screen">
+cd divxcore/decore/build/linux
+make
+cp libdivxdecore.so /usr/local/lib
+ln -s libdivxdecore.so /usr/local/lib/libdivxdecore.so.0
+cp ../../src/decore.h /usr/local/include
+</pre>
+</p></li><li><p>
+Alas, for the encore library there is no Linux Makefile available, and the
+MMX optimized code only works on Windows. You can still compile it, though,
+by using this
+<a href="ftp://ftp.mplayerhq.hu/MPlayer/contrib/divx-mf/Makefile" target="_top">Makefile</a>.
+<pre class="screen">
+cd ../../../encore/build
+mkdir linux
+cd linux
+cp path/Makefile .
+make
+cp libdivxencore.so /usr/local/lib
+ln -s libdivxencore.so /usr/local/lib/libdivxencore.so.0
+cp ../../src/encore.h /usr/local/include
+</pre>
+</p></li></ol></div><p>
+<span class="application">MPlayer</span> autodetects DivX4/DivX5 if it is
+properly installed, just compile as usual. If it does not detect it, you
+did not install or configure it correctly.
+</p></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="ffmpeg"></a>2.2.1.2. FFmpeg/libavcodec</h4></div></div><p>
+<a href="http://ffmpeg.org" target="_top">FFmpeg</a> contains an
+<span class="bold"><b>open source</b></span> codec package, which is capable
+of decoding streams with various audio and video codecs. It also offers an
+impressing encoding facility and higher speed than the Win32 codecs or the
+DivX.com DivX4/5 libraries!
+</p><p>
+It contains a lot of nice codecs, especially important are the MPEG-4 variants:
+DivX3, DivX4, DivX5, Windows Media Video 7/8 (WMV1/WMV2). Also a very interesting one
+is the WMA decoder.
+</p><p>
+The most recent codec deserving credit is the <span class="bold"><b>Sorenson 3</b></span>
+(SVQ3) codec. This is the first, completely opensource implementation. It's even
+faster than the original. Be sure to prefer this instead of the binary codec!
+</p><p>
+For a complete list of supported codecs please visit the FFmpeg homepage.
+Supported <a href="http://ffmpeg.org/ffmpeg-doc.html#SEC19" target="_top">video</a>
+and <a href="http://ffmpeg.org/ffmpeg-doc.html#SEC20" target="_top">audio</a> codecs.
+</p><p>
+If you use an <span class="application">MPlayer</span> release you have
+<tt>libavcodec</tt>
+right in the package, just build  as usual. If you use
+<span class="application">MPlayer</span> from CVS you have to extract
+<tt>libavcodec</tt> from
+the FFmpeg CVS tree as FFmpeg releases are very rare. The CVS is mostly stable
+and offers the most features. In order to achieve this do:
+</p><div class="procedure"><ol type="1"><li><p>
+  <pre class="screen">cvs -d:pserver:anonymous@mplayerhq.hu:/cvsroot/ffmpeg login</pre>
+  </p></li><li><p>
+  <pre class="screen">cvs -z3 -d:pserver:anonymous@mplayerhq.hu:/cvsroot/ffmpeg co -P ffmpeg/libavcodec</pre>
+  </p></li><li><p>
+  Move the <tt class="filename">libavcodec</tt> directory from the FFmpeg
+  sources to the root of the <span class="application">MPlayer</span> CVS tree.
+  It should look like this:
+  <tt class="filename">main/libavcodec</tt>
+  </p><p>
+  Symlinking is <span class="bold"><b>not</b></span> enough, you have to
+  copy/move it!
+  </p></li><li><p>
+  If you prefer having <tt>libavcodec</tt>
+  updated at the same time you update
+  <span class="application">MPlayer</span> CVS, put the following line into the
+  <tt class="filename">main/CVS/Entries</tt> file:
+  <pre class="screen">D/libavcodec////</pre>
+  </p></li><li><p>
+  Compile. <tt class="filename">configure</tt> should detect problems before
+  compilation.
+  </p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+<span class="application">MPlayer</span> from CVS does contain a
+<tt class="filename">libavcodec</tt> subdirectory, but it does
+<span class="bold"><b>not</b></span> contain the source for
+<tt>libavcodec</tt>!
+You must follow the steps above to obtain the source for this library.
+</p></div><p>
+With FFmpeg and my Matrox G400, I can view even the highest resolution DivX
+movies without dropped frames on my K6-2 500.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="xanim"></a>2.2.1.3. XAnim codecs</h4></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+Be advised that the XAnim binary codecs are packaged with a piece of text
+claiming to be a legally binding software license which, besides other
+restrictions, forbids the user to use the codecs in conjunction with any
+program other than <span class="application">XAnim</span>. However, the XAnim
+author has yet to bring legal action against anyone for codec-related issues.
+</p></div><p><b>INSTALLATION AND USAGE. </b>
+<span class="application">MPlayer</span> is capable of employing the XAnim codecs
+for decoding. Follow the instructions to enable them:
+</p><div class="procedure"><ol type="1"><li><p>
+  Download the codecs you wish to use from the
+  <a href="http://xanim.va.pubnix.com" target="_top">XAnim site</a>.
+  The <span class="bold"><b>3ivx</b></span> codec is not there, but at the
+  <a href="http://www.3ivx.com" target="_top">3ivx site</a>.
+  </p></li><li><p>
+  <span class="bold"><b>OR</b></span> download the codecs pack from our
+  <a href="http://www.mplayerhq.hu/MPlayer/releases/codecs/" target="_top">codecs page</a>
+  </p></li><li><p>
+  Use the <tt class="option">--with-xanimlibdir</tt> option to tell
+  <tt class="filename">configure</tt> where
+  to find the XAnim codecs. By default, it looks for them at
+  <tt class="filename">/usr/local/lib/codecs</tt>,
+  <tt class="filename">/usr/local/lib/xanim/mods</tt>,
+  <tt class="filename">/usr/lib/xanim/mods</tt> and
+  <tt class="filename">/usr/lib/xanim</tt>.
+  Alternatively you can set the environment variable
+  <tt>XANIM_MOD_DIR</tt> to the directory of the XAnim codecs.
+  </p></li><li><p>
+  Rename/symlink the files, cutting out the architecture stuff, so they
+  will have filenames like these: <tt class="filename">vid_cvid.xa</tt>,
+  <tt class="filename">vid_h263.xa</tt>, <tt class="filename">vid_iv50.xa</tt>
+  </p></li></ol></div><p>
+XAnim is video codec family <tt>xanim</tt>, so you may want
+to use the <tt class="option">-vfm xanim</tt> option to tell <span class="application">MPlayer</span>
+to use them if possible.
+</p><p>
+Tested codecs include: <span class="bold"><b>Indeo 3.2, 4.1, 5.0, CVID, 3ivX,
+H.263.</b></span>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="vivo-video"></a>2.2.1.4. VIVO video</h4></div></div><p>
+<span class="application">MPlayer</span> can play Vivo (1.0 and 2.0) videos. The
+most suitable codec for 1.0 files is FFmpeg's H.263 decoder, you can use it
+with the <tt class="option">-vc ffh263</tt> option. For 2.0 files, use the
+Win32 DLL through the <tt class="option">-vc vivo</tt> option. If you do not supply
+command line options <span class="application">MPlayer</span> selects the best codec
+automatically.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="mpeg12"></a>2.2.1.5. MPEG-1/2 video</h4></div></div><p>
+MPEG-1 and MPEG-2 are decoded by the multiplatform native <tt>libmpeg2</tt> library, whose source code is
+included in <span class="application">MPlayer</span>.  We handle buggy MPEG-1/2
+video files by catching <tt>Signal 11</tt>
+(<tt>segmentation fault</tt>), and quickly
+reinitializing the codec, continuing exactly from where the failure
+occurred.  This recovery technique has no measurable speed penalty.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="avicodecs"></a>2.2.1.6. MS Video1, Cinepak CVID, and other older codecs</h4></div></div><p>
+<span class="application">MPlayer</span> is able to play most of the older codecs
+used in AVI and MOV files.
+In the past they were decoded with binary Win32 codecs, but now we have
+<span class="bold"><b>native codecs</b></span> for most of them using
+<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="realvideo"></a>2.2.1.7. RealVideo</h4></div></div><p>
+<span class="application">MPlayer</span> supports decoding all versions of
+RealVideo:
+
+</p><div class="itemizedlist"><ul type="disc"><li>
+  RealVideo 1.0, 2.0 (fourcc RV10, RV20) - en/decoding supported by
+  <tt>libavcodec</tt>
+  </li><li>
+  RealVideo 3.0, 4.0 (fourcc RV30, RV40) - decoding supported by
+  <span class="bold"><b>RealPlayer libraries</b></span>
+  </li></ul></div><p>
+</p><p>
+Download Real codecs from
+<a href="http://www.mplayerhq.hu/MPlayer/releases/codecs/" target="_top">http://www.mplayerhq.hu/MPlayer/releases/codecs/</a>
+and extract them to the
+<tt class="filename">/usr/local/lib/codecs</tt> directory.
+If you want to store them in a different location, pass the
+<tt class="option">--with-reallibdir</tt> option to <b>configure</b>.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+<span class="application">RealPlayer</span> libraries currently
+<span class="bold"><b>only work with Linux, FreeBSD, NetBSD and Cygwin on the x86,
+Alpha and PowerPC (Linux/Alpha and Linux/PowerPC have been tested) platforms and with Mac OS X</b></span>.
+</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="xvid"></a>2.2.1.8. XviD</h4></div></div><p>
+<a href="http://www.xvid.org" target="_top">XviD</a> is a forked development of the
+OpenDivX codec. It happened when ProjectMayo changed OpenDivX to closed source
+DivX4 (now DivX5), and the non-ProjectMayo people working on OpenDivX got angry,
+then started XviD. So both projects have the same origin.
+
+</p><div class="itemizedlist"><p><b>ADVANTAGES</b></p><ul type="disc"><li>
+  open source
+  </li><li>
+  its API is compatible with DivX4 so adding support for it is easy
+  </li><li>
+  2-pass encoding support
+  </li><li>
+  nice encoding quality, higher speed than DivX4 (you can optimize it for
+  your box while compiling)
+  </li></ul></div><p>
+
+</p><div class="itemizedlist"><p><b>DISADVANTAGES</b></p><ul type="disc"><li>
+  currently it does not properly <span class="bold"><b>decode</b></span> all
+  DivX/DivX4 files (no problem as
+  <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>
+  can play them)
+  </li><li>
+  under development
+  </li></ul></div><p>
+</p><div class="procedure"><p><b>INSTALLING XVID CVS</b></p><p>
+  It is currently available only from CVS. Here are download and installation
+  instructions (you need at least autoconf 2.50, automake and libtool):
+</p><ol type="1"><li><p>
+  <pre class="screen">cvs -z3 -d:pserver:anonymous@cvs.xvid.org:/xvid login</pre>
+  </p></li><li><p>
+  <pre class="screen">cvs -z3 -d:pserver:anonymous@cvs.xvid.org:/xvid co xvidcore</pre>
+</p></li><li><p>
+  <pre class="screen">cd xvidcore/build/generic</pre>
+  </p></li><li><p>
+  <pre class="screen">./bootstrap.sh</pre>
+  </p></li><li><p>
+  <pre class="screen">./configure</pre>
+  You may have to add some options (examine the output of
+  <b>./configure --help</b>).
+  </p></li><li><p>
+  <pre class="screen">make &amp;&amp; make install</pre>
+  </p></li><li><p>
+  If you specified <tt class="option">--enable-divxcompat</tt>,
+  copy <tt class="filename">../../src/divx4.h</tt> to
+  <tt class="filename">/usr/local/include/</tt>.
+  </p></li><li><p>
+  Recompile <span class="application">MPlayer</span> with
+  <tt class="option">--with-xvidlibdir=<i><tt>/path/to/</tt></i>libxvidcore.a</tt>
+  <tt class="option">--with-xvidincdir=<i><tt>/path/to/</tt></i>xvid.h</tt>
+  </p></li></ol></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="sorenson"></a>2.2.1.9. Sorenson</h4></div></div><p>
+Sorenson is a video codec developed by Sorenson Media and licensed to Apple who
+distribute it with their <span class="application">QuickTime Player</span>. We are
+currently able to decode all version of Sorenson video files with the following
+decoders:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  Sorenson Video v1 (fourcc <span class="emphasis"><i>SVQ1</i></span>) - decoding supported
+  by <span class="bold"><b>native codec</b></span>
+  (<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>)
+  </li><li>
+  Sorenson Video v3 (fourcc <span class="emphasis"><i>SVQ3</i></span>) - decoding supported by
+  <span class="bold"><b>native codec</b></span>
+  (<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>)
+  </li></ul></div><div class="procedure"><p><b>COMPILING MPLAYER WITH QUICKTIME LIBRARIES SUPPORT</b></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Currently only 32-bit Intel platforms are supported.</p></div><ol type="1"><li><p>download <span class="application">MPlayer</span> CVS</p></li><li><p>download QuickTime DLL pack from
+<a href="http://www.mplayerhq.hu/MPlayer/releases/codecs/" target="_top">http://www.mplayerhq.hu/MPlayer/releases/codecs/</a>
+</p></li><li><p>extract QuickTime DLL pack to your Win32 codecs directory
+(default: <tt class="filename">/usr/local/lib/codecs/</tt>)
+</p></li><li><p>compile <span class="application">MPlayer</span></p></li></ol></div></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="audio-codecs"></a>2.2.2. Audio codecs</h3></div></div><div class="itemizedlist"><p><b>The most important audio codecs above all:</b></p><ul type="disc"><li>
+  MPEG layer 1/2/3 (MP1/2/3) audio (<span class="bold"><b>native</b></span>
+  code, with MMX/SSE/3DNow! optimization)
+  </li><li>
+  Windows Media Audio 7 and 8 (AKA WMAv1 and WMAv2) (<span class="bold"><b>native</b></span> code, with
+  <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>)
+  </li><li>
+  Windows Media Audio 9 (WMAv3) (using DMO DLL)
+  </li><li>
+  AC3 Dolby audio (<span class="bold"><b>native</b></span> code, with
+  MMX/SSE/3DNow! optimization)
+  </li><li>
+  AC3 passing through sound card hardware
+  </li><li>
+  AAC
+  </li><li>
+  Ogg Vorbis audio codec (<span class="bold"><b>native</b></span> library)
+  </li><li>
+  RealAudio: DNET (low bitrate AC3), Cook, Sipro and ATRAC3
+  </li><li>
+  QuickTime: Qualcomm and QDesign audio codecs
+  </li><li>
+  VIVO audio (g723, Vivo Siren)
+  </li><li>
+  Voxware audio (using DirectShow DLL)
+  </li><li>
+  alaw and ulaw, various gsm, adpcm and pcm formats and other simple old
+  audio codecs
+  </li></ul></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="swac3"></a>2.2.2.1. Software AC3 decoding</h4></div></div><p>
+This is the default decoder used for files with AC3 audio.
+</p><p>
+The AC3 decoder can create audio output mixes for 2, 4, or 6 speakers.
+When configured for 6 speakers, this decoder provides separate output of
+all the AC3 channels to the sound driver, allowing for full "surround
+sound" experience without the external AC3 decoder required to use the
+hwac3 codec.
+</p><p>
+Use the <tt class="option">-channels</tt> option to select the number of output
+channels.  Use <tt class="option">-channels 2</tt> for a stereo downmix.  For a 4
+channel downmix (Left Front, Right Front, Left Surround and Right Surround
+outputs), use <tt class="option">-channels 4</tt>.  In this case, any center
+channel will be mixed equally to the front channels.  <tt class="option">-channels
+6</tt> will output all the AC3 channels as they are encoded - in the
+order Left, Right, Left Surround, Right Surround, Center and LFE.
+</p><p>
+The default number of output channels is 2.
+</p><p>
+To use more than 2 output channels, you will need to use OSS, and have a
+sound card that supports the appropriate number of output channels via the
+SNDCTL_DSP_CHANNELS ioctl.  An example of a suitable driver is emu10k1
+(used by Soundblaster Live! cards) from August 2001 or newer (ALSA CVS is
+also supposed to work).
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="hwac3"></a>2.2.2.2. Hardware AC3 decoding</h4></div></div><p>
+You need an AC3 capable sound card, with digital out (S/PDIF). The card's
+driver must properly support the AFMT_AC3 format (C-Media does).  Connect
+your AC3 decoder to the S/PDIF output, and use the <tt class="option">-ac
+hwac3</tt> option. It is experimental but known to work with C-Media
+cards and Soundblaster Live! + ALSA (but not OSS) drivers and DXR3/Hollywood+
+MPEG decoder cards.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="libmad"></a>2.2.2.3. libmad support</h4></div></div><p>
+<a href="http://www.underbit.com/products/mad/" target="_top">libmad</a> is a multiplatform,
+integer (internally 24bit PCM) only
+MPEG audio decoding library. It does not handle broken files well, and it
+sometimes has problems with seeking, but it may perform better on FPU-less
+(such as <a href="linux.html#arm" title="6.1.3. ARM">ARM</a>) platform than mp3lib.
+</p><p>
+To enable support, compile with the <tt class="option">--enable-mad</tt> configure
+option.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="vivo-audio"></a>2.2.2.4. VIVO audio</h4></div></div><p>
+The audio codec used in VIVO files depends on whether it is a VIVO/1.0 or
+VIVO/2.0 file. VIVO/1.0 files have <span class="bold"><b>g.723</b></span> audio,
+and VIVO/2.0 files have <span class="bold"><b>Vivo Siren</b></span> audio. Both are
+supported.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="realaudio"></a>2.2.2.5. RealAudio</h4></div></div><p>
+<span class="application">MPlayer</span> supports decoding nearly all versions of
+RealAudio:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  RealAudio DNET - decoding supported by
+  <tt>liba52</tt>
+  </li><li>
+  RealAudio Cook/Sipro/ATRAC3 - decoding supported by
+  <span class="bold"><b>RealPlayer libraries</b></span>
+  </li></ul></div><p>
+Instructions on how to install the RealPlayer libraries are in the
+<a href="codecs.html#realvideo" title="2.2.1.7. RealVideo">RealVideo</a> section.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="qdesign"></a>2.2.2.6. QDesign codecs</h4></div></div><p>
+QDesign audio streams (fourcc:<span class="emphasis"><i>QDMC, QDM2</i></span>) are found
+in MOV/QT files. Both versions of this codec can be decoded with QuickTime
+libraries. For installation instructions please see the
+<a href="codecs.html#sorenson" title="2.2.1.9. Sorenson">Sorenson video codec</a> section.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="qualcomm"></a>2.2.2.7. Qualcomm codecs</h4></div></div><p>
+Qualcomm audio streams (fourcc:<span class="emphasis"><i>Qclp</i></span>) is found
+in MOV/QT files. It can be decoded with QuickTime
+libraries. For installation instructions please see the
+<a href="codecs.html#sorenson" title="2.2.1.9. Sorenson">Sorenson video codec</a> section.
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="aac"></a>2.2.2.8. AAC codec</h4></div></div><p>
+AAC (Advanced Audio Coding) is an audio codec sometimes found in MOV and MP4
+files. An open source decoder called FAAD is available from
+<a href="http://www.audiocoding.com" target="_top">http://www.audiocoding.com</a>.
+<span class="application">MPlayer</span> includes a CVS snapshot of libfaad 2.1
+beta, so you do not need to get it separately.
+</p><p>
+If you use gcc 3.2 which fails to compile our internal FAAD or want to use
+the external library for some other reason, download the library from the
+<a href="http://www.audiocoding.com/modules/mydownloads/" target="_top">download page</a>
+and pass <tt class="option">--enable-external-faad</tt> to <tt class="filename">configure</tt>.
+You do not need all of faad2 to decode AAC files, libfaad is enough. Build
+it like this:
+<pre class="screen">
+cd faad2/
+sh bootstrap
+./configure
+cd libfaad
+make
+make install
+</pre>
+Binaries are not available from audiocoding.com, but you can (apt-)get Debian
+packages from <a href="http://hpisi.nerim.net" target="_top">Christian Marillat's homepage</a>,
+Mandrake RPMs from the <a href="http://plf.zarb.org" target="_top">P.L.F</a> and RedHat RPMs
+from <a href="http://greysector.rangers.eu.org/" target="_top">Grey Sector</a>.
+</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="codec-importing"></a>2.2.3. Win32 codecs importing HOWTO</h3></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="vfw-codecs"></a>2.2.3.1. VFW codecs</h4></div></div><p>
+VFW (Video for Windows) is the old Video API for Windows. Its codecs have
+the <tt class="filename">.DLL</tt> or (rarely) <tt class="filename">.DRV</tt>
+extension.  If <span class="application">MPlayer</span> fails at playing your AVI
+with this kind of message:
+<pre class="screen">UNKNOWN video codec: HFYU (0x55594648)</pre>
+</p><p>
+It means your AVI is encoded with a codec which has the HFYU fourcc (HFYU =
+HuffYUV codec, DIV3 = DivX Low Motion, etc.). Now that you know this, you
+have to find out which DLL Windows loads in order to play this file. In our
+case, the <tt class="filename">system.ini</tt> contains this information in a
+line that reads:
+<pre class="programlisting">VIDC.HFYU=huffyuv.dll</pre>
+</p><p>
+So you need the <tt class="filename">huffyuv.dll</tt> file. Note that the audio
+codecs are specified by the MSACM prefix:
+<pre class="programlisting">msacm.l3acm=L3codeca.acm</pre>
+</p><p>
+This is the MP3 codec.  Now that you have all the necessary information
+(fourcc, codec file, sample AVI), submit your codec support request by
+mail, and upload these files to the FTP site:
+<tt>
+ftp://ftp.mplayerhq.hu/MPlayer/incoming/[codecname]/
+</tt>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>On Windows NT/2000/XP search for this info in the registry,
+e.g. search for "VIDC.HFYU". To find out how to do this, look at
+the old DirectShow method below.
+</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="dshow-codecs"></a>2.2.3.2. DirectShow codecs</h4></div></div><p>
+DirectShow is the newer Video API, which is even worse than its predecessor.
+Things are harder with DirectShow, since
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <tt class="filename">system.ini</tt> does not contain the needed information,
+  instead it is stored in the registry and
+  </li><li>
+  we need the GUID of the codec.
+  </li></ul></div><p>
+</p><div class="procedure"><p><b>New Method:</b></p><p>
+Using <span class="application">Microsoft GraphEdit</span> (fast)
+</p><ol type="1"><li><p>
+  Get <span class="application">GraphEdit</span> from either DirectX SDK or
+  <a href="http://doom9.net" target="_top">doom9</a>
+  </p></li><li><p>
+  Start <b>graphedit.exe</b>.
+  </p></li><li><p>
+  From the menu select Graph -&gt; Insert Filters.
+  </p></li><li><p>
+  Expand item <tt>DirectShow Filters</tt>
+  </p></li><li><p>
+  Select the right codec name and expand item.
+  </p></li><li><p>
+  In the entry <tt>DisplayName</tt> look at the text in
+  winged brackets after the backslash and write it down (five dash-delimited
+  blocks, the GUID).
+  </p></li><li><p>
+  The codec binary is the file specified in the <tt>Filename</tt>
+  entry.
+  </p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+If there is no <tt>Filename</tt> and
+<tt>DisplayName</tt> contains something like
+<tt>device:dmo</tt>, then it is a DMO-Codec.
+</p></div><div class="procedure"><p><b>Old Method:</b></p><p>
+Take a deep breath and start searching the registry...
+</p><ol type="1"><li><p>
+  Start <b>regedit</b>.
+  </p></li><li><p>
+  Press <span class="keycap"><b>Ctrl</b></span>+<span class="keycap"><b>F</b></span>, disable the first two
+  checkboxes, and enable the third. Type in the fourcc of the codec (e.g.
+  <b><tt>TM20</tt></b>).
+  </p></li><li><p>
+  You should see a field which contains the path and the filename (e.g.
+  <tt class="filename">C:\WINDOWS\SYSTEM\TM20DEC.AX</tt>).
+  </p></li><li><p>
+  Now that you have the file, we need the GUID. Try searching again, but
+  now search for the codec's name, not the fourcc. Its name can be acquired
+  when Media Player is playing the file, by checking
+  <span class="guimenu">File</span> -&gt; <span class="guisubmenu">Properties</span> -&gt;
+  <span class="guimenuitem">Advanced</span>.
+  If not, you are out of luck. Try guessing (e.g. search for TrueMotion).
+  </p></li><li><p>
+  If the GUID is found you should see a FriendlyName
+  and a CLSID field. Write down the 16 byte CLSID,
+  this is the GUID we need.
+  </p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+If searching fails, try enabling all the checkboxes. You may have
+false hits, but you may get lucky...
+</p></div><p>
+Now that you have all the necessary information (fourcc, GUID, codec file,
+sample AVI), submit your codec support request by mail, and upload these files
+to the FTP site:
+<tt>ftp://ftp.mplayerhq.hu/MPlayer/incoming/[codecname]/
+</tt>
+</p><p>
+If you want to add a codec yourself, read
+<a href="http://www.mplayerhq.hu/MPlayer/DOCS/tech/codecs.conf.txt" target="_top">DOCS/tech/codecs.conf.txt</a>.
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="formats.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="features.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="video.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.1. Supported formats </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.3. Video output devices</td></tr></table></div></body></html>

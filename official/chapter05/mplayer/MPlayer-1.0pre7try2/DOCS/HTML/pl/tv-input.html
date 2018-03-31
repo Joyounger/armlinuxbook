@@ -1,0 +1,128 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.5. Wej&#347;cie TV</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="features.html" title="Rozdzia&#322; 2. Mo&#380;liwo&#347;ci"><link rel="previous" href="audio.html" title="2.4. Urz&#261;dzenia wyj&#347;ciowe audio"><link rel="next" href="usage.html" title="Rozdzia&#322; 3. Sposób u&#380;ycia"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.5. Wej&#347;cie TV</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="audio.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 2. Mo&#380;liwo&#347;ci</th><td width="20%" align="right"> <a accesskey="n" href="usage.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="tv-input"></a>2.5. Wej&#347;cie TV</h2></div></div><p>
+Sekcja ta opisuje jak <span class="bold"><b>ogl&#261;da&#263;/nagrywa&#263; obraz
+za pomoc&#261; tunera TV kompatybilnego z V4L</b></span>. Zajrzyj do strony man
+by zobaczy&#263; opis opcji TV i klawiszy steruj&#261;cych.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="tv-compilation"></a>2.5.1. Kompilacja</h3></div></div><div class="procedure"><ol type="1"><li><p>
+  Najpierw musisz przekompilowa&#263;. <tt class="filename">./configure</tt> wykryje
+  automatycznie nag&#322;ówki j&#261;dra zwi&#261;zane z V4L i obecno&#347;&#263; urz&#261;dze&#324;
+  <tt class="filename">/dev/video*</tt>. Je&#347;li istniej&#261;, obs&#322;uga TV zostanie
+  wbudowana (zobacz wynik dzia&#322;ania <tt class="filename">./configure</tt>).
+  </p></li><li><p>
+  Upewnij si&#281;, &#380;e Twój tuner dzia&#322;a z innymi programami do obs&#322;ugi TV pod
+  Linuksem, na przyk&#322;ad <span class="application">XawTV</span>.
+  </p></li></ol></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="tv-tips"></a>2.5.2. Wskazówki u&#380;ytkowania</h3></div></div><p>
+Kompletna lista opcji dost&#281;pna jest na stronie man.
+Tu jest tylko kilka wskazówek:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+U&#380;ywaj opcji <tt class="option">channels</tt>. Przyk&#322;ad
+<pre class="screen">-tv channels=26-MTV1,23-TV2</pre>
+Wyja&#347;nienie: u&#380;ywaj&#261;c tej opcji, tylko kana&#322;y 23 i 26 b&#281;d&#261; dost&#281;pne oraz pojawi
+si&#281; fajny napis na OSD przy zmianie kana&#322;u, wy&#347;wietlaj&#261;cy jego nazw&#281;.
+Odst&#281;py w nazwie kana&#322;u musz&#261; zosta&#263; zast&#261;pione znakiem "_".
+</p></li><li><p>
+U&#380;ywaj rozs&#261;dnych rozmiarów obrazu. Rozmiary obrazu wynikowego powinny
+by&#263; podzielne przez 16.
+</p></li><li><p>
+Je&#347;li nagrywasz obraz video o pionowej rozdzielczo&#347;ci wi&#281;kszej ni&#380; po&#322;owa
+rozdzielczo&#347;ci pe&#322;nej (np. 288 dla PAL lub 240 dla NTSC), upewnij si&#281;, &#380;e
+w&#322;&#261;czy&#322;e&#347; usuwanie przeplotu (deinterlacing). W przeciwnym wypadku dostaniesz
+film, który jest zniekszta&#322;cony w trakcie scen o du&#380;ej dynamice, a wskazana
+szybko&#347;&#263; prawdopodobnie nie b&#281;dzie nawet mog&#322;a by&#263; utrzymana przez kontroler
+szybko&#347;ci (bitrate controller), gdy&#380; artefakty przeplotu tworz&#261; du&#380;e ilo&#347;ci
+szczegó&#322;ów, a co za tym idzie, potrzebuj&#261; du&#380;ej przepustowo&#347;ci. Mo&#380;esz w&#322;&#261;czy&#263;
+usuwanie przeplotu za pomoc&#261; opcji <tt class="option">-vf pp=TYP_DEINT</tt>. Zwykle
+<tt class="option">pp=lb</tt> spisuje si&#281; dobrze, ale to kwestia gustu. Poczytaj o
+innych algorytmach usuwania przeplotu na stronie man i zacznij eksperymentowa&#263;.
+</p></li><li><p>
+Usuwaj "martwe miejsca". Kiedy nagrywasz video, s&#261; pewnie miejsca przy brzegach,
+które s&#261; zazwyczaj czarne lub zawieraj&#261; szum. Jak si&#281; &#322;atwo domy&#347;li&#263;,
+niepotrzebnie wymagaj&#261; wi&#281;kszej przepustowo&#347;ci (dok&#322;adniej, to nie same czarne
+miejsca, lecz ostre przej&#347;cia pomi&#281;dzy czarnym kolorem i ja&#347;niejszym obrazem
+video, ale nie jest to akurat takie wa&#380;ne). Zanim zaczniesz nagrywa&#263;, ustaw
+argumenty opcji <tt class="option">crop</tt> by wszystkie "&#347;mieci" na brzegach zosta&#322;y
+wyci&#281;te. Oczywi&#347;cie nie zapomnij o utrzymaniu prawid&#322;owych wymiarów obrazu.
+</p></li><li><p>
+Uwa&#380;aj na obci&#261;&#380;enie CPU. Nie powinno ono przekroczy&#263; granicy 90% przez
+wi&#281;kszo&#347;&#263; czasu. Je&#347;li masz du&#380;y bufor nagrywania,
+<span class="application">MEncoder</span> mo&#380;e przetrwa&#263; przeci&#261;&#380;enie przez najwy&#380;ej
+kilka sekund i nic wi&#281;cej. Lepiej wi&#281;c wy&#322;&#261;czy&#263; wszystkie trójwymiarowe
+wygaszacze OpenGL i inne tego typu bajery.
+</p></li><li><p>
+Nie mieszaj z zegarem systemowym. <span class="application">MEncoder</span> korzysta z
+niego do synchronizacji A/V. Je&#347;li zmodyfikujesz zegar systemowy (zw&#322;aszcza
+wstecz), <span class="application">MEncoder</span> si&#281; pogubi i utraci klatki. Jest to
+bardzo wa&#380;na sprawa je&#347;li jeste&#347; podpi&#281;ty do sieci i u&#380;ywasz do synchronizacji
+czasu ró&#380;nych programów typu NTP. Musisz wy&#322;&#261;czy&#263; NTP w trakcie nagrywania,
+je&#347;li chcesz, by by&#322;o ono przeprowadzone niezawodnie.
+</p></li><li><p>
+Nie zmieniaj opcji <tt class="option">outfmt</tt>, chyba, &#380;e wiesz co robisz lub Twoja
+karta/sterownik naprawd&#281; nie obs&#322;uguje ustawienia domy&#347;lnego (przestrze&#324;
+kolorów YV12). W poprzednich wersjach
+<span class="application">MPlayera</span>/<span class="application">MEncodera</span>
+konieczne by&#322;o podanie formatu wyj&#347;cia.
+Ten problem powinien by&#263; rozwi&#261;zany w aktualnych wydaniach i opcja
+<tt class="option">outfmt</tt> nie jest ju&#380; wymagana, a ustawienie domy&#347;lne powinno
+pasowa&#263; ka&#380;demu. Na przyk&#322;ad, je&#347;li nagrywasz do formatu DivX u&#380;ywaj&#261;c
+<tt>libavcodec</tt> i podasz opcj&#281; <tt class="option">outfmt=RGB24</tt>
+aby zwi&#281;kszy&#263; jako&#347;&#263; nagrywanego obrazu, zostanie on i tak pó&#378;niej z
+powrotem przekonwertowany do YV12, wi&#281;c jedyne, co osi&#261;gniesz, to ogromna
+strata mocy obliczeniowej.
+</p></li><li><p>
+By u&#380;y&#263; przestrzeni kolorów I420 (<tt class="option">outfmt=i420</tt>), musisz doda&#263;
+opcj&#281; <tt class="option">-vc rawi420</tt> z powodu konfliktu fourcc z kodekiem Intel
+Indeo.
+</p></li><li><p>
+Jest kilka sposobów na nagrywanie audio. Mo&#380;esz nagrywa&#263; d&#378;wi&#281;k za pomoc&#261; Twojej
+karty d&#378;wi&#281;kowej korzystaj&#261;c z zewn&#281;trznego kabla pomi&#281;dzy kart&#261; video i
+wej&#347;ciem liniowym lub korzystaj&#261;c z wbudowanego w uk&#322;ad bt878 przetwornika ADC.
+W tym drugim przypadku musisz za&#322;adowa&#263; sterownik
+<span class="bold"><b>btaudio</b></span>. Przeczytaj plik
+<tt class="filename">linux/Documentation/sound/btaudio</tt> (w drzewie j&#261;dra, a nie
+<span class="application">MPlayera</span>) by dowiedzie&#263; si&#281; jak korzysta&#263; z tego
+sterownika.
+</p></li><li><p>
+Je&#347;li <span class="application">MEncoder</span> nie mo&#380;e otworzy&#263; urz&#261;dzenia
+d&#378;wi&#281;kowego, upewnij si&#281;, &#380;e jest ono rzeczywi&#347;cie dost&#281;pne. Zdarzaj&#261; si&#281;
+problemy z serwerami d&#378;wi&#281;ku typu aRts (KDE) lub esd (GNOME). Je&#347;li masz
+kart&#281; full-duplex (prawie wszystkie przyzwoite karty dost&#281;pne obecnie obs&#322;uguj&#261;
+t&#281; funkcj&#281;) i korzystasz z KDE, spróbuj zaznaczy&#263; opcj&#281; "Dzia&#322;anie w pe&#322;ni
+dupleksowe" ("full duplex") w konfiguracji serwera d&#378;wi&#281;ku.
+</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="tv-examples"></a>2.5.3. Przyk&#322;ady</h3></div></div><div class="informalexample"><p>
+Puste wyj&#347;cie, do AAlib :)
+<pre class="screen">
+mplayer -tv driver=dummy:width=640:height=480 -vo aa tv://</pre>
+</p></div><div class="informalexample"><p>
+Wej&#347;cie ze standardowego V4L:
+<pre class="screen">
+mplayer -tv driver=v4l:width=640:height=480:outfmt=i420 -vc rawi420 -vo xv tv://</pre>
+</p></div><div class="informalexample"><p>
+Bardziej skomplikowany przyk&#322;ad. Ka&#380;e on
+<span class="application">MEncoderowi</span> nagra&#263; pe&#322;en
+obraz PAL, wykadrowa&#263; go i usun&#261;&#263; przeplot korzystaj&#261;c z algorytmu
+liniowego zlewania (linear blend). Audio jest kompresowane ze sta&#322;&#261;
+szybko&#347;ci&#261; równ&#261; 64kbps, korzystaj&#261;c z kodeka LAME. To ustawienie jest
+dobre do nagrywania filmów.
+<pre class="screen">
+     mencoder -tv driver=v4l:width=768:height=576 \
+     -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=900 \
+     -oac mp3lame -lameopts cbr:br=64 \
+     -vf crop=720:544:24:16,pp=lb -o <i><tt>wyjscie.avi</tt></i> tv://
+</pre>
+</p></div><div class="informalexample"><p>
+Ten przyk&#322;ad dodatkowo przeskaluje obraz do 384x288 i skompresuje video
+z szybko&#347;ci&#261; 350kbps w trybie wysokiej jako&#347;ci. Opcja <tt class="option">vqmax</tt>
+uwalnia kwantyzator i pozwala kompresorowi video na osi&#261;gni&#281;cie tak
+niskiej szybko&#347;ci nawet kosztem jako&#347;ci obrazu. Mo&#380;e by&#263; to u&#380;ywane do
+nagrywania d&#322;ugich seriali TV, kiedy jako&#347;&#263; obrazu nie jest tak wa&#380;na.
+<pre class="screen">
+     mencoder -tv driver=v4l:width=768:height=576 \
+     -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=350:vhq:vqmax=31:keyint=300 \
+     -oac mp3lame -lameopts cbr:br=48 \
+     -vf crop=720:540:24:18,pp=lb,scale=384:288 -sws 1 -o <i><tt>wyjscie.avi</tt></i> tv://
+</pre>
+Jest równie&#380; mo&#380;liwe podanie mniejszych wymiarów obrazu w opcji
+<tt class="option">-tv</tt> i pomini&#281;cie programowego skalowania, ale to podej&#347;cie
+wykorzystuje maksymaln&#261; ilo&#347;&#263; dost&#281;pnych informacji i jest troch&#281; bardziej
+odporne na szum. Z powodu ogranicze&#324; sprz&#281;towych Uk&#322;ady bt878 mog&#261; stosowa&#263;
+u&#347;rednianie pikseli jedynie w kierunku poziomym.
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="audio.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="features.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="usage.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">2.4. Urz&#261;dzenia wyj&#347;ciowe audio </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> Rozdzia&#322; 3. Sposób u&#380;ycia</td></tr></table></div></body></html>

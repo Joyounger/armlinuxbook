@@ -1,0 +1,91 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.2. Vezérlés</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="usage.html" title="3. fejezet - Használat"><link rel="previous" href="commandline.html" title="3.1. Parancssor"><link rel="next" href="streaming.html" title="3.3. Hálózati és pipe-os stream-elés"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.2. Vezérlés</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="commandline.html">El&#337;z&#337;</a> </td><th width="60%" align="center">3. fejezet - Használat</th><td width="20%" align="right"> <a accesskey="n" href="streaming.html">Következ&#337;</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="control"></a>3.2. Vezérlés</h2></div></div><p>
+Az <span class="application">MPlayer</span> teljesen konfigurálható, parancsvezérelt,
+az irányítási rétegének a segítségével az <span class="application">MPlayer</span>t
+vezérelheted billenty&#369;zettel, egérrel, joystickkal vagy távirányítóval
+(LIRC használatával). Olvasd el a man oldalon a használható billenty&#369;k listáját.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="ctrl-cfg"></a>3.2.1. Vezérlés beállítása</h3></div></div><p>
+Az <span class="application">MPlayer</span> engedélyezi bármely billenty&#369;höz/gombhoz
+bármilyen <span class="application">MPlayer</span> parancs hozzárendelését egy egyszer&#369;
+konfigurációs fájl segítségével. A szintaxis egy egyszer&#369; billenty&#369; névb&#337;l
+és az azt követ&#337; parancsból áll. A konfigurációs fájl alapértelmezett helye
+a <tt class="filename">$HOME/.mplayer/input.conf</tt> de ez megváltoztatható
+a <tt class="option">-input <i><tt>conf</tt></i></tt> kapcsoló
+segítségével (a relatív elérési útvonalak a <tt class="filename">$HOME/.mplayer</tt>-hez
+képest relatívak).
+</p><p>
+Az összes támogatott billenty&#369; nevének listáját az
+<b>mplayer -input keylist</b>
+parancs írja ki, az elérhet&#337; parancsok listáját pedig az
+<b>mplayer -input cmdlist</b>
+paranccsal kapod meg.
+</p><div class="example"><p><b>3.1. példa - Egy példa bemeneti vezérl&#337; fájl</b></p><pre class="programlisting">
+##
+## MPlayer input control file
+##
+
+RIGHT seek +10
+LEFT seek -10
+- audio_delay 0.100
++ audio_delay -0.100
+q quit
+&gt; pt_step 1
+&lt; pt_step -1
+ENTER pt_step 1 1</pre></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="lirc"></a>3.2.2. Irányítás LIRC-b&#337;l</h3></div></div><p>
+Linux Infrared Remote Control (Linux Infravörös Távoli Irányítás) - végy
+egy egyszer&#369;en összerakható, otthon barkácsolt IR-vev&#337;t, egy (majdnem)
+tetszés szerinti távirányítót és irányítsd a Linux-os gépedet vele!
+B&#337;vebben a <a href="http://www.lirc.org" target="_top">LIRC weboldalon</a>
+olvashatsz err&#337;l.
+</p><p>
+Ha feltelepítetted a LIRC csomagot, a <tt class="filename">configure</tt> automatikusan
+megtalálja. Ha minden jól megy, az <span class="application">MPlayer</span> egy ilyen
+üzenetet ír ki indításkor: "<tt>Setting up lirc support...</tt>".
+Ha valami hiba történt, tájékoztat róla. Ha semmit sem mond a LIRC-r&#337;l,
+akkor a támogatása nincs beforgatva. Ennyi :-)
+</p><p>
+Az <span class="application">MPlayer</span> alkalmazás neve - min&#337; meglep&#337; -
+<tt class="filename">mplayer</tt>. Bármelyik mplayer parancsot használhatod
+és egyszerre több parancsot is megadhatsz egy lépésben, ha <tt>\n</tt>
+karakterrel választod el &#337;ket. Ne felejtsd el engedélyezni az ismétlés jelz&#337;t
+(repeat flag) a <tt class="filename">.lircrc</tt> fájlban, ha van értelme
+(keresés, hanger&#337;, stb.). Itt egy kivonat az én
+<tt class="filename">.lircrc</tt> fájlomból:
+</p><pre class="programlisting">
+begin
+     button = VOLUME_PLUS
+     prog = mplayer
+     config = volume 1
+     repeat = 1
+end
+
+begin
+    button = VOLUME_MINUS
+    prog = mplayer
+    config = volume -1
+    repeat = 1
+end
+
+begin
+    button = CD_PLAY
+    prog = mplayer
+    config = pause
+end
+
+begin
+    button = CD_STOP
+    prog = mplayer
+    config = seek 0 1\npause
+end</pre><p>
+Ha nem tetszik a lirc-config fájl alapértelmezett elérési útvonala
+(<tt class="filename">~/.lircrc</tt>), használd a <tt class="option">-lircconf
+<i><tt>fájlnév</tt></i></tt> kapcsolót egy másik fájl
+megadásához.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="slave-mode"></a>3.2.3. Szolga mód</h3></div></div><p>
+A szolga mód segítségével egyszer&#369; frontend-eket készíthetsz az
+<span class="application">MPlayer</span>hez. Ha a
+<tt class="option">-slave</tt> kapcsolóval futtatod az <span class="application">MPlayer</span>t,
+beolvassa az új sor karakterrel (\n) elválasztott parancsokat
+a standard bemenetr&#337;l (stdin).
+A parancsok a <a href="../../tech/slave.txt" target="_top">slave.txt</a> fájlban
+vannak leírva.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="commandline.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="streaming.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">3.1. Parancssor </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 3.3. Hálózati és pipe-os stream-elés</td></tr></table></div></body></html>

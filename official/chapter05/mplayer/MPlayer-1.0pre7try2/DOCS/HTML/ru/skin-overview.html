@@ -1,0 +1,114 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.1. Overview</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="skin.html" title="&#1055;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077; D. MPlayer skin format"><link rel="previous" href="skin.html" title="&#1055;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077; D. MPlayer skin format"><link rel="next" href="skin-file.html" title="D.2. The skin file"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.1. Overview</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin.html">&#1055;&#1088;&#1077;&#1076;.</a> </td><th width="60%" align="center">&#1055;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077; D. MPlayer skin format</th><td width="20%" align="right"> <a accesskey="n" href="skin-file.html">&#1057;&#1083;&#1077;&#1076;.</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-overview"></a>D.1. Overview</h2></div></div><p>
+It does not really have anything to do with the skin format, but you should
+know that <span class="application">MPlayer</span> has <span class="bold"><b>no</b></span>
+builtin skin, so <span class="bold"><b>at least one skin must be installed
+in order to be able to use the GUI.</b></span>
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-overview-directories"></a>D.1.1. Directories</h3></div></div><p>
+The directories searched for skins are (in order):
+</p><div class="orderedlist"><ol type="1"><li><p>
+<tt class="filename">$(DATADIR)/Skin/</tt>
+</p></li><li><p>
+<tt class="filename">$(PREFIX)/share/mplayer/Skin/</tt>
+</p></li><li><p>
+<tt class="filename">~/.mplayer/Skin/</tt>
+</p></li></ol></div><p>
+</p><p>
+Note that the first path may vary according to the way <span class="application">MPlayer</span>
+was configured (see the <tt class="option">--prefix</tt> and <tt class="option">--datadir</tt>
+arguments of the <b>configure</b> script).
+</p><p>
+Every skin is installed into its own directory under one of the directories
+listed above, for example:
+<pre class="screen">$(PREFIX)/share/mplayer/Skin/default/</pre>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-overview-formats"></a>D.1.2. Image formats</h3></div></div><p>Images must be truecolor (24 or 32 bpp) PNGs.</p><p>
+In the main window and in the playbar (see below) you can use images with
+`transparency': Regions filled with the color #FF00FF (magenta) are fully
+transparent when viewed by <span class="application">MPlayer</span>. This means
+that you can even have shaped windows if your X server has the XShape extension.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-overview-components"></a>D.1.3. Skin components</h3></div></div><p>
+Skins are quite free-format (unlike the fixed-format skins of
+<span class="application">Winamp</span>/<span class="application">XMMS</span>,
+for example), so it is up to you to create something great.
+</p><p>
+Currently there are four windows to be decorated: the
+<a href="skin-file.html#skin-file-main" title="D.2.1. Main window and playbar">main window</a>, the
+<a href="skin-file.html#skin-file-subwindow" title="D.2.2. Subwindow">subwindow</a>, the
+<a href="skin-file.html#skin-file-main" title="D.2.1. Main window and playbar">playbar</a>, and the
+<a href="skin-file.html#skin-file-menu" title="D.2.3. Skin menu">skin menu</a> (which can be activated
+by a right click).
+
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  The <span class="bold"><b>main window</b></span> and/or the
+  <span class="bold"><b>playbar</b></span> is where you can control
+  <span class="application">MPlayer</span>. The background of the window is an image.
+  Various items can (and must) be placed in the window: <span class="emphasis"><i>buttons</i></span>,
+  <span class="emphasis"><i>potmeters</i></span> (sliders) and <span class="emphasis"><i>labels</i></span>.
+  For every item, you must specify its position and size.
+</p><p>
+  A <span class="bold"><b>button</b></span> has three states (pressed, released,
+  disabled), thus its image must be divided into three parts vertically. See the
+  <a href="skin-file.html#skin-button">button</a> item for details.
+</p><p>
+  A <span class="bold"><b>potmeter</b></span> (mainly used for the seek bar and
+  volume/balance control) can have any number of phases by dividing its image
+  into different parts below each other. See
+  <a href="skin-file.html#skin-hpotmeter">hpotmeter</a> and
+  <a href="skin-file.html#skin-potmeter">potmeter</a> for details.
+</p><p>
+  <span class="bold"><b>Labels</b></span> are a bit special: The characters
+  needed to draw them are taken from an image file, and the characters in the
+  image are described by a <a href="skin-fonts.html" title="D.3. Fonts">font description file</a>.
+  The latter is a plain text file which specifies the x,y position and size of
+  each character in the image (the image file and its font description file
+  form a font <span class="emphasis"><i>together</i></span>). See <a href="skin-file.html#skin-dlabel">dlabel</a>
+  and <a href="skin-file.html#skin-slabel">slabel</a> for details.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">&#1047;&#1072;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;</h3><p>All images can have full transparency as described in the section about
+  <a href="skin-overview.html#skin-overview-formats" title="D.1.2. Image formats">image formats</a>. If the X server
+  doesn't support the XShape extension, the parts marked transparent will be
+  black. If you'd like to use this feature, the width of the main window's
+  background image must be dividable by 8.
+</p></div></li><li><p>
+  The <span class="bold"><b>subwindow</b></span> is where the movie appears. It
+  can display a specified image if there is no movie loaded (it is quite boring
+  to have an empty window :-)) <span class="bold"><b>Note:</b></span> transparency
+  is <span class="bold"><b>not allowed</b></span> here.
+</p></li><li><p>
+  The <span class="bold"><b>skin menu</b></span> is just a way to control
+  <span class="application">MPlayer</span> by means of menu entries. Two images
+  are required for the menu: one of them is the base image that shows the
+  menu in its normal state, the other one is used to display the selected
+  entries. When you pop up the menu, the first image is shown. If you move
+  the mouse over the menu entries, the currently selected entry is copied
+  from the second image over the menu entry below the mouse pointer
+  (the second image is never shown as a whole).
+</p><p>
+  A menu entry is defined by its position and size in the image (see the
+  section about the <a href="skin-file.html#skin-file-menu" title="D.2.3. Skin menu">skin menu</a> for details).
+</p></li></ul></div><p>
+</p><p>
+  There is an important thing not mentioned yet: For buttons, potmeters and
+  menu entries to work, <span class="application">MPlayer</span> must know what to
+  do if they are clicked. This is done by <a href="skin-gui.html" title="D.4. GUI messages">messages</a>
+  (events). For these items you must define the messages to be generated when
+  they are clicked.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-files"></a>D.1.4. Files</h3></div></div><p>
+You need the following files to build a skin:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  The configuration file named <a href="skin-file.html" title="D.2. The skin file">skin</a> tells
+  <span class="application">MPlayer</span> how to put different parts of the skin
+  together and what to do if you click somewhere in the window.
+</p></li><li><p>
+  The background image for the main window.
+</p></li><li><p>
+  Images for the items in the main window (including one or more font
+  description files needed to draw labels).
+</p></li><li><p>
+  The image to be displayed in the subwindow (optional).
+</p></li><li><p>
+  Two images for the skin menu (they are needed only if you want to create
+  a menu).
+</p></li></ul></div><p>
+  With the exception of the skin configuration file, you can name the other
+  files whatever you want (but note that font description files must have
+  a <tt class="filename">.fnt</tt> extension).
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin.html">&#1055;&#1088;&#1077;&#1076;.</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">&#1059;&#1088;&#1086;&#1074;&#1077;&#1085;&#1100; &#1074;&#1099;&#1096;&#1077;</a></td><td width="40%" align="right"> <a accesskey="n" href="skin-file.html">&#1057;&#1083;&#1077;&#1076;.</a></td></tr><tr><td width="40%" align="left" valign="top">&#1055;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077; D. MPlayer skin format </td><td width="20%" align="center"><a accesskey="h" href="index.html">&#1053;&#1072;&#1095;&#1072;&#1083;&#1086;</a></td><td width="40%" align="right" valign="top"> D.2. The skin file</td></tr></table></div></body></html>

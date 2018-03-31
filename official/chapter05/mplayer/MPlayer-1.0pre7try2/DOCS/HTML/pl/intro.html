@@ -1,0 +1,90 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Rozdzia&#322; 1. Wprowadzenie</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="previous" href="howtoread.html" title="Jak czyta&#263; t&#281; dokumentacj&#281;"><link rel="next" href="history.html" title="1.1. Historia"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Rozdzia&#322; 1. Wprowadzenie</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="howtoread.html">Poprzedni</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="history.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="intro"></a>Rozdzia&#322; 1. Wprowadzenie</h2></div></div><div class="toc"><p><b>Spis tre&#347;ci</b></p><dl><dt>1.1. <a href="history.html">Historia</a></dt><dt>1.2. <a href="install.html">Instalacja</a></dt><dd><dl><dt>1.2.1. <a href="install.html#softreq">Wymagania sprz&#281;towe</a></dt><dt>1.2.2. <a href="install.html#id2839596">Kodeki</a></dt><dt>1.2.3. <a href="install.html#video-cards">Karty graficzne</a></dt><dd><dl><dt>1.2.3.1. <a href="install.html#yuv-cards">Karty YUV</a></dt><dt>1.2.3.2. <a href="install.html#non-yuv-cards">Karty nieobs&#322;uguj&#261;ce YUV</a></dt><dt>1.2.3.3. <a href="install.html#cirrus-logic-cards">Karty Cirrus-Logic</a></dt></dl></dd><dt>1.2.4. <a href="install.html#sound-cards">Karty d&#378;wi&#281;kowe</a></dt><dt>1.2.5. <a href="install.html#id2841337">Mo&#380;liwo&#347;ci</a></dt></dl></dd><dt>1.3. <a href="gui.html">A co z GUI?</a></dt><dt>1.4. <a href="subosd.html">Napisy i OSD</a></dt><dd><dl><dt>1.4.1. <a href="subosd.html#mpsub">MPsub - W&#322;asny format napisów MPlayera</a></dt><dt>1.4.2. <a href="subosd.html#mpsub-install">Instalacja OSD i napisów</a></dt><dt>1.4.3. <a href="subosd.html#osdmenu">Menu OSD</a></dt></dl></dd><dt>1.5. <a href="rtc.html">RTC</a></dt></dl></div><p>
+<span class="application">MPlayer</span> jest odtwarzaczem filmów dla Linuksa
+(dzia&#322;a te&#380; na wielu innych Uniksach i na procesorach
+<span class="bold"><b>nie-x86</b></span>, patrz <a href="ports.html" title="Rozdzia&#322; 6. Porty">
+porty</a>). Odtwarza wi&#281;kszo&#347;&#263; zbiorów w formatach MPEG, VOB, AVI, OGG/OGM,
+VIVO, ASF/WMA/WMV, QT/MOV/MP4, FLI, RM, NuppelVideo, yuv4mpeg, FILM, RoQ, PVA,
+zbiory Matroska, obs&#322;ugiwanych przez wiele rdzennych kodeków, XAnim,
+RealPlayer, i Win32 DLL. Mo&#380;esz w nim tak&#380;e ogl&#261;da&#263; filmy
+<span class="bold"><b>VideoCD, SVCD, DVD, 3ivx, RealMedia, Sorenson,
+Theora</b></span> i <span class="bold"><b>MPEG-4 (DivX)</b></span>
+Inn&#261; wielk&#261; zalet&#261; MPlayera jest
+szeroki zakres obs&#322;ugiwanych sterowników wyj&#347;ciowych. Dzia&#322;a on z X11, Xv, DGA,
+OpenGL, SVGAlib, fbdev, AAlib, libcaca, DirectFB, ale mo&#380;esz te&#380; u&#380;ywa&#263; GGI
+i SDL (i dzi&#281;ki temu wszystkich ich sterowników) i niektórych specyficznych dla
+kart graficznych sterowników niskiego poziomu (dla Matroxa, 3Dfxa, Radeona,
+Mach64, Permedia3)! Wi&#281;kszo&#347;&#263; z nich obs&#322;uguje skalowanie sprz&#281;towe lub
+programowe, wi&#281;c filmy mo&#380;na ogl&#261;da&#263; na pe&#322;nym ekranie.
+<span class="application">MPlayer</span> obs&#322;uguje wy&#347;wietlanie przy u&#380;yciu
+niektórych sprz&#281;towych dekoderów MPEG, takich jak
+<a href="video.html#dvb" title="2.3.3.1. Wej&#347;cie i wyj&#347;cie DVB">DVB</a> i <a href="video.html#dxr3" title="2.3.3.3. DXR3/Hollywood+">DXR3/Hollywood+</a>.
+Nie mo&#380;na te&#380; zapomnie&#263; o &#322;adnych, du&#380;ych, antyaliasowanych i cieniowanych
+napisach (<span class="bold"><b>14 obs&#322;ugiwanych typów</b></span>) z
+czcionkami europejskimi/ISO 8859-1,2 (polskimi, w&#281;gierskimi, angielskimi,
+czeskimi, itp.), cyrylic&#261;, korea&#324;skimi i wy&#347;wietlaniem na ekranie (OSD)!
+</p><p>
+<span class="application">MPlayer</span> jest doskona&#322;y do odczytywania uszkodzonych
+plików MPEG (przydatne przy niektórych VCD), odtwarza równie&#380; b&#322;&#281;dne pliki AVI,
+których nie mo&#380;na odczyta&#263; za pomoc&#261; wiod&#261;cego odtwarzacza multimedialnego pod
+Windows. Nawet zbiory AVI bez bloku indeksowego mo&#380;na odtworzy&#263; i mo&#380;na
+zrekonstruowa&#263; ich indeks tymczasowo, u&#380;ywaj&#261;c opcji <tt class="option">-idx</tt>, albo
+trwale dzi&#281;ki <span class="application">MEncoderowi</span>, w ten sposób umo&#380;liwiaj&#261;c
+sobie przewijanie! Jak wida&#263; najwa&#380;niejsza jest tu stabilno&#347;&#263; i jako&#347;&#263;, ale
+szybko&#347;&#263; równie&#380; jest zadziwiaj&#261;ca. Ma te&#380; pot&#281;&#380;ny system wtyczek do
+manipulacji obrazem i d&#378;wi&#281;kiem.
+</p><p>
+<span class="application">MEncoder</span> (Enkoder filmów
+<span class="application">MPlayera</span>) jest to prosty enkoder filmów,
+zaprojektowany do kodowania odczytywalnych przez
+<span class="application">MPlayera</span> filmów
+(<span class="bold"><b>AVI/ASF/OGG/DVD/VCD/VOB/MPG/MOV/VIV/FLI/RM/NUV/NET/PVA</b></span>)
+na inne odczytywalne formaty (patrz ni&#380;ej). Mo&#380;e kodowa&#263; rozmaitymi kodekami
+video, takimi jak <span class="bold"><b>MPEG-4 (DivX4)</b></span>
+(jedno- lub dwuprzebiegowy), <tt>libavcodec</tt>
+oraz audio <span class="bold"><b>PCM/MP3/VBR MP3</b></span>.
+</p><div class="itemizedlist"><p><b>Mo&#380;liwo&#347;ci <span class="application">MEncodera</span></b></p><ul type="disc"><li>
+  Kodowanie z szerokiego zakresu formatów i dekoderów
+  <span class="application">MPlayer</span>
+  </li><li>
+  Kodowanie na wszystkie kodeki
+  <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>
+  z ffmpeg.
+  </li><li>
+  Kodowanie obrazu z <span class="bold"><b>tunerów kompatybilnych z V4L</b></span>
+  </li><li>
+  Kodowanie/multipleksowanie przeplatanych zbiorów AVI z prawid&#322;owymi
+  indeksami
+  </li><li>
+  Tworzenie zbiorów z zewn&#281;trznego strumienia audio
+  </li><li>
+  Kodowanie 1, 2 lub 3-przebiegowe
+  </li><li><p>
+  D&#378;wi&#281;k MP3 <span class="bold"><b>VBR</b></span>
+  </p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">WA&#379;NE</h3><p>
+  D&#378;wi&#281;k MP3 VBR w odtwarzaczach pod Windows nie zawsze brzmi przyjemnie!
+  </p></div><p>
+  </p></li><li>
+  D&#378;wi&#281;k PCM
+  </li><li>
+  Kopiowanie strumieniowe
+  </li><li>
+  Synchronizacja wej&#347;cia A/V (oparta na PTS, mo&#380;e by&#263; wy&#322;&#261;czona opcj&#261;
+  <tt class="option">-mc 0</tt>)
+  </li><li>
+  Korekta fps opcj&#261; <tt class="option">-ofps</tt> (przydatne gdy kodujesz
+  30000/1001 fps VOB na 24000/1001 fps AVI)
+  </li><li>
+  Mo&#380;liwo&#347;&#263; zastosowania naszego pot&#281;&#380;nego systemu filtrów (kadrowanie,
+  powi&#281;kszanie, obracanie, postproces, skalowanie, konwersja rgb/yuv)
+  </li><li>
+  Mo&#380;liwo&#347;&#263; wkodowania DVD/VOBsub <span class="bold"><b>ORAZ</b></span> napisów
+  w zbiór wyj&#347;ciowy
+  </li><li>
+  Mo&#380;liwo&#347;&#263; zapisu napisów DVD do formatu VOBsub
+  </li></ul></div><div class="itemizedlist"><p><b>Planowane mo&#380;liwo&#347;ci</b></p><ul type="disc"><li>
+  Zwi&#281;kszenie zakresu dost&#281;pnych formatów/kodeków do (de)kodowania
+  (tworzenie zbiorów VOB ze strumieniami DivX4/Indeo5/VIVO :).
+  </li></ul></div><p>
+<span class="application">MPlayer</span> i <span class="application">MEncoder</span>
+mog&#261; by&#263; rozprowadzane zgodnie z warunkami GNU General Public License Version 2.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="howtoread.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="history.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">Jak czyta&#263; t&#281; dokumentacj&#281; </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 1.1. Historia</td></tr></table></div></body></html>

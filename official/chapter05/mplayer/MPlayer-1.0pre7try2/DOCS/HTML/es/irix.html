@@ -1,0 +1,25 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.4. Silicon Graphics Irix</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - El reproductor de Películas
+para LINUX"><link rel="up" href="ports.html" title="Capítulo 6. Adaptaciones"><link rel="previous" href="solaris.html" title="6.3. Sun Solaris"><link rel="next" href="qnx.html" title="6.5. QNX"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.4. Silicon Graphics Irix</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="solaris.html">Anterior</a> </td><th width="60%" align="center">Capítulo 6. Adaptaciones</th><td width="20%" align="right"> <a accesskey="n" href="qnx.html">Siguiente</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="irix"></a>6.4. Silicon Graphics Irix</h2></div></div><p>
+Puede probar a instalar el programa de instalación GNU, y (si no lo tiene
+en su ruta global) apuntar a donde esté con:
+<pre class="screen">./configure --with-install=<i><tt>/ruta/y/nombre/del/instalador</tt></i></pre>
+</p><p>
+O puede usar el instalador por defecto que viene con IRIX 6.5 y en ese
+caso debe editar el <tt class="filename">Makefile</tt> a mano un poquito.
+Cambie las dos siguientes líneas:
+<pre class="programlisting">
+  $(INSTALL) -c -m 644 DOCS/mplayer.1 $(MANDIR)/man1/mplayer.1
+
+  $(INSTALL) -c -m 644 etc/codecs.conf $(CONFDIR)/codecs.conf
+</pre>
+por:
+<pre class="programlisting">
+  $(INSTALL) -m 644 mplayer.1 $(MANDIR)/man1/
+
+  $(INSTALL) -m 644 codecs.conf $(CONFDIR)/
+</pre>
+Y entonces haga (desde el directorio de fuentes de
+<span class="application">MPlayer</span>):
+<pre class="screen">cp DOCS/mplayer.1 . ; cp etc/codecs.conf .</pre>
+y después continúe con la construcción e instalación.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="solaris.html">Anterior</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Subir</a></td><td width="40%" align="right"> <a accesskey="n" href="qnx.html">Siguiente</a></td></tr><tr><td width="40%" align="left" valign="top">6.3. Sun Solaris </td><td width="20%" align="center"><a accesskey="h" href="index.html">Inicio</a></td><td width="40%" align="right" valign="top"> 6.5. QNX</td></tr></table></div></body></html>

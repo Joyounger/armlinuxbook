@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- synced with 1.23 -->
+<chapter id="usage">
+<title>Utilisation</title>
+
+<sect1 id="commandline">
+<title>Ligne de commande</title>
+
+<para>
+<application>MPlayer</application> utilise un ordre de lecture complexe.
+Il consiste en les options globales écrites en premier, par exemple
+
+<screen>mplayer -vfm 5</screen>
+
+et les options écrites après les noms de fichier, qui s'appliquent
+uniquement au nom de fichier/URL/autre donné, par exemple
+
+<screen>mplayer -vfm 5 <replaceable>film1.avi</replaceable> <replaceable>film2.avi</replaceable> -vfm 4</screen>
+</para>
+
+<para>
+Vous pouvez regrouper les noms de fichiers/URLs en utilisant <literal>{</literal>
+et <literal>}</literal>. C'est utile avec l'option <option>-loop</option>:
+
+<screen>mplayer { 1.avi - loop 2 2.avi } -loop 3</screen>
+
+La commande ci-dessus jouera les fichiers dans cet ordre: 1, 1, 2, 1, 1, 2, 1, 1, 2.
+</para>
+
+<para>
+Lecture d'un fichier:
+<synopsis>
+<command>mplayer</command><!--
+--> [<replaceable>options</replaceable>]<!--
+--> [<replaceable>chemin</replaceable>/]<replaceable>fichier</replaceable>
+</synopsis>
+</para>
+
+<para>
+Lecture de plusieurs fichiers:
+<synopsis>
+<command>mplayer</command><!--
+--> [<replaceable>options par défaut</replaceable>]<!--
+--> [<replaceable>chemin</replaceable>/]<replaceable>fichier1</replaceable><!--
+--> [<replaceable>options pour fichier1</replaceable>]<!--
+--> <replaceable>fichier2</replaceable><!--
+--> [<replaceable>options pour fichier2</replaceable>] ...
+</synopsis>
+</para>
+
+<para>
+Lecture de VCD:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> vcd://<replaceable>N°piste</replaceable><!--
+--> [-cdrom-device <replaceable>/dev/cdrom</replaceable>]
+</synopsis>
+</para>
+
+<para>
+Lecture de DVD:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> dvd://<replaceable>N°titre</replaceable><!--
+--> [-dvd-device <replaceable>/dev/dvd</replaceable>]
+</synopsis>
+</para>
+
+<para>
+Lecture à partir du web:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> http://<replaceable>site.com/fichier.asf</replaceable>
+</synopsis>
+(les listes de lecture peuvent également être utilisées)
+</para>
+
+<para>
+Lecture à partir de RTSP:
+<synopsis>
+<command>mplayer</command> [<replaceable>options</replaceable>]<!--
+--> rtsp://<replaceable>serveur.exemple.com/nomFlux</replaceable>
+</synopsis>
+</para>
+
+<para>
+Exemples:
+<screen>
+mplayer -vo x11 <replaceable>/mnt/Films/Contact/contact2.mpg</replaceable>
+mplayer vcd://<replaceable>2</replaceable> -cd-rom-device <replaceable>/dev/hdc</replaceable>
+mplayer -afm 3 <replaceable>/mnt/DVDtrailers/alien4.vob</replaceable>
+mplayer dvd://<replaceable>1</replaceable> -dvd-device <replaceable>/dev/hdc</replaceable>
+mplayer -abs 65536 -delay -0.4 -nobps <replaceable>~/films/test.avi</replaceable><!--
+--></screen>
+</para>
+</sect1>
+
+
+<sect1 id="control">
+<title>Contrôles</title>
+
+<para>
+<application>MPlayer</application> dispose d'une couche de contrôle pleinement
+configurable, qui vous permet de contrôler <application>MPlayer</application>
+avec le clavier, la souris, le joystick ou une télécommande (en utilisant LIRC).
+Voir la page de man pour une liste complète des contrôles clavier.
+</para>
+
+
+<sect2 id="ctrl-cfg">
+<title>Configuration des contrôles</title>
+
+<para>
+<application>MPlayer</application> vous permet d'associer n'importe quel
+touche/bouton à n'importe quelle commande <application>MPlayer</application> en utilisant un simple fichier
+de config. La syntaxe consiste un nom de touche suivi d'une commande. Le fichier
+de config par défaut est <filename>$HOME/.mplayer/input.conf</filename> mais cela
+peut être outrepassé en utilisant l'option <option>-input <replaceable>conf</replaceable></option>
+(les chemins relatifs le sont par rapport à <filename>$HOME/.mplayer</filename>).
+</para>
+
+<para>
+Vous pouvez obtenir une liste complète des touches supportées en tapant
+<command>mplayer -input keylist</command>
+et une liste complète des commandes disponibles en tapant
+<command>mplayer -input cmdlist</command>.
+</para>
+
+<example>
+<title>Un simple fichier de contrôles</title>
+<programlisting>
+##
+## MPlayer input control file
+##
+
+RIGHT seek +10
+LEFT seek -10
+- audio_delay 0.100
++ audio_delay -0.100
+q quit
+&gt; pt_step 1
+&lt; pt_step -1
+ENTER pt_step 1 1<!--
+--></programlisting>
+</example>
+</sect2>
+
+
+<sect2 id="lirc">
+<title>Control from LIRC</title>
+
+<para>
+Linux Infrared Remote Control - utilisez un récepteur infrarouge fait
+maison, une télécommande, et contrôlez votre linux à distance ! Plus d'infos
+sur <ulink url="http://www.lirc.org">la page de LIRC</ulink>.
+</para>
+
+<para>
+Si vous avez installé le paquet LIRC, <filename>configure</filename> le détectera automatiquement. Si
+tout s'est bien passé, <application>MPlayer</application> affichera un
+message du genre &quot;<computeroutput>Setting up LIRC support...</computeroutput>&quot;
+au démarrage. Si une erreur se produit il vous le dira. Si il ne vous dit
+rien à propos de LIRC c'est que son support n'est pas compilé. C'est tout :-)
+</para>
+
+<para>
+Le nom de l'application à lancer avec <application>MPlayer</application> est
+- oh surprise - <filename>mplayer</filename>. Vous pouvez utiliser n'importe
+quelle commande <application>MPlayer</application> et même passer plus d'une commande en les séparant avec
+<literal>\n</literal>. N'oubliez pas d'activer le flag repeat dans
+<filename>.lircrc</filename> quand cela est approprié (déplacement, volume, etc).
+Voici un extrait d'un fichier d'exemple
+<filename>.lircrc</filename>:
+</para>
+
+<programlisting>
+begin
+     button = VOLUME_PLUS
+     prog = mplayer
+     config = volume 1
+     repeat = 1
+end
+
+begin
+    button = VOLUME_MINUS
+    prog = mplayer
+    config = volume -1
+    repeat = 1
+end
+
+begin
+    button = CD_PLAY
+    prog = mplayer
+    config = pause
+end
+
+begin
+    button = CD_STOP
+    prog = mplayer
+    config = seek 0 1\npause
+end<!--
+--></programlisting>
+
+<para>
+Si vous n'aimez pas l'emplacement standard du fichier de config de lirc
+(<filename>~/.lircrc</filename>) utilisez <option>-lircconf
+<replaceable>nomfichier</replaceable></option> pour spécifier un autre fichier.
+</para>
+</sect2>
+
+
+<sect2 id="slave-mode">
+<title>Mode esclave</title>
+<para>
+Le mode esclave vous permet de construire un frontend à
+<application>MPlayer</application>. Quand il est activé (avec
+<option>-slave</option>) <application>MPlayer</application> lit les commandes
+séparées par un saut de ligne (\n) depuis l'entrée par défaut (stdin).
+Les commandes sont documentées dans le fichier
+<ulink url="../../tech/slave.txt">slave.txt</ulink>.
+</para>
+</sect2>
+</sect1>
+
+
+<sect1 id="streaming">
+<title>Streaming depuis le réseau ou les pipes</title>
+
+<para>
+<application>MPlayer</application> peut lire des fichiers depuis le réseau, en
+utilisant les protocoles HTTP, FTP, MMS ou RTSP/RTP.
+</para>
+
+<para>
+La lecture se fait juste en ajoutant l'URL à la ligne de commande.
+<application>MPlayer</application> utilise également la variable d'environnement
+<envar>http_proxy</envar>, et utilise le proxy si disponible. L'utilisation du proxy
+peut aussi être forcé:
+<screen>mplayer <replaceable>http_proxy://proxy.micorsops.com:3128/http://micorsops.com:80/stream.asf</replaceable></screen>
+</para>
+
+<para>
+<application>MPlayer</application> peut lire depuis stdin
+(<emphasis>pas</emphasis> depuis les pipes nommés). Cela peut être utilisé par
+exemple pour lire depuis le FTP:
+<screen>wget <replaceable>ftp://micorsops.com/quelquechose.avi</replaceable> -O - | mplayer -</screen>
+</para>
+
+<note><para>
+Il est également recommandé d'activer <option>-cache</option> pour une lecture depuis le réseau:
+<screen>wget <replaceable>ftp://micorsops.com/quelquechose.avi</replaceable> -O - | mplayer -cache 8192 -</screen>
+</para></note>
+</sect1>
+
+<sect1 id="mpst" xreflabel="Remote streams">
+<title>Flux distants</title>
+
+<para>
+Les flux distants vous permettent d'accéder à la plupart des types de flux de
+<application>MPlayer</application> depuis un hôte distant. Le but de cette fonction
+est de rendre possible l'utilisation du lecteur CD ou DVD d'un autre ordinateur
+sur le réseau (en supposant que vous ayez une bande passante suffisante). Malheureusement
+certains types de flux (pour l'instant TV et MF) ne sont pas utilisables à
+distance car ils sont implémentés au niveau du demuxer. C'est triste pour les
+flux MF mais les flux TV nécessiteraient une bande passante incensée.
+</para>
+
+<sect2 id="compile_mpst_server">
+<title>Compilation du serveur</title>
+<para>
+Après avoir compilé <application>MPlayer</application>, allez dans le répertoire
+<filename>TOOLS/netstream</filename> et tapez
+<application>make</application> pour compiler le serveur.
+Vous pouvez ensuite copier le binaire <application>netstream</application>
+dans l'endroit approprié sur votre système (généralement
+<filename class="directory">/usr/local/bin</filename> sous Linux).
+</para>
+</sect2>
+
+<sect2 id="use_mpst">
+<title>Utilisation de flux distants</title>
+<para>
+Tout d'abord vous devez lancer le serveur sur l'ordinateur auquel vous souhaitez
+accéder à distance. Actuellement le serveur est très basique et n'accepte aucun
+argument en ligne de commande, donc tapez juste <filename>netstream</filename>.
+Maintenant vous pouvez par exemple jouer la seconde piste d'un VCD sur le serveur avec:
+<screen>
+mplayer -cache 5000 <replaceable>mpst://serveur/vcd://2</replaceable>
+</screen>
+Vous pouvez aussi accéder aux fichiers de ce serveur:
+
+<screen>
+mplayer -cache 5000 <replaceable>mpst://serveur//usr/local/films/lol.avi</replaceable>
+</screen>
+Veuillez noter que les chemins qui ne commencent pas par un / seront relatifs
+au répertoire dans lequel le serveur fonctionne. L'option <option>-cache</option>
+n'est pas requise mais vivement recommandée.
+</para>
+
+<para>
+Soyez conscient que pour l'instant le serveur n'est pas sécurisé du tout. Donc
+ne vous plaignez pas des nombreuses attaques possibles par cette voie. À la place
+envoyez-nous quelques (bons) patches pour le rendre meilleur ou écrivez votre propre
+serveur.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="edl" xreflabel="Edit Decision Lists (EDL)">
+<title>Listes d'Edition de Décision (EDL)</title>
+
+<para>
+Le système de liste d'édition de décision (Edit Decision Lists - EDL) vous
+permet de sauter ou rendre muet des sections de vidéos pendant la lecture,
+basé sur un fichier de configuration EDL spécifique au film.
+</para>
+
+<para>
+Ceci est utile pour ceux qui veulent voir un film en mode "tout public".
+Vous pouvez couper toute violence, profanation, Jar-Jar Binks .. d'un film
+suivant vos préférences personnelles. A part ça, il y a d'autres
+utilisations, comme sauter automatiquement les publicités dans les fichiers vidéos
+que vous regardez.
+</para>
+
+<para>
+Le format de fichier EDL est plutôt rudimentaire. Une fois que le système EDL
+aura atteint un certain niveau de maturité, un format de fichier basé sur XML
+sera probablement implémenté (en gardant une compatibilité descendante avec les
+précédents formats EDL).
+</para>
+
+<sect2 id="edl_using">
+<title>Utiliser un fichier EDL</title>
+<para>
+Incluez l'option <option>-edl &lt;nomfichier&gt;</option> quand vous lancez
+<application>MPlayer</application>, avec le nom du fichier EDL que vous voulez
+appliquer à la video.
+</para>
+</sect2>
+
+<sect2 id="edl_making">
+<title>Faire un fichier EDL</title>
+<para>
+Le format de fichier actuel EDL est:
+<programlisting>
+[seconde de départ] [seconde de fin] [action]
+</programlisting>
+Où les secondes sont des nombres à virgule et l'action est soit
+<literal>0</literal> pour sauter, soit <literal>1</literal> pour couper le son.
+Exemple:
+<programlisting>
+5.3   7.1    0
+15    16.7   1
+420   422    0
+</programlisting>
+Cela va sauter de la seconde 5.3 à la seconde 7.1 de la vidéo, puis va couper
+le son à 15 secondes, le remettre à 16.7 secondes et sauter de la seconde 420
+à la seconde 422 de la vidéo. Ces actions seront appliquées quand le temps de
+lecture atteint le temps indiqué dans le fichier.
+</para>
+
+<para>
+Pour créer un fichier EDL à partir duquel travailler, utilisez l'option
+<option>-edlout &lt;nomfichier&gt;</option>. Durant la lecture, quand vous
+voulez marquer les deux secondes précédentes à sauter, tapez sur <keycap>i</keycap>.
+Une entrée correspondante sera écrite dans le fichier. Vous pouvez ensuite revenir
+et affiner le fichier EDL généré.
+</para>
+</sect2>
+
+</sect1>
+
+</chapter>

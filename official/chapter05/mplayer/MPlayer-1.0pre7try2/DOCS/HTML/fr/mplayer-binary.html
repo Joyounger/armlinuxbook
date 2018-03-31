@@ -1,0 +1,15 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>E.2. Distribution binaire</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="users-vs-dev.html" title="Annexe E. Lamentations du développeur"><link rel="previous" href="gcc-296.html" title="E.1. GCC 2.96"><link rel="next" href="nvidia-opinions.html" title="E.3. nVidia"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">E.2. Distribution binaire</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="gcc-296.html">Précédent</a> </td><th width="60%" align="center">Annexe E. Lamentations du développeur</th><td width="20%" align="right"> <a accesskey="n" href="nvidia-opinions.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="mplayer-binary"></a>E.2. Distribution binaire</h2></div></div><p>
+<span class="application">MPlayer</span> contenait précédemment du code source du projet
+OpenDivX, qui interdit toute redistribution binaire. Ce code à été retiré depuis la
+version 0.90-pre1 et le fichier restant <tt class="filename">divx_vbr.c</tt> qui est
+dérivé des sources OpenDivX à été placé sous GPL par ses auteurs au moment de la
+version 0.90pre9. Vous êtes maintenant invité à créer des paquetages binaires si vous
+en avez l'utilité.
+</p><p>
+D'autres impératifs pour la redistribution étaient les optimisations de compilation
+pour l'architecture binaire. <span class="application">MPlayer</span> supporte maintenant
+la détection CPU (passez l'option <tt class="option">--enable-runtime-cpudetection</tt>
+à <b>configure</b>). Elle est désactivée par défaut parce quelle implique un petit
+sacrifice de vitesse, mais il est maintenant possible de créer des binaires qui
+fonctionneront sur les différents membres de la famille des CPUs compatibles Intel.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="gcc-296.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="users-vs-dev.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="nvidia-opinions.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">E.1. GCC 2.96 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> E.3. nVidia</td></tr></table></div></body></html>

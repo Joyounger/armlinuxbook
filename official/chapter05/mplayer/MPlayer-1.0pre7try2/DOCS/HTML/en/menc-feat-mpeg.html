@@ -1,0 +1,20 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.2. Encoding to MPEG format</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="mencoder.html" title="Chapter 7. Encoding with MEncoder"><link rel="previous" href="menc-feat-mpeg4.html" title='7.1. Encoding two pass MPEG-4 ("DivX")'><link rel="next" href="menc-feat-rescale.html" title="7.3. Rescaling movies"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.2. Encoding to MPEG format</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-mpeg4.html">Prev</a> </td><th width="60%" align="center">Chapter 7. Encoding with MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-rescale.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-mpeg"></a>7.2. Encoding to MPEG format</h2></div></div><p>
+<span class="application">MEncoder</span> can create MPEG (MPEG-PS) format output
+files. It's probably useful only with
+<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>'s
+<span class="emphasis"><i>mpeg1video</i></span> codec, because players - except
+<span class="application">MPlayer</span> - expect MPEG-1 video, and MPEG-1 layer 2 (MP2)
+audio streams in MPEG files.
+</p><p>
+This feature is not very useful right now, aside that it probably has many bugs,
+but the more importantly because <span class="application">MEncoder</span> currently
+cannot encode MPEG-1 layer 2 (MP2) audio, which all other players expect in MPEG files.
+</p><p>
+To change <span class="application">MEncoder</span>'s output file format,
+use the <tt class="option">-of mpeg</tt> option.
+</p><p>
+Example:
+<pre class="screen">
+mencoder -of mpeg -ovc lavc -lavcopts vcodec=mpeg1video -oac copy <i><tt>other_options</tt></i> <i><tt>media.avi</tt></i> -o <i><tt>output.mpg</tt></i>
+</pre>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-mpeg4.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-rescale.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.1. Encoding two pass MPEG-4 ("DivX") </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7.3. Rescaling movies</td></tr></table></div></body></html>

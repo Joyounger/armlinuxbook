@@ -1,0 +1,161 @@
+/****************************************************************************
+** HTMLView meta object code from reading C++ file 'htmlview.h'
+**
+** Created: Thu Nov 20 06:21:51 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "htmlview.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *HTMLView::className() const
+{
+    return "HTMLView";
+}
+
+QMetaObject *HTMLView::metaObj = 0;
+
+#ifdef QWS
+static class HTMLView_metaObj_Unloader {
+public:
+    ~HTMLView_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "HTMLView" );
+    }
+} HTMLView_metaObj_unloader;
+#endif
+
+void HTMLView::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(KHTMLPart::className(), "KHTMLPart") != 0 )
+	badSuperclassWarning("HTMLView","KHTMLPart");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString HTMLView::tr(const char* s)
+{
+    return qApp->translate( "HTMLView", s, 0 );
+}
+
+QString HTMLView::tr(const char* s, const char * c)
+{
+    return qApp->translate( "HTMLView", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* HTMLView::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KHTMLPart::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (HTMLView::*m1_t0)(KIO::Job*);
+    typedef void (QObject::*om1_t0)(KIO::Job*);
+    typedef void (HTMLView::*m1_t1)(const QString&,const QPoint&);
+    typedef void (QObject::*om1_t1)(const QString&,const QPoint&);
+    m1_t0 v1_0 = &HTMLView::slotImageJobFinished;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &HTMLView::popupMenu;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(2);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(2);
+    slot_tbl[0].name = "slotImageJobFinished(KIO::Job*)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Private;
+    slot_tbl[1].name = "popupMenu(const QString&,const QPoint&)";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Private;
+    typedef void (HTMLView::*m2_t0)(KHTMLPart*,const QString&);
+    typedef void (QObject::*om2_t0)(KHTMLPart*,const QString&);
+    m2_t0 v2_0 = &HTMLView::popupMenu;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "popupMenu(KHTMLPart*,const QString&)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"HTMLView", "KHTMLPart",
+	slot_tbl, 2,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL popupMenu
+void HTMLView::popupMenu( KHTMLPart* t0, const QString& t1 )
+{
+    // No builtin function for signal parameter type KHTMLPart*,const QString&
+    QConnectionList *clist = receivers("popupMenu(KHTMLPart*,const QString&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(KHTMLPart*);
+    typedef void (QObject::*RT2)(KHTMLPart*,const QString&);
+    RT0 r0;
+    RT1 r1;
+    RT2 r2;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	    case 2:
+#ifdef Q_FP_CCAST_BROKEN
+		r2 = reinterpret_cast<RT2>(*(c->member()));
+#else
+		r2 = (RT2)*(c->member());
+#endif
+		(object->*r2)(t0, t1);
+		break;
+	}
+    }
+}

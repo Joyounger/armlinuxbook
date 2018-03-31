@@ -1,0 +1,106 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.4. Sygna&#322;y GUI</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="skin.html" title="Dodatek D. Format skórki MPlayera"><link rel="previous" href="skin-fonts.html" title="D.3. Czcionki"><link rel="next" href="users-vs-dev.html" title="Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.4. Sygna&#322;y GUI</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-fonts.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek D. Format skórki MPlayera</th><td width="20%" align="right"> <a accesskey="n" href="users-vs-dev.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-gui"></a>D.4. Sygna&#322;y GUI</h2></div></div><p>
+Tutaj znajduj&#261; si&#281; sygna&#322;y, które mog&#261; by&#263; generowane przez przyciski, suwaki
+i elementy menu.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+Niektóre sygna&#322;y mog&#261; nie dzia&#322;a&#263; w oczekiwany sposób (lub nie dzia&#322;a&#263; w ogóle).
+Jak wiadomo, GUI jest jeszcze w fazie rozwoju.
+</p></div><div class="variablelist"><p><b>Kontrola odtwarzania :</b></p><dl><dt><span class="term"><span class="bold"><b>evNext</b></span></span></dt><dd><p>
+Przejd&#378; do nast&#281;pnej pozycji na li&#347;cie odtwarzania.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPause</b></span></span></dt><dd><p>
+  Tworzy prze&#322;&#261;cznik razem z <tt>evPlaySwitchToPause</tt>.
+  Mog&#261; by&#263; u&#380;yte do utworzenia wspólnego przycisku odtwarzania/pauzy.
+  Oba sygna&#322;y powinny by&#263; powi&#261;zane z przyciskami wy&#347;wietlonymi na tej samej
+  pozycji w oknie. Sygna&#322; ten wstrzymuje odtwarzanie i wy&#347;wietla  obrazek dla
+  przycisku <tt>evPlaySwitchToPause</tt> (aby zaznaczy&#263;,
+  &#380;e przycisk ten mo&#380;e by&#263; u&#380;yty do kontynuowania odtwarzania).
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlay</b></span></span></dt><dd><p>
+Rozpocznij odtwarzanie.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlaySwitchToPause</b></span></span></dt><dd><p>
+Przeciwie&#324;stwo <tt>evPauseSwitchToPlay</tt>. Ten sygna&#322; zaczyna
+odtwarzanie oraz wy&#347;wietla obrazek dla przycisku
+<tt>evPauseSwitchToPlay</tt> (aby zaznaczy&#263;, &#380;e przycisk ten mo&#380;e by&#263;
+u&#380;yty ponownie do wstrzymania odtwarzania).
+    </p></dd><dt><span class="term"><span class="bold"><b>evPrev</b></span></span></dt><dd><p>
+Przejd&#378; do poprzedniej pozycji na li&#347;cie odtwarzania.
+    </p></dd><dt><span class="term"><span class="bold"><b>evStop</b></span></span></dt><dd><p>
+Zatrzymaj odtwarzanie.
+    </p></dd></dl></div><div class="variablelist"><p><b>Przewijanie:</b></p><dl><dt><span class="term"><span class="bold"><b>evBackward10sec</b></span></span></dt><dd><p>
+Przewi&#324; do ty&#322;u o 10 sekund.
+    </p></dd><dt><span class="term"><span class="bold"><b>evBackward1min</b></span></span></dt><dd><p>
+Przewi&#324; do ty&#322;u o 1 minut&#281;.
+    </p></dd><dt><span class="term"><span class="bold"><b>evBackward10min</b></span></span></dt><dd><p>
+Przewi&#324; do ty&#322;u o 10 minut.
+    </p></dd><dt><span class="term"><span class="bold"><b>evForward10sec</b></span></span></dt><dd><p>
+Przewi&#324; do przodu o 10 sekund.
+    </p></dd><dt><span class="term"><span class="bold"><b>evForward1min</b></span></span></dt><dd><p>
+Przewi&#324; do przodu o 1 minut&#281;.
+    </p></dd><dt><span class="term"><span class="bold"><b>evForward10min</b></span></span></dt><dd><p>
+Przewi&#324; do przodu o 10 minut..
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetMoviePosition</b></span></span></dt><dd><p>
+Przewi&#324; do pozycji (mo&#380;e by&#263; wykorzystane przez suwak;
+u&#380;yte s&#261; wzgl&#281;dne warto&#347;ci (0-100%) suwaka).
+    </p></dd></dl></div><div class="variablelist"><p><b>Kontrola video:</b></p><dl><dt><span class="term"><span class="bold"><b>evHalfSize</b></span></span></dt><dd><p>
+Ustawia okno filmu na po&#322;ow&#281; rozmiaru.
+    </p></dd><dt><span class="term"><span class="bold"><b>evDoubleSize</b></span></span></dt><dd><p>
+Ustaw podwójny rozmiar okna z filmem.
+    </p></dd><dt><span class="term"><span class="bold"><b>evFullScreen</b></span></span></dt><dd><p>
+W&#322;&#261;cz/wy&#322;&#261;cz tryb pe&#322;noekranowy.
+    </p></dd><dt><span class="term"><span class="bold"><b>evNormalSize</b></span></span></dt><dd><p>
+Ustaw typowy rozmiar okna z filmem.
+    </p></dd></dl></div><div class="variablelist"><p><b>Kontrola d&#378;wi&#281;ku:</b></p><dl><dt><span class="term"><span class="bold"><b>evDecAudioBufDelay</b></span></span></dt><dd><p>
+Zmniejsz opó&#378;nienie bufora d&#378;wi&#281;ku.
+    </p></dd><dt><span class="term"><span class="bold"><b>evDecBalance</b></span></span></dt><dd><p>
+Zmniejsz balans.
+    </p></dd><dt><span class="term"><span class="bold"><b>evDecVolume</b></span></span></dt><dd><p>
+Zmniejsz g&#322;o&#347;no&#347;&#263;
+    </p></dd><dt><span class="term"><span class="bold"><b>evIncAudioBufDelay</b></span></span></dt><dd><p>
+Zwi&#281;ksz opó&#378;nienie bufora d&#378;wi&#281;ku.
+    </p></dd><dt><span class="term"><span class="bold"><b>evIncBalance</b></span></span></dt><dd><p>
+Zwi&#281;ksz balans.
+    </p></dd><dt><span class="term"><span class="bold"><b>evIncVolume</b></span></span></dt><dd><p>
+Zwi&#281;ksz g&#322;o&#347;no&#347;&#263;.
+    </p></dd><dt><span class="term"><span class="bold"><b>evMute</b></span></span></dt><dd><p>
+Wycisz/przywró&#263; d&#378;wi&#281;k.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetBalance</b></span></span></dt><dd><p>
+Ustawi balans (mo&#380;e by&#263; u&#380;ywane przez suwak;
+u&#380;ywana jest warto&#347;&#263; wzgl&#281;dna (0-100%)).
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetVolume</b></span></span></dt><dd><p>
+Ustaw g&#322;o&#347;no&#347;&#263; (mo&#380;e by&#263; u&#380;ywane przez suwak;
+u&#380;ywana jest warto&#347;&#263; wzgl&#281;dna (0-100%)).
+    </p></dd></dl></div><div class="variablelist"><p><b>Ró&#380;ne:</b></p><dl><dt><span class="term"><span class="bold"><b>evAbout</b></span></span></dt><dd><p>
+Otwórz okno "o programie".
+    </p></dd><dt><span class="term"><span class="bold"><b>evDropSubtitle</b></span></span></dt><dd><p>
+Wy&#322;&#261;cz aktualnie u&#380;ywane napisy.
+    </p></dd><dt><span class="term"><span class="bold"><b>evEqualizer</b></span></span></dt><dd><p>
+W&#322;&#261;cz/wy&#322;&#261;cz korektor.
+    </p></dd><dt><span class="term"><span class="bold"><b>evExit</b></span></span></dt><dd><p>
+Wy&#322;&#261;cz program.
+    </p></dd><dt><span class="term"><span class="bold"><b>evIconify</b></span></span></dt><dd><p>
+Minimalizuj okno.
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoad</b></span></span></dt><dd><p>
+Wczytaj plik (poprzez otwarcie okna przegl&#261;darki plików, gdzie mo&#380;esz wybra&#263;
+plik).
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoadPlay</b></span></span></dt><dd><p>
+Tto samo co <tt>evLoad</tt>, ale zacznij automatycznie odtwarza&#263;
+zaraz po wyborze pliku.
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoadSubtitle</b></span></span></dt><dd><p>
+Wczytaj plik z napisami (z przegl&#261;darki plików).
+    </p></dd><dt><span class="term"><span class="bold"><b>evLoadAudioFile</b></span></span></dt><dd><p>
+Wczytaj plik d&#378;wi&#281;kowy (z przegl&#261;darki plików).
+    </p></dd><dt><span class="term"><span class="bold"><b>evNone</b></span></span></dt><dd><p>
+Sygna&#322; pusty - nic nie robi (mo&#380;e za wyj&#261;tkiem wersji z CVS:-)).
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlaylist</b></span></span></dt><dd><p>
+Otwórz/zamknij okno listy odtwarzania.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlayDVD</b></span></span></dt><dd><p>
+Spróbuj odczyta&#263; p&#322;yt&#281; ze wskazanego czytnika DVD.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPlayVCD</b></span></span></dt><dd><p>
+Spróbuj odczyta&#263; p&#322;yt&#281; ze wskazanego czytnika CD.
+    </p></dd><dt><span class="term"><span class="bold"><b>evPreferences</b></span></span></dt><dd><p>
+Otwórz okno z ustawieniami.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetAspect</b></span></span></dt><dd><p>
+Ustaw proporcje obrazu.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSetURL</b></span></span></dt><dd><p>
+Wy&#347;wietl okienko dialogowe URL.
+    </p></dd><dt><span class="term"><span class="bold"><b>evSkinBrowser</b></span></span></dt><dd><p>
+Otwórz okno przegl&#261;darki skórek.
+    </p></dd></dl></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-fonts.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="users-vs-dev.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">D.3. Czcionki </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> Dodatek E. Deweloperzy wyrywaj&#261; sobie w&#322;osy</td></tr></table></div></body></html>

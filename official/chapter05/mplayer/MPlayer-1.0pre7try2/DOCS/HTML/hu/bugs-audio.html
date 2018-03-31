@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>C.2. Különböz&#337; A-V szinkron és egyéb audió problémán</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="bugs.html" title="C. függelék - Ismert hibák"><link rel="previous" href="bugs-special.html" title="C.1. Speciális rendszer/CPU-specifikus hibák/problémák"><link rel="next" href="skin.html" title="D. függelék - MPlayer skin format"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">C.2. Különböz&#337; A-V szinkron és egyéb audió problémán</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="bugs-special.html">El&#337;z&#337;</a> </td><th width="60%" align="center">C. függelék - Ismert hibák</th><td width="20%" align="right"> <a accesskey="n" href="skin.html">Következ&#337;</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="bugs-audio"></a>C.2. Különböz&#337; A-V szinkron és egyéb audió problémán</h2></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-delay-all"></a>C.2.1. Általánosan el&#337;forduló audió késés vagy szaggatott hang (kilép az összes, vagy legalábbis sok fájlnál)</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+Leggyakrabban: hibás audió vezérl&#337;! - próbálj meg más vezérl&#337;t használni, nézd meg az ALSA 0.9-et
+OSS emulációval a <tt class="option">-ao oss</tt> kapcsolóval, próbáld ki a <tt class="option">-ao sdl</tt>-t is,
+néha segít. Ha a fájl lejátszása jó a <tt class="option">-nosound</tt> kapcsolóval, akkor biztos lehetsz
+benne, hogy a hangkártya (vezérl&#337;) a hibás.
+</p></li></ul></div><div class="itemizedlist"><ul type="disc"><li><p>audió buffer problémák (a buffer méretét rosszul detektálja)</p><p>Tüneti kezelés: az <span class="application">MPlayer</span> <tt class="option">-abs</tt> kapcsolója</p></li></ul></div><div class="itemizedlist"><ul type="disc"><li><p>
+mintaráta problémák - talán a kártyád nem támogatja a fájlban használt mintarátát -
+próbáld ki a resampling sz&#369;r&#337;t (<tt class="option">-af resample=...</tt>)
+</p></li></ul></div><div class="itemizedlist"><ul type="disc"><li><p>lassú gép (CPU vagy VGA)</p><p>próbáld ki a <tt class="option">-vo null</tt> kapcsolót, ha úgy jól m&#369;ködik, akkor lassú
+a VGA kártyád/vezérl&#337;d</p><p>Tüneti kezelés: vegyél egy gyorsabb kártyát vagy olvasd el a tuningolási dokumentációt</p><p>Megpróbálhatod még a <tt class="option">-framedrop</tt>-ot is</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-delay-specific"></a>C.2.2. Audió késés/szinkronizáció elvesztése egy vagy néhány fájl esetén</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>hibás fájl</p><p>
+Tüneti kezelés:
+  </p><div class="itemizedlist"><ul type="round"><li><p><tt class="option">-ni</tt> vagy <tt class="option">-nobps</tt> kapcsoló (a
+    nem-átlapolt vagy hibás fájlokhoz)</p><p>and/or</p></li><li><p><tt class="option">-mc 0</tt>(szükséges a rosszul átlapolt VBS audiós
+    fájlokhoz)</p><p>és/vagy</p></li><li><p><tt class="option">-delay</tt> vagy a <span class="keycap"><b>+</b></span>/<span class="keycap"><b>-</b></span>
+    gombok futás közbeni beállításhoz</p></li></ul></div><p>
+Ha egyik sem segít, légy szíves töltsd fel a fájlt, és megnézzük (és javítjuk).
+</p></li><li><p>a hangkártyád nem támogatja a 48kHz-es lejátszást</p><p>Tüneti kezelés: vegyél egy jobb hangkártyát... vagy próbáld meg csökkenteni az
+fps-t 10%-kal (<tt class="option">-fps 27</tt> kapcsoló egy 30fps-es filmnél) vagy használd a
+resample sz&#369;r&#337;t</p></li><li><p>lassú gép (ha az A-V nem 0 körüli és a státusz sorban lév&#337; utolsó szám
+emelkedik)</p><p>Tüneti kezelés: <tt class="option">-framedrop</tt></p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-nosound"></a>C.2.3. Egyáltalán nincs hang</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>a fájlod nem támogatott audió codec-et használ</p><p>olvasd el a dokumentációt és segíts a támogatás elkészítésében</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-nopicture"></a>C.2.4. Egyáltalán nincs kép (csak üres szürke/zöld ablak)</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>a fájlod egy nem támogatott videó codec-et használ</p><p>olvasd el a dokumentációt és segíts nekünk a támogatás elkészítésében</p></li><li><p>
+az automatikusan kiválasztott codec nem tudja dekódolni a fájlt, próbálj meg másik
+codec-et kiválasztani a <tt class="option">-vc</tt> vagy <tt class="option">-vfm</tt> kapcsolókkal
+</p></li><li><p>
+DivX 3.x fájlt akarsz lejátszani az OpenDivX dekódolóval vagy az XviD-del
+(<tt class="option">-vc odivx</tt>) - telepítsd fel a DivX4Linux-ot és fordítsd újra a lejátszót
+</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugs-video"></a>C.2.5. Videó-kimeneti problémák</h3></div></div><p>
+Els&#337; megjegyzés: a <tt class="option">-fs -vm</tt> és <tt class="option">-zoom</tt> kapcsolók
+csak ajánlások, (még) nem támogatja &#337;ket minden vezérl&#337;. Tehát az nem hiba, ha
+ezek nem m&#369;ködnek. Csak egy pár vezérl&#337; támogatja a scaling-et/nagyítást, ne várd
+ezt el az x11-t&#337;l vagy a dga-tól.
+</p><p><b>OSD/felirat vibrálás. </b>
+<div class="itemizedlist"><ul type="disc"><li><p>x11 vezérl&#337;: bocs, ez jelenleg nem javítható</p></li><li><p>xv vezérl&#337;: használd a <tt class="option">-double</tt> kapcsolót</p></li></ul></div>
+</p><p><b>Zöld kép mga_vid használatakor (<tt class="option">-vo mga</tt> / <tt class="option">-vo xmga</tt>). </b>
+<div class="itemizedlist"><ul type="disc"><li><p>az mga_vid rosszul detektálja a kártyád RAM-jának méretét, töltsd be újra
+a <tt class="option">mga_ram_size</tt> kapcsolóval
+</p></li></ul></div>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="bugs-special.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="bugs.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="skin.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">C.1. Speciális rendszer/CPU-specifikus hibák/problémák </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> D. függelék - MPlayer skin format</td></tr></table></div></body></html>

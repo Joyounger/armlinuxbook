@@ -1,0 +1,51 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.10. Dowolne inter/intra matryce</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem"><link rel="previous" href="aspect.html" title="7.9. Utrzymywanie proporcji obrazu (aspect ratio)"><link rel="next" href="menc-feat-dvd-mpeg4.html" title='7.11. Rippowanie DVD do wysokiej jako&#347;ci pliku MPEG-4 ("DivX")'></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.10. Dowolne inter/intra matryce</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="aspect.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 7. Kodowanie z MEncoderem</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-dvd-mpeg4.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="custommatrices"></a>7.10. Dowolne inter/intra matryce</h2></div></div><p>
+Ta cecha <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a> pozwala ustawi&#263; dowolne
+inter (I-ramki/ramki kluczowe) i intra (P-ramki/predicted
+frames) matryce. Funkcja ta jest obs&#322;ugiwana przez wiele kodeków:
+<tt>mpeg1video</tt> i <tt>mpeg2video</tt>
+zg&#322;aszane s&#261; jako dzia&#322;aj&#261;ce.
+</p><p>
+Typowy sposób u&#380;ycia tej opcji to ustawienie matrycy na specyfikacje preferowane przez
+<a href="http://www.kvcd.net/" target="_top">KVCD</a>.
+</p><p>
+<span class="bold"><b>Matryca Kwantyzacji KVCD "Notch":</b></span>
+</p><p>
+Intra:
+<pre class="screen">
+ 8  9 12 22 26 27 29 34
+ 9 10 14 26 27 29 34 37
+12 14 18 27 29 34 37 38
+22 26 27 31 36 37 38 40
+26 27 29 36 39 38 40 48
+27 29 34 37 38 40 48 58
+29 34 37 38 40 48 58 69
+34 37 38 40 48 58 69 79
+</pre>
+
+Inter:
+<pre class="screen">
+16 18 20 22 24 26 28 30
+18 20 22 24 26 28 30 32
+20 22 24 26 28 30 32 34
+22 24 26 30 32 32 34 36
+24 26 28 32 34 34 36 38
+26 28 30 32 34 36 38 40
+28 30 32 34 36 38 42 42
+30 32 34 36 38 40 42 44
+</pre>
+</p><p>
+Sposób u&#380;ycia:
+<pre class="screen">
+$ mencoder <i><tt>wejscie.avi</tt></i> -o <i><tt>wyjscie.avi</tt></i> -oac copy -ovc lavc -lavcopts inter_matrix=...:intra_matrix=...
+</pre>
+</p><p>
+<pre class="screen">
+$ mencoder <i><tt>wejscie.avi</tt></i> -ovc lavc -lavcopts
+vcodec=mpeg2video:intra_matrix=8,9,12,22,26,27,29,34,9,10,14,26,27,29,34,37,
+12,14,18,27,29,34,37,38,22,26,27,31,36,37,38,40,26,27,29,36,39,38,40,48,27,
+29,34,37,38,40,48,58,29,34,37,38,40,48,58,69,34,37,38,40,48,58,69,79
+:inter_matrix=16,18,20,22,24,26,28,30,18,20,22,24,26,28,30,32,20,22,24,26,
+28,30,32,34,22,24,26,30,32,32,34,36,24,26,28,32,34,34,36,38,26,28,30,32,34,
+36,38,40,28,30,32,34,36,38,42,42,30,32,34,36,38,40,42,44 -oac copy -o svcd.mpg
+</pre>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="aspect.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-dvd-mpeg4.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">7.9. Utrzymywanie proporcji obrazu (aspect ratio) </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 7.11. Rippowanie DVD do wysokiej jako&#347;ci pliku MPEG-4 ("DivX")</td></tr></table></div></body></html>

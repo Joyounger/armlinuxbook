@@ -1,0 +1,23 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.1. Encodage MPEG-4 ("DivX") 2 passes</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="mencoder.html" title="Chapitre 7. Encodage avec MEncoder"><link rel="previous" href="mencoder.html" title="Chapitre 7. Encodage avec MEncoder"><link rel="next" href="menc-feat-mpeg.html" title="7.2. Encodage au format MPEG"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.1. Encodage MPEG-4 ("DivX") 2 passes</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="mencoder.html">Précédent</a> </td><th width="60%" align="center">Chapitre 7. Encodage avec MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-mpeg.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-divx4"></a>7.1. Encodage MPEG-4 ("DivX") 2 passes</h2></div></div><p>
+le nom vient du fait que cette méthode encode le fichier <span class="emphasis"><i>deux fois</i></span>.
+Le premier encodage (du mode deux passes) créé quelques fichiers temporaires (<tt class="filename">*.log</tt>)
+avec une taille de quelques méga-octets, ne les détruisez pas tout de suite (vous pouvez
+effacer l'AVI). Lors de la seconde passe, le fichier de sortie 2-passes est créé, en
+utilisant les données bitrate des fichiers temporaires. Le fichier résultant aura une
+image de bien meilleure qualité. Si c'est la première fois que vous entendez parler de
+ça, vous devriez consulter les guides disponibles sur le Net.
+</p><div class="example"><p><b>Exemple 7.1. copie de la piste audio</b></p><p>
+Encodage 2-passes d'un DVD en AVI MPEG-4 ("DivX") pendant la copie de
+la piste audio.
+<pre class="screen">
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=1 -oac copy -o <i><tt>film.avi</tt></i>
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=2 -oac copy -o <i><tt>film.avi</tt></i>
+</pre>
+</p></div><div class="example"><p><b>Exemple 7.2. encodage de la piste audio</b></p><p>
+Encodage 2-passes d'un DVD en AVI MPEG-4 ("DivX") pendant la conversion
+de la piste audio en MP3.
+<pre class="screen">
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=1 -oac mp3lame -lameopts vbr=3 -o <i><tt>film.avi</tt></i>
+mencoder dvd://2 -ovc lavc -lavcopts vcodec=mpeg4:vpass=2 -oac mp3lame -lameopts vbr=3 -o <i><tt>film.avi</tt></i>
+</pre>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="mencoder.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-mpeg.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">Chapitre 7. Encodage avec MEncoder </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 7.2. Encodage au format MPEG</td></tr></table></div></body></html>

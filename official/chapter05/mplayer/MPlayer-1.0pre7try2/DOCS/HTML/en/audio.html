@@ -1,0 +1,32 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.4. Audio output devices</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="features.html" title="Chapter 2. Features"><link rel="previous" href="video.html" title="2.3. Video output devices"><link rel="next" href="tv-input.html" title="2.5. TV input"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.4. Audio output devices</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="video.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Features</th><td width="20%" align="right"> <a accesskey="n" href="tv-input.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="audio"></a>2.4. Audio output devices</h2></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="sync"></a>2.4.1. Audio/Video synchronization</h3></div></div><p>
+Linux sound card drivers have compatibility problems. This is because
+<span class="application">MPlayer</span> relies on an in-built feature of
+<span class="emphasis"><i>properly</i></span> coded sound drivers that enable them to
+maintain correct audio/video sync. Regrettably, some driver authors
+don't take the care to code this feature since it is not needed for
+playing MP3s or sound effects.
+</p><p>
+Other media players like <a href="http://avifile.sf.net" target="_top">aviplay</a>
+or <a href="http://xinehq.de" target="_top">xine</a> possibly work
+out-of-the-box with these drivers because they use "simple" methods
+with internal timing. Measuring showed that their methods are not as
+efficient as <span class="application">MPlayer</span>'s.
+</p><p>
+Using <span class="application">MPlayer</span> with a properly written audio
+driver will never result in A/V desyncs related to the audio, except
+only with very badly created files (check the man page for workarounds).
+</p><p>
+If you happen to have a bad audio driver, try the <tt class="option">-autosync</tt>
+option, it should sort out your problems. See the man page for detailed
+information.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="troubleshooting"></a>2.4.2. Troubleshooting</h3></div></div><p>Some notes:</p><p>
+  If you have ALSA version 0.5, then you almost always have to use
+  <tt class="option">-ao alsa5</tt>, since ALSA 0.5 has buggy OSS emulation code,
+  and will <span class="bold"><b>crash <span class="application">MPlayer</span></b></span>
+  with a message like this:
+  <pre class="screen">
+DEMUXER: Too many (945 in 8390980 bytes) video packets in the buffer!</pre>
+</p><p>
+  If the sound clicks when playing from CD-ROM, turn on IRQ unmasking as
+  described in the <a href="drives.html" title="5.1. CD/DVD drives">CD-ROM</a> section.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="video.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="features.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="tv-input.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.3. Video output devices </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.5. TV input</td></tr></table></div></body></html>

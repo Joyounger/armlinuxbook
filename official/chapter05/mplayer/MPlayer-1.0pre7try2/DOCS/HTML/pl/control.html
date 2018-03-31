@@ -1,0 +1,88 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.2. Sterowanie</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="usage.html" title="Rozdzia&#322; 3. Sposób u&#380;ycia"><link rel="previous" href="commandline.html" title="3.1. Wiersz polece&#324;"><link rel="next" href="streaming.html" title="3.3. Strumieniowanie z sieci i potoków"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.2. Sterowanie</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="commandline.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 3. Sposób u&#380;ycia</th><td width="20%" align="right"> <a accesskey="n" href="streaming.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="control"></a>3.2. Sterowanie</h2></div></div><p>
+<span class="application">MPlayer</span> posiada w pe&#322;ni konfigurowaln&#261;, opart&#261; na
+komendach warstw&#281; sterowania, która pozwala na sterowanie
+<span class="application">MPlayera</span> za pomoc&#261; klawiatury, myszki, joysticka lub
+zdalnego sterowania (za pomoc&#261; LIRC). Zajrzyj do strony man w celu przejrzenia
+pe&#322;nej listy skrótów klawiszowych.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="ctrl-cfg"></a>3.2.1. Konfiguracja sterowania</h3></div></div><p>
+<span class="application">MPlayer</span> pozwala Ci przypisa&#263; dowolny klawisz/przycisk
+do dowolnego polecenia za pomoc&#261; prostego pliku konfiguracyjnego. Sk&#322;adnia tego
+pliku to nazwa klawisza, po której znajduje si&#281; komenda. Domy&#347;lny plik
+konfiguracyjny znajduje si&#281; w <tt class="filename">$HOME/.mplayer/input.conf</tt>, ale
+mo&#380;na poda&#263; tak&#380;e inny za pomoc&#261; opcji
+<tt class="option">-input <i><tt>plik</tt></i></tt>
+(&#347;cie&#380;ki wzgl&#281;dne s&#261; wzgl&#281;dem <tt class="filename">$HOME/.mplayer</tt>).
+</p><p>
+Mo&#380;esz uzyska&#263; pe&#322;n&#261; list&#281; uruchamiaj&#261;c
+<b>mplayer -input keylist</b>.
+i pe&#322;n&#261; list&#281; dost&#281;pnych komend za pomoc&#261;
+<b>mplayer -input cmdlist</b>.
+</p><div class="example"><p><b>Przyk&#322;ad 3.1. Przyk&#322;adowy plik konfiguracji sterowania</b></p><pre class="programlisting">
+##
+## Plik konfiguracji sterowania MPlayera
+##
+
+RIGHT seek +10
+LEFT seek -10
+- audio_delay 0.100
++ audio_delay -0.100
+q quit
+&gt; pt_step 1
+&lt; pt_step -1
+ENTER pt_step 1 1</pre></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="lirc"></a>3.2.2. Sterowanie poprzez LIRC</h3></div></div><p>
+Linux Infrared Remote Control - u&#380;yj &#322;atwego do w&#322;asnor&#281;cznego zbudowania
+odbiornika podczerwieni i (prawie) dowolnego pilota zdalnego sterowania i
+steruj nim swoim Linuksem!
+Wi&#281;cej informacji na <a href="http://www.lirc.org" target="_top">stronie domowej LIRC</a>.
+</p><p>
+Je&#347;li zainstalowa&#322;e&#347; LIRC, <tt class="filename">configure</tt> automatycznie go
+wykryje. Je&#347;li wszystko pójdzie dobrze, <span class="application">MPlayer</span>
+wypisze "<tt>Setting up LIRC support...</tt>" przy
+starcie. Je&#347;li wyst&#261;pi b&#322;&#261;d, powiadomi Ci&#281; o tym. Je&#347;li nic nie powie Ci na
+temat LIRC, to znaczy, &#380;e jego obs&#322;uga nie zosta&#322;a wkompilowana. Proste :-)
+</p><p>
+Nazwa aplikacji dla <span class="application">MPlayer</span> to - niespodzianka -
+<tt class="filename">mplayer</tt>. Mo&#380;esz u&#380;ywa&#263; dowolnych komend
+<span class="application">MPlayera</span>, a nawet poda&#263; wi&#281;cej ni&#380; jedn&#261;
+komend&#281; na raz oddzielaj&#261;c je za pomoc&#261; <tt>\n</tt>.
+
+Nie zapomnij o w&#322;&#261;czeniu flagi repeat w <tt class="filename">.lircrc</tt> je&#347;li
+ma to sens (skoki, g&#322;o&#347;no&#347;&#263; itp). To jest fragment przyk&#322;adowego
+<tt class="filename">.lircrc</tt>:
+</p><pre class="programlisting">
+begin
+     button = VOLUME_PLUS
+     prog = mplayer
+     config = volume 1
+     repeat = 1
+end
+
+begin
+    button = VOLUME_MINUS
+    prog = mplayer
+    config = volume -1
+    repeat = 1
+end
+
+begin
+    button = CD_PLAY
+    prog = mplayer
+    config = pause
+end
+
+begin
+    button = CD_STOP
+    prog = mplayer
+    config = seek 0 1\npause
+end</pre><p>
+Je&#347;li nie lubisz standardowej lokalizacji pliku lirc-config
+(<tt class="filename">~/.lircrc</tt>), u&#380;yj opcji <tt class="option">-lircconf
+<i><tt>nazwa_pliku</tt></i></tt> by poda&#263; inny plik.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="slave-mode"></a>3.2.3. Tryb s&#322;ugi</h3></div></div><p>
+Tryb s&#322;ugi pozwala Ci na utworzenie prostej nak&#322;adki na
+<span class="application">MPlayera</span>. Po uruchomieniu z opcj&#261;
+<tt class="option">-slave</tt> <span class="application">MPlayer</span> b&#281;dzie czyta&#322;
+komendy oddzielone znakami nowego wiersza (\n) ze standardowego wej&#347;cia.
+Komendy zosta&#322;y udokumentowane w pliku
+<a href="../../tech/slave.txt" target="_top">slave.txt</a>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="commandline.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="streaming.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">3.1. Wiersz polece&#324; </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 3.3. Strumieniowanie z sieci i potoków</td></tr></table></div></body></html>

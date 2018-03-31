@@ -1,0 +1,290 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.11. Rippowanie DVD do wysokiej jako&#347;ci pliku MPEG-4 ("DivX")</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem"><link rel="previous" href="custommatrices.html" title="7.10. Dowolne inter/intra matryce"><link rel="next" href="menc-feat-telecine.html" title="7.12. Jak radzi&#263; sobie telecine i przeplotem w NTSC DVD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.11. Rippowanie DVD do wysokiej jako&#347;ci pliku MPEG-4 ("DivX")</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="custommatrices.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 7. Kodowanie z MEncoderem</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-telecine.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-dvd-mpeg4"></a>7.11. Rippowanie DVD do wysokiej jako&#347;ci pliku MPEG-4 ("DivX")</h2></div></div><p>
+  Jednym z najcz&#281;sciej zadawanych pyta&#324; jest "Jak zripowa&#263; DVD do najwy&#380;szej osi&#261;galnej
+  jako&#347;ci? Nie interesuje mnie rozmiar pliku, chc&#281; tylko najwy&#380;sz&#261; jako&#347;&#263;".
+</p><p>
+    To jest co najmniej &#378;le sformu&#322;owane. W ko&#324;cu je&#380;eli nie obchodzi Ci&#281; rozmiar
+    pliku, to czemu nie skopiowa&#263; po prostu ca&#322;ego strumienia video MPEG-2 z DVD?
+    Pewnie, plik b&#281;dzie mia&#322; 5GB, jak chcesz to nie pakuj si&#281; w to, ale je&#380;eli chcesz
+    najwy&#380;szej jako&#347;ci i nie martwi Ci&#281; rozmiar pliku, to jest na pewno najlepsze 
+    rozwi&#261;zanie.
+</p><p>
+  Tak na prawd&#281;, powodem dla którego chcesz przekodowa&#263; DVD do pliku MPEG-4
+  jest w&#322;a&#347;nie to, &#380;e <span class="bold"><b>zale&#380;y</b></span> Ci na rozmiarze pliku.
+</p><p>
+    Trudno jest poda&#263; przepis krok-po-kroku jak stworzy&#263; wysokiej jako&#347;ci 
+    ripa DVD. Trzeba uwzgl&#281;dni&#263; kilka czynników, musisz je zrozumie&#263; &#380;eby
+    by&#263; zadowolonym z rezultatów jakie osi&#261;gniesz. Poni&#380;ej zbadamy kilka
+    z tych czynników i spojrzymy na przyk&#322;ady. Zak&#322;adamy, &#380;e korzystasz z 
+    <tt>libavcodec</tt> do kodowania
+    video, teorii jednak mo&#380;na u&#380;ywa&#263; przy innych kodekach.
+</p><p>
+    G&#322;ównym za&#322;o&#380;eniem tego przewodnika jest to, i&#380; nie masz  konkretnego
+    docelowego rozmiaru pliku i nie masz problemu w oddaniu kilku bitów 
+    w zamian za popraw&#281; jako&#347;ci. Wiele informacji tutaj zawartych jest przydatnych
+    w ka&#380;dej sytuacji, ale niektóre mog&#261; dzia&#322;a&#263; na Twoj&#261; niekorzy&#347;&#263; je&#380;eli
+    masz obrany cel w postaci wielko&#347;ci pliku wynikowego, na przyk&#322;ad zmieszczeniu
+    video na CD.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-dvd-mpeg4-2pass"></a>7.11.1. Sta&#322;y Kwantyzator vs. dwu-przebiegowe</h3></div></div><p>
+  Istniej&#261; trzy podej&#347;cia do kodowania video: sta&#322;y bitrate (CBR), 
+  sta&#322;y kwantyzator i kodowanie dwu-przebiegowe (ABR, u&#347;redniony bitrate).
+</p><p>
+    W ka&#380;dym z tych trybów, <tt>libavcodec</tt>
+    rozbija ramke na makroblok 16x16 pikseli i aplikuje kwantyzator do ka&#380;dego makrobloku
+    Im ni&#380;szy kwantyzator, tym lepsza jako&#347;&#263; i wy&#380;szy bitrate.
+    Metoda jak&#261; u&#380;ywa <tt>libavcodec</tt>
+    do zdeterminowania jaki kwantyzator u&#380;y&#263; do danego makrobloku zale&#380;y od wielu
+    czynników i jest &#322;atwo zmienialna. (Jest to bardzo ogólny opis prawdziwego procesu,
+    ale warto rozumie&#263; podstawowy koncept.)
+</p><p>
+    Kiedy ustawisz sta&#322;y bitrate, <tt>libavcodec</tt> 
+    zakoduje video, niszcz&#261;c najmniejsz&#261; ilo&#347;&#263; detali jaka jest potrzebna &#380;eby pozosta&#263;
+    poni&#380;ej wyznaczonej warto&#347;ci bitrate. Je&#380;eli naprawd&#281;  nie zale&#380;y Ci na rozmiarze pliku
+    móg&#322;by&#347; u&#380;y&#263; CBR i ustawi&#263; bitrate na niesko&#324;czono&#347;&#263;. (W praktyce oznacza to liczb&#281;
+    tak wysok&#261; aby nie stawia&#322;a &#380;adnego limitu, np. 10000Kbit.). Bez prawdziwych ogranicze&#324;
+    <tt>libavcodec</tt> u&#380;yje dla ka&#380;dego makrobloku 
+    mo&#380;liwie najni&#380;szego kwantyzatora (zapisanego w zmiennej <tt class="option">vqmin</tt>,
+    która domy&#347;lnie jest ustawiona na 2). Gdy tylko ustawisz ni&#380;szy bitrate 
+    <tt>libavcodec</tt> b&#281;dzie zmuszony do u&#380;ycia
+    wy&#380;szego kwantyzatora, a wi&#281;c i pogorszenia jako&#347;ci video. Ogólnie, je&#380;eli zale&#380;y Ci na jako&#347;ci
+    wogóle nie powiniene&#347; u&#380;ywa&#263; CBR.
+</p><p>
+   Ze sta&#322;ym kwantyzatorem, <tt>libavcodec</tt>
+   u&#380;ywa kwantyzatora ustawionego przez opcj&#281; <tt class="option">vqscale</tt> 
+   na ka&#380;dym makrobloku. Je&#380;eli chcesz najwy&#380;szej mo&#380;liwej jako&#347;ci, igonruj&#261;c
+   bitrate, mo&#380;esz u&#380;y&#263; <tt class="option">vqscale=2</tt>. B&#281;dzie to mia&#322;o taki sam efekt
+   jak ustawienie <tt class="option">vbitrate</tt>=niesko&#324;czono&#347;&#263; i domy&#347;lnie 
+   <tt class="option">vqmin</tt> na 2 przy CBR.
+</p><p>
+     Problemem przy sta&#322;ym kwantyzowaniu jest to, i&#380; u&#380;ywa on danego
+     kwantyzatora czy makroblok potrzebuje go czy nie. To znaczy
+     &#380;e mo&#380;na by&#322;oby u&#380;y&#263; wy&#380;szego kwantyzatora bez starty jako&#347;ci obrazu.
+     Po co traci&#263; miejsce na niepotrzebnie niski kwantyzator? Twój procesor
+     ma tyle cykli ile jest czasu, ale na twardym dysku jest ograniczona ilos&#263; miejsca.
+</p><p>
+  W dwu-przebiegowym kodowaniu, pierwszy przebieg zripuje film ze sta&#322;ym
+  bitratem (CBR), ale stworzy plik loguj&#261;cy w&#322;a&#347;ciwo&#347;ci ka&#380;dej ramki. Te
+  informacje s&#261; u&#380;ywane podczas drugiego przebiegu i na ich podstawie
+  dobierany jest odpowiedni kwantyzator. Podczas szybkiej akcji lub 
+  scen z ma&#322;&#261; ilo&#347;ci&#261; detali, b&#281;dzie u&#380;yty wysoki kwantyzator, a podczas
+  wolnego ruchu lub scen z wieloma detalami ni&#380;szy.
+</p><p>
+  Je&#380;eli u&#380;ywasz <tt class="option">vqscale=2</tt>, to tracisz miejsce. Je&#380;eli
+  u&#380;ywasz <tt class="option">vqscale=3</tt>, to nie dostaniesz najwy&#380;szej jako&#347;ci.
+  Przypu&#347;&#263;my, &#380;e ripujesz DVD z opcj&#261; <tt class="option">vqscale=3</tt>, a rezultatem
+  jest 1800Kbit. Je&#380;eli zastosujesz dwu-przebiegowe kodowanie z 
+  <tt class="option">vbitrate=1800</tt>, wyj&#347;ciowe video b&#281;dzie mia&#322;o 
+  <span class="bold"><b>wy&#380;sz&#261; jako&#347;&#263;</b></span> dla 
+  <span class="bold"><b>tej samej warto&#347;ci bitrate</b></span>.
+</p><p>
+     Poniewa&#380; jeste&#347; ju&#380; przekonany, &#380;e dwu-przbiegowe kodowanie jest
+     najlepszym rozwi&#261;zaniem, prawdziwym pytaniem jest jakiej u&#380;y&#263;
+     warto&#347;ci bitrate? Nie ma jednoznacznej odpowiedzi. Idealna warto&#347;&#263;
+     jest najlepszym balansem mi&#281;dzy jako&#347;ci&#261; a rozmiarem pliku. 
+     Zmienia si&#281; ona zale&#380;nie od &#378;ród&#322;owego video.
+</p><p>
+     Dobrym punktem startowym dla wysokiej jako&#347;ci ripów jest 2000Kbit
+     plus minus 200Kbit. Przy szybkiej akcji, wielu detalach lub poprostu
+     gdy masz wysokie wymagania, mo&#380;esz zdecydowa&#263; si&#281; na 2400
+     lub 2600. Przy niektórych DVD, mo&#380;esz nie zauwa&#380;y&#263; ró&#380;nicy przy
+     1400KBit. Najlepiej jest troszk&#281; poeksperymentowa&#263; przy ró&#380;nych
+     warto&#347;ciach bitrate.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-dvd-mpeg4-crop"></a>7.11.2. Kadrowanie i Skalowanie</h3></div></div><p>
+    Normalne DVD ma rozdzielczo&#347;&#263; 720x480 dla NTSC i 720x576 dla PAL,
+    ale jest jeszcze flaga mówi&#261;ca czy jest to obraz pe&#322;no ekranowy (4:3), czy
+    panoramiczny (16:9). Wiele (je&#380;eli nie wszystkie) panoramiczne DVD nie s&#261;
+    dok&#322;adnie 16:9, tylko 1.85:1 lub 2.35:1 (kineskop). Oznacza to i&#380; pojawi&#261;
+    si&#281; czarne pasy któr&#281; b&#281;d&#261; musia&#322;y by&#263; wykadrowane.
+</p><p>
+     W tym miejscu pojawia si&#281; <span class="application">MPlayer</span> posiadaj&#261;cy
+     opcj&#281; ustalaj&#261;c&#261; prostok&#261;t kadrowania (<tt class="option">-vf cropdetect</tt>).
+     Poniewa&#380; MPEG-4 u&#380;ywa makrobloków 16x16, b&#281;dziesz chcia&#322; aby ka&#380;dy wymiar
+     obrazu by&#322; wielokrotno&#347;ci&#261; 16, w innym wypadku pogorszy si&#281; jako&#347;&#263; szczególnie
+     przy niskich warto&#347;ciach bitrate. Mo&#380;esz osi&#261;gn&#261;&#263; to zaokr&#261;glaj&#261;c prostok&#261;t kadrowania
+     do najbli&#380;szej wielokrotno&#347;ci 16. Przy kadrowaniu b&#281;dziesz chcia&#322; zwi&#281;kszy&#263; przesuni&#281;cie
+     w osi y o po&#322;ow&#281; ró&#380;nicy mi&#281;dzy star&#261; a now&#261; warto&#347;ci&#261; tak aby obraz brany by&#322;
+     z &#347;rodka ramki. Z powodu sposobu w jaki obraz jest próbkowany na DVD  musi to by&#263;
+     przysta liczba. (Tak naprawd&#281; nigdy nie u&#380;ywaj nieparzystych warto&#347;ci przy kadrowaniu 
+     ani skalowaniu.) Je&#380;eli nie chcesz wyrzuca&#263; kilku pikseli, mo&#380;e wolisz zeskalowa&#263;
+     obraz. Przyjrzyjmy sie skalowaniu w naszym nast&#281;pnym przyk&#322;adzie.
+</p><p>
+     Uwa&#380;aj te&#380; na "mi&#281;kkie" czarne piksele na brzegach. Wykadruj je
+     te&#380;, bo inaczej b&#281;dziesz traci&#322; bity któr&#281; zostan&#261; wykorzystane lepiej 
+     gdzie indziej.
+</p><p>
+  Po wszytskim, dostaniesz najprawdopodobniej video którego piksele
+  nie s&#261; raczej ani 1.85:1 czy  2.35:1, tylko co&#347; w pobli&#380;u. Móg&#322;by&#347; policzy&#263;
+  nowe proporcje obrazu r&#281;cznie, ale <span class="application">MEncoder</span>
+  oferuje opcj&#281; biblioteki <tt>libavcodec</tt>
+  o nazwie <tt class="option">autoaspect</tt> która zrobi to za Ciebie. W &#380;adnym 
+  wypadku nie skaluj pikseli w celu zrobienia z nich kwadratów, chyba &#380;e lubisz
+  traci&#263; miejsce na twardym dysku. Skalowanie powinno odbywa&#263; si&#281; przy 
+  odtwarzaniu, a odtwarzacz u&#380;yje proporcji zapisanych w nag&#322;ówku AVI, aby
+  zdeterminowa&#263; prawid&#322;ow&#261; rozdzielczo&#347;&#263;.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-dvd-mpeg4-quality"></a>7.11.3. Audio</h3></div></div><p>
+     D&#378;wi&#281;k jest o wiele prostszym problemem do rozwi&#261;zania.: zostaw go
+     poprostu takim jakim jest. Nawet strumienie AC3 5.1 s&#261; najwy&#380;ej  
+     448Kbit/s i s&#261; one warte ka&#380;dego bitu. Kusz&#261;ce mo&#380;e wydawa&#263; si&#281;
+     zakodowanie d&#378;wi&#281;ku do wysokiej jako&#347;ci Ogg Vorbis, ale to &#380;e nie
+     posiadasz dzisiaj odbiornika A/V do AC3 nie oznacza &#380;e nie b&#281;dziesz go mia&#322;
+     jutro. Zabezpiecz swoje ripy DVD zostawiaj&#261;c im strumie&#324; AC3.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-dvd-mpeg4-interlacing"></a>7.11.4. Przeplot i Telecine</h3></div></div><p>
+  Prawie wszytskie filmy kr&#281;cone s&#261; z pr&#281;dko&#347;ci&#261; 24 fps. Poniewa&#380; NTSC jest
+  29.97 fps, obraz 24 fps trzeba podda&#263; dzia&#322;aniu kilku procesów aby móg&#322;
+  by&#263; on odtwarzany na szybko&#347;ci NTSC. Proces ten nazywa si&#281; 3:2 pulldown,
+  cz&#281;sto wi&#261;zany z telecine (poniewa&#380; pulldown jest cz&#281;sto stosowany podczas
+  procesu telecine), i naiwnie opisywany jako i&#380; dzia&#322;a on przez zwalnianie filmu do
+  23.976 fps, i powtarzaniu co czwartej ramki.
+</p><p>
+   Video w formacie PAL z DVD, o pr&#281;dko&#347;&#263; 25 fps nie jest poddawane 
+   &#380;adnym specjalnym procesom. (Praktcznie, PAL mo&#380;e zosta&#263; poddany
+   procesowi telcine, nazywanemu 2:2 pulldown, ale w praktyce to nie jest
+   problemem.) Film 24 fps jest poprostu odtwarzany z pr&#281;dko&#347;ci&#261; 25 fps. 
+   W efekcie film leci troch&#281; szybciej ale je&#380;eli nie jeste&#347; kosmit&#261; pewnie nie 
+   zauwa&#380;ysz ró&#380;nicy. Wi&#281;kszo&#347;&#263; DVD w PALu posiada poprawiony d&#378;wi&#281;k,
+   wi&#281;c nawet przy odtwarzaniu z pr&#281;dko&#347;ci&#261; 25 fps b&#281;dzie on brzmia&#322; poprawnie,
+   pomimo tego, i&#380; &#347;cie&#380;ka d&#378;wi&#281;kowa (a wiec i ca&#322;y film) jest odtwarzana
+   4% czasu krócej ni&#380; NTSC DVD.
+</p><p>
+     Poniewa&#380; video w PAL DVD nie zosta&#322;o zmienione, nie musisz martwi&#263;
+     si&#281; o tempo odtwarzania. &#377;ród&#322;o jest 25 fps i Twoj rip b&#281;dzie 25 fps.
+     Jednak&#380;e, je&#380;eli ripujesz NTSC DVD, mo&#380;liwe &#380;e b&#281;dziesz musia&#322; zastosowa&#263;
+     odwrócone telecine.
+</p><p>
+     W filmach nakr&#281;conych w pr&#281;dko&#347;ci 24 fps, video na NTSC DVD jest albo
+     ztelecinowane do 29.97 fps lub progresywne 24 fps i przeznaczone to
+     telecine które ma zosta&#263; wykonane w locie przez odtwarzacz DVD. Z drugiej
+     strony, seriale telewizyjne s&#261; zazwyczaj tylko przeplecione, nie ztelecionowane.
+     Jednak&#380;e nie jest to regu&#322;&#261;: niektóre seriale TV s&#261; przeplecione (jak Buffy 
+     Postrach Wampirów), a niektóre s&#261; mikstur&#261; progresywnego i przeplecionego
+     video (jak Angel, lub 24 godziny).
+</p><p>
+     Szczególnie polecamy do przeczytania sekcje o tym
+     <a href="menc-feat-telecine.html" title="7.12. Jak radzi&#263; sobie telecine i przeplotem w NTSC DVD">Jak sobie radzi&#263; z telecine
+     i przeplotem w DVD w formacie NTSC</a>.
+</p><p>
+     Je&#380;eli, ripujesz tylko filmy, najprawdopodobniej musisz radzi&#263; sobie tylko
+     z obrazem 24 fps progresywnym lub telecine. W takiej sytuacji mo&#380;esz
+     u&#380;y&#263; fitru <tt class="option">pullup</tt> (<tt class="option">-vf pullup,softskip</tt>).
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-dvd-mpeg4-filtering"></a>7.11.5. Filtrowanie</h3></div></div><p>
+    Ogólnie, chcesz filtrowa&#263; jak najmniej aby pozosta&#263; najbli&#380;ej jak si&#281; da
+    do &#378;ród&#322;owego DVD. Kadrowanie jest zazwyczaj niezb&#281;dne (opisane powy&#380;ej),
+    ale nie skaluj obrazu. Skalowanie w dó&#322; jest czasami preferowane zamiast
+    wysokich kwantyzatorów, chcemy unikn&#261;&#263; obu tych rzeczy: pami&#281;taj co
+    ustalili&#347;my na pocz&#261;tkum, &#380;e chcemy wymiena&#263; bity na jako&#347;&#263;.
+</p><p>
+    Równie&#380; nie zmieniaj warto&#347;&#263;i gamma, kontrastu, jasno&#347;ci, itd. To co wygl&#261;da
+    dobrze na Twoim monitorze, mo&#380;e nie wygl&#261;da&#263; dobrze na innych. Te ustawienia
+    powinny by&#263; realizowane tylko przy odtwarzaniu.
+</p><p>
+    Jedn&#261; rzecz&#261; któr&#261; móg&#322;by&#347; chcie&#263; zrobi&#263; jest przepuszczenie obrazu
+    przez lekki odszumiaj&#261;cy filtr, tak jak np. <tt class="option">-vf hqdn3d=2:1:2</tt>.
+    Znów, jest to sprawa lepszego spo&#380;ytkowania miejsca: po co traci&#263; je 
+    na kodowanie szumów je&#380;eli mo&#380;esz doda&#263; je podczas odtwarzania? 
+    Zwi&#281;kszenie parametrów <tt class="option">hqdn3d</tt> zwi&#281;kszy 
+    mo&#380;liwo&#347;ci kompresji, ale je&#380;eli zwi&#281;kszysz parametry za bardzo 
+    ryzykujesz utrat&#281; klarowno&#347;ci obrazu. Sugerowane powy&#380;ej warto&#347;ci  
+    (<tt class="option">2:1:2</tt>) s&#261; do&#347;&#263; zachowawcze; 
+    spróbuj poeksperymentowa&#263; z wy&#380;szmi warto&#347;ciami i samemu porówna&#263; efekty.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-dvd-mpeg4-example"></a>7.11.6. Przyk&#322;ad</h3></div></div><p>
+     Kupi&#322;e&#347; wie&#263; nowiutk&#261; kopi&#281; Harrego Pottera i Komnaty Tajemnic (oczywi&#347;cie wersj&#281;
+     panoramiczn&#261;) i chcesz zripowa&#263; to DVD aby doda&#263; j&#261; do swojego komputerowego
+     kina domowego. Jest to DVD z regionu 1, a wi&#281;c NTSC. Poni&#380;szy przyk&#322;ad b&#281;dzie
+     dzia&#322;a&#322; z fomratem PAL je&#380;eli pomiesz opcj&#281; <tt class="option">-ofps 23.976</tt>
+     (poniewa&#380; wej&#347;ciowa szybko&#347;&#263; jest taka sama jak wyj&#347;ciowa), oczywi&#347;cie
+     paramtery kadrowania b&#281;d&#261; inne.
+</p><p>
+     Po uruchomieniu <tt class="option">mplayer dvd://1</tt>, pod&#261;&#380;amy opisem
+     zawartym w sekcji <a href="menc-feat-telecine.html" title="7.12. Jak radzi&#263; sobie telecine i przeplotem w NTSC DVD">Jak sobie radzi&#263; z telecine
+     i przeplotem w DVD w formacie NTSC</a> i odkrywamy, &#380;e jest to progresywne
+     video 24 fps, co oznacza &#380;e nie musimy u&#380;ywa&#263; filtrów odwróconego telecine,
+     jak <tt class="option">pullup</tt> czy <tt class="option">filmdint</tt>.
+</p><p>
+     Nast&#281;pnie, chcemy zdeterminowa&#263; odpowiedni prostok&#261;t kadrowania,
+     u&#380;ywamy fitru cropdetect:
+     
+     <pre class="screen">mplayer dvd://1 -vf cropdetect</pre>
+     
+     Przewni&#324; do w pe&#322;ni wype&#322;nionej ramki (jasna scena), i zobaczysz
+     wyj&#347;cie <span class="application">MPlayer</span>a na konsoli:
+     
+     <pre class="screen">crop area: X: 0..719  Y: 57..419  (-vf crop=720:362:0:58)</pre>
+     
+     Teraz odtwarzamy film z tym fitrem aby sprawdzi&#263; jego poprawno&#347;&#263;:
+     
+     <pre class="screen">mplayer dvd://1 -vf crop=720:362:0:58</pre>
+     
+     I widzimy &#380;e wygl&#261;da &#347;wietnie. Teraz, upewniamy sie &#380;e wymiary &#347;a wielokrotno&#347;ci&#261;
+     16 . Szeroko&#347;&#263; jest w porz&#261;dku, niestety wysoko&#347;&#263; nie. Poniewa&#380; nie
+     oblali&#347;my matematyki w liceum, wiemy &#380;e najbli&#380;sz&#261; wielokrotno&#347;cia
+     16 mniejsz&#261; ni&#380; 362 jest 352.
+     
+</p><p>
+    Mogliby&#347;my poprostu u&#380;y&#263; <tt class="option">crop=720:352:0:58</tt>, ale
+    &#322;adniej by&#322;oby wzi&#261;&#263; troch&#281; z góry i z do&#322;u aby utrzyma&#263; si&#281; na &#347;rodku. 
+    Zmneijszylismy wysoko&#347;&#263; o 10 pikseli, ale nie chcemy zwi&#281;kszy&#263;
+    przesuni&#281;cia y o 5 pikseli poniewa&#380; jest to liczba nieparzysta i
+    pogorszy&#322;aby jako&#347;&#263;. Zwi&#281;kszymy zatem przesuni&#281;cie na osi y o 4 piksele:
+
+   <pre class="screen">mplayer dvd://1 -vf crop=720:352:0:62</pre>
+
+    Innym powodem dla którego powinni&#347;my obcina&#263; piksele równomiernie z góry 
+    i do&#322;u s&#261; "po&#322;owy czarnych pikseli" które bezwzgl&#281;dnie powinni&#347;my obci&#261;&#263; je&#380;eli istniej&#261;.
+    Pami&#281;taj, je&#380;eli Twoje video jest ztelecinowane, upewnij si&#281; &#380;e filtr <tt class="option">pullup</tt>
+    (lub inny filtr odwróconego telecine który zdecydujesz si&#281; u&#380;y&#263;) pojawia si&#281;
+    w &#322;a&#324;cuchu fitrów przed fitrem kadrowania. Je&#380;eli video posiada przeplot, 
+    usu&#324; go przed kadrowaniem. (Je&#380;eli zdecydujesz si&#281; pozostawi&#263; przeplot, upewnij
+    si&#281; &#380;e wertykalne przesuni&#281;cie kadrowania jest wielokrotno&#347;ci&#261; 4.)
+</p><p>
+    Je&#380;eli naprawd&#281; jeste&#347; przej&#281;ty utrat&#261; tych 10 pikseli, mo&#380;e wolisz
+    przeskalowa&#263; wymiary obrazu do najbli&#380;szej wielkortono&#347;ci 16.
+    &#321;a&#324;cuch fitrów powinen wygl&#261;da&#263; tak:
+
+  <pre class="screen">-vf crop=720:362:0:58,scale=720:352</pre>
+
+   Skalowanie video w dó&#322; oznacza utrat&#281; ma&#322;ej ilo&#347;ci detali, która b&#281;dzie
+   najprawdopodobnie niezauwa&#380;alna. Skalowanie w góre oznacza utrat&#281;
+   jako&#347;ci (chyba &#380;e zwi&#281;kszysz bitrate). Kadrowanie wyrzuca te piksele. Jest
+   to wymiana jak&#261; trzeba rozwa&#380;y&#263; w ka&#380;dym wypadku. Na przyk&#322;&#261;d,
+   je&#380;eli DVD by&#322;o zrobione dla telewizji, mo&#380;esz chcie&#263; unikn&#261;&#263; wertykalnego
+   skalowania, poniewa&#380; zestawienie linii odpowiada temu jak obraz by&#322; 
+   oryginalnie nagrywany.
+</p><p>
+     Przy insepkcji widzimy &#380;e  nasz film ma du&#380;o akcji i szczegó&#322;ów, wybieramy
+     wi&#281;c 2400Kbit na nasze bitrate.
+</p><p>
+     Jeste&#347;my gotowi do dwu-przebiegowego kodowania. Przebieg 1:
+     
+  <pre class="screen">mencoder dvd://1 -ofps 23.976 -oac copy -vf crop=720:352:0:62,hqdn3d=2:1:2 -ovc lavc \
+-o Harry_Potter_2.avi</pre>
+
+     Drugi przebieg jest taki sam, podajemy tylko opcj&#281; <tt class="option">vpass=2</tt>:
+
+  <pre class="screen">mencoder dvd://1 -ofps 23.976 -oac copy -vf crop=720:352:0:62,hqdn3d=2:1:2 -ovc lavc \
+-o Harry_Potter_2.avi</pre>
+</p><p>
+     Opcje <tt class="option">v4mv:mbd=2:trell</tt> ogromnie poprawi&#261; jako&#347;&#263;
+     za cen&#281; czasu kodowania. Opcje <tt class="option">cmp=3:subcmp=3:mbcmp=3</tt>
+     wybieraj&#261; funkcje porównywania które wybieraj&#261; lepsza jako&#347;&#263; ni&#380; te domy&#347;&#322;ne.
+     Mo&#380;esz poeksperymentowa&#263; z tymi warto&#347;ciami (skonsultuj stron&#281; man co do 
+     prawid&#322;owych warto&#347;ci) poniewa&#380; ró&#380;ne funkcj&#281; mog&#261; mie&#263; du&#380;y wp&#322;yw na jako&#347;&#263;
+     zale&#380;nie od matria&#322;u &#378;ród&#322;owego. Na przyk&#322;ad, je&#380;eli <tt>libavcodec</tt>
+     produkuje za du&#380;o artefaktów mo&#380;esz spróbowa&#263; wybra&#263; eksperymentaln&#261; funkcj&#281; NSSE
+     jako funkcj&#281; porównuj&#261;c&#261; przez <tt class="option">*cmp=10</tt>.
+</p><p>
+     Dla tego filmu, ko&#324;cowe AVI b&#281;dzie mia&#322;o 138 minut i prawie 3GB.
+     A poniewa&#380; powiedzia&#322;e&#347; &#380;e rozmiar nie ma znaczenia, to jest
+     akceptowalna wielko&#347;&#263;. Jednak&#380;e, je&#380;elli chcia&#322;by&#347; mniejszy plik, móg&#322;by&#347;
+     spróbowa&#263; ni&#380;szy bitrate. Zwi&#281;kszanie warto&#347;ci bitrate daje malej&#261;ce rezultaty,
+     wi&#281;c je&#380;eli wida&#263; wyra&#378;n&#261; ró&#378;nic&#281; mi&#281;dzy 1800Kbit, a 2000Kbit, to nie znaczy
+     &#380;e b&#281;dzie lepiej powy&#380;ej 2000Kbit. Ekperymentuj a&#380; b&#281;dziesz zadowolony.
+</p><p>
+    Poniewa&#380; przepu&#347;cili&#347;my &#378;ród&#322;owy obraz przez filtr odszumiaj&#261;cy, mo&#380;esz chcie&#263;
+    doda&#263; go troch&#281; podczas odtwarzania. To razem z fitrem postprocessingu 
+    <tt class="option">spp</tt>, drastycznie poprawia odbiór obrazu i pomaga wyeliminowa&#263;
+    artefakty. W <span class="application">MPlayer</span>ze dost&#281;pna jest opcja 
+    <tt class="option">autoq</tt>. W tym momencie mo&#380;esz równie&#380; poprawi&#263;
+    gamm&#281; lub/i korekcj&#281; kolorów. Na przyk&#322;ad:
+
+  <pre class="screen">mplayer Harry_Potter_2.avi -vf spp,noise=9ah:5ah,eq2=1.2 -autoq 3</pre>
+
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="custommatrices.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-telecine.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">7.10. Dowolne inter/intra matryce </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 7.12. Jak radzi&#263; sobie telecine i przeplotem w NTSC DVD</td></tr></table></div></body></html>

@@ -1,0 +1,143 @@
+/phoneme_feature/midp/src/events/slavemode_port/linux_qte/native/midp_slavemode_qte.cpp
+47	-->qteapp_get_application()->exec();
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/push/push_timer/linux_qte/native/midpTimerImpl.cpp
+103	-->timer->setSingleShot(true);
+	   timer->start(time);
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/annunciator/linux_qte/native/anc_qte_pauseresume.cpp:
+	-->ADD   #include <QKeyEvent>
+47  ??  -->: QWidget(parent, NULL ){
+50	-->label = new QLabel(QString("Application is paused.\nClose this dialog to resume."),this);
+75 ??	-->if (((e->type() == QEvent::KeyPress ) &&
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/annunciator/linux_qte/native/anc_qte_indicator.cpp
+118	-->qiconPath.setUtf16((const ushort *)iconPath_data, iconPath_len);
+125  ??	-->//setBackgroundPixmap(QPixmap(qiconPath+"indicator_bar.png"));
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/lfjport/linux_qte/native/lfjport_qte_mscreen.h
+44	-->//#include <qwidgetstack.h>
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/lfjport/linux_qte/native/lfjport_qte_mainwindow.cpp
+34	-->//#include <qpaintdevicemetrics.h>
+81,196,220	-->box = new QVBoxLayout(mwindow);
+94	-->setWindowTitle(MAINWINDOW_TITLE);
+101  ??	-->//killTimer();
+107??	-->((e->type() == QEvent::KeyPress ) &&
+109	-->ADD     #include <QKeyEvent>
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/lfjport/linux_qte/native/lfjport_qte_mscreen.cpp
+	-->ADD	#include <QKeyEvent>
+		#include <QMouseEvent>
+		#include <QPaintEvent>
+33	-->//#include <qpaintdevicemetrics.h>
+60	-->ChameleonMScreen::ChameleonMScreen(QWidget *parent, const char* name) : QWidget(parent)
+99,124,126	-->qpixmap=qpixmap.scaled
+107  ??	-->//setFocusPolicy(QWidget::StrongFocus);
+161  ??	-->//killTimers();
+409	-->vm_slicer.setInterval(millis);
+411	-->vm_slicer.setSingleShot(true);
+           vm_slicer.start(millis);
+437  ADD  #include <QPainter>  -->QPainter painter((QPaintDevice*)this);
+        			  painter.drawPixmap(x1 + SCREEN_X, y1 + SCREEN_Y, qpixmap, 
+					x1, y1, (x2 - x1 + 1), (y2- y1 + 1));
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/qte_application/reference/native/qteapp_key.cpp
+56,64,72,80	-->if (key->modifiers() == Qt::ShiftModifier) {
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/qte_application/reference/native/qteapp_export.cpp
+78  ??	-->//qapp->setMainWidget(MainWindow);
+86	-->MainWindow->close();
+155	-->qapp->exec();
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/qte_application/reference/native/qteapp_mainwindow.cpp
+36  ??	-->QMainWindow(parent);
+		name="MIDPMainWindow";
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/highlevelui/qte_application/reference/native/qteapp_mscreen.cpp
+105	-->qteapp_get_application()->exit();
+113	-->vm_slicer.setSingleShot(true);
+           vm_slicer.start(0x7fffffff);
+115	-->vm_slicer.setSingleShot(true);
+           vm_slicer.start((int)(ms & 0x7fffffff));
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/lowlevelui/platform_graphics_port/linux_qte/native/gxpportqt_graphics.cpp
+	ADD  #include <QPolygon>
+63	-->QPolygon pts;
+88	-->QPainter painter((qpixmap);
+           painter.drawPixmap(x1 + SCREEN_X, y1 + SCREEN_Y, *qpixmap,
+           x1, y1, (x2 - x1 + 1), (y2- y1 + 1));
+108 ??	-->QImage image((unsigned char*)rgbData, scanlen, height, QImage::Format_RGB32);
+113	-->if (processAlpha == KNI_TRUE)
+	   {
+        	image.setAlphaChannel(image);
+    	   }
+141	gxpport_get_displaycolor(int color) { ...}--------------------->
+-------------------->?????????????????
+gxpport_get_displaycolor(int color) {
+    int r,g,b;
+    MScreen * mscreen = qteapp_get_mscreen();
+    QColor qcolor = mscreen->getColor(color);
+    //uint result = qcolor.alloc();
+    qcolor.getRgb(&r, &g, &b);
+
+    //r = (result >> 11) << 3;
+    //g = ((result >> 5 ) & 0x3F ) << 2;
+    //b = (result & 0x1F) << 3;
+    return ((r << 16) | (g << 8) | (b & 0xFF)) ;
+}
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/lowlevelui/platform_graphics_port/linux_qte/native/gxpportqt_graphics_util.cpp
+46	-->QImage originalImage = originalPixmap->toImage();
+56  ??	-->originalImage.setAlphaChannel(originalImage);
+64  ??	-->QImage sectionImage32bpp = sectionImage.convertToFormat(QImage::Format_RGB32);
+120 ??	-->processedImage=processedImage.scaled(t_width, t_height);
+           processedImage.convertToFormat(QImage::Format_RGB32);
+184 ??	-->if(TRUE == sectionImage.hasAlphaChannel() ) {
+185 ??	-->processedImage.setAlphaChannel(processedImage);
+187 ??	-->//processedImage.setAlphaBuffer(FALSE);
+190	-->destPixmap->fromImage(processedImage);
+193	-->destPixmap->fromImage(sectionImage);
+206 ??	-->*srcQImage = srcQImage->convertToFormat(QImage::Format_RGB32);
+261	-->QImage processedQImage = QImage(t_width, t_height, QImage::Format_RGB32);
+324 ??	-->if (srcQImage->hasAlphaChannel() == true)
+        	processedQImage.setAlphaChannel(*srcQImage);
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/lowlevelui/platform_graphics_port/linux_qte/native/gxpportqt_mutableimage.cpp
+61  ??	-->//QPixmap::setDefaultOptimization(QPixmap::BestOptim);
+82	-->qpixmap->scaled(width, height);
+194	-->QImage   image(qpixmap->toImage());
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/lowlevelui/platform_graphics_port/linux_qte/native/gxpportqt_immutableimage.cpp
+105	-->immutableImage->qimage = new QImage(srcPixmap->toImage());
+215	-->QImage srcQImage = srcqpixmap->toImage();
+370	-->QImage qimage = QImage((unsigned char*)srcBuffer, width, height, 
+		QImage::Format_RGB32);
+386	-->if (processAlpha == TRUE)
+        	qimage.setAlphaChannel(qimage);
+443	-->if (immutableImage->qimage->hasAlphaChannel()) {
+512	-->image = immutableImage->qimage->convertToFormat(QImage::Format_RGB32);
+521	-->if (image.hasAlphaChannel() == TRUE) {
+662	-->image = qimage.convertToFormat(QImage::Format_RGB32);
+678	-->dataBuffer->hasAlpha = (unsigned int)image.hasAlphaChannel();
+767	-->immutableImage->qpixmap->fromImage(*immutableImage->qimage);
+796	-->QImage* localQimage = new QImage(rawImageBuffer->data,
+                                    rawImageBuffer->width,
+                                    rawImageBuffer->height,
+                                    QImage::Format_RGB32);
+803	-->localQimage->setAlphaChannel(*localQimage);
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/lowlevelui/platform_graphics_port/linux_qte/native/gxpportqt_text.cpp
+178	-->gc->drawText(x, y, s);
+
+/phoneme_feature/midp/build/linux_qte_gcc/../../src/lowlevelui/platform_graphics_port/linux_qte/native/pisces_pixmap_utils.cpp
+80,110	-->QImage ima(pmap->toImage());
+           idata->data = (void *) ima.scanLine(0);
+
+
+
+
+
+
+
+

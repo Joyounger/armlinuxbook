@@ -1,0 +1,45 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.6. Encodage avec la famille de codecs libavcodec</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="mencoder.html" title="Chapitre 7. Encodage avec MEncoder"><link rel="previous" href="menc-feat-fix-avi.html" title="7.5. Réparer les fichiers AVIs ayant un index défectueux"><link rel="next" href="menc-feat-enc-images.html" title="7.7. Encodage à partir de multiples fichiers image (JPEG, PNG, TGA, SGI)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.6. Encodage avec la famille de codecs libavcodec</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-fix-avi.html">Précédent</a> </td><th width="60%" align="center">Chapitre 7. Encodage avec MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-enc-images.html">Suivant</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-enc-libavcodec"></a>7.6. Encodage avec la famille de codecs <tt>libavcodec</tt></h2></div></div><p>
+<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a> 
+permet un encodage simple dans de nombreux formats audio et vidéo intéressants. 
+Vous pouvez encoder avec les codecs suivants (plus ou moins à jour):
+
+</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Nom codec</th><th>Description</th></tr></thead><tbody><tr><td>mjpeg</td><td>
+   Motion JPEG
+  </td></tr><tr><td>ljpeg</td><td>
+   Lossless JPEG (sans perte)
+  </td></tr><tr><td>h263</td><td>
+  H.263
+  </td></tr><tr><td>h263p</td><td>
+  H.263+
+  </td></tr><tr><td>mpeg4</td><td>
+  standard MPEG-4 ISO (DivX 5, compatible XVID)
+  </td></tr><tr><td>msmpeg4</td><td>
+  variante pré-standard MPEG-4 de MS, v3 (alias DivX3)
+  </td></tr><tr><td>msmpeg4v2</td><td>
+  pré-standard MPEG-4 par MS, v2 (utilisé dans les anciens fichiers asf)
+  </td></tr><tr><td>wmv1</td><td>
+  Windows Media Video, version 1 (alias WMV7)
+  </td></tr><tr><td>wmv2</td><td>
+  Windows Media Video, version 2 (alias WMV8)
+  </td></tr><tr><td>rv10</td><td>
+  un vieux codec RealVideo
+  </td></tr><tr><td>mpeg1video</td><td>
+  video MPEG-1
+  </td></tr><tr><td>mpeg2video</td><td>
+  video MPEG-2
+  </td></tr><tr><td>huffyuv</td><td>
+  compression sans perte
+  </td></tr><tr><td>asv1</td><td>
+  ASUS Video v1
+  </td></tr><tr><td>asv2</td><td>
+  ASUS Video v2
+  </td></tr><tr><td>ffv1</td><td>
+  codec vidéo sans perte de FFmpeg
+  </td></tr></tbody></table></div><p>
+
+La première colonne contient le nom du codec qui devrait être passé après la config
+<tt>vcodec</tt>, comme: <tt class="option">-lavcopts vcodec=msmpeg4</tt>
+</p><div class="informalexample"><p>
+Un exemple, avec compression MJPEG:
+<pre class="screen">mencoder dvd://2 -o <i><tt>titre2.avi</tt></i> -ovc lavc -lavcopts vcodec=mjpeg -oac copy</pre>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-fix-avi.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-enc-images.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">7.5. Réparer les fichiers AVIs ayant un index défectueux </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 7.7. Encodage à partir de multiples fichiers image (JPEG, PNG, TGA, SGI)</td></tr></table></div></body></html>

@@ -1,0 +1,35 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.4. Remote streams</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="usage.html" title="Chapter 3. Usage"><link rel="previous" href="streaming.html" title="3.3. Streaming from network or pipes"><link rel="next" href="edl.html" title="3.5. Edit Decision Lists (EDL)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.4. Remote streams</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="streaming.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Usage</th><td width="20%" align="right"> <a accesskey="n" href="edl.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="mpst"></a>3.4. Remote streams</h2></div></div><p>
+Remote streams allow you to access most <span class="application">MPlayer</span>
+stream type from a remote host. The main purpose of this feature is to make
+it possible to directly use the CD or DVD drive of another computer on the
+network (provided you have the required bandwidth). On the downside some
+stream type (currently TV and MF) are not usable remotely because they are
+implemented at the demuxer level. It's sad for MF but TV stream would anyway
+require an insane amount of bandwidth.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="compile_mpst_server"></a>3.4.1. Compiling the server</h3></div></div><p>
+After having compiled <span class="application">MPlayer</span> go to the
+<tt class="filename">TOOLS/netstream</tt> directory and enter
+<span class="application">make</span> to build the server binary.
+You can then copy the <span class="application">netstream</span> binary
+to the right place on your system (usually
+<tt class="filename">/usr/local/bin</tt> on Linux).
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="use_mpst"></a>3.4.2. Using remote streams</h3></div></div><p>
+First you have to start the server on the computer you intend to remotely
+access. Currently the server is very basic and doesn't have any commands
+line arguments so just enter <tt class="filename">netstream</tt>. Now you can
+for example play the second track of a VCD on the server with :
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://servername/vcd://2</tt></i>
+</pre>
+You can also access files on this server :
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://servername//usr/local/movies/lol.avi</tt></i>
+</pre>
+Note that paths which aren't starting with a / will be relative to
+the directory where the server is running. The <tt class="option">-cache</tt> option is not
+needed but highly recommended.
+</p><p>
+Be aware that currently the server is not secure at all. So don't complain
+about the numerous exploits which are possible through this. Instead send
+some (good) patch to make it better or start writing your own server.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="streaming.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="edl.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.3. Streaming from network or pipes </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 3.5. Edit Decision Lists (EDL)</td></tr></table></div></body></html>

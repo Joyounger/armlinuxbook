@@ -1,0 +1,85 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>E.1. GCC 2.96</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="users-vs-dev.html" title="P&#345;íloha E. Developer cries"><link rel="previous" href="users-vs-dev.html" title="P&#345;íloha E. Developer cries"><link rel="next" href="mplayer-binary.html" title="E.2. Binary distribution"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">E.1. GCC 2.96</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="users-vs-dev.html">P&#345;edcházející</a> </td><th width="60%" align="center">P&#345;íloha E. Developer cries</th><td width="20%" align="right"> <a accesskey="n" href="mplayer-binary.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="gcc-296"></a>E.1. GCC 2.96</h2></div></div><p><b>The background: </b>
+The GCC <span class="bold"><b>2.95</b></span> series is an official GNU release and
+version 2.95.3 of GCC is the most bug-free in that series.  We have never
+noticed compilation problems that we could trace to gcc-2.95.3. Starting
+with Red Hat Linux 7.0, <span class="bold"><b>Red Hat</b></span> included a heavily
+patched CVS version of GCC in their distribution and named it
+<span class="bold"><b>2.96</b></span>. Red Hat included this version in the
+distribution because GCC 3.0 was not finished at the time, and they needed
+a compiler that worked well on all of their supported platforms, including
+IA64 and s390. The Linux distributor <span class="bold"><b>Mandrake</b></span> also
+followed Red Hat's example and started shipping GCC 2.96 with their
+Linux-Mandrake 8.0 series.
+</p><p><b>The statements: </b>
+The GCC team disclaimed any link with GCC 2.96 and issued an
+<a href="http://gcc.gnu.org/gcc-2.96.html" target="_top">official response</a>
+to GCC 2.96. Many developers around the world began having problems with
+GCC 2.96, and several projects,
+<a href="http://avifile.sf.net/news-old1.htm" target="_top">avifile</a> among them,
+started recommending other compilers.
+Other interesting links are
+<a href="http://www.atnf.csiro.au/people/rgooch/linux/docs/kernel-newsflash.html" target="_top">
+Linux kernel news flash about kernel 2.4.17</a>
+and
+<a href="http://www.voy.com/3516/572.html" target="_top">Voy Forum</a>.
+<span class="application">MPlayer</span> also suffered from intermittent problems
+that were all solved by switching to a different version of GCC. Several
+projects started implementing workarounds for some of the 2.96 issues, but
+we refused to fix other people's bugs, especially since some workarounds
+may imply a performance penalty.
+</p><p>
+GCC 2.96 does not allow <tt>|</tt> (pipe) characters in assembler
+comments because it supports Intel as well as AT&amp;T Syntax and the
+<tt>|</tt> character is a symbol in the Intel variant. The
+problem is that it <span class="emphasis"><i>silently</i></span> ignores the whole
+assembler block. This is supposedly fixed now, GCC prints a warning instead
+of skipping the block.
+</p><p><b>The present: </b>
+Red Hat says that GCC 2.96-85 and above is fixed. The situation has indeed
+improved, yet we still see problem reports on our mailing lists that
+disappear with a different compiler. In any case it does not matter any
+longer. Hopefully a maturing GCC 3.x will solve the issue for good.  If you
+want to compile with 2.96 give the <tt class="option">--disable-gcc-checking</tt>
+flag to <tt class="filename">configure</tt>. Remember that you are on your own
+and <span class="bold"><b>do not report any bugs</b></span>. If you do, you will only
+get banned from our mailing list because we have had more than enough flame
+wars over GCC 2.96. Please let the matter rest.
+</p><p>
+If you have problems with GCC 2.96, you can get 2.96-85 packages from the
+Red Hat <a href="ftp://updates.redhat.com" target="_top">ftp server</a>, or just
+go for the 3.0.4 packages offered for version 7.2 and later. You can also
+get <a href="ftp://people.redhat.com/jakub/gcc/errata/3.2.3-37/" target="_top">gcc-3.2.3-37 packages</a>
+(unofficial, but working fine)
+and you can install them along the gcc-2.96 you already have.
+<span class="application">MPlayer</span> will detect it and use 3.2 instead of 2.96.
+If you do not want to or cannot use the binary packages, here is how you can
+compile GCC 3 from source:
+</p><div class="procedure"><ol type="1"><li><p>
+  Go to the
+  <a href="http://gcc.gnu.org/mirrors.html" target="_top">GCC mirrors page</a>
+  page and download <tt class="filename">gcc-core-<i><tt>XXX</tt></i>.tar.gz</tt>
+  where <i><tt>XXX</tt></i> is the version number. This includes the complete
+  C compiler and is sufficient for <span class="application">MPlayer</span>. If you also want
+  C++, Java or some of the other advanced GCC features
+  <tt class="filename">gcc-<i><tt>XXX</tt></i>.tar.gz</tt> may better suit your needs.
+  </p></li><li><p>
+  Extract the archive with
+  <pre class="screen">tar -xvzf gcc-core-<i><tt>XXX</tt></i>.tar.gz</pre>
+  </p></li><li><p>
+  GCC is not built inside the source directory itself like most programs,
+  but needs a build directory outside the source directory.  Thus you need
+  to create this directory via
+  <pre class="screen">mkdir gcc-build</pre>
+  </p></li><li><p>
+  Then you can proceed to configure gcc in the build directory, but you
+  need the configure from the source directory:
+  <pre class="screen">
+cd gcc-build
+../gcc-3.<i><tt>XXX</tt></i>/configure</pre>
+  </p></li><li><p>
+  Compile GCC by issuing this command in the build directory:
+  <pre class="screen">make bootstrap</pre>
+  </p></li><li><p>
+  Now you can install GCC (as root) by typing
+  <pre class="screen">make install</pre>
+  </p></li></ol></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="users-vs-dev.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="users-vs-dev.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="mplayer-binary.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">P&#345;íloha E. Developer cries </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> E.2. Binary distribution</td></tr></table></div></body></html>

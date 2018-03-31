@@ -1,0 +1,57 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.1. Wiersz polece&#324;</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="usage.html" title="Rozdzia&#322; 3. Sposób u&#380;ycia"><link rel="previous" href="usage.html" title="Rozdzia&#322; 3. Sposób u&#380;ycia"><link rel="next" href="control.html" title="3.2. Sterowanie"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.1. Wiersz polece&#324;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="usage.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 3. Sposób u&#380;ycia</th><td width="20%" align="right"> <a accesskey="n" href="control.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="commandline"></a>3.1. Wiersz polece&#324;</h2></div></div><p>
+<span class="application">MPlayer</span> u&#380;ywa skomplikowanego drzewa odtwarzania.
+Sk&#322;ada si&#281; on z opcji globalnych podanych na pocz&#261;tku, na przyk&#322;ad:
+
+<pre class="screen">mplayer -vfm 5</pre>
+
+i opcji podanych po nazwach plików, które stosuj&#261; si&#281; jedynie do podanego
+pliku/URLa/czegokolwiek, na przyk&#322;ad:
+
+<pre class="screen">mplayer -vfm 5 <i><tt>film1.avi</tt></i> <i><tt>film2.avi</tt></i> -vfm 4</pre>
+</p><p>
+Mo&#380;esz pogrupowa&#263; nazwy plików/URLe za pomoc&#261; <tt>{</tt> oraz
+<tt>}</tt>. Przydaje si&#281; to przy opcji <tt class="option">-loop</tt>:
+
+<pre class="screen">mplayer { 1.avi -loop 2 2.avi } -loop 3</pre>
+
+Powy&#380;sze polecenie odtworzy pliki w kolejno&#347;ci: 1, 1, 2, 1, 1, 2, 1, 1, 2.
+</p><p>
+Odtwarzanie pliku:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>opcje</tt></i>] [<i><tt>&#347;cie&#380;ka</tt></i>/]<i><tt>nazwa_pliku</tt></i>
+</pre>
+</p><p>
+Odtwarzanie wi&#281;kszej ilo&#347;ci plików:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>opcje domy&#347;lne</tt></i>] [<i><tt>&#347;cie&#380;ka</tt></i>/]<i><tt>nazwa_pliku1</tt></i> [<i><tt>opcje dla nazwa_pliku1</tt></i>] <i><tt>nazwa_pliku2</tt></i> [<i><tt>opcje dla nazwa_pliku2</tt></i>] ...
+</pre>
+</p><p>
+Odtwarzanie VCD:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>opcje</tt></i>] vcd://<i><tt>numer_&#347;cie&#380;ki</tt></i> [-cdrom-device <i><tt>/dev/cdrom</tt></i>]
+</pre>
+</p><p>
+Odtwarzanie DVD:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>opcje</tt></i>] dvd://<i><tt>numer_tytu&#322;u</tt></i> [-dvd-device <i><tt>/dev/dvd</tt></i>]
+</pre>
+</p><p>
+Odtwarzanie z WWW:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>opcje</tt></i>] http://<i><tt>strona.com/plik.asf</tt></i>
+</pre>
+(mo&#380;na u&#380;y&#263; równie&#380; playlist)
+</p><p>
+Odtwarzanie z RTSP:
+<pre class="synopsis">
+<b>mplayer</b> [<i><tt>opcje</tt></i>] rtsp://<i><tt>serwer.przyklad.com/nazwa_strumienia</tt></i>
+</pre>
+</p><p>
+Przyk&#322;ady:
+<pre class="screen">
+mplayer -vo x11 <i><tt>/mnt/Films/Contact/contact2.mpg</tt></i>
+mplayer vcd://<i><tt>2</tt></i> -cdrom-device <i><tt>/dev/hdc</tt></i>
+mplayer -afm 3 <i><tt>/mnt/DVDtrailers/alien4.vob</tt></i>
+mplayer dvd://<i><tt>1</tt></i> -dvd-device <i><tt>/dev/hdc</tt></i>
+mplayer -abs 65536 -delay -0.4 -nobps <i><tt>~/movies/test.avi</tt></i></pre>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="usage.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="control.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">Rozdzia&#322; 3. Sposób u&#380;ycia </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 3.2. Sterowanie</td></tr></table></div></body></html>

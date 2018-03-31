@@ -1,0 +1,62 @@
+dom_stringimpl.lo: dom_stringimpl.cpp dom_stringimpl.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h \
+  ./../dom/dom_misc.h ./../misc/khtmllayout.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h \
+  ./../../../dropin/kdebug.h
+
+dom_stringimpl.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h:
+
+./../dom/dom_misc.h:
+
+./../misc/khtmllayout.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h:
+
+./../../../dropin/kdebug.h:

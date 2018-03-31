@@ -1,0 +1,34 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.4. Vzálené datové proudy</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="usage.html" title="Kapitola 3. Pou&#382;ití"><link rel="previous" href="streaming.html" title="3.3. P&#345;ehrávání datových proud&#367; ze sít&#283; nebo rour"><link rel="next" href="edl.html" title="3.5. Seznamy edita&#269;ních zásah&#367; (EDL)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.4. Vzálené datové proudy</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="streaming.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 3. Pou&#382;ití</th><td width="20%" align="right"> <a accesskey="n" href="edl.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="mpst"></a>3.4. Vzálené datové proudy</h2></div></div><p>
+Vzálené datové proudy umo&#382;&#328;ují p&#345;ístup k v&#283;t&#353;in&#283; <span class="application">MPlayer</span>em
+podporovaných proud&#367; ze vzdáleného po&#269;íte&#269;e. Hlavní ur&#269;ení této funkce je umo&#382;nit
+p&#345;ímo pou&#382;ít CD nebo DVD mechaniku jiného po&#269;íta&#269;e na síti (p&#345;edpokladem je,
+&#382;e máte dostate&#269;n&#283; rychlé p&#345;ipojení). Na spodní hranici nejsou n&#283;které typy datových
+proud&#367; (v sou&#269;asnosti TV a MF) pou&#382;itelné p&#345;es sí&#357; proto&#382;e jsou implementovány na úrovni
+demuxeru. Je to &#353;koda pro MF ale TV proudy by tak jako tak vy&#382;adovaly &#353;ílen&#283;
+vysokou rychlost
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="compile_mpst_server"></a>3.4.1. Kompilace serveru</h3></div></div><p>
+Poté co skompilujete <span class="application">MPlayer</span> b&#283;&#382;te do adresá&#345;e
+<tt class="filename">TOOLS/netstream</tt> a prove&#271;te
+<span class="application">make</span> pro sestavení serverové binárky.
+Potom m&#367;&#382;ete zkopírovat program <span class="application">netstream</span>
+na správné místo v systému (v Linuxu obvykle
+<tt class="filename">/usr/local/bin</tt>).
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="use_mpst"></a>3.4.2. Pou&#382;ití vzálených datových proud&#367;</h3></div></div><p>
+Nejprve spus&#357;te server na po&#269;íta&#269;i na který se chcete p&#345;ipojit ze sít&#283;.
+Server je zatím velmi jednoduchý a nemá &#382;ádné volby p&#345;íkazového &#345;ádku,
+proto jen zadejte <tt class="filename">netstream</tt>. Te&#271; m&#367;&#382;ete nap&#345;íklad
+p&#345;ehrát druhou stopu na VCD na serveru:
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://jméno_serveru/vcd://2</tt></i>
+</pre>
+Taky m&#367;&#382;ete p&#345;istupovat k soubor&#367;m na tomto serveru:
+<pre class="screen">
+mplayer -cache 5000 <i><tt>mpst://servername//usr/local/movies/lol.avi</tt></i>
+</pre>
+Poznamenejme, &#382;e cesty neza&#269;ínající / jsou relativní k adresá&#345;i kde byl spu&#353;t&#283;n server.
+Volba <tt class="option">-cache</tt> není nutná, ale velmi ji doporu&#269;ujeme.
+</p><p>
+Berte na v&#283;domí &#382;e v sou&#269;asnosti není tento server v&#367;bec bezpe&#269;ný. Nenadávejte
+tedy na mno&#382;ství pr&#367;nik&#367; do systému, které je s ním mo&#382;né. Místo toho rad&#283;ji
+za&#353;lete (dobrý) patch který by jej vylep&#353;il, nebo napi&#353;te sv&#367;j vlastní server.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="streaming.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="edl.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">3.3. P&#345;ehrávání datových proud&#367; ze sít&#283; nebo rour </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> 3.5. Seznamy edita&#269;ních zásah&#367; (EDL)</td></tr></table></div></body></html>

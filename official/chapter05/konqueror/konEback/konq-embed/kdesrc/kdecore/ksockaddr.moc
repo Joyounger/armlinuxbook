@@ -1,0 +1,217 @@
+/****************************************************************************
+** KSocketAddress meta object code from reading C++ file 'ksockaddr.h'
+**
+** Created: Thu Nov 20 06:14:51 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "ksockaddr.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KSocketAddress::className() const
+{
+    return "KSocketAddress";
+}
+
+QMetaObject *KSocketAddress::metaObj = 0;
+
+#ifdef QWS
+static class KSocketAddress_metaObj_Unloader {
+public:
+    ~KSocketAddress_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KSocketAddress" );
+    }
+} KSocketAddress_metaObj_unloader;
+#endif
+
+void KSocketAddress::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KSocketAddress","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KSocketAddress::tr(const char* s)
+{
+    return qApp->translate( "KSocketAddress", s, 0 );
+}
+
+QString KSocketAddress::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KSocketAddress", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KSocketAddress::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"KSocketAddress", "QObject",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+
+const char *KInetSocketAddress::className() const
+{
+    return "KInetSocketAddress";
+}
+
+QMetaObject *KInetSocketAddress::metaObj = 0;
+
+#ifdef QWS
+static class KInetSocketAddress_metaObj_Unloader {
+public:
+    ~KInetSocketAddress_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KInetSocketAddress" );
+    }
+} KInetSocketAddress_metaObj_unloader;
+#endif
+
+void KInetSocketAddress::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(KSocketAddress::className(), "KSocketAddress") != 0 )
+	badSuperclassWarning("KInetSocketAddress","KSocketAddress");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KInetSocketAddress::tr(const char* s)
+{
+    return qApp->translate( "KInetSocketAddress", s, 0 );
+}
+
+QString KInetSocketAddress::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KInetSocketAddress", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KInetSocketAddress::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KSocketAddress::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"KInetSocketAddress", "KSocketAddress",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+
+const char *KUnixSocketAddress::className() const
+{
+    return "KUnixSocketAddress";
+}
+
+QMetaObject *KUnixSocketAddress::metaObj = 0;
+
+#ifdef QWS
+static class KUnixSocketAddress_metaObj_Unloader {
+public:
+    ~KUnixSocketAddress_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KUnixSocketAddress" );
+    }
+} KUnixSocketAddress_metaObj_unloader;
+#endif
+
+void KUnixSocketAddress::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(KSocketAddress::className(), "KSocketAddress") != 0 )
+	badSuperclassWarning("KUnixSocketAddress","KSocketAddress");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KUnixSocketAddress::tr(const char* s)
+{
+    return qApp->translate( "KUnixSocketAddress", s, 0 );
+}
+
+QString KUnixSocketAddress::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KUnixSocketAddress", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KUnixSocketAddress::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KSocketAddress::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"KUnixSocketAddress", "KSocketAddress",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

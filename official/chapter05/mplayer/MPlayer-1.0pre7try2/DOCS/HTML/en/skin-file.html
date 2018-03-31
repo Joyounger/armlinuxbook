@@ -1,0 +1,258 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.2. The skin file</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="skin.html" title="Appendix D. MPlayer skin format"><link rel="previous" href="skin-overview.html" title="D.1. Overview"><link rel="next" href="skin-fonts.html" title="D.3. Fonts"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.2. The skin file</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-overview.html">Prev</a> </td><th width="60%" align="center">Appendix D. MPlayer skin format</th><td width="20%" align="right"> <a accesskey="n" href="skin-fonts.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-file"></a>D.2. The skin file</h2></div></div><p>
+As mentioned above, this is the skin configuration file. It is line oriented;
+comment lines start with a '<tt>;</tt>' character at the beginning
+of the line (only spaces and tabs are allowed before the '<tt>;</tt>').
+</p><p>
+The file is made up of sections. Each section describes the skin for an
+application and has the following form:
+<pre class="programlisting">
+section = <i><tt>section name</tt></i>
+.
+.
+.
+end
+</pre>
+</p><p>
+Currently there is only one application, so you need only one section: its name is
+<span class="bold"><b>movieplayer</b></span>.
+</p><p>
+Within this section each window is described by a block of the following form:
+<pre class="programlisting">
+window = <i><tt>window name</tt></i>
+.
+.
+.
+end
+</pre>
+</p><p>
+where <i><tt>window name</tt></i> can be one of these strings:
+</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>main</b></span> - for the main window</p></li><li><p><span class="bold"><b>sub</b></span> - for the subwindow</p></li><li><p><span class="bold"><b>menu</b></span> - for the skin menu</p></li><li><p><span class="bold"><b>playbar</b></span> - playbar</p></li></ul></div><p>
+</p><p>
+(The sub and menu blocks are optional - you do not need to create a menu or
+decorate the subwindow.)
+</p><p>
+Within a window block, you can define each item for the window by a line in
+this form:
+<pre class="programlisting">item = parameter</pre>
+Where <tt>item</tt> is a string that identifies the type of the GUI
+item, <tt>parameter</tt> is a numeric or textual value (or a list of
+values separated by commas).
+</p><p>
+Putting the above together, the whole file looks something like this:
+<pre class="programlisting">
+section = movieplayer
+  window = main
+  ; ... items for main window ...
+  end
+
+  window = sub
+  ; ... items for subwindow ...
+  end
+
+  window = menu
+  ; ... items for menu ...
+  end
+
+  window = playbar
+  ; ... items for playbar ...
+  end
+end
+</pre>
+</p><p>
+The name of an image file must be given without leading directories - images
+are searched for in the <tt class="filename">Skin</tt> directory.
+You may (but you need not) specify the extension of the file. If the file does
+not exist, <span class="application">MPlayer</span> tries to load the file
+<tt class="filename">&lt;filename&gt;.&lt;ext&gt;</tt>, where <tt>png</tt>
+and <tt>PNG</tt> are tried for <tt class="filename">&lt;ext&gt;</tt>
+(in this order). The first matching file will be used.
+</p><p>
+Finally some words about positioning. The main window and the subwindow can
+be placed in the different corners of the screen by giving <tt>X</tt> and
+<tt>Y</tt> coordinates. <tt>0</tt> is top or left,
+<tt>-1</tt> is center and <tt>-2</tt> is right or bottom, as
+shown in this illustration:
+</p><div class="informalfigure"><pre class="screen">
+(0, 0)----(-1, 0)----(-2, 0)
+  |          |          |
+  |          |          |
+(0,-1)----(-1,-1)----(-2,-1)
+  |          |          |
+  |          |          |
+(0,-2)----(-1,-2)----(-2,-2)
+</pre></div><p>
+Here is an example to make this clear. Suppose that you have an image called
+<tt class="filename">main.png</tt> that you use for the main window:
+<pre class="programlisting">base = main, -1, -1</pre>
+<span class="application">MPlayer</span> tries to load <tt class="filename">main</tt>,
+<tt class="filename">main.png</tt>, <tt class="filename">main.PNG</tt> files.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-file-main"></a>D.2.1. Main window and playbar</h3></div></div><p>
+Below is the list of entries that can be used in the
+'<tt>window = main</tt>' ... '<tt>end</tt>',
+and the '<tt>window = playbar</tt>' ... '<tt>end</tt>'
+blocks.
+</p><div class="variablelist"><dl><dt><span class="term"><tt>
+  <a name="skin-main-base"></a>base = image, X, Y
+  </tt></span></dt><dd><p>
+Lets you specify the background image to be used for the main window.
+The window will appear at the given <tt>X,Y</tt> position on
+the screen The window will have the size of the image.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>These coordinates do not currently work for the display window.</p></div><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>Transparent regions in the image (colored #FF00FF) appear black
+    on X servers without the XShape extension. The image's width must be dividable
+    by 8.</p></div></dd><dt><span class="term"><tt>
+  <a name="skin-button"></a>button = image, X, Y, width, height, message
+  </tt></span></dt><dd><p>
+Place a button of <tt>width</tt> * <tt>height</tt> size at
+position <tt>X,Y</tt>. The specified <tt>message</tt> is
+generated when the button is clicked. The image given by <tt>image</tt>
+must have three parts below each other (according to the possible states of the
+button), like this:
+</p><div class="informalfigure"><pre class="screen">
++------------+
+|  pressed   |
++------------+
+|  released  |
++------------+
+|  disabled  |
++------------+
+</pre></div></dd><dt><span class="term"><tt>
+  <a name="skin-decoration"></a>decoration = enable|disable
+  </tt></span></dt><dd><p>
+Enable or disable window manager decoration of the main window. Default is
+<span class="bold"><b>disable</b></span>.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This doesn't work for the display window, there is no need to.</p></div></dd><dt><span class="term"><tt>
+  <a name="skin-hpotmeter"></a>hpotmeter = button, bwidth, bheight, phases, numphases, default, X, Y, width, height, message
+  </tt></span></dt><dd><p>
+
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-vpotmeter"></a>vpotmeter = button, bwidth, bheight, phases, numphases, default, X, Y, width, height, message
+  </tt></span></dt><dd><p>
+Place a horizontal (hpotmeter) or vertical (vpotmeter) potmeter of
+<tt>width</tt> * <tt>height</tt> size at position
+<tt>X,Y</tt>. The image can be divided into different parts for the
+different phases of the potmeter (for example, you can have a pot for volume
+control that turns from green to red while its value changes from the minimum
+to the maximum.). <tt>hpotmeter</tt> can have a button that can be
+dragged horizontally. The parameters are:
+    </p><div class="itemizedlist"><ul type="disc"><li><p><tt>button</tt> - the image to be used for the
+    button (must have three parts below each other, like in case of
+    <a href="skin-file.html#skin-button">button</a>)
+    </p></li><li><p><tt>bwidth</tt>, <tt>bheight</tt> - size
+    of the button
+    </p></li><li><p><tt>phases</tt> - the image to be used for the
+   different phases of the hpotmeter. A special value of <tt>NULL</tt>
+   can be used if you want no such image. The image must be divided into
+   <tt>numphases</tt> parts vertically like this:
+    </p><div class="informalfigure"><pre class="screen">
++------------+
+|  phase #1  |
++------------+
+|  phase #2  |
++------------+
+     ...
++------------+
+|  phase #n  |
++------------+
+</pre></div></li><li><p><tt>numphases</tt> - number of phases stored in the
+    <tt>phases</tt> image
+    </p></li><li><p><tt>default</tt> - default value for hpotmeter
+    (in the range <tt>0</tt> to <tt>100</tt>)
+    </p></li><li><p><tt>X</tt>, <tt>Y</tt> - position for the hpotmeter
+    </p></li><li><p><tt>width</tt>, <tt>height</tt> - width and height
+    of the <tt>hpotmeter</tt>
+    </p></li><li><p><tt>message</tt> - the message to be generated when the
+    value of <tt>hpotmeter</tt> is changed
+    </p></li></ul></div></dd><dt><span class="term"><tt>
+  <a name="skin-potmeter"></a>potmeter = phases, numphases, default, X, Y, width, height, message
+  </tt></span></dt><dd><p>
+A <tt>hpotmeter</tt> without a button. (I guess it is meant to be
+turned around, but it reacts to horizontal dragging only.) For the description
+of the parameters see <a href="skin-file.html#skin-hpotmeter">hpotmeter</a>.
+<tt>phases</tt> can be <tt>NULL</tt>, but it is quite useless,
+since you cannot see where the <tt>potmeter</tt> is set.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-font"></a>font = fontfile, fontid
+  </tt></span></dt><dd><p>
+Defines a font. <tt>fontfile</tt> is the name of a font description file
+with a <tt class="filename">.fnt</tt> extension (do not specify the extension here).
+<tt>fontid</tt> is used to refer to the font (see <a href="skin-file.html#skin-dlabel">dlabel</a>
+and <a href="skin-file.html#skin-slabel">slabel</a>). Up to 25 fonts can be defined.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-slabel"></a>slabel = X, Y, fontid, "text"
+  </tt></span></dt><dd><p>
+Place a static label at the position <tt>X,Y</tt>. <tt>text</tt>
+is displayed using the font identified by <tt>fontid</tt>. The text is
+just a raw string (<tt>$x</tt> variables do not work) that must be enclosed
+between double quotes (but the " character cannot be part of the text). The
+label is displayed using the font identified by <tt>fontid</tt>.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-dlabel"></a>dlabel = X, Y, length, align, fontid, "text"
+  </tt></span></dt><dd><p>
+Place a dynamic label at the position <tt>X,Y</tt>. The label is called
+dynamic because its text is refreshed periodically. The maximum length of the
+label is given by <tt>length</tt> (its height is the height of a
+character). If the text to be displayed is wider than that, it will be scrolled,
+otherwise it is aligned within the specified space by the value of the
+<tt>align</tt> parameter: <tt>0</tt> is for right,
+<tt>1</tt> is for center, <tt>2</tt> is for left.
+</p><p>
+The text to be displayed is given by <tt>text</tt>: It must be written
+between double quotes (but the " character cannot be part of the text). The
+label is displayed using the font identified by <tt>fontid</tt>. You
+can use the following variables in the text:
+</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Variable</th><th>Meaning</th></tr></thead><tbody><tr><td>$1</td><td>play time in <span class="emphasis"><i>hh:mm:ss</i></span> format</td></tr><tr><td>$2</td><td>play time in <span class="emphasis"><i>mmmm:ss</i></span> format</td></tr><tr><td>$3</td><td>play time in <span class="emphasis"><i>hh</i></span> format (hours)</td></tr><tr><td>$4</td><td>play time in <span class="emphasis"><i>mm</i></span> format (minutes)</td></tr><tr><td>$5</td><td>play time in <span class="emphasis"><i>ss</i></span> format (seconds)</td></tr><tr><td>$6</td><td>movie length in <span class="emphasis"><i>hh:mm:ss</i></span> format</td></tr><tr><td>$7</td><td>movie length in <span class="emphasis"><i>mmmm:ss</i></span> format</td></tr><tr><td>$8</td><td>play time in <span class="emphasis"><i>h:mm:ss</i></span> format</td></tr><tr><td>$v</td><td>volume in <span class="emphasis"><i>xxx.xx</i></span>% format</td></tr><tr><td>$V</td><td>volume in <span class="emphasis"><i>xxx.xx</i></span> format</td></tr><tr><td>$b</td><td>balance in <span class="emphasis"><i>xxx.xx</i></span>% format</td></tr><tr><td>$B</td><td>balance in <span class="emphasis"><i>xxx.xx</i></span> format</td></tr><tr><td>$$</td><td>the $ character</td></tr><tr><td>$a</td><td>a character according to the audio type (none: <tt>n</tt>,
+mono: <tt>m</tt>, stereo: <tt>t</tt>)</td></tr><tr><td>$t</td><td>track number (in playlist)</td></tr><tr><td>$o</td><td>filename</td></tr><tr><td>$f</td><td>filename in lower case</td></tr><tr><td>$F</td><td>filename in upper case</td></tr><tr><td>$T</td><td>a character according to the stream type (file: <tt>f</tt>,
+Video CD: <tt>v</tt>, DVD: <tt>d</tt>, URL: <tt>u</tt>)</td></tr><tr><td>$p</td><td>the <span class="keycap"><b>p</b></span> character (if a movie is playing and the font has
+the <span class="keycap"><b>p</b></span> character)</td></tr><tr><td>$s</td><td>the <span class="keycap"><b>s</b></span> character (if the movie is stopped and the font has
+the <span class="keycap"><b>s</b></span> character)</td></tr><tr><td>$e</td><td>the <span class="keycap"><b>e</b></span> character (if playback is paused and the font has
+the <span class="keycap"><b>e</b></span> character)</td></tr><tr><td>$x</td><td>movie width</td></tr><tr><td>$y</td><td>movie height</td></tr><tr><td>$C</td><td>name of the codec used</td></tr></tbody></table></div></dd></dl></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+The <tt>$a, $T, $p, $s</tt> and <tt>$e</tt>
+variables all return characters that should be displayed as special symbols (for
+example, <span class="keycap"><b>e</b></span> is for the pause symbol that usually looks something
+like ||). You should have a font for normal characters and a different font for
+symbols. See the section about <a href="skin-fonts.html#skin-fonts-symbols" title="D.3.1. Symbols">symbols</a>
+for more information.
+</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-file-subwindow"></a>D.2.2. Subwindow</h3></div></div><p>
+The following entries can be used in the
+'<tt>window = sub</tt>' . . . '<tt>end</tt>' block.
+</p><div class="variablelist"><dl><dt><span class="term"><tt>
+  <a name="skin-sub-base"></a>base = image, X, Y, width, height
+  </tt></span></dt><dd><p>
+The image to be displayed in the window. The window will appear at the given
+<tt>X,Y</tt> position on the screen (<tt>0,0</tt> is the
+top left corner). You can specify <tt>-1</tt> for center and <tt>-2</tt>
+for right (<tt>X</tt>) and bottom (<tt>Y</tt>). The window
+will be as large as the image. <tt>width</tt> and <tt>height</tt>
+denote the size of the window; they are optional (if they are missing, the
+window is the same size as the image).
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-background"></a>background = R, G, B
+  </tt></span></dt><dd><p>
+Lets you set the background color. It is useful if the image is smaller than
+the window. <tt>R</tt>, <tt>G</tt> and <tt>B</tt>
+specifies the red, green and blue component of the color (each of them is a
+decimal number from 0 to 255).
+    </p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-file-menu"></a>D.2.3. Skin menu</h3></div></div><p>
+As mentioned earlier, the menu is displayed using two images. Normal menu
+entries are taken from the image specified by the <tt>base</tt> item,
+while the currently selected entry is taken from the image specified by the
+<tt>selected</tt> item. You must define the position and size of each
+menu entry through the menu item.
+</p><p>
+The following entries can be used in the
+'<tt>window = menu</tt>'. . .'<tt>end</tt>' block.
+</p><div class="variablelist"><dl><dt><span class="term"><tt>
+  <a name="skin-menu-base"></a>base = image
+  </tt></span></dt><dd><p>
+The image for normal menu entries.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-selected"></a>selected = image
+  </tt></span></dt><dd><p>
+The image showing the menu with all entries selected.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-menu"></a>menu = X, Y, width, height, message
+  </tt></span></dt><dd><p>
+Defines the <tt>X,Y</tt> position and the size of a menu entry in
+the image. <tt>message</tt> is the message to be generated when the
+mouse button is released over the entry.
+    </p></dd></dl></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-overview.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="skin-fonts.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">D.1. Overview </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> D.3. Fonts</td></tr></table></div></body></html>

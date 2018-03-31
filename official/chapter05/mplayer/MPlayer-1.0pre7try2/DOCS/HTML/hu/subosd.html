@@ -1,0 +1,198 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.4. Feliratok és OSD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="intro.html" title="1. fejezet - Bevezetés"><link rel="previous" href="gui.html" title="1.3. Mi a helyzet a GUI-val?"><link rel="next" href="rtc.html" title="1.5. RTC"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.4. Feliratok és OSD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="gui.html">El&#337;z&#337;</a> </td><th width="60%" align="center">1. fejezet - Bevezetés</th><td width="20%" align="right"> <a accesskey="n" href="rtc.html">Következ&#337;</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="subosd"></a>1.4. Feliratok és OSD</h2></div></div><p>
+Az <span class="application">MPlayer</span> feliratokat is meg tud jeleníteni a filmekkel
+együtt. Jelenleg a következ&#337; formátumok támogatottak:
+</p><div class="itemizedlist"><ul type="disc"><li><p>VOBsub</p></li><li><p>OGM</p></li><li><p>CC (closed caption)</p></li><li><p>MicroDVD</p></li><li><p>SubRip</p></li><li><p>SubViewer</p></li><li><p>Sami</p></li><li><p>VPlayer</p></li><li><p>RT</p></li><li><p>SSA</p></li><li><p>PJS (Phoenix Japanimation Society)</p></li><li><p><a href="subosd.html#mpsub" title="1.4.1. Az MPlayer saját felirat formátuma (MPsub)">MPsub</a></p></li><li><p>AQTitle</p></li><li><p><a href="http://unicorn.us.com/jacosub/" target="_top">JACOsub</a></p></li></ul></div><p>
+</p><p>
+Az <span class="application">MPlayer</span> az el&#337;z&#337;leg felsorolt felirat formátumokat
+(<span class="bold"><b>az els&#337; három kivételével</b></span>) át is tudja konvertálni
+az alábbi formátumokba, a megadott kapcsolókkal:
+</p><div class="itemizedlist"><ul type="disc"><li><p>MPsub: <tt class="option">-dumpmpsub</tt></p></li><li><p>SubRip: <tt class="option">-dumpsrtsub</tt></p></li><li><p>MicroDVD: <tt class="option">-dumpmicrodvdsub</tt></p></li><li><p>JACOsub: <tt class="option">-dumpjacosub</tt></p></li><li><p>Sami: <tt class="option">-dumpsami</tt></p></li></ul></div><p>
+</p><p>
+A <span class="application">MEncoder</span> el tudja menteni a DVD feliratokat
+<a href="menc-feat-extractsub.html" title="7.7. Extracting DVD subtitles to VOBsub file">VOBsub</a> formában.
+</p><p>
+A parancssori kapcsolók eléggé különböznek az az egyes formátumoknál:
+</p><p><b>VOBsub feliratok. </b>
+A VOBsub feliratok egy nagy (néhány megabájtos) <tt class="filename">.SUB</tt> fájlból
+és opcionálisan egy <tt class="filename">.IDX</tt> és/vagy <tt class="filename">.IFO</tt>
+fájlból állnak.  Ha olyan fájlaid vannak, hogy
+<tt class="filename"><i><tt>sample.sub</tt></i></tt>,
+<tt class="filename"><i><tt>sample.ifo</tt></i></tt> (opcionális),
+<tt class="filename"><i><tt>sample.idx</tt></i></tt> - meg kell adnod az
+<span class="application">MPlayer</span>nek a <tt class="option">-vobsub sample
+[-vobsubid <i><tt>id</tt></i>]</tt> kapcsolót
+(teljes elérési út is megadható). A <tt class="option">-vobsubid</tt> kapcsoló olyan,
+mint a <tt class="option">-sid</tt> a DVD-knél, segítségével felirat sávok (nyelvek)
+közül választhatsz. Abban az esetben, ha elfelejted a <tt class="option">-vobsubid</tt>
+kapcsolót, az <span class="application">MPLayer</span> a <tt class="option">-slang</tt> kapcsolóval
+megadott nyelveket próbálja használni, és a <tt>langidx</tt>-re ugrik
+az <tt class="filename">.IDX</tt> fájlban, hogy beállítsa a felirat nyelvét. Ha ez nem
+sikerül, nem lesz felirat.
+</p><p><b>Egyéb feliratok. </b>
+A többi formátum egy sima szöveges fájlból áll, mely tartalmazza az id&#337;zítést,
+a pozícionálást és a szöveget. Használata: ha van egy olyan fájlod, mint pl.
+<tt class="filename"><i><tt>sample.txt</tt></i></tt>,
+akkor a <tt class="option">-sub <i><tt>sample.txt</tt></i></tt> kapcsolóval
+tudod megadni (teljes elérési út is megadható).
+</p><div class="variablelist"><p><b>Felirat id&#337;zítés és pozícionálás beállítása:</b></p><dl><dt><span class="term"><tt class="option">-subdelay <i><tt>mp</tt></i></tt></span></dt><dd>
+    Késlelteti a feliratot <tt class="option"><i><tt>mp</tt></i></tt> másodperccel.
+    Lehet negatív is. Az érték a film id&#337;pozíciójának számlálójához adódik hozzá.
+    </dd><dt><span class="term"><tt class="option">-subfps <i><tt>RÁTA</tt></i></tt></span></dt><dd>
+    Megadhatod a felirat fájl képkocka/mp rátáját (lebeg&#337;pontos szám).
+    </dd><dt><span class="term"><tt class="option">-subpos <i><tt>0-100</tt></i></tt></span></dt><dd>
+    A felirat pozícióját adhatod meg.
+    </dd></dl></div><p>
+Ha MicroDVD felirat fájl használa közben egyre növekv&#337; csúszást tapasztalsz a
+film és a felirat között, akkor a legvalószín&#369;bb, hogy a film és a felirat frame
+rátája különböz&#337;. Jegyezd meg, hogy a MicroDVD felirat formátum abszolút képkocka
+számokat használ az id&#337;zítéshez, és nincs benne fps információ, emiatt a
+<tt class="option">-subfps</tt> kapcsoló használata javasolt ezzel a formátummal. Ha
+végleg meg akarod oldani ezt a problémát, kézzel kell átkonvertálnod a felirat
+fájl frame rátáját.
+Az <span class="application">MPlayer</span> el tudja végezni ezt a konverziót neked:
+<pre class="screen">mplayer <i><tt>dummy.avi</tt></i> -fps subtitles_fps -subfps avi_fps [-subdelay sec] [-sub subtitle_filename] <i><tt>-dumpmicrodvdsub</tt></i></pre>
+<pre class="screen">mplayer -dumpmicrodvdsub -fps <i><tt>subtitles_fps</tt></i> -subfps <i><tt>avi_fps</tt></i> -sub <i><tt>subtitle_filename</tt></i> <i><tt>dummy.avi</tt></i></pre>
+</p><p>
+A DVD feliratokról a <a href="dvd.html" title="5.2. DVD lejátszás">DVD</a> fejezetben olvashatsz b&#337;vebben.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mpsub"></a>1.4.1. Az <span class="application">MPlayer</span> saját felirat formátuma (MPsub)</h3></div></div><p>
+Az <span class="application">MPlayer</span> egy új felirat formátumot is bevezetett, amit
+<span class="bold"><b>MPsub</b></span>nak hívnak. Gabucino tervezte. A legfontosabb
+tulajdonsága, hogy <span class="emphasis"><i>dinamikus</i></span> id&#337;-alapú (habár használható
+képkocka-alapú módban is). Példa (<a href="../../tech/mpsub.sub" target="_top">DOCS/tech/mpsub.sub</a>):
+<pre class="programlisting">
+FORMAT=TIME
+# els&#337; szám    : ennyi másodpercet várjon az el&#337;z&#337; felirat elt&#369;nése után
+# második szám : ennyi másodpercig mutassa az aktuális feliratot
+
+15 3
+Réges régen...
+
+0 3
+egy nagyon távoli galaxisban...
+
+0 3
+Naboo támadás alatt állt.</pre>
+</p><p>
+Amint látod, a f&#337; cél a <span class="bold"><b>felirat
+szerkesztésének/id&#337;zítésének/összeillesztésének/vágásának könnyítése</b></span>
+volt. És ha - mondjuk - kapsz egy SSA feliratot, de rosszul van id&#337;zítve/késleltetve
+a te filmedhez képest, egyszer&#369;en csak kiadod a következ&#337; parancsot:
+<pre class="screen">mplayer <i><tt>dummy.avi</tt></i> -sub source.ssa -dumpmpsub</pre>
+Ekkor egy <tt class="filename">dump.mpsub</tt> fájl jön létre az aktuális könyvtárban,
+ami a forrás felirat szövegét tartalmazza, de
+<span class="bold"><b>MPsub</b></span> formátumban. Ezután szabadon
+hozzáadhatsz/kivonhatsz másodperceket a feliratoknál.
+</p><p>
+A feliratok egy <span class="bold"><b>'OSD', On Screen Display</b></span> nev&#369;
+technológia segítségével jelennek meg. OSD segítségével jelenik meg az id&#337;,
+a hanger&#337; sáv, a keres&#337; sáv, stb.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mpsub-install"></a>1.4.2. Az OSD és a feliratok telepítése</h3></div></div><p>
+Kell egy <span class="application">MPlayer</span> bet&#369; csomag, hogy használni tudd
+az OSD/SUB jellemz&#337;ket. Sok helyr&#337;l beszerezheted:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  Használhatod a bet&#369; generátort, a <tt class="filename">TOOLS/subfont-c</tt>-t. Ez egy program, ami
+  TTF/Type1/stb. formátumú bet&#369;ket átkonvertálja mplayer bet&#369; csomaggá (olvasd el a
+  <tt class="filename">TOOLS/subfont-c/README</tt> fájt a részletekért).
+  </p></li><li><p>
+  A <span class="application">GIMP</span> bet&#369; generátor plugin-jét használod, amit
+  <tt class="filename">TOOLS/subfont-GIMP</tt> néven találsz
+  (megjegyzés: HSI RAW plugin is kell, lásd <a href="http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts" target="_top">http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts</a>).
+ </p></li><li><p>
+  TrueType (TTF) bet&#369;ket használsz, amik megfelelnek a <tt>freetype</tt>
+  függvénykönyvtárnak. 2.0.9 vagy újabb verzió kötelez&#337;! Így két lehet&#337;séged van:
+  </p><div class="itemizedlist"><ul type="round"><li><p>
+      használod a <tt class="option">-font <i><tt>/path/to/sample_font.ttf</tt></i></tt>
+      kapcsolót és megadod a TrueType bet&#369;típust minden alkalommal
+      </p></li><li><p>
+      készítesz egy szimlinket:
+      <pre class="screen">ln -s <i><tt>/path/to/sample_font.ttf</tt></i> ~/.mplayer/subfont.ttf</pre>
+      </p></li></ul></div><p>
+  Ha az <span class="application">MPlayer</span>t <tt>fontconfig</tt>
+  támogatással fordítottad, a fenti módszerek nem fognak m&#369;ködni, helyettük
+  a <tt class="option">-font</tt> egy <tt>fontconfig</tt>
+  bet&#369; nevet vár, alapértelmezett pedig a sans-serif bet&#369; lesz. Ha a
+  <tt>fontconfig</tt> által ismert bet&#369;típusok
+  listája érdekel, használd az <b>fc-list</b> parancsot! Például:
+  <tt class="option">-font <i><tt>'Bitstream Vera Sans'</tt></i></tt>
+  </p></li><li><p>
+  Letölthetsz használatra kész bet&#369; csomagokat az <span class="application">MPlayer</span>
+  oldaláról. Megjegyzés: a jelenleg elérhet&#337; bet&#369;típusok csak az ISO 8859-1/2
+  kódolást támogatják, de van néhány más (beleértve a koreai, orosz, ISO 8859-8 stb.)
+  bet&#369;típusokat a contrib/font könyvtárban az FTP szerveren, amit felhasználók
+  készítettek.
+  </p><p>
+  
+  A bet&#369; csomagoknak tartalmazniuk kell egy <tt class="filename">font.desc</tt> fájlt,
+  ami leírja a Unicode bet&#369;k pozícióját a felirat szövegének aktuális kódlapján.
+  A másik megoldás, ha a feliratok UTF-8 kódolást használnak, ekkor az
+  <tt class="option">-utf8</tt> kapcsoló használata vagy a felirat fájl átnevezése
+  <tt class="filename">&lt;video_name&gt;.utf</tt> formátumra és a film mellé másolása
+  elegend&#337;. A különböz&#337; kódlapokról UTF-8-ra történ&#337; kódolás a
+  <b>konwert</b> vagy az <b>iconv</b> programok
+  segítségével végezhet&#337; el.
+  </p><p>
+
+  </p><div class="table"><p><b>1.1. táblázat - Néhány URL</b></p><table summary="Néhány URL" border="1"><colgroup><col><col></colgroup><thead><tr><th>URL</th><th>Megjegyzés</th></tr></thead><tbody><tr><td><a href="ftp://ftp.mplayerhq.hu/MPlayer/releases/fonts/" target="_top">ftp://ftp.mplayerhq.hu/MPlayer/releases/fonts/</a></td><td>
+    ISO bet&#369;típusok
+    </td></tr><tr><td><a href="ftp://ftp.mplayerhq.hu/MPlayer/contrib/fonts/" target="_top">ftp://ftp.mplayerhq.hu/MPlayer/contrib/fonts/</a></td><td>
+    felhasználók által készített különböz&#337; bet&#369;típusok
+    </td></tr><tr><td><a href="http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts" target="_top">http://realtime.ssu.ac.kr/~lethean/index.php?pagename=MplayerKoreanFonts</a></td><td>
+    koreai bet&#369;k és RAW plugin
+    </td></tr></tbody></table></div><p>
+
+  </p></li></ul></div><p>
+Ha nem-TTF bet&#369;típust választasz, csomagold ki a letöltött fájlt a <tt class="filename">~/.mplayer</tt> vagy a <tt class="filename">$PREFIX/share/mplayer</tt> könyvtárba. Ezután nevezd át
+vagy szimlinkeld az egyik kicsomagolt könyvtárat <tt class="filename">font</tt>,
+névre, például:
+
+<pre class="screen">ln -s <i><tt>~/.mplayer/arial-24</tt></i> ~/.mplayer/font</pre>
+
+Ez után egy órát kell látnod a film bal fels&#337; sarkában (kikapcsolhatod az
+<span class="keycap"><b>o</b></span> billenty&#369;vel).
+</p><p>
+(a feliratok <span class="emphasis"><i>mindig engedélyezettek</i></span>, kikapcsolásukhoz olvasd
+el a man oldalt)
+</p><p>
+Az OSD-nek 4 állapota van (<span class="keycap"><b>o</b></span> billenty&#369;vel válthatsz):
+
+</p><div class="orderedlist"><ol type="1"><li>
+  hanger&#337; sáv + keres&#337; sáv (alapértelmezett)
+  </li><li>
+  hanger&#337; sáv + keres&#337; sáv + id&#337; + keresésnél a fájl pozíció százalékban
+  </li><li>
+  hanger&#337; sáv + keres&#337; sáv + id&#337; + a teljes lejátszási id&#337;
+  </li><li>
+  csak feliratok
+  </li></ol></div><p>
+
+Az alapértelmezett viselkedést az <tt>osdlevel</tt> változó átállításával
+állíthatod be a konfigurációs fájlban, vagy a <tt class="option">-osdlevel</tt> kapcsolóval
+a parancssorban.
+
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="osdmenu"></a>1.4.3. OSD menü</h3></div></div><p>
+Az <span class="application">MPlayer</span>nek az OSD Menüje teljesen igényre szabható.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Megjegyzés</h3><p>
+a Tulajdonságok menü még NINCS KIFEJLESZTVE!
+</p></div><div class="orderedlist"><p><b>Telepítés</b></p><ol type="1"><li>
+  fordítsd le az <span class="application">MPlayer</span>t a <tt class="filename">./configure</tt>-nak
+  az <tt class="option">--enable-menu</tt> kapcsoló megadásával
+  </li><li>
+  bizonyosodj meg róla, hogy van telepített OSD bet&#369;készleted
+  </li><li>
+  másold át az <tt class="filename">etc/menu.conf</tt> fájlt a
+  <tt class="filename">.mplayer</tt> könyvtárba
+  </li><li>
+  másold át az <tt class="filename">etc/input.conf</tt> fájlt a
+  <tt class="filename">.mplayer</tt> könyvtárba, vagy egy
+  rendszerszinten elérhet&#337; <span class="application">MPlayer</span> konfigurációs
+  könyvtárba (alapértelmezett: <tt class="filename">/usr/local/etc/mplayer</tt>)
+  </li><li>
+  ellen&#337;rizd le és írd át az <tt class="filename">input.conf</tt> fájlt a menüben
+  történ&#337; mozgáshoz használt billenty&#369;k engedélyezéséhez
+  (ott le van írva).
+  </li><li><p>
+  indítsd el az <span class="application">MPlayer</span>t az alábbi példa alapján:
+  <pre class="screen">$ mplayer -menu <i><tt>file.avi</tt></i></pre>
+  </p></li><li>
+  nyomd meg valamelyik menü gombot, amit megadtál
+  </li></ol></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="gui.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="rtc.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">1.3. Mi a helyzet a GUI-val? </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 1.5. RTC</td></tr></table></div></body></html>

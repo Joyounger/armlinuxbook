@@ -1,0 +1,155 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5.2. Odtwarzanie DVD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="cd-dvd.html" title="Rozdzia&#322; 5. U&#380;ywanie CD/DVD"><link rel="previous" href="drives.html" title="5.1. Nap&#281;dy CD/DVD"><link rel="next" href="vcd.html" title="5.3. Odtwarzanie VCD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.2. Odtwarzanie DVD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="drives.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 5. U&#380;ywanie CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="vcd.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="dvd"></a>5.2. Odtwarzanie DVD</h2></div></div><p>
+Aby pozna&#263; pe&#322;n&#261; list&#281; dost&#281;pnych opcji, prosz&#281; przeczyta&#263; odpowiednie strony
+man. Sk&#322;adnia dla standardowego DVD (Digital Versatile Disc) jest nast&#281;puj&#261;ca:
+<pre class="screen">mplayer dvd://<i><tt>&lt;&#347;cie&#380;ka&gt;</tt></i> [-dvd-device <i><tt>&lt;urz&#261;dzenie&gt;</tt></i>]</pre>
+</p><p>
+Przyk&#322;ad:
+<pre class="screen">mplayer dvd://<i><tt>1</tt></i> -dvd-device <i><tt>/dev/hdc</tt></i></pre>
+
+</p><p>
+Domy&#347;lnym urz&#261;dzeniem (device) DVD jest <tt class="filename">/dev/dvd</tt>. Je&#380;eli
+Twoje ustawienia s&#261; inne, stwórz odpowiedni symlink lub ustaw odpowiednie
+urz&#261;dzenie (device) w linii polecenia korzystaj&#261;c z opcji
+<tt class="option">-dvd-device</tt>.
+</p><p><b>Obs&#322;uga DVD - nowy sposób (mpdvdkit2). </b>
+<span class="application">MPlayer</span> u&#380;ywa <tt>libdvdread</tt>
+oraz <tt>libdvdcss</tt> do dekodowania i odtwarzania DVD. Te
+dwie biblioteki s&#261; zawarte w podkatalogu <tt class="filename">libmpdvdkit2/</tt>
+w g&#322;ównym drzewie katalogów <span class="application">MPlayera</span>, nie trzeba
+instalowa&#263; ich osobno. Wybrali&#347;my t&#281; opcj&#281; poniewa&#380; musieli&#347;my poprawi&#263; b&#322;&#261;d
+<tt>libdvdread</tt> i zastosowa&#263; &#322;atk&#281; (patch), która dodaje
+obs&#322;ug&#281; <span class="bold"><b>buforowania z&#322;amanych kluczy CSS</b></span> do
+<tt>libdvdcss</tt>. Skutkuje to du&#380;ym wzrostem szybko&#347;ci
+poniewa&#380; klucze nie musz&#261; by&#263; &#322;amane za ka&#380;dym razem przed odtwarzaniem.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+Je&#347;li wyst&#281;puj&#261; problemy z dekodowaniem DVD, spróbuj wy&#322;&#261;czy&#263; supermount albo
+inne tego typu us&#322;ugi.
+</p></div><p>
+<span class="application">MPlayer</span> potrafi tak&#380;e u&#380;ywa&#263; bibliotek systemowych
+<tt>libdvdread</tt>
+oraz <tt>libdvdcss</tt>, ale to rozwi&#261;zanie jest
+<span class="bold"><b>nie</b></span> zalecane, gdy&#380; mo&#380;e powodowa&#263; b&#322;&#281;dy,
+niekompatybilno&#347;ci bibliotek oraz zmniejszenie pr&#281;dko&#347;ci.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+W przypadku problemów z dekodowaniem DVD, spróbuj wy&#322;&#261;czy&#263; supermount, b&#261;d&#378;
+inne tego typu udogodnienia.
+</p></div><p><b>Struktura dysku DVD. </b>
+Dyski DVD maj&#261; po 2048 bajtów na sektor z ECC/CRC. Zwykle posiadaj&#261; system
+plików UDF na pojedynczej &#347;cie&#380;ce zawieraj&#261;cej ró&#380;norakie pliki (ma&#322;e pliki .IFO
+i .BUK oraz du&#380;e (1GB) pliki .VOB).
+S&#261; one rzeczywistymi plikami i mog&#261; by&#263; kopiowane/odtwarzane z podmontowanego
+systemu plików niezakodowanego DVD.
+</p><p>
+Pliki .IFO zawieraj&#261; informacje nawigacyjne filmu (rozdzia&#322;/tytu&#322;/mapa
+zaczepów/tablica j&#281;zyków, itp) i s&#261; konieczne do odczytu i interpretacji
+zawarto&#347;ci pliku .VOB (filmu). Pliki .BUK s&#261; kopiami zapasowymi plików .IFO.
+U&#380;ywaj&#261; <span class="bold"><b>sektorów</b></span> wsz&#281;dzie, wi&#281;c aby
+zaimplementowa&#263; nawigacj&#281; na DVD lub rozszyfrowa&#263; zawarto&#347;&#263;, nale&#380;y u&#380;ywa&#263;
+adresowania sektorów dysku w trybie raw.
+</p><p>
+Z tego powodu obs&#322;uga DVD w starym stylu z u&#380;yciem
+<tt>libcss</tt> wymaga podmontowanego systemu plików DVD oraz
+dost&#281;pu do urz&#261;dzenia w trybie raw bazuj&#261;cym na sektorach. Niestety wymagane
+jest (pod Linuksem) posiadanie uprawnie&#324; roota aby móc korzysta&#263; z sektorowego
+adresowania pliku. Wybór jest nast&#281;puj&#261;cy:
+
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+Posiada&#263; uprawnienia roota lub u&#380;ywa&#263; programu wykonywalnego
+<span class="application">MPlayera</span> posiadaj&#261;cego prawa suid-root.
+</p></li><li><p>
+Pozwoli&#263; <span class="application">MPlayerowi</span> na uruchamianie owijacza
+(wrapper) fibmap_mplayer w trybie suid-root w celu uzyskania dost&#281;pu do DVD
+(u&#380;ywane przy odtwarzaniu DVD star&#261; metod&#261; poprzez
+<tt>libcss</tt>).
+</p></li><li><p>
+Wcale nie u&#380;ywa&#263; sterownika systemu plików zawartego w j&#261;drze lecz korzysta&#263;
+jedynie z narz&#281;dzi dzia&#322;aj&#261;cych w przestrzeni u&#380;ytkownika. Zajmuj&#261; si&#281; tym
+biblioteki <tt>libdvdread</tt> 0.9.x i
+<tt>libmpdvdkit</tt> (obs&#322;uga DVD nowym sposobem). Sterownik
+systemu plików UDF zawarty w j&#261;drze nie jest wymagany poniewa&#380; wspomniane
+biblioteki zawieraj&#261; w&#322;asny, wbudowany sterownik systemu plików UDF. DVD nie
+musi by&#263; podmontowany, bowiem u&#380;ywany jest jedynie dost&#281;p w trybie raw.
+</p></li></ul></div><p>
+</p><p>
+Czasami <tt class="filename">/dev/dvd</tt> nie mo&#380;e by&#263; czytany przez u&#380;ytkowników,
+zatem autorzy <tt>libdvdread</tt> zaimplementowali emulacj&#281;
+warstwy, która przenosi adresowanie sektorowe na nazwy plików i offsety, aby ju&#380;
+u &#378;róde&#322; podmontowanego systemu plików emulowa&#263; dost&#281;p w trybie raw, na równi z
+dost&#281;pem do dysku twardego.
+</p><p>
+<tt>libdvdread</tt> równie dobrze akceptuje miejsce
+podmontowania (mountpoint) jak i nazw&#281; urz&#261;dzenia przy dost&#281;pie w trybie raw i
+sprawdza <tt class="filename">/proc/mounts</tt> w celu odnalezienia odpowiedniej
+nazwy urz&#261;dzenia (device). Zosta&#322;o to napisane z my&#347;l&#261; o systemie Solaris, gdzie
+nazwy urz&#261;dze&#324; s&#261; przydzielane automatycznie.
+</p><p>
+Domy&#347;lnym urz&#261;dzeniem (device) DVD jest <tt class="filename">/dev/dvd</tt>. Je&#380;eli
+Twoje ustawienia s&#261; inne, stwórz odpowiedni symlink lub ustaw odpowiednie
+urz&#261;dzenie w linii polecenia korzystaj&#261;c z opcji <tt class="option">-dvd-device</tt>.
+</p><p><b>Autoryzacja DVD. </b>
+Metoda autoryzacji i rozszyfrowywania u&#380;ywana gdy korzystamy z DVD przy u&#380;yciu
+nowego sposobu polega na korzystaniu ze zmodyfikowanej biblioteki
+<tt>libdvdcss</tt> (patrz wy&#380;ej). Ta metoda mo&#380;e by&#263; okre&#347;lona
+poprzez zmienna &#347;rodowiskow&#261; <tt>DVDCSS_METHOD</tt>, która mo&#380;e by&#263;
+ustawiona na "key", "disk" albo "title".
+</p><p>
+Je&#380;eli &#380;adna warto&#347;&#263; nie jest ustawiona, próbowane s&#261; nast&#281;puj&#261;ce metody
+(domy&#347;lnie: "key", "title request"):
+</p><div class="orderedlist"><ol type="1"><li><p>
+<span class="bold"><b>bus key</b></span>: Ten klucz jest ustalany podczas
+autoryzacji (d&#322;uga mieszanina ioctl'i i rozmaite wymiany kluczy, bajery
+kryptograficzne) oraz jest u&#380;ywany do szyfrowania tytu&#322;u i kluczy dyskowych
+przed wys&#322;aniem ich nieszyfrowan&#261; magistral&#261; (by zapobiec pods&#322;uchiwaniu). Bus
+key jest wymagany do pobrania i wst&#281;pnego rozszyfrowania zaszyfrowanego klucza
+dyskowego (disk key).
+</p></li><li><p>
+<span class="bold"><b>cached key</b></span>: <span class="application">MPlayer</span>
+wyszukuje ju&#380; z&#322;amane klucze tytu&#322;ów, które s&#261; przechowywane w katalogu
+<tt class="filename">~/.mplayer/DVDKeys</tt> (szybkie ;) ).
+</p></li><li><p>
+<span class="bold"><b>key</b></span>: Je&#380;eli &#380;aden zbuforowany klucz nie jest
+dost&#281;pny, <span class="application">MPlayer</span> próbuje rozszyfrowa&#263; klucz dyskowy
+korzystaj&#261;c z gar&#347;ci kluczy zaszytych w odtwarzaczu.
+</p></li><li><p>
+<span class="bold"><b>disk</b></span>: Je&#380;eli metoda "key" zawodzi (np. brak
+kluczy zaszytych w odtwarzaczu), <span class="application">MPlayer</span> z&#322;amie klucz
+dyskowy u&#380;ywaj&#261;c algorytmu ataku brutalnego. Proces ten jest bardzo
+procesoroch&#322;onny i wymaga 64 MB pami&#281;ci (16777216 (16*2^20) 32-bitowych pól
+tabeli hash) do przechowywania tymczasowych danych. Ta metoda powinna zadzia&#322;a&#263;
+zawsze (niestety jest wolna).
+</p></li><li><p>
+<span class="bold"><b>title request</b></span>: Maj&#261;c klucz dyskowy
+<span class="application">MPlayer</span> pobiera zaszyfrowane klucze tytu&#322;owe (title
+key), które s&#261; zawarte w <span class="emphasis"><i>ukrytych sektorach (hidden
+sectors)</i></span> u&#380;ywaj&#261;c <tt>ioctl()</tt>. Ochrona
+regionalna w nap&#281;dach RPC-2 jest realizowana w tym kroku i mo&#380;e si&#281; nie uda&#263; na
+tych nap&#281;dach. Je&#347;li jednak si&#281; uda, klucze tytu&#322;owe zostaj&#261; rozszyfrowane przy
+u&#380;yciu magistrali i klucza dyskowego.
+</p></li><li><p>
+<span class="bold"><b>title</b></span>: Ta metoda jest u&#380;ywana je&#380;eli zapytanie
+o tytu&#322; zako&#324;czy&#322;o si&#281; niepowodzeniem i nie mo&#380;na polega&#263; na &#380;adnej wymianie
+kluczy z nap&#281;dem DVD. U&#380;ywa ona ataku kryptograficznego w celu odgadni&#281;cia
+klucza tytu&#322;owego (title key) wprost (poprzez szukanie powtarzaj&#261;cego si&#281; ci&#261;gu
+znaków (wzoru) w rozszyfrowanej zawarto&#347;ci pliku VOB oraz poprzez zgadywanie, &#380;e
+czysty tekst odpowiadaj&#261;cy pierwszym zaszyfrowanym bajtom jest kontynuacj&#261;
+wzoru). Metoda ta jest tak&#380;e znana jako "znany czysto-tekstowy atak (known
+plaintext attack)" b&#261;d&#378; "DeCSSPlus". Rzadko zdarza si&#281;, ale si&#281;
+zdarza, &#380;e metoda ta mo&#380;e zawie&#347;&#263; poniewa&#380; jest niewystarczaj&#261;co du&#380;o
+zaszyfrowanych danych na dysku aby spe&#322;ni&#263; za&#322;o&#380;enia statystycznego ataku lub
+poniewa&#380; klucz zmienia si&#281; w trakcie tytu&#322;u. Jest to jedyna metoda, aby
+zdeszyfrowa&#263; DVD przechowywane na twardym dysku lub DVD ze z&#322;ym regionem na
+nap&#281;dzie RPC2 (powolne).
+</p></li></ol></div><p>
+Nap&#281;dy DVD RPC-1 zabezpieczaj&#261; ustawienia regionu jedynie poprzez
+oprogramowanie. Nap&#281;dy RPC-2 maj&#261; sprz&#281;towe zabezpieczenie, które pozwala na co
+najwy&#380;ej 5 zmian. Je&#380;eli posiadamy nap&#281;d DVD RPC-2 wymagana/zalecana jest
+aktualizacja firmware'u do RPC-1. 
+Nowe wersje firmware'ów mo&#380;na znale&#378;&#263; w internecie. 
+Poszukiwania radzimy rozpocz&#261;&#263; od 
+<a href="http://forum.rpc-1.com/dl_all.php" target="_top">forum firmware'ów</a>.
+Je&#380;eli nie ma tam nowej wersji firmware'u dla naszego urz&#261;dzenia, u&#380;yj
+<a href="http://linvdr.org/projects/regionset/" target="_top">regionset tool
+(narz&#281;dzia do zmiany regionów)</a> aby ustawi&#263; kod regionu na swoim nap&#281;dzie
+DVD (pod Linuksem). <span class="bold"><b>Ostrze&#380;enie</b></span>: Mo&#380;esz
+ustawi&#263; region tylko 5 razy.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="drives.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="vcd.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">5.1. Nap&#281;dy CD/DVD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 5.3. Odtwarzanie VCD</td></tr></table></div></body></html>

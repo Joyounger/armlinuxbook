@@ -1,0 +1,206 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.4. Napisy i OSD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="intro.html" title="Rozdzia&#322; 1. Wprowadzenie"><link rel="previous" href="gui.html" title="1.3. A co z GUI?"><link rel="next" href="rtc.html" title="1.5. RTC"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.4. Napisy i OSD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="gui.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 1. Wprowadzenie</th><td width="20%" align="right"> <a accesskey="n" href="rtc.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="subosd"></a>1.4. Napisy i OSD</h2></div></div><p>
+<span class="application">MPlayer</span> mo&#380;e wy&#347;wietla&#263; napisy podczas odtwarzania
+filmu. Obecnie obs&#322;ugiwane s&#261; nast&#281;puj&#261;ce formaty:
+</p><div class="itemizedlist"><ul type="disc"><li><p>VOBsub</p></li><li><p>OGM</p></li><li><p>CC (closed caption)</p></li><li><p>MicroDVD</p></li><li><p>SubRip</p></li><li><p>SubViewer</p></li><li><p>Sami</p></li><li><p>VPlayer</p></li><li><p>RT</p></li><li><p>SSA</p></li><li><p>PJS (Phoenix Japanimation Society)</p></li><li><p><a href="subosd.html#mpsub" title="1.4.1. MPsub - W&#322;asny format napisów MPlayera">MPsub</a></p></li><li><p>AQTitle</p></li><li><p><a href="http://unicorn.us.com/jacosub/" target="_top">JACOsub</a></p></li></ul></div><p>
+</p><p>
+<span class="application">MPlayer</span> mo&#380;e zrzuci&#263; wy&#380;ej wymienione formaty napisów
+(<span class="bold"><b>poza pierwszymi trzema</b></span>) do nast&#281;puj&#261;cych formatów,
+je&#347;li podasz odpowiedni&#261; opcj&#281;:
+</p><div class="itemizedlist"><ul type="disc"><li><p>MPsub: <tt class="option">-dumpmpsub</tt></p></li><li><p>SubRip: <tt class="option">-dumpsrtsub</tt></p></li><li><p>MicroDVD: <tt class="option">-dumpmicrodvdsub</tt></p></li><li><p>JACOsub: <tt class="option">-dumpjacosub</tt></p></li><li><p>Sami: <tt class="option">-dumpsami</tt></p></li></ul></div><p>
+</p><p>
+<span class="application">MEncoder</span> mo&#380;e zrzuci&#263; napisy DVD do formatu
+<a href="menc-feat-extractsub.html" title="7.8. Ekstraktowanie napisów z DVD do pliku VOBsub">VOBsub</a>.
+</p><p>
+Opcje dla wiersza polece&#324; ró&#380;ni&#261; si&#281; nieco dla poszczególnych formatów:
+</p><p><b>Format VOBsub. </b>
+Napisy VOBsub sk&#322;adaj&#261; si&#281; z du&#380;ego (kilkumegabajtowego) pliku <tt class="filename">.SUB</tt>
+i opcjonalnych plików <tt class="filename">.IDX</tt> i/lub <tt class="filename">.IFO</tt>.
+Je&#380;eli masz takie pliki, jak
+<tt class="filename"><i><tt>przyk&#322;ad.sub</tt></i></tt>,
+<tt class="filename"><i><tt>przyk&#322;ad.ifo</tt></i></tt> (opcjonalne),
+<tt class="filename"><i><tt>przyk&#322;ad.idx</tt></i></tt> -
+musisz przekaza&#263; <span class="application">MPlayerowi</span> opcje
+<tt class="option">-vobsub przyk&#322;ad [-vobsubid <i><tt>id</tt></i>]</tt>
+(pe&#322;na &#347;cie&#380;ka jest opcjonalna). Parametr <tt class="option">-vobsubid</tt> jest, jak
+<tt class="option">-sid</tt> dla DVD - przy jego pomocy mo&#380;esz wybiera&#263; pomi&#281;dzy &#347;cie&#380;kami napisów
+(ró&#380;ne j&#281;zyki). Je&#380;eli opcja <tt class="option">-vobsubid</tt> jest pomini&#281;ta,
+<span class="application">MPlayer</span> spróbuje u&#380;y&#263; j&#281;zyka podanego przez parametr
+<tt class="option">-slang</tt> i powróci do <tt>langidx</tt>
+zawartego w pliku<tt class="filename">.IDX</tt>, &#380;eby ustawi&#263; j&#281;zyk napisów. Je&#380;eli to
+zako&#324;czy si&#281; niepowodzeniem, napisy nie b&#281;d&#261; wy&#347;wietlane.
+</p><p><b>Inne formaty napisów. </b>
+Inne formaty sk&#322;adaj&#261; si&#281; z pojedynczego pliku tekstowego zawieraj&#261;cego przedzia&#322;
+czasowy, rozmieszczenie i sam tekst. Sposób u&#380;ycia: Je&#380;eli masz taki plik, jak
+<tt class="filename"><i><tt>przyk&#322;ad.txt</tt></i></tt>,
+musisz przekaza&#263; opcj&#281; <tt class="option">-sub
+<i><tt>przyk&#322;ad.txt</tt></i></tt> (pe&#322;na &#347;cie&#380;ka jest opcjonalna).
+</p><div class="variablelist"><p><b>Dopasowywanie czasu wy&#347;wietlania i po&#322;o&#380;enia napisów:</b></p><dl><dt><span class="term"><tt class="option">-subdelay <i><tt>sek</tt></i></tt></span></dt><dd>
+    Opó&#378;nia wy&#347;wietlanie napisów o <tt class="option"><i><tt>sek</tt></i></tt> sekund.
+    Mo&#380;e by&#263; liczb&#261; ujemn&#261;. Warto&#347;&#263; jest dodawana do licznika czasu filmu.
+    </dd><dt><span class="term"><tt class="option">-subfps <i><tt>ILO&#346;&#262;</tt></i></tt></span></dt><dd>
+    Okre&#347;la ilo&#347;&#263; klatek na sekund&#281; pliku z napisami (liczba rzeczywista).
+    </dd><dt><span class="term"><tt class="option">-subpos <i><tt>0-100</tt></i></tt></span></dt><dd>
+    Okre&#347;la po&#322;o&#380;enie napisów.
+    </dd></dl></div><p>
+Je&#380;eli podczas u&#380;ywania napisów w formacie MicroDVD zauwa&#380;ysz rosn&#261;ce opó&#378;nienie
+mi&#281;dzy nimi a filmem, to prawdopodobnie ilo&#347;&#263; klatek na sekund&#281; filmu ró&#380;ni si&#281;
+od warto&#347;ci, do której zosta&#322;y przystosowane napisy.
+Zauwa&#380;, &#380;e format ten korzysta z bezwzgl&#281;dnych numerów klatek do wy&#347;wietlania
+napisów w odpowiednim momencie, ale nie zawiera w sobie informacji o warto&#347;ci fps,
+dlatego powiniene&#347; skorzysta&#263; z opcji <tt class="option">-subfps</tt>.
+Je&#380;eli chcia&#322;by&#347; trwale rozwi&#261;za&#263; ten problem, musisz r&#281;cznie zmieni&#263;
+warto&#347;&#263; framerate pliku z napisami.
+<span class="application">MPlayer</span> mo&#380;e zrobi&#263; to za ciebie:
+
+<pre class="screen">mplayer -dumpmicrodvdsub -fps <i><tt>fps_napisów</tt></i> -subfps <i><tt>fps_filmu</tt></i> -sub <i><tt>zbiór_z_napisami</tt></i> <i><tt>atrapa.avi</tt></i></pre>
+</p><p>
+O napisach DVD przeczytasz w rozdziale <a href="dvd.html" title="5.2. Odtwarzanie DVD">DVD</a>.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mpsub"></a>1.4.1. MPsub - W&#322;asny format napisów <span class="application">MPlayera</span></h3></div></div><p>
+<span class="application">MPlayer</span> przedstawia nowy format napisów nazwany
+<span class="bold"><b>MPsub</b></span>. Zaprojektowany on zosta&#322; przez Gabucino.
+Przede wszystkim jego g&#322;ówn&#261; cech&#261; jest bycie <span class="emphasis"><i>dynamicznie</i></span> opartym o
+czas (chocia&#380; mo&#380;e by&#263; równie&#380; oparty o ramki).  Przyk&#322;ad (z <a href="../../tech/mpsub.sub" target="_top">DOCS/tech/mpsub.sub</a> - na potrzeby tego dokumentu cz&#281;&#347;ciowo
+przet&#322;umaczony):
+<pre class="programlisting">
+FORMAT=TIME
+# pierwsza liczba : czekaj tyle sekund po znikni&#281;ciu poprzednich napisów
+# druga liczba : wy&#347;wietlaj napisy przez tyle sekund
+
+15 3
+Dawno, dawno temu...
+
+0 3
+w odleg&#322;ej galaktyce...
+
+0 3
+planeta Naboo by&#322;a atakowana.</pre>
+</p><p>
+Widzisz wi&#281;c, &#380;e g&#322;ównym celem by&#322;o <span class="bold"><b>umo&#380;liwienie &#322;atwej
+edycji/synchronizacji/&#322;&#261;czenia/obcinania napisów</b></span>. Wi&#281;c je&#347;li - powiedzmy -
+pobierzesz napisy SSA, które s&#261; &#378;le rozmieszczone w czasie/opó&#378;nione w stosunku do Twojej wersji
+filmu, wykonujesz wtedy
+
+<pre class="screen">mplayer <i><tt>film.avi</tt></i> -sub &#378;ród&#322;o.ssa -dumpmpsub</pre>
+Zostanie utworzony plik <tt class="filename">dump.mpsub</tt> w obecnie u&#380;ywanym katalogu,
+który b&#281;dzie zawiera&#322; &#378;ród&#322;owe napisy, ale w formacie
+<span class="bold"><b>MPsub</b></span>. B&#281;dziesz móg&#322; wtedy dowolnie dodawa&#263;/odejmowa&#263;
+sekundy do/z napisów.
+</p><p>
+Napisy wy&#347;wietlane s&#261; w technice <span class="bold"><b>'OSD',
+On Screen Display (Wy&#347;wietlanie Na Ekranie)</b></span>. OSD u&#380;ywany jest
+do wy&#347;wietlania obecnego czasu odtwarzania, paska g&#322;o&#347;no&#347;ci, paska przeszukiwania
+filmu, itp.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mpsub-install"></a>1.4.2. Instalacja OSD i napisów</h3></div></div><p>
+B&#281;dziesz potrzebowa&#322; paczki zawieraj&#261;cej czcionk&#281; dla <span class="application">MPlayera</span>,
+&#380;eby móc skorzysta&#263; z OSD/NAPISÓW. Jest wiele sposobów, aby j&#261; uzyska&#263;:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+ Skorzystaj z generatora czcionki w znajduj&#261;cego si&#281; w katalogu <tt class="filename">TOOLS/subfont-c</tt>. Jest to kompletne narz&#281;dzie, które
+ pomo&#380;e Ci przekonwertowa&#263; czcionk&#281; TTF/Type1/itp. do paczki z czcionk&#261; dla
+ <span class="application">MPlayera</span> (wi&#281;cej szczegó&#322;ów znajdziesz w
+ <tt class="filename">TOOLS/subfont-c/README</tt>).
+ </p></li><li><p>
+ Skorzystaj z wtyczki generator czcionki dla <span class="application">GIMPa</span>,
+ któr&#261; znajdziesz w katalogu <tt class="filename">TOOLS/subfont-GIMP</tt>
+ (notka: musisz mie&#263; równie&#380; wtyczk&#281; HSI RAW, sprawd&#378; ten adres:
+ <a href="http://realtime.ssu.ac.kr/~lethean/mplayer/index.php?pagename=MplayerKoreanFonts" target="_top">http://realtime.ssu.ac.kr/~lethean/mplayer/index.php?pagename=MplayerKoreanFonts</a>).
+ </p></li><li><p>
+ u&#380;ywanie czcionki TrueType (TTF) przy pomocy biblioteki
+ <tt>freetype</tt>. Konieczna do tego jest wersja
+ 2.0.9 lub wy&#380;sza! Tutaj mo&#380;esz skorzysta&#263; z dwóch metod:
+  </p><div class="itemizedlist"><ul type="round"><li><p>
+      u&#380;yj opcji <tt class="option">-font <i><tt>/&#347;cie&#380;ka/do/przyk&#322;adowej_czcionki.ttf</tt></i>
+      </tt>, aby okre&#347;li&#263; plik z czcionk&#261; TrueType przy ka&#380;dym uruchomieniu
+      </p></li><li><p>
+      stwórz symboliczne dowi&#261;zanie:
+      <pre class="screen">ln -s <i><tt>/&#347;cie&#380;ka/do/przyk&#322;adowej_czcionki.ttf</tt></i> ~/.mplayer/subfont.ttf</pre>
+      </p></li></ul></div><p>
+  Je&#380;eli <span class="application">MPlayer</span> zosta&#322; skompilowany z obs&#322;ug&#261;
+  <tt>fontconfig</tt>, powy&#380;sze metody nie b&#281;d&#261;
+  dzia&#322;a&#322;y, poniewa&#380; opcja <tt class="option">-font</tt> b&#281;dzie oczekiwa&#322;a nazwy czcionki,
+  a domy&#347;ln&#261; jest sans-serif. Aby otrzyma&#263; list&#281; czcionek znanych
+  <tt>fontconfig</tt>,
+  u&#380;yj komendy <b>fc-list</b>. Przyk&#322;ad:
+  <tt class="option">-font <i><tt>'Bitstream Vera Sans'</tt></i></tt>
+  </p></li><li><p>
+  Pobierz gotowe do u&#380;ycia pakiety z czcionkami ze strony
+  <span class="application">MPlayera</span>. Informacja: dost&#281;pne obecnie czcionki
+  ograniczone s&#261; do obs&#322;ugi kodowania ISO 8859-1/2, ale s&#261; te&#380; inne, przygotowane
+  przez u&#380;ytkowników, (z obs&#322;ug&#261; korea&#324;skiego, rosyjskiego, ISO 8859-8 itp) w katalogu
+  contrib/font serwera FTP.
+  </p><p>
+  
+  Czcionki powinny mie&#263; odpowiedni plik <tt class="filename">font.desc</tt>, który
+  mapuje pozycj&#281; czcionek unicode do aktualnie u&#380;ywanej przez napisy strony kodowej
+  Innym wyj&#347;ciem jest posiadanie napisów zakodowanych w UTF-8 i u&#380;ycie opcji
+  <tt class="option">-utf8</tt> albo po prostu zmienienie ich nazwy na
+  <tt class="filename">&lt;nazwa_filmu&gt;.utf</tt> i wgranie ich do tego samego
+  katalogu co plik z filmem. Konwersja z ró&#380;nych stron kodowych do UTF-8
+  mo&#380;e by&#263; realizowana poprzez programy <b>konwert</b> lub
+  <b>iconv</b>.
+  </p><p>
+
+  </p><div class="table"><p><b>Tabela 1.1. Kilka adresów URL</b></p><table summary="Kilka adresów URL" border="1"><colgroup><col><col></colgroup><thead><tr><th>URL</th><th>Komentarz</th></tr></thead><tbody><tr><td><a href="ftp://ftp.mplayerhq.hu/MPlayer/releases/fonts/" target="_top">ftp://ftp.mplayerhq.hu/MPlayer/releases/fonts/</a></td><td>
+    czcionki ISO
+    </td></tr><tr><td><a href="ftp://ftp.mplayerhq.hu/MPlayer/contrib/fonts/" target="_top">ftp://ftp.mplayerhq.hu/MPlayer/contrib/fonts/</a></td><td>
+    ró&#380;ne czcionki u&#380;ytkowników
+    </td></tr><tr><td><a href="http://realtime.ssu.ac.kr/~lethean/mplayer/index.php?pagename=MplayerKoreanFonts" target="_top">http://realtime.ssu.ac.kr/~lethean/mplayer/index.php?pagename=MplayerKoreanFonts</a></td><td>
+    czcionki korea&#324;skie i wtyczka RAW
+    </td></tr></tbody></table></div><p>
+
+  </p></li></ul></div><p>
+Je&#380;eli wybierzesz czcionki inne ni&#380; TTF, rozpakuj (UNZIP) plik, który &#347;ci&#261;gn&#261;&#322;e&#347; do
+katalogu <tt class="filename">~/.mplayer</tt> lub <tt class="filename">$PREFIX/share/mplayer</tt>. Nast&#281;pnie zmie&#324; nazw&#281;
+lub stwórz symboliczne dowi&#261;zanie tego katalogu do <tt class="filename">font</tt>,
+na przyk&#322;ad:
+
+<pre class="screen">ln -s <i><tt>~/.mplayer/arial-24</tt></i> ~/.mplayer/font</pre>
+
+Teraz na pewno zobaczysz licznik w lewym górnym rogu filmu (mo&#380;esz go wy&#322;&#261;czy&#263;
+u&#380;ywaj&#261;c klawisza <span class="keycap"><b>o</b></span>).
+</p><p>
+(napisy s&#261; <span class="emphasis"><i>zawsze w&#322;&#261;czone</i></span>, aby dowiedzie&#263; si&#281;, je wy&#322;&#261;czy&#263;,
+przeczytaj stron&#281; man)
+</p><p>
+OSD ma 4 stany (prze&#322;&#261;czane przez klawisz <span class="keycap"><b>o</b></span>):
+
+</p><div class="orderedlist"><ol type="1"><li>
+  pasek g&#322;o&#347;no&#347;ci  + pasek przeszukiwania (domy&#347;lnie)
+  </li><li>
+  pasek g&#322;o&#347;no&#347;ci  + pasek przeszukiwania + licznik czasu +
+  pozycja przeszukiwania w pliku (w procentach)
+  </li><li>
+  pasek g&#322;o&#347;no&#347;ci  + pasek przeszukiwania + licznik czasu + ca&#322;kowity czas trwania
+  </li><li>
+  tylko napisy
+  </li></ol></div><p>
+
+Mo&#380;esz zmieni&#263; domy&#347;lne zachowanie, ustawiaj&#261;c zmienn&#261; <tt>osdlevel</tt>
+w pliku konfiguracyjnym (config) lub korzystaj&#261;c z opcji <tt class="option">-osdlevel</tt>
+w wierszu polece&#324;.
+
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="osdmenu"></a>1.4.3. Menu OSD</h3></div></div><p>
+<span class="application">MPlayer</span> ma ca&#322;kowicie definiowalny Interfejs Menu OSD.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+Menu Ustawienia nie jest jeszcze ZAIMPLEMENTOWANE!
+</p></div><div class="orderedlist"><p><b>Instalacja</b></p><ol type="1"><li>
+ skompiluj <span class="application">MPlayera</span> z opcj&#261; <tt class="option">--enable-menu</tt>
+  dla skryptu <tt class="filename">./configure</tt>
+  </li><li>
+  upewnij si&#281;, &#380;e masz zainstalowan&#261; czcionk&#281; OSD
+  </li><li>
+  skopiuj plik <tt class="filename">etc/menu.conf</tt> do Twojego katalogu
+  <tt class="filename">.mplayer</tt>
+  </li><li>
+  skopiuj plik <tt class="filename">etc/input.conf</tt> do Twojego katalogu
+  <tt class="filename">.mplayer</tt> lub do ogólnosystemowego
+  katalogu z konfiguracj&#261; <span class="application">MPlayera</span> (domy&#347;lnie:
+  <tt class="filename">/usr/local/etc/mplayer</tt>)
+  </li><li>
+  sprawd&#378; i ewentualnie przerób plik <tt class="filename">input.conf</tt>, aby okre&#347;li&#263; funkcje klawiszy
+  (wszystko jest tam opisane).
+  </li><li><p>
+  uruchom <span class="application">MPlayera</span> przyk&#322;adow&#261; komend&#261;:
+  <pre class="screen">$ mplayer -menu <i><tt>plik.avi</tt></i></pre>
+  </p></li><li>
+  wci&#347;nij dowolny klawisz, który wcze&#347;niej zdefiniowa&#322;e&#347;
+  </li></ol></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="gui.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="rtc.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">1.3. A co z GUI? </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 1.5. RTC</td></tr></table></div></body></html>

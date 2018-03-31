@@ -1,0 +1,18 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.3. Hálózati és pipe-os stream-elés</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="usage.html" title="3. fejezet - Használat"><link rel="previous" href="control.html" title="3.2. Vezérlés"><link rel="next" href="mpst.html" title="3.4. Távoli stream-ek"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. Hálózati és pipe-os stream-elés</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="control.html">El&#337;z&#337;</a> </td><th width="60%" align="center">3. fejezet - Használat</th><td width="20%" align="right"> <a accesskey="n" href="mpst.html">Következ&#337;</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="streaming"></a>3.3. Hálózati és pipe-os stream-elés</h2></div></div><p>
+Az <span class="application">MPlayer</span> HTTP, FTP, MMS vagy RTSP/RTP protokoll
+segítségével le tud játszani fájlokat hálózatról is.
+</p><p>
+A lejátszáshoz egyszer&#369;en csak be kell írni az URL-t a parancssorba.
+Az <span class="application">MPlayer</span> figyeli a
+<tt>http_proxy</tt> környezeti változót is, és használja a
+proxy-t, ha van. Azonban így is megadhatod a proxy-t:
+<pre class="screen">mplayer <i><tt>http_proxy://proxy.micorsops.com:3128/http://micorsops.com:80/stream.asf</tt></i></pre>
+</p><p>
+Az <span class="application">MPlayer</span> tud olvasni a standard bemenetr&#337;l (stdin)
+is (<span class="emphasis"><i>nem</i></span> nevesített pipe). Ezt például FTP-r&#337;l történ&#337; lejátszásnál
+tudod használni:
+<pre class="screen">wget <i><tt>ftp://micorsops.com/something.avi</tt></i> -O - | mplayer -</pre>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Megjegyzés</h3><p>
+Tanácsos megadni a <tt class="option">-cache</tt> kapcsolót, ha hálózatról játszol le:
+<pre class="screen">wget <i><tt>ftp://micorsops.com/something.avi</tt></i> -O - | mplayer -cache 8192 -</pre>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="control.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="mpst.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">3.2. Vezérlés </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 3.4. Távoli stream-ek</td></tr></table></div></body></html>

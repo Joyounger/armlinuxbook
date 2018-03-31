@@ -1,0 +1,119 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.5. TV bemenet</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="features.html" title="2. fejezet - Funkciók"><link rel="previous" href="audio.html" title="2.4. Audió kimeneti eszközök"><link rel="next" href="usage.html" title="3. fejezet - Használat"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.5. TV bemenet</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="audio.html">El&#337;z&#337;</a> </td><th width="60%" align="center">2. fejezet - Funkciók</th><td width="20%" align="right"> <a accesskey="n" href="usage.html">Következ&#337;</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="tv-input"></a>2.5. TV bemenet</h2></div></div><p>
+Ez a rész arról szól, hogy hogyan lehet <span class="bold"><b>adást nézni/lementeni
+V4L kompatibilis TV tunerrel</b></span>. Lásd a man oldalt a TV-s kapcsolók és
+a vezérlõ billentyûk listájáért.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="tv-compilation"></a>2.5.1. Fordítás</h3></div></div><div class="procedure"><ol type="1"><li><p>
+  Elõször is újra fordítanod kell. A <tt class="filename">./configure</tt>
+  automatikusan megtalálja a v4l dolgok kernel fejléceit és a
+  <tt class="filename">/dev/video*</tt> bejegyzéseket. Ha léteznek, a TV támogatás
+  be lesz építve (lásd a <tt class="filename">./configure</tt> kimenetét).
+  </p></li><li><p>
+  Gyõzõdj meg róla, hogy a tunered mûködik másik Linuxos TV szoftverrel is,
+  például a <span class="application">XawTV</span>-vel.
+  </p></li></ol></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="tv-tips"></a>2.5.2. Használati tippek</h3></div></div><p>
+A kapcsolók teljes listája a man oldalon található.
+Itt csak pár tippet említünk meg:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+Használd a <tt class="option">channels</tt> kapcsolót. Például:
+<pre class="screen">-tv channels=26-MTV1,23-TV2</pre>
+Magyarázat: ha ezt a kapcsolót használod, akkor csak a 26-os és a 23-as csatorna
+lesz használható, és szép OSD szöveg lesz csatorna váltáskor, mely a csatorna nevét
+jelzi ki. A csatorna nevében lévõ szóközöket a "_" karakterrel kell kicserélni.
+</p></li><li><p>
+Válassz valamilyen értelmes képméretet. A kp méreteinek oszthatónak kell lennie 16-tal.
+</p></li><li><p>
+Ha videót mentesz el úgy, hogy a függõleges felbontás nagyobb, mint a teljes
+felbontás fele (pl. 288 a PAL-nál és 240 az NTSC-nél), gyõzõdj meg róla, hogy
+bekapcsoltad a deinterlacing-et. Különben a filmed torzul a gyors mozgású
+jelenetek alatt és a bitráta vezérlõ is valószínûleg képtelen lesz
+az elõírt bitráta megtartására, ahogy az interlacing változások nagy mennyiségû
+adatot eredményeznek és így nagy sávszélességet vesznek el. A deinterlacing-et
+bekapcsolhatod a <tt class="option">-vf pp=DEINT_TYPE</tt> kapcsolóval. Általában
+a <tt class="option">pp=lb</tt> jó, de ez az egyéni beállításokon is múlik. A többi
+deinterlacing algoritmust lásd a manuálban és próbálgasd ki õket.
+</p></li><li><p>
+Vágd le a felesleges helyet. Ha videót mentesz, a sarki arénák teljesen
+feketék és némi zajt tartalmaznak. Ezek szintén nagy sávszélességet foglalnak
+el feleslegesen. Pontosabban nem maguk a fekete területek, hanem az éles
+átmenetek a fekete és a világosabb videó kép között, de ez most nem fontos
+igazából. Mielõtt elindítanád a mentést, állítsd be a <tt class="option">crop</tt>
+kapcsoló argumentumait, így a széleknél lévõ vackok le lesznek vágva.
+És ne feledd a képméreteket ésszerû keretek között tartani.
+</p></li><li><p>
+Figyelj a CPU terhelésre. Legtöbbször átlépi a 90%-os határt. Ha nagy mentési
+buffered van, a <span class="application">MEncoder</span> túlél egy esetleges túlterhelést
+pár másodpercig, de semmi több. Jobb kikapcsolni a 3D OpenGL képernyõvédõket
+és a hasonló dolgokat.
+</p></li><li><p>
+Ne szórakozz a rendszer órával. A <span class="application">MEncoder</span> a
+rendszer órát használja az A/V szinkronhoz. Ha átállítod a rendszer órát (különösen
+vissza az idõben), a <span class="application">MEncoder</span> összezavarodik és
+képkockákat veszítesz. Ez egy fontos dolog, ha hálózathoz kapcsolódsz és futtatsz
+valamilyen idõ szinkronizációs szoftvert, mint pl. NTP. Ki kell kapcsolnod az
+NTP-t a mentési folyamat alatt, ha megbízható mentést akarsz.
+</p></li><li><p>
+Ne változtasd meg az <tt class="option">outfmt</tt>-t, hacsak vagy biztos benne, hogy mit
+csinálsz, vagy a kártyád/vezérlõd tényleg nem támogatja az alapértelmezést
+(YV12 színtér). A <span class="application">MPlayer</span>/<span class="application">MEncoder</span>
+régebbi verzióiban szükséges volt a kimeneti formátum megadása. Ez a jelenlegi
+kiadásban már javítva lett és az <tt class="option">outfmt</tt> már nem szükséges, az
+alapértelmezés megfelel a legtöbb esetben. Például ha videót mentesz DivX-be
+a <tt>libavcodec</tt> használatával és megadod
+az <tt class="option">outfmt=RGB24</tt>-t a mentett kép minõségének növelése érdekében,
+a mentett kép igazából késõbb lesz visszakonvertálva YV12-be így az egyetlen,
+amit elérsz, az erõteljes CPU használat.
+</p></li><li><p>
+Az I420 színtér megadásához (<tt class="option">outfmt=i420</tt>) meg kell adnod egy
+<tt class="option">-vc rawi420</tt> kapcsolót is, mivel fourcc ütközés van egy Intel Indeo
+videó codec-kel.
+</p></li><li><p>
+Rengeteg módon menthetsz el audiót. A hangot grabbelheted a hang kártyáddal is
+egy a videó kártya és a line-in között lévõ külsõ kábelen keresztül, vagy a
+bt878-as chip-be beépített ADC segítségével. A második esetben be kell töltened
+a <span class="bold"><b>btaudio</b></span> vezérlõt. Olvasd el a
+<tt class="filename">linux/Documentation/sound/btaudio</tt> fájlt (a kernel fájában,
+nem az <span class="application">MPlayer</span>ében) némi leírásért ezen vezérlõ
+használatával kapcsolatban.
+</p></li><li><p>
+Ha a <span class="application">MEncoder</span> nem tudja megnyitni az audió eszközt,
+gyõzõdj meg róla, hogy tényleg elérhetõ-e. Gond lehet a hang szerverekkel, mint
+pl. arts (KDE) vagy esd (GNOME). ha full duplex hang kártyád van (majdnem
+az összes hangkártya tudja már ezt manapság), és KDE-t használsz, próbáld
+meg bekapcsolni a "full duplex" opciót a hangkártya tulajdonságok menüben.
+</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="tv-examples"></a>2.5.3. Példák</h3></div></div><div class="informalexample"><p>
+Dummy kimenet AAlib-re :)
+<pre class="screen">
+mplayer -tv driver=dummy:width=640:height=480 -vo aa tv://</pre>
+</p></div><div class="informalexample"><p>
+Bemenet standard V4L-rõl:
+<pre class="screen">
+mplayer -tv driver=v4l:width=640:height=480:outfmt=i420 -vc rawi420 -vo xv tv://</pre>
+</p></div><div class="informalexample"><p>
+Egy sokkal mesterkéltebb példa. Ezzel a <span class="application">MEncoder</span>
+elmenti a teljes PAL képet, levágja a széleket és deinterlace-eli a képet
+a linear blend algoritmus segítségével. Az audió 65 kbps-es állandó bitrátával
+kerül tömörítésre, a LAME codec felhasználásával. Ez a beállítás megfelelõ a
+filmek elmentéséhez.
+<pre class="screen">
+     mencoder -tv driver=v4l:width=768:height=576 \
+     -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=900 \
+     -oac mp3lame -lameopts cbr:br=64 \
+     -vf crop=720:544:24:16,pp=lb -o <i><tt>output.avi</tt></i> tv://
+</pre>
+</p></div><div class="informalexample"><p>
+This will additionally rescale the image to 384x288 and compresses the
+video with the bitrate of 350kbps in high quality mode. The vqmax option
+looses the quantizer and allows the video compressor to actually reach so
+low bitrate even at the expense of the quality. This can be used for
+capturing long TV series, where the video quality isn't so important.
+<pre class="screen">
+     mencoder -tv driver=v4l:width=768:height=576 \
+     -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=350:vhq:vqmax=31:keyint=300 \
+     -oac mp3lame -lameopts cbr:br=48 \
+     -vf crop=720:540:24:18,pp=lb,scale=384:288 -sws 1 -o <i><tt>output.avi</tt></i> tv://
+</pre>
+Meg lehet adni kisebb képméretet is a <tt class="option">-tv</tt> kapcsolónál és ki lehet
+hagyni a szoftveres méretezést, de ez a megközelítés a lehetõ legtöbb információt
+használja fel és egy kicsit ellenállóbb a zajokkal szemben. A bt8x8 chip-ek a
+pixel átlagolást csak vízszintesen tudják hardveres korlátok miatt.
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="audio.html">El&#337;z&#337;</a> </td><td width="20%" align="center"><a accesskey="u" href="features.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="usage.html">Következ&#337;</a></td></tr><tr><td width="40%" align="left" valign="top">2.4. Audió kimeneti eszközök </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 3. fejezet - Használat</td></tr></table></div></body></html>

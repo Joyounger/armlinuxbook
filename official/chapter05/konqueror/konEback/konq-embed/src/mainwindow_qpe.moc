@@ -1,0 +1,95 @@
+/****************************************************************************
+** MainWindowQPE meta object code from reading C++ file 'mainwindow_qpe.h'
+**
+** Created: Thu Nov 20 06:22:02 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "mainwindow_qpe.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *MainWindowQPE::className() const
+{
+    return "MainWindowQPE";
+}
+
+QMetaObject *MainWindowQPE::metaObj = 0;
+
+#ifdef QWS
+static class MainWindowQPE_metaObj_Unloader {
+public:
+    ~MainWindowQPE_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "MainWindowQPE" );
+    }
+} MainWindowQPE_metaObj_unloader;
+#endif
+
+void MainWindowQPE::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(MainWindowX11::className(), "MainWindowX11") != 0 )
+	badSuperclassWarning("MainWindowQPE","MainWindowX11");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString MainWindowQPE::tr(const char* s)
+{
+    return qApp->translate( "MainWindowQPE", s, 0 );
+}
+
+QString MainWindowQPE::tr(const char* s, const char * c)
+{
+    return qApp->translate( "MainWindowQPE", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* MainWindowQPE::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) MainWindowX11::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (MainWindowQPE::*m1_t0)(const QString&);
+    typedef void (QObject::*om1_t0)(const QString&);
+    m1_t0 v1_0 = &MainWindowQPE::setDocument;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "setDocument(const QString&)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"MainWindowQPE", "MainWindowX11",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

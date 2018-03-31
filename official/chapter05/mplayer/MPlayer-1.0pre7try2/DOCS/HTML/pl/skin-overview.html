@@ -1,0 +1,123 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.1. Wst&#281;p</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="skin.html" title="Dodatek D. Format skórki MPlayera"><link rel="previous" href="skin.html" title="Dodatek D. Format skórki MPlayera"><link rel="next" href="skin-file.html" title="D.2. Plik skin"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.1. Wst&#281;p</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek D. Format skórki MPlayera</th><td width="20%" align="right"> <a accesskey="n" href="skin-file.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-overview"></a>D.1. Wst&#281;p</h2></div></div><p>
+W zasadzie nie ma to &#380;adnego zwi&#261;zku z formatem skórki, ale powiniene&#347;
+wiedzie&#263;, &#380;e <span class="application">MPlayer</span> <span class="bold"><b>nie</b></span>
+ma wbudowanej skórki, w zwi&#261;zku z tym <span class="bold"><b> co najmniej
+jedna skórka musi by&#263; zainstalowana, aby&#347; mia&#322; mo&#380;liwo&#347;&#263; korzystania z GUI.</b></span>
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-overview-directories"></a>D.1.1. Katalogi</h3></div></div><p>
+Skórki s&#261; szukane w nast&#281;puj&#261;cych katalogach (w kolejno&#347;ci):
+</p><div class="orderedlist"><ol type="1"><li><p>
+<tt class="filename">$(DATADIR)/Skin/</tt>
+</p></li><li><p>
+<tt class="filename">$(PREFIX)/share/mplayer/Skin/</tt>
+</p></li><li><p>
+<tt class="filename">~/.mplayer/Skin/</tt>
+</p></li></ol></div><p>
+</p><p>
+Zauwa&#380;, &#380;e pierwsza &#347;cie&#380;ka mo&#380;e si&#281; ró&#380;ni&#263;, w zale&#380;no&#347;ci od sposobu w jaki
+<span class="application">MPlayer</span> zosta&#322; skonfigurowany
+(zobacz argumenty <tt class="option">--prefix</tt> oraz <tt class="option">--datadir</tt>
+w skrypcie <b>configure</b>).
+</p><p>
+Ka&#380;da skórka jest instalowana w swoim w&#322;asnym katalogu, w jednej z wy&#380;ej
+wymienionych lokacji, na przyk&#322;ad:
+<pre class="screen">$(PREFIX)/share/mplayer/Skin/default/</pre>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-overview-formats"></a>D.1.2. Formaty obrazków</h3></div></div><p>Obrazki musz&#261; by&#263; zapisane w formacie PNG (paleta truecolor - 24 lub 32 bpp).</p><p>
+W g&#322;ównym oknie oraz na panelu odtwarzania (zobacz ni&#380;ej) mo&#380;esz u&#380;y&#263;
+obrazków z 'przezroczysto&#347;ci&#261;': obszary wype&#322;nione kolorem #FF00FF (magenta) s&#261;
+w pe&#322;ni przezroczyste dla <span class="application">MPlayera</span>. Oznacza to, &#380;e
+mo&#380;esz mie&#263; okna o ró&#380;nych kszta&#322;tach je&#347;li Twój X Server ma rozszerzenie
+XShape.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-overview-components"></a>D.1.3. Sk&#322;adniki skórki</h3></div></div><p>
+Skórki s&#261; ca&#322;kowicie konfigurowalne (w odró&#380;nieniu od skórek np. 
+<span class="application">Winampa</span>/<span class="application">XMMS</span>),
+a wi&#281;c zale&#380;y to wy&#322;&#261;cznie od Ciebie, czy stworzysz co&#347; wspania&#322;ego.
+</p><p>
+W chwili obecnej mamy cztery okna, które mo&#380;na ozdobi&#263;:
+<a href="skin-file.html#skin-file-main" title="D.2.1. Okno g&#322;ówne i panel odtwarzania">okno g&#322;ówne (main window)</a>,
+<a href="skin-file.html#skin-file-subwindow" title="D.2.2. Okno ekranu">okno ekranu (subwindow)</a>,
+<a href="skin-file.html#skin-file-main" title="D.2.1. Okno g&#322;ówne i panel odtwarzania">panel odtwarzania (playbar)</a>,
+<a href="skin-file.html#skin-file-menu" title="D.2.3. Menu skórki">menu skórki (skin menu)</a> (które mo&#380;e by&#263;
+aktywowane prawym przyciskiem myszy).
+
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>Okno g&#322;ówne</b></span> i/lub
+  <span class="bold"><b>panel odtwarzania</b></span> to miejsca, gdzie mo&#380;esz
+  sterowa&#263; <span class="application">MPlayerem</span>.
+  T&#322;em tego okna jest obrazek. Ró&#380;ne elementy mog&#261; (i musz&#261;) by&#263; umieszczone
+  w tym oknie: <span class="emphasis"><i>przyciski</i></span>, <span class="emphasis"><i>potencjometry</i></span>
+  (suwaki) i <span class="emphasis"><i>etykiety</i></span>. Dla ka&#380;dego elementu musisz okre&#347;li&#263;
+  ich pozycj&#281; oraz rozmiar.
+</p><p>
+   <span class="bold"><b>Przycisk</b></span> ma trzy stany (wci&#347;ni&#281;ty,
+   zwolniony, nieaktywny), zatem jego obrazki musz&#261; by&#263; podzielone na trzy
+   cz&#281;&#347;ci w pionie. Zobacz sekcj&#281; <a href="skin-file.html#skin-button">button</a>, by
+   dowiedzie&#263; si&#281; wi&#281;cej.
+</p><p>
+  <span class="bold"><b>Potencjometr (suwak)</b></span> (wykorzystywany g&#322;ównie
+  jako pasek przewijania i kontrolka g&#322;o&#347;no&#347;ci/balansu) mo&#380;e sk&#322;ada&#263; si&#281; z
+  ka&#380;dej liczby stanów poprzez podzielenie jego obrazka na wiele cz&#281;&#347;ci, z
+  których jedna jest pod drug&#261;. Zobacz
+  <a href="skin-file.html#skin-hpotmeter">hpotmeter</a> oraz
+  <a href="skin-file.html#skin-potmeter">potmeter</a>, by dowiedzie&#263; si&#281; wi&#281;cej.
+</p><p>
+  <span class="bold"><b>Etykiety</b></span> s&#261; nieco specyficzne: Znaki
+  potrzebne do ich narysowania s&#261; pobierane z pliku graficznego, a znaki
+  umieszczone w pliku graficznym s&#261; opisane przez
+  <a href="skin-fonts.html" title="D.3. Czcionki">plik opisu czcionek</a>. Jest to plik, który za
+  pomoc&#261; czystego tekstu okre&#347;la wspó&#322;rz&#281;dne x, y oraz wielko&#347;&#263; ka&#380;dego znaku
+  umieszczonego na obrazku (plik graficzny i jego plik opisu tworz&#261;
+  <span class="emphasis"><i>razem</i></span> czcionk&#281;).
+  Zobacz <a href="skin-file.html#skin-dlabel">dlabel</a>
+  oraz <a href="skin-file.html#skin-slabel">slabel</a>, by dowiedzie&#263; si&#281; wi&#281;cej.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>Wszystkie obrazki mog&#261; by&#263; ca&#322;kowicie przezroczyste - tak, jak to
+opisano w sekcji <a href="skin-overview.html#skin-overview-formats" title="D.1.2. Formaty obrazków">formaty plików
+graficznych</a>. Je&#380;eli X Server nie obs&#322;uguje rozszerzenia XShape, to
+elementy oznaczone jako przezroczyste b&#281;d&#261; czarne. Je&#347;li chcia&#322;by&#347; wykorzysta&#263;
+tak&#261; mo&#380;liwo&#347;&#263;, szeroko&#347;&#263; obrazka t&#322;a g&#322;ównego okna musi by&#263; podzielna przez 8.
+</p></div></li><li><p>
+  <span class="bold"><b>Okno ekranu</b></span> to miejsce, gdzie odtwarzany jest
+  film. Mo&#380;e ono wy&#347;wietla&#263; okre&#347;lony obrazek, je&#347;li &#380;aden film nie jest uruchomiony
+  (to do&#347;&#263; nudne mie&#263; puste okno :-)) <span class="bold"><b>Uwaga:</b></span>
+  przezroczysto&#347;&#263; <span class="bold"><b>nie jest</b></span> tutaj dost&#281;pna.
+</p></li><li><p>
+  <span class="bold"><b>Menu skórki</b></span> to po prostu jeden ze sposobów na
+  kontrolowanie <span class="application">MPlayera</span> poprzez wpisy w menu. Dwa
+  obrazki s&#261; do tego potrzebne: pierwszy z nich jest obrazkiem podstawowym,
+  który pokazuje zwyk&#322;y stan menu, drugi za&#347; s&#322;u&#380;y do wy&#347;wietlenia zaznaczonych
+  obszarów. Gdy uaktywnisz menu, zostanie pokazany pierwszy obrazek. Je&#347;li
+  przesuniesz mysz nad który&#347; z jego wpisów, wówczas zaznaczony element jest
+  kopiowany z drugiego obrazka w miejsce, na które wskazuje kursor myszy (drugi
+  obrazek nigdy nie jest wy&#347;wietlany w ca&#322;o&#347;ci).
+</p><p>
+ Wpis w menu jest okre&#347;lony przez jego pozycj&#281; oraz rozmiar na obrazku (zobacz
+ sekcj&#281; <a href="skin-file.html#skin-file-menu" title="D.2.3. Menu skórki">menu skórki</a> by dowiedzie&#263; si&#281;
+ wi&#281;cej).
+</p></li></ul></div><p>
+</p><p>
+  Jedna wa&#380;na sprawa, która nie zosta&#322;a jeszcze powiedziana:
+  <span class="application">MPlayer</span> musi wiedzie&#263; co zrobi&#263; w momencie
+  klikni&#281;cia na przyciski, potencjometry i wpisy w menu, aby zadzia&#322;a&#322;y. Zosta&#322;o
+  to zrobione za pomoc&#261; <a href="skin-gui.html" title="D.4. Sygna&#322;y GUI">sygna&#322;ów</a> (zdarze&#324;). Dla
+  tych elementów musisz zdefiniowa&#263; sygna&#322;y, które maj&#261; by&#263; wys&#322;ane podczas
+  klikni&#281;cia na nie.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-files"></a>D.1.4. Pliki</h3></div></div><p>
+Potrzebujesz nast&#281;puj&#261;cych plików do stworzenia skórki:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  Plik konfiguracyjny o nazwie <a href="skin-file.html" title="D.2. Plik skin">skin</a> mówi
+  <span class="application">MPlayerowi</span> jak po&#322;&#261;czy&#263; ró&#380;ne cz&#281;&#347;ci skórki
+  w jedn&#261; ca&#322;o&#347;&#263; i co zrobi&#263;, gdy kliknie si&#281; gdzie&#347; na obszarze okna.
+</p></li><li><p>
+  Plik graficzny t&#322;a w oknie g&#322;ównym.
+</p></li><li><p>
+  Obrazki dla elementów w g&#322;ównym oknie (zawieraj&#261;ce jeden lub
+  wi&#281;cej plików opisu czcionek potrzebnych do rysowania etykiet).
+</p></li><li><p>
+  Obrazek wy&#347;wietlany w oknie ekranu (opcjonalnie)
+</p></li><li><p>
+  Dwa obrazki dla menu skórki (potrzebne s&#261; tylko wtedy, gdy chcesz stworzy&#263;
+  takie menu).
+</p></li></ul></div><p>
+  Za wyj&#261;tkiem pliku konfiguracyjnego skórki, mo&#380;esz nazwa&#263; wszystkie pliki
+  tak, jak tego chcesz (ale we&#378; pod uwag&#281;, &#380;e pliki opisu czcionek musz&#261; mie&#263;
+  rozszerzenie <tt class="filename">.fnt</tt> ).
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="skin-file.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">Dodatek D. Format skórki MPlayera </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> D.2. Plik skin</td></tr></table></div></body></html>

@@ -1,0 +1,241 @@
+/****************************************************************************
+** khtml::RenderPart meta object code from reading C++ file 'render_frames.h'
+**
+** Created: Thu Nov 20 06:19:56 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "render_frames.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *khtml::RenderPart::className() const
+{
+    return "khtml::RenderPart";
+}
+
+QMetaObject *khtml::RenderPart::metaObj = 0;
+
+#ifdef QWS
+static class khtml__RenderPart_metaObj_Unloader {
+public:
+    ~khtml__RenderPart_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "khtml::RenderPart" );
+    }
+} khtml__RenderPart_metaObj_unloader;
+#endif
+
+void khtml::RenderPart::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(RenderWidget::className(), "khtml::RenderWidget") != 0 )
+	badSuperclassWarning("khtml::RenderPart","khtml::RenderWidget");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString khtml::RenderPart::tr(const char* s)
+{
+    return qApp->translate( "khtml::RenderPart", s, 0 );
+}
+
+QString khtml::RenderPart::tr(const char* s, const char * c)
+{
+    return qApp->translate( "khtml::RenderPart", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* khtml::RenderPart::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) khtml::RenderWidget::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (khtml::RenderPart::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &khtml::RenderPart::slotViewCleared;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotViewCleared()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"khtml::RenderPart", "khtml::RenderWidget",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+
+const char *khtml::RenderFrame::className() const
+{
+    return "khtml::RenderFrame";
+}
+
+QMetaObject *khtml::RenderFrame::metaObj = 0;
+
+#ifdef QWS
+static class khtml__RenderFrame_metaObj_Unloader {
+public:
+    ~khtml__RenderFrame_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "khtml::RenderFrame" );
+    }
+} khtml__RenderFrame_metaObj_unloader;
+#endif
+
+void khtml::RenderFrame::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(RenderPart::className(), "khtml::RenderPart") != 0 )
+	badSuperclassWarning("khtml::RenderFrame","khtml::RenderPart");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString khtml::RenderFrame::tr(const char* s)
+{
+    return qApp->translate( "khtml::RenderFrame", s, 0 );
+}
+
+QString khtml::RenderFrame::tr(const char* s, const char * c)
+{
+    return qApp->translate( "khtml::RenderFrame", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* khtml::RenderFrame::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) khtml::RenderPart::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (khtml::RenderFrame::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &khtml::RenderFrame::slotViewCleared;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotViewCleared()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"khtml::RenderFrame", "khtml::RenderPart",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+
+const char *khtml::RenderPartObject::className() const
+{
+    return "khtml::RenderPartObject";
+}
+
+QMetaObject *khtml::RenderPartObject::metaObj = 0;
+
+#ifdef QWS
+static class khtml__RenderPartObject_metaObj_Unloader {
+public:
+    ~khtml__RenderPartObject_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "khtml::RenderPartObject" );
+    }
+} khtml__RenderPartObject_metaObj_unloader;
+#endif
+
+void khtml::RenderPartObject::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(RenderPart::className(), "khtml::RenderPart") != 0 )
+	badSuperclassWarning("khtml::RenderPartObject","khtml::RenderPart");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString khtml::RenderPartObject::tr(const char* s)
+{
+    return qApp->translate( "khtml::RenderPartObject", s, 0 );
+}
+
+QString khtml::RenderPartObject::tr(const char* s, const char * c)
+{
+    return qApp->translate( "khtml::RenderPartObject", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* khtml::RenderPartObject::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) khtml::RenderPart::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (khtml::RenderPartObject::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &khtml::RenderPartObject::slotViewCleared;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "slotViewCleared()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"khtml::RenderPartObject", "khtml::RenderPart",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

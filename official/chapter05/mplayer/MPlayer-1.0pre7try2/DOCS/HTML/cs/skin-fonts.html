@@ -1,0 +1,39 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.3. Fonts</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="skin.html" title="P&#345;íloha D. MPlayer skin format"><link rel="previous" href="skin-file.html" title="D.2. The skin file"><link rel="next" href="skin-gui.html" title="D.4. GUI messages"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.3. Fonts</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-file.html">P&#345;edcházející</a> </td><th width="60%" align="center">P&#345;íloha D. MPlayer skin format</th><td width="20%" align="right"> <a accesskey="n" href="skin-gui.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-fonts"></a>D.3. Fonts</h2></div></div><p>
+As mentioned in the section about the parts of a skin, a font is defined by an
+image and a description file. You can place the characters anywhere in the image,
+but make sure that their position and size is given in the description file
+exactly.
+</p><p>
+The font description file (with <tt class="filename">.fnt</tt> extension) can have
+comment lines starting with '<tt>;</tt>'. The file must have a line
+in the form
+<a name="skin-font-image"></a>
+<pre class="programlisting">image = <i><tt>image</tt></i></pre>
+Where <tt><i><tt>image</tt></i></tt> is the name of the
+image file to be used for the font (you do not have to specify the extension).
+<a name="skin-font-char"></a>
+<pre class="programlisting">"char" = X, Y, width, height</pre>
+Here <tt>X</tt> and <tt>Y</tt> specify the position of the
+<tt>char</tt> character in the image (<tt>0,0</tt> is the
+upper left corner). <tt>width</tt> and <tt>height</tt> are
+the dimensions of the character in pixels.
+</p><p>
+This example defines the A, B, C characters using <tt class="filename">font.png</tt>.
+<pre class="programlisting">
+; Can be "font" instead of "font.png".
+image = font.png
+
+; Three characters are enough for demonstration purposes :-)
+"A" =  0,0, 7,13
+"B" =  7,0, 7,13
+"C" = 14,0, 7,13
+</pre>
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-fonts-symbols"></a>D.3.1. Symbols</h3></div></div><p>
+Some characters have special meanings when returned by some of the variables
+used in <a href="skin-file.html#skin-dlabel">dlabel</a>. These characters are meant
+to be shown as symbols so that things like a nice DVD logo can be displayed
+instead of the character '<tt>d</tt>' for a DVD stream.
+</p><p>
+The following table lists all the characters that can be used to display
+symbols (and thus require a different font).
+</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Character</th><th>Symbol</th></tr></thead><tbody><tr><td><span class="keycap"><b>p</b></span></td><td>play</td></tr><tr><td><span class="keycap"><b>s</b></span></td><td>stop</td></tr><tr><td><span class="keycap"><b>e</b></span></td><td>pause</td></tr><tr><td><span class="keycap"><b>n</b></span></td><td>no sound</td></tr><tr><td><span class="keycap"><b>m</b></span></td><td>mono sound</td></tr><tr><td><span class="keycap"><b>t</b></span></td><td>stereo sound</td></tr><tr><td><span class="keycap"><b>f</b></span></td><td>stream is a file</td></tr><tr><td><span class="keycap"><b>v</b></span></td><td>stream is a Video CD</td></tr><tr><td><span class="keycap"><b>d</b></span></td><td>stream is a DVD</td></tr><tr><td><span class="keycap"><b>u</b></span></td><td>stream is a URL</td></tr></tbody></table></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-file.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="skin-gui.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">D.2. The skin file </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> D.4. GUI messages</td></tr></table></div></body></html>

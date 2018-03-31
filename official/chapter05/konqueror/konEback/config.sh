@@ -1,0 +1,2 @@
+#!/bin/sh
+./configure --host=arm-linux --target=arm-linux --enable-embedded --enable-qt-embedded --enable-qpe --with-gui=qpe --disable-debug --enable-ftp --enable-static --disable-shared --disable-mt --with-extra-libs=/usr/local/arm/3.4.1/arm-linux/lib:$QPEDIR/lib:$QTDIR/lib:/arm2410s/gui/Qt/src/tslib-install/lib --with-extra-includes=/usr/local/arm/3.4.1/arm-linux/include:$QPEDIR/include --without-ssl --with-qt-dir=$QTDIR --with-qt-includes=$QTDIR/include --with-qt-libraries=$QTDIR/lib --with-qtopia-dir=$QPEDIR

@@ -1,0 +1,48 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.5. RTC</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="intro.html" title="Kapitola 1. P&#345;edstavení"><link rel="previous" href="subosd.html" title="1.4. Titulky a OSD"><link rel="next" href="features.html" title="Kapitola 2. Vlastnosti"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.5. RTC</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="subosd.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 1. P&#345;edstavení</th><td width="20%" align="right"> <a accesskey="n" href="features.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="rtc"></a>1.5. RTC</h2></div></div><p>
+V <span class="application">MPlayer</span> jsou zabudovány t&#345;i metody &#269;asování.
+
+</p><div class="itemizedlist"><ul type="disc"><li>
+<span class="bold"><b>Abyste pou&#382;ili starou metodu</b></span>, nemusíte d&#283;lat
+  v&#367;bec nic. Ta pou&#382;ívá <tt>usleep()</tt> pro hlídání
+  A/V synchronizace s p&#345;esností +/- 10ms. A&#269;koli n&#283;kdy m&#367;&#382;e být synchronizace
+  hlídána je&#353;t&#283; jemn&#283;ji.
+  </li><li><p>
+Kód <span class="bold"><b>nového &#269;asova&#269;e</b></span> pou&#382;ívá pro tento ú&#269;el RTC
+  (hodiny reálného &#269;asu), proto&#382;e mají p&#345;esné 1ms &#269;asova&#269;e. Pokud jsou RTC
+  dostupné, jsou automaticky pou&#382;ity, ale to vy&#382;aduje oprávn&#283;ní roota,
+  <span class="emphasis"><i>setuid root</i></span>
+  binárku <span class="application">MPlayer</span>u nebo správn&#283; nastavené jádro.
+  Pokud pou&#382;íváte jádro 2.4.19pre8 nebo pozd&#283;j&#353;í, m&#367;&#382;ete nastavit maximální RTC
+  kmito&#269;et pro normální u&#382;ivatele pomocí systému soubor&#367;
+  <tt>/proc
+  </tt>. Pou&#382;ijte následný p&#345;íkaz pro zapnutí RTC pro oby&#269;ejné u&#382;ivatele:
+  <pre class="screen">echo 1024 &gt; /proc/sys/dev/rtc/max-user-freq</pre>
+  Pokud nemáte tak nové jádro, m&#367;&#382;ete zm&#283;nit jeden &#345;ádek v
+  <tt class="filename">drivers/char/rtc.c</tt> a rekompilovat jádro.
+  Najd&#283;te sekci, která za&#269;íná
+  <pre class="programlisting">
+       * We don't really want Joe User enabling more
+       * than 64Hz of interrupts on a multi-user machine.
+       */
+      if ((rtc_freq &gt; 64) &amp;&amp; (!capable(CAP_SYS_RESOURCE)))
+   </pre>
+   a zm&#283;&#328;te 64 na 1024. Opravdu byste ov&#353;em m&#283;li v&#283;d&#283;t co d&#283;láte.
+   Efektivitu nového &#269;asova&#269;e uvidíte na stavovém &#345;ádku.
+   Funkce power managementu n&#283;kterých notebookových BIOS&#367; s speedstep procesory
+   &#353;patn&#283; komunikují s RTC. Audio a video se mohou rozejít. Zdá se &#382;e pomáhá
+   p&#345;ipojení vn&#283;j&#353;ího napájení p&#345;ed zapnutím notebooku.
+   V&#382;dy m&#367;&#382;ete vypnout podporu RTC volbou <tt class="option">-nortc</tt>.
+   V n&#283;kterých hardwarových kombinacích (zji&#353;t&#283;no b&#283;hem pou&#382;ívání ne-DMA DVD
+   mechaniky na ALi1541 boardu) zp&#367;sobuje pou&#382;ití RTC &#269;asování trhavé p&#345;ehrávání.
+   Pak doporu&#269;ujeme
+   pou&#382;ít t&#345;etí metodu.
+  </p></li><li>
+  <span class="bold"><b>T&#345;etí kód &#269;asova&#269;e</b></span> se zapíná volbou
+  <tt class="option">-softsleep</tt>. Je stejn&#283; efektní jako RTC, ale nepou&#382;ívá RTC.
+  Na druhou stranu více zat&#283;&#382;uje CPU.
+  </li></ul></div><p>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Poznámka</h3><p><span class="bold"><b>NIKDY neinstalujte setuid root binárku
+<span class="application">MPlayer</span>u na víceu&#382;ivatelském systému!</b></span>
+To je nejlep&#353;í cesta jak umo&#382;nit ka&#382;dému být rootem.
+</p></div><p>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="subosd.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="features.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">1.4. Titulky a OSD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> Kapitola 2. Vlastnosti</td></tr></table></div></body></html>

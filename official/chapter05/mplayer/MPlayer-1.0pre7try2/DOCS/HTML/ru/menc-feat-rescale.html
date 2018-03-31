@@ -1,0 +1,16 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.3. Rescaling movies</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="mencoder.html" title="&#1043;&#1083;&#1072;&#1074;&#1072; 7. Encoding with MEncoder"><link rel="previous" href="menc-feat-mpeg.html" title="7.2. Encoding to MPEG format"><link rel="next" href="menc-feat-streamcopy.html" title="7.4. Stream copying"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.3. Rescaling movies</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-mpeg.html">&#1055;&#1088;&#1077;&#1076;.</a> </td><th width="60%" align="center">&#1043;&#1083;&#1072;&#1074;&#1072; 7. Encoding with MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-streamcopy.html">&#1057;&#1083;&#1077;&#1076;.</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-rescale"></a>7.3. Rescaling movies</h2></div></div><p>
+Often the need to resize movie images' size emerges. Its reasons can be
+many: decreasing file size, network bandwidth,etc. Most people even do
+rescaling when converting DVDs or SVCDs to DivX AVI. If you wish to rescale,
+read the <a href="aspect.html" title="7.8. Preserving aspect ratio">Preserving aspect ratio</a> section.
+</p><p>
+The scaling process is handled by the <tt>scale</tt> video filter:
+<tt class="option">-vf scale=<i><tt>width</tt></i>:<i><tt>height</tt></i></tt>.
+Its quality can be set with the <tt class="option">-sws</tt> option.
+If it's not specified, <span class="application">MEncoder</span> will use 2: bicubic.
+</p><p>
+Usage:
+<pre class="screen">
+mencoder <i><tt>input.mpg</tt></i> -ovc lavc -lavcopts vcodec=mpeg4 -vf scale=640:480 -o <i><tt>output.avi</tt></i>
+</pre>
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-mpeg.html">&#1055;&#1088;&#1077;&#1076;.</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">&#1059;&#1088;&#1086;&#1074;&#1077;&#1085;&#1100; &#1074;&#1099;&#1096;&#1077;</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-streamcopy.html">&#1057;&#1083;&#1077;&#1076;.</a></td></tr><tr><td width="40%" align="left" valign="top">7.2. Encoding to MPEG format </td><td width="20%" align="center"><a accesskey="h" href="index.html">&#1053;&#1072;&#1095;&#1072;&#1083;&#1086;</a></td><td width="40%" align="right" valign="top"> 7.4. Stream copying</td></tr></table></div></body></html>

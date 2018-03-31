@@ -1,0 +1,20 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.3. Strumieniowanie z sieci i potoków</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="usage.html" title="Rozdzia&#322; 3. Sposób u&#380;ycia"><link rel="previous" href="control.html" title="3.2. Sterowanie"><link rel="next" href="mpst.html" title="3.4. Strumienie zdalne"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. Strumieniowanie z sieci i potoków</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="control.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 3. Sposób u&#380;ycia</th><td width="20%" align="right"> <a accesskey="n" href="mpst.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="streaming"></a>3.3. Strumieniowanie z sieci i potoków</h2></div></div><p>
+<span class="application">MPlayer</span> potrafi odtwarza&#263; pliki z sieci, u&#380;ywaj&#261;c
+protoko&#322;ów HTTP, FTP, MMS lub RTSP/RTP.
+</p><p>
+Odtwarzanie nast&#281;puje przez proste podanie URLa w wierszu polece&#324;.
+<span class="application">MPlayer</span> zwraca równie&#380; uwag&#281; na zmienn&#261; &#347;rodowiskow&#261;
+<tt>http_proxy</tt> i u&#380;ywa proxy je&#347;li jest to mo&#380;liwe. Korzystanie
+z proxy mo&#380;e by&#263; równie&#380; wymuszone za pomoc&#261;:
+<pre class="screen">mplayer
+<i><tt>http_proxy://proxy.micorsops.com:3128/http://micorsops.com:80/strumien.asf</tt></i></pre>
+</p><p>
+<span class="application">MPlayer</span> potrafi równie&#380; czyta&#263; ze standardowego wej&#347;cia
+(<span class="emphasis"><i>nie</i></span> z nazwanych potoków). Mo&#380;e to by&#263; wykorzystane np. do
+odtwarzania poprzez FTP:
+<pre class="screen">wget <i><tt>ftp://micorsops.com/cokolwiek.avi</tt></i> -O - | mplayer -</pre>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+Zalecane jest równie&#380; w&#322;&#261;czenie <tt class="option">-cache</tt> przy odtwarzaniu
+z sieci:
+<pre class="screen">wget <i><tt>ftp://micorsops.com/cokolwiek.avi</tt></i> -O - | mplayer -cache 8192 -</pre>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="control.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="usage.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="mpst.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">3.2. Sterowanie </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 3.4. Strumienie zdalne</td></tr></table></div></body></html>

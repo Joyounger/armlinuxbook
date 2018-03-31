@@ -1,0 +1,136 @@
+/****************************************************************************
+** KLibFactory meta object code from reading C++ file 'klibloader.h'
+**
+** Created: Thu Nov 20 06:12:58 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "klibloader.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KLibFactory::className() const
+{
+    return "KLibFactory";
+}
+
+QMetaObject *KLibFactory::metaObj = 0;
+
+#ifdef QWS
+static class KLibFactory_metaObj_Unloader {
+public:
+    ~KLibFactory_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KLibFactory" );
+    }
+} KLibFactory_metaObj_unloader;
+#endif
+
+void KLibFactory::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KLibFactory","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KLibFactory::tr(const char* s)
+{
+    return qApp->translate( "KLibFactory", s, 0 );
+}
+
+QString KLibFactory::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KLibFactory", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KLibFactory::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    typedef void (KLibFactory::*m2_t0)(QObject*);
+    typedef void (QObject::*om2_t0)(QObject*);
+    m2_t0 v2_0 = &KLibFactory::objectCreated;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "objectCreated(QObject*)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"KLibFactory", "QObject",
+	0, 0,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL objectCreated
+void KLibFactory::objectCreated( QObject* t0 )
+{
+    // No builtin function for signal parameter type QObject*
+    QConnectionList *clist = receivers("objectCreated(QObject*)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(QObject*);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}

@@ -1,0 +1,24 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.3. ¿Qué hay acerca de la GUI?</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - El reproductor de Películas
+para LINUX"><link rel="up" href="intro.html" title="Capítulo 1. Introducción"><link rel="previous" href="install.html" title="1.2. Instalación"><link rel="next" href="subosd.html" title="1.4. Subtítulos y OSD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.3. ¿Qué hay acerca de la GUI?</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="install.html">Anterior</a> </td><th width="60%" align="center">Capítulo 1. Introducción</th><td width="20%" align="right"> <a accesskey="n" href="subosd.html">Siguiente</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="gui"></a>1.3. ¿Qué hay acerca de la GUI?</h2></div></div><p>
+La GUI necesita GTK 1.2.x (no es totalmente GTK, pero los paneles son). Las pieles
+están guardadas en formato PNG, por lo tanto GTK, <tt>libpng</tt>
+(y sus archivos de desarrollos, normalmente llamados <tt>gtk-dev
+</tt> y <tt>libpng-dev</tt>)
+deben estar instalados.
+Puede compilarlo especificando la opción <tt class="option">--enable-gui</tt> a
+<tt class="filename">./configure</tt>. Luego de compilarlo, puede usar el modo
+GUI, ejecutando el binario <b>gmplayer</b>.
+</p><p>
+Actualmente no se puede usar la opción <tt class="option">-gui</tt> en la línea
+de comandos, debido a razones técnicas.
+</p><p>
+Como <span class="application">MPlayer</span> no tiene una piel incluida, debe
+bajarlas si desea usar la GUI. Vea la <a href="http://www.mplayerhq.hu/homepage/dload.html" target="_top">página de descargas</a>.
+Deberían ser extraídas al directorio global de pieles normal (<tt class="filename">$PREFIX/share/mplayer/Skin</tt>), o al directorio
+personal  <tt class="filename">$HOME/.mplayer/Skin</tt>.
+<span class="application">MPlayer</span> por omisión busca en esos directorios 
+por un directorio llamado <tt class="filename">default</tt>, pero
+puede usar la opción <tt class="option">-skin <i><tt>pielnueva</tt></i></tt>,
+o usar la directiva <tt>skin=pielnueva</tt> en el archivo de configuración
+para usar el directorio <tt class="filename">*/Skin/pielnueva</tt>.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="install.html">Anterior</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Subir</a></td><td width="40%" align="right"> <a accesskey="n" href="subosd.html">Siguiente</a></td></tr><tr><td width="40%" align="left" valign="top">1.2. Instalación </td><td width="20%" align="center"><a accesskey="h" href="index.html">Inicio</a></td><td width="40%" align="right" valign="top"> 1.4. Subtítulos y OSD</td></tr></table></div></body></html>

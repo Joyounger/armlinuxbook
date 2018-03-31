@@ -1,0 +1,109 @@
+/****************************************************************************
+** KHTMLPartBrowserExtension meta object code from reading C++ file 'khtml_ext.h'
+**
+** Created: Thu Nov 20 06:14:25 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "khtml_ext.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KHTMLPartBrowserExtension::className() const
+{
+    return "KHTMLPartBrowserExtension";
+}
+
+QMetaObject *KHTMLPartBrowserExtension::metaObj = 0;
+
+#ifdef QWS
+static class KHTMLPartBrowserExtension_metaObj_Unloader {
+public:
+    ~KHTMLPartBrowserExtension_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KHTMLPartBrowserExtension" );
+    }
+} KHTMLPartBrowserExtension_metaObj_unloader;
+#endif
+
+void KHTMLPartBrowserExtension::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(BrowserExtension::className(), "KParts::BrowserExtension") != 0 )
+	badSuperclassWarning("KHTMLPartBrowserExtension","KParts::BrowserExtension");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KHTMLPartBrowserExtension::tr(const char* s)
+{
+    return qApp->translate( "KHTMLPartBrowserExtension", s, 0 );
+}
+
+QString KHTMLPartBrowserExtension::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KHTMLPartBrowserExtension", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KHTMLPartBrowserExtension::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) KParts::BrowserExtension::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KHTMLPartBrowserExtension::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    typedef void (KHTMLPartBrowserExtension::*m1_t1)();
+    typedef void (QObject::*om1_t1)();
+    typedef void (KHTMLPartBrowserExtension::*m1_t2)();
+    typedef void (QObject::*om1_t2)();
+    m1_t0 v1_0 = &KHTMLPartBrowserExtension::copy;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &KHTMLPartBrowserExtension::reparseConfiguration;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    m1_t2 v1_2 = &KHTMLPartBrowserExtension::print;
+    om1_t2 ov1_2 = (om1_t2)v1_2;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(3);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(3);
+    slot_tbl[0].name = "copy()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "reparseConfiguration()";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    slot_tbl[2].name = "print()";
+    slot_tbl[2].ptr = (QMember)ov1_2;
+    slot_tbl_access[2] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"KHTMLPartBrowserExtension", "KParts::BrowserExtension",
+	slot_tbl, 3,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

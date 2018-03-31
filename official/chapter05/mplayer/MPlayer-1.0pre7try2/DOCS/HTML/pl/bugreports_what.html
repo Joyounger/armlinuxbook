@@ -1,0 +1,133 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>B.4. Co zg&#322;asza&#263;</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="bugreports.html" title="Dodatek B. Jak zg&#322;asza&#263; b&#322;&#281;dy"><link rel="previous" href="bugreports_where.html" title="B.3. Gdzie zg&#322;asza&#263; b&#322;&#281;dy"><link rel="next" href="bugreports_advusers.html" title="B.5. Wiem co robi&#281;..."></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">B.4. Co zg&#322;asza&#263;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="bugreports_where.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek B. Jak zg&#322;asza&#263; b&#322;&#281;dy</th><td width="20%" align="right"> <a accesskey="n" href="bugreports_advusers.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="bugreports_what"></a>B.4. Co zg&#322;asza&#263;</h2></div></div><p>
+Mo&#380;e zaj&#347;&#263; potrzeba do&#322;&#261;czenia logu, konfiguracji lub przyk&#322;adowego
+pliku w Twoim
+zg&#322;oszeniu b&#322;&#281;du. Je&#380;eli który&#347; z nich ma du&#380;y rozmiar, lepiej za&#322;adowa&#263; go na
+nasz <a href="ftp://mplayerhq.hu/MPlayer/incoming/" target="_top">serwer FTP</a>
+w skompresowanej postaci (gzip i bzip2 s&#261; preferowanymi formatami) i za&#322;&#261;czy&#263;
+tylko &#347;cie&#380;k&#281; i nazw&#281; pliku do zg&#322;oszenia b&#322;&#281;du. Nasza lista ma ustawiony limit
+rozmiaru ka&#380;dej wiadomo&#347;ci na 80k. Je&#380;eli potrzebujesz wys&#322;a&#263; co&#347; wi&#281;kszego,
+musisz to skompresowa&#263; albo za&#322;adowa&#263; na serwer.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_system"></a>B.4.1. Informacja o systemie operacyjnym</h3></div></div><p>
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+Nazwa Twojej dystrybucji Linuksa albo system operacyjny. Np.:
+  </p><div class="itemizedlist"><ul type="round"><li><p>Red Hat 7.1</p></li><li><p>Slackware 7.0 + pakiety rozwojowe z 7.1 ...</p></li></ul></div><p>
+</p></li><li><p>
+wersja j&#261;dra (kernela):
+<pre class="screen">uname -a</pre>
+</p></li><li><p>
+wersja biblioteki libc:
+<pre class="screen">ls -l /lib/libc[.-]*</pre>
+</p></li><li><p>
+wersja gcc i ld:
+<pre class="screen">
+gcc -v
+ld -v
+</pre>
+</p></li><li><p>
+wersja binutils:
+<pre class="screen">
+as --version
+</pre>
+</p></li><li><p>
+Je&#380;eli masz problem z trybem pe&#322;noekranowym:
+  </p><div class="itemizedlist"><ul type="round"><li><p>Menad&#380;er okien i wersja</p></li></ul></div><p>
+</p></li><li><p>
+Je&#380;eli masz problem z XVIDIXem:
+  </p><div class="itemizedlist"><ul type="round"><li><p>g&#322;&#281;bia barw Xów (colour depth):
+<pre class="screen">xdpyinfo | grep "depth of root"</pre>
+    </p></li></ul></div><p>
+</p></li><li><p>
+Je&#380;eli tylko GUI zawiera b&#322;&#281;dy:
+  </p><div class="itemizedlist"><ul type="round"><li><p>wersja GTK</p></li><li><p>wersja GLIB</p></li><li><p>wersja libpng</p></li><li><p>Sytuacja w której pojawia si&#281; b&#322;&#261;d GUI</p></li></ul></div><p>
+</p></li></ul></div><p>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_hardware"></a>B.4.2. Sprz&#281;t i sterowniki</h3></div></div><p>
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+informacje o procesorze (CPU) (to dzia&#322;a tylko pod Linuksem):
+<pre class="screen">cat /proc/cpuinfo</pre>
+</p></li><li><p>
+Producent karty graficznej i model. Np.:
+  </p><div class="itemizedlist"><ul type="round"><li><p>ASUS V3800U chip: nVidia TNT2 Ultra pro 32MB SDRAM</p></li><li><p>Matrox G400 DH 32MB SGRAM</p></li></ul></div><p>
+</p></li><li><p>
+Typ sterownika wideo i wersja, np:
+  </p><div class="itemizedlist"><ul type="round"><li><p>wbudowane sterowniki X</p></li><li><p>nVidia 0.9.623</p></li><li><p>Utah-GLX CVS 2001-02-17</p></li><li><p>DRI z X 4.0.3</p></li></ul></div><p>
+</p></li><li><p>
+Typ karty d&#378;wi&#281;kowej i sterownik, np:
+  </p><div class="itemizedlist"><ul type="round"><li><p>Creative SBLive! Gold ze sterownikiem OSS z oss.creative.com</p></li><li><p>Creative SB16 ze sterownikiem OSS z kernela</p></li><li><p>GUS PnP z emulacj&#261; ALSA OSS</p></li></ul></div><p>
+</p></li><li><p>
+Je&#380;eli masz w&#261;tpliwo&#347;ci, za&#322;&#261;cz wyj&#347;cie linuksowego polecenia
+<b>lspci -vv</b>.
+</p></li></ul></div><p>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_configure"></a>B.4.3. Problemy z konfiguracj&#261;</h3></div></div><p>
+Je&#380;eli <b>./configure</b> zwraca b&#322;&#261;d albo
+automatyczne wykrywanie czego&#347; zawiedzie, przeczytaj
+<tt class="filename">configure.log</tt>. Mo&#380;liwe, &#380;e znajdziesz tam odpowied&#378;, na
+przyk&#322;ad kilka po&#322;&#261;czonych wersji tej samej biblioteki w Twoim systemie albo &#380;e
+zapomnia&#322;e&#347; zainstalowa&#263; pakietów rozwojowych (tych z przyrostkiem -dev albo
+-devel). Je&#380;eli wydaje Ci si&#281;, &#380;e istnieje jednak b&#322;&#261;d, za&#322;&#261;cz
+<tt class="filename">configure.log</tt> w twoim raporcie.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_conpilation"></a>B.4.4. Problemy z kompilacj&#261;</h3></div></div><p>
+Prosimy za&#322;&#261;czy&#263; nast&#281;puj&#261;ce pliki:
+</p><div class="itemizedlist"><ul type="disc"><li><p>config.h</p></li><li><p>config.mak</p></li></ul></div><p>
+Tylko je&#380;eli kompilacja si&#281; nie powiedzie w którym&#347; z tych katalogów, za&#322;&#261;cz
+nast&#281;puj&#261;ce pliki:
+</p><div class="itemizedlist"><ul type="disc"><li><p>Gui/config.mak</p></li><li><p>libvo/config.mak</p></li><li><p>libao2/config.mak</p></li></ul></div><p>
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_playback"></a>B.4.5. Problemy z odtwarzaniem</h3></div></div><p>
+Prosimy za&#322;&#261;czy&#263; wyj&#347;cie <span class="application">MPlayera</span> w trybie gadatliwym
+na poziomie pierwszym (opcja -v - przyp. t&#322;um.), ale pami&#281;taj&#261;c o
+<span class="bold"><b>nie skracaniu wyniku polecenia</b></span> podczas
+kopiowania go do Twojego listu. Deweloperzy potrzebuj&#261; wszystkich informacji do
+prawid&#322;owego zdiagnozowania problemu. Mo&#380;esz przekierowa&#263; wyj&#347;cie bezpo&#347;rednio
+do pliku w ten sposób:
+<pre class="screen">mplayer -v <i><tt>opcje</tt></i> <i><tt>nazwa_pliku</tt></i> &gt; mplayer.log 2&gt;&amp;1</pre>
+</p><p>
+Je&#380;eli Twój problem jest specyficzny dla jednego albo wielu plików, za&#322;aduj
+winowajc&#281;(ów) na:
+<a href="ftp://mplayerhq.hu/MPlayer/incoming/" target="_top">ftp://mplayerhq.hu/MPlayer/incoming/</a>
+</p><p>
+Za&#322;aduj tak&#380;e ma&#322;y plik tekstowy nazwany tak samo jak Twój plik, ale z
+rozszerzeniem .txt. Opisz w nim problem, który masz z zawartym plikiem i za&#322;&#261;cz
+swój adres email oraz wyj&#347;cie <span class="application">MPlayera</span> w trybie
+gadatliwym na poziomie pierwszym. Zazwyczaj pierwsze 1-5 MB pliku jest
+wystarczaj&#261;ce do odtworzenia problemu, ale &#380;eby by&#263; pewnym prosimy wykona&#263;:
+<pre class="screen">dd if=<i><tt>twój_plik</tt></i> of=<i><tt>ma&#322;y_plik</tt></i> bs=1024k count=5</pre>
+To polecenie we&#378;mie pierwsze pi&#281;&#263; megabajtów
+'<span class="bold"><b>twojego_pliku</b></span>' i zapisze je do
+'<span class="bold"><b>ma&#322;ego_pliku</b></span>'. Nast&#281;pnie spróbuj odtworzy&#263;
+ma&#322;y plik i je&#347;li b&#322;&#261;d wci&#261;&#380; si&#281; pojawia plik ten jest dla nas wystarczaj&#261;cy.
+Prosimy <span class="bold"><b>w &#380;adnym wypadku</b></span> nie wysy&#322;a&#263; plików
+poprzez poczt&#281; elektroniczn&#261;! Za&#322;aduj je na serwer FTP i wy&#347;lij tylko
+&#347;cie&#380;k&#281;/nazw&#281; pliku. Je&#380;eli plik jest dost&#281;pny w sieci, wy&#347;lij
+<span class="bold"><b>dok&#322;adny</b></span> adres pod którym jest on dost&#281;pny.
+</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bugreports_crash"></a>B.4.6. Awarie programu (ang. Crashes)</h3></div></div><p>
+Musisz uruchomi&#263; <span class="application">MPlayera</span> wewn&#261;trz
+<b>gdb</b> i wys&#322;a&#263; nam kompletne wyj&#347;cie, albo je&#380;eli posiadasz
+zrzut <tt class="filename">core</tt> (ang. core dump) utworzony w wyniku awarii,
+wyci&#261;gn&#261;&#263; z niego u&#380;yteczne informacje. Oto jak to zrobi&#263;:
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="bugreports_debug"></a>B.4.6.1. Jak otrzyma&#263; informacj&#281; o awarii</h4></div></div><p>
+Przekompiluj <span class="application">MPlayera</span> z opcj&#261; debugowania kodu:
+<pre class="screen">
+./configure --enable-debug=3
+make
+</pre>
+i uruchom <span class="application">MPlayera</span> u&#380;ywaj&#261;c gdb:
+<pre class="screen">gdb ./mplayer</pre>
+Jeste&#347; teraz wewn&#261;trz gdb. Wpisz:
+<pre class="screen">run -v <i><tt>opcje-mplayera</tt></i>
+<i><tt>nazwa_pliku</tt></i></pre> i odtwórz swoj&#261; awari&#281;. Gdy
+tylko to zrobisz, gdb przeniesie ci&#281; z powrotem do linii polece&#324;, gdzie nale&#380;y
+wpisa&#263;
+<pre class="screen">
+bt
+disass $pc-32 $pc+32
+info all-registers
+</pre>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="bugreports_core"></a>B.4.6.2. Jak wyci&#261;gn&#261;&#263; sensowne informacje ze zrzutu core (ang. core dump)</h4></div></div><p>
+Utwórz plik z nastepuj&#261;cymi poleceniami:
+<pre class="screen">
+bt
+disass $pc-32 $pc+32
+info all-registers
+</pre>
+A nast&#281;pnie uruchomi&#263; nast&#281;puj&#261;ce polecenie:
+<pre class="screen">gdb mplayer --core=core -batch 	--command=<i><tt>plik_z_poleceniami</tt></i> &gt; mplayer.bug</pre>
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="bugreports_where.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="bugreports.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="bugreports_advusers.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">B.3. Gdzie zg&#322;asza&#263; b&#322;&#281;dy </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> B.5. Wiem co robi&#281;...</td></tr></table></div></body></html>

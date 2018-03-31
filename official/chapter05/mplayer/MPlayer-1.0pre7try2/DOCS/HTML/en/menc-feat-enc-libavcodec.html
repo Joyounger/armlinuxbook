@@ -1,0 +1,48 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.5. Encoding with the libavcodec
+  codec family</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="mencoder.html" title="Chapter 7. Encoding with MEncoder"><link rel="previous" href="menc-feat-streamcopy.html" title="7.4. Stream copying"><link rel="next" href="menc-feat-enc-images.html" title="7.6. Encoding from multiple input image files (JPEG, PNG, TGA, SGI)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.5. Encoding with the libavcodec
+  codec family</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-streamcopy.html">Prev</a> </td><th width="60%" align="center">Chapter 7. Encoding with MEncoder</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-enc-images.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-enc-libavcodec"></a>7.5. Encoding with the <tt>libavcodec</tt>
+  codec family</h2></div></div><p>
+<a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec"><tt>libavcodec</tt></a>
+provides simple encoding to a lot of interesting video and audio formats.
+You can encode to the following codecs (more or less up to date):
+
+</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Codec name</th><th>Description</th></tr></thead><tbody><tr><td>mjpeg</td><td>
+   Motion JPEG
+  </td></tr><tr><td>ljpeg</td><td>
+   Lossless JPEG
+  </td></tr><tr><td>h263</td><td>
+  H.263
+  </td></tr><tr><td>h263p</td><td>
+  H.263+
+  </td></tr><tr><td>mpeg4</td><td>
+  ISO standard MPEG-4 (DivX 5, XVID compatible)
+  </td></tr><tr><td>msmpeg4</td><td>
+  pre-standard MPEG-4 variant by MS, v3 (AKA DivX3)
+  </td></tr><tr><td>msmpeg4v2</td><td>
+  pre-standard MPEG-4 by MS, v2 (used in old asf files)
+  </td></tr><tr><td>wmv1</td><td>
+  Windows Media Video, version 1 (AKA WMV7)
+  </td></tr><tr><td>wmv2</td><td>
+  Windows Media Video, version 2 (AKA WMV8)
+  </td></tr><tr><td>rv10</td><td>
+  an old RealVideo codec
+  </td></tr><tr><td>mpeg1video</td><td>
+  MPEG-1 video
+  </td></tr><tr><td>mpeg2video</td><td>
+  MPEG-2 video
+  </td></tr><tr><td>huffyuv</td><td>
+  lossless compression
+  </td></tr><tr><td>asv1</td><td>
+  ASUS Video v1
+  </td></tr><tr><td>asv2</td><td>
+  ASUS Video v2
+  </td></tr><tr><td>ffv1</td><td>
+  FFmpeg's lossless video codec
+  </td></tr></tbody></table></div><p>
+
+The first column contains the codec names that should be passed after the
+<tt>vcodec</tt> config, like: <tt class="option">-lavcopts vcodec=msmpeg4</tt>
+</p><div class="informalexample"><p>
+An example, with MJPEG compression:
+<pre class="screen">mencoder dvd://2 -o title2.avi -ovc lavc -lavcopts vcodec=mjpeg -oac copy</pre>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-streamcopy.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-enc-images.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.4. Stream copying </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7.6. Encoding from multiple input image files (JPEG, PNG, TGA, SGI)</td></tr></table></div></body></html>

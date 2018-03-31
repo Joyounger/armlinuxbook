@@ -1,0 +1,312 @@
+dom_nodeimpl.lo: dom_nodeimpl.cpp dom_nodeimpl.h ./../dom/dom_misc.h \
+  ./../dom/dom_string.h /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h \
+  ./../dom/dom_node.h /arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h \
+  ./../dom/dom_node.h ./../dom/dom_exception.h ./../misc/htmlattrs.h \
+  ./../dom/dom_string.h dom_elementimpl.h ./../dom/dom_element.h \
+  ./../dom/dom_node.h ./../dom/css_value.h ./../dom/dom_string.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h \
+  dom_docimpl.h dom2_traversalimpl.h ./../dom/dom2_traversal.h \
+  ./../dom/dom_misc.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qiodevice.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qregexp.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qregion.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qdict.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgdict.h dom2_eventsimpl.h \
+  ./../dom/dom2_events.h dom2_viewsimpl.h ./../css/css_valueimpl.h \
+  ./../dom/css_value.h ./../dom/dom_string.h ./../css/cssparser.h \
+  ./../dom/dom_misc.h /arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h \
+  ./../misc/loader_client.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qintdict.h \
+  ./../../../dropin/kdebug.h ./../rendering/render_object.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h ./../xml/dom_nodeimpl.h \
+  ./../misc/khtmllayout.h ./../misc/loader_client.h \
+  ./../rendering/render_style.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpalette.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qbrush.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qapplication.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qwidget.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qpalette.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qcursor.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfontmetrics.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qfontinfo.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qstyle.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qsizepolicy.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qasciidict.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qtranslator.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qintdict.h \
+  ./../misc/khtmllayout.h ./../rendering/render_text.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qvector.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qgvector.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h ./../dom/dom_string.h \
+  ./dom_stringimpl.h ./../dom/dom_misc.h ./../rendering/render_object.h \
+  /usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/assert.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h \
+  /arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h
+
+dom_nodeimpl.h:
+
+./../dom/dom_misc.h:
+
+./../dom/dom_string.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgarray.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qshared.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglobal.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qconfig.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfeatures.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/string.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/features.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/sys/cdefs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/gnu/stubs.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/stddef.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/xlocale.h:
+
+./../dom/dom_node.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qglist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcollection.h:
+
+./../dom/dom_node.h:
+
+./../dom/dom_exception.h:
+
+./../misc/htmlattrs.h:
+
+./../dom/dom_string.h:
+
+dom_elementimpl.h:
+
+./../dom/dom_element.h:
+
+./../dom/dom_node.h:
+
+./../dom/css_value.h:
+
+./../dom/dom_string.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qwindowdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobjectdefs.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstring.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/include/syslimits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix1_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/local_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/linux/limits.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/posix2_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/xopen_lim.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/bits/stdio_lim.h:
+
+dom_docimpl.h:
+
+dom2_traversalimpl.h:
+
+./../dom/dom2_traversal.h:
+
+./../dom/dom_misc.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qvaluelist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatastream.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qiodevice.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qregexp.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qregion.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qsize.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpoint.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qmime.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstringlist.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdict.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgdict.h:
+
+dom2_eventsimpl.h:
+
+./../dom/dom2_events.h:
+
+dom2_viewsimpl.h:
+
+./../css/css_valueimpl.h:
+
+./../dom/css_value.h:
+
+./../dom/dom_string.h:
+
+./../css/cssparser.h:
+
+./../dom/dom_misc.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qdatetime.h:
+
+./../misc/loader_client.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpixmap.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpaintdevice.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcolor.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qintdict.h:
+
+./../../../dropin/kdebug.h:
+
+./../rendering/render_object.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qrect.h:
+
+./../xml/dom_nodeimpl.h:
+
+./../misc/khtmllayout.h:
+
+./../misc/loader_client.h:
+
+./../rendering/render_style.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpalette.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qbrush.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qapplication.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qwidget.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qobject.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qpalette.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qcursor.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfont.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfontmetrics.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qfontinfo.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qstyle.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qsizepolicy.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qasciidict.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qtranslator.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qintdict.h:
+
+./../misc/khtmllayout.h:
+
+./../rendering/render_text.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qvector.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qgvector.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qarray.h:
+
+./../dom/dom_string.h:
+
+./dom_stringimpl.h:
+
+./../dom/dom_misc.h:
+
+./../rendering/render_object.h:
+
+/usr/local/arm/3.4.1/lib/gcc/arm-linux/3.4.1/../../../../arm-linux/sys-include/assert.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qevent.h:
+
+/arm2410s/gui/Qt/src/qt-2.3.10/include/qnamespace.h:

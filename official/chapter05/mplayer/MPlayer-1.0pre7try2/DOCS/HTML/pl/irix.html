@@ -1,0 +1,24 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.4. Silicon Graphics Irix</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="ports.html" title="Rozdzia&#322; 6. Porty"><link rel="previous" href="solaris.html" title="6.3. Sun Solaris"><link rel="next" href="hp-ux.html" title="6.5. HP-UX"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.4. Silicon Graphics Irix</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="solaris.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 6. Porty</th><td width="20%" align="right"> <a accesskey="n" href="hp-ux.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="irix"></a>6.4. Silicon Graphics Irix</h2></div></div><p>
+Mo&#380;esz albo spróbowa&#263; zainstalowa&#263; program GNU install i (je&#380;eli nie
+umie&#347;ci&#322;e&#347; go w globalnej &#347;cie&#380;ce) wskaza&#263; go przez:
+<pre class="screen">./configure --with-install=
+<i><tt>/&#347;cie&#380;ka/i/nazwa/programu/instalacyjnego</tt></i></pre>
+</p><p>
+Albo u&#380;y&#263; domy&#347;lnego programu instalacyjnego dostarczonego z IRIX 6.5, w tym
+wypadku nale&#380;y r&#281;cznie zmodyfikowa&#263; plik <tt class="filename">Makefile</tt> w
+kilku miejscach. Zmie&#324; poni&#380;sze dwie linijki:
+<pre class="programlisting">
+  $(INSTALL) -c -m 644 DOCS/mplayer.1 $(MANDIR)/man1/mplayer.1
+
+  $(INSTALL) -c -m 644 etc/codecs.conf $(CONFDIR)/codecs.conf
+</pre>
+na:
+<pre class="programlisting">
+  $(INSTALL) -m 644 mplayer.1 $(MANDIR)/man1/
+
+  $(INSTALL) -m 644 codecs.conf $(CONFDIR)/
+</pre>
+A potem wykonaj (w katalogu &#378;ród&#322;owym <span class="application">MPlayera</span>):
+<pre class="screen">cp DOCS/mplayer.1 . ; cp etc/codecs.conf .</pre>
+i dalej skompiluj i zainstaluj.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="solaris.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="hp-ux.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">6.3. Sun Solaris </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 6.5. HP-UX</td></tr></table></div></body></html>

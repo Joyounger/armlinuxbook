@@ -1,0 +1,23 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6.4. Silicon Graphics Irix</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="ports.html" title="Chapter 6. Ports"><link rel="previous" href="solaris.html" title="6.3. Sun Solaris"><link rel="next" href="hp-ux.html" title="6.5. HP-UX"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.4. Silicon Graphics Irix</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="solaris.html">Prev</a> </td><th width="60%" align="center">Chapter 6. Ports</th><td width="20%" align="right"> <a accesskey="n" href="hp-ux.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="irix"></a>6.4. Silicon Graphics Irix</h2></div></div><p>
+You can either try to install the GNU install program, and (if you did
+not put it in your global path) then point to the location with:
+<pre class="screen">./configure --with-install=<i><tt>/path/and/name/of/install</tt></i></pre>
+</p><p>
+Or you can use the default install delivered with IRIX 6.5 in which case
+you will have to edit the <tt class="filename">Makefile</tt> by hand a little bit.
+Change the following two lines:
+<pre class="programlisting">
+  $(INSTALL) -c -m 644 DOCS/mplayer.1 $(MANDIR)/man1/mplayer.1
+
+  $(INSTALL) -c -m 644 etc/codecs.conf $(CONFDIR)/codecs.conf
+</pre>
+to:
+<pre class="programlisting">
+  $(INSTALL) -m 644 mplayer.1 $(MANDIR)/man1/
+
+  $(INSTALL) -m 644 codecs.conf $(CONFDIR)/
+</pre>
+And then do (from within the <span class="application">MPlayer</span> source dir):
+<pre class="screen">cp DOCS/mplayer.1 . ; cp etc/codecs.conf .</pre>
+and then go on with building and installing.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="solaris.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="hp-ux.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">6.3. Sun Solaris </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6.5. HP-UX</td></tr></table></div></body></html>

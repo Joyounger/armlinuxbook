@@ -1,0 +1,262 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>D.2. Plik skin</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="skin.html" title="Dodatek D. Format skórki MPlayera"><link rel="previous" href="skin-overview.html" title="D.1. Wst&#281;p"><link rel="next" href="skin-fonts.html" title="D.3. Czcionki"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">D.2. Plik skin</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-overview.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek D. Format skórki MPlayera</th><td width="20%" align="right"> <a accesskey="n" href="skin-fonts.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="skin-file"></a>D.2. Plik skin</h2></div></div><p>
+Jak zosta&#322;o powiedziane wcze&#347;niej, plik ten jest plikiem konfiguruj&#261;cym skórk&#281;.
+Obs&#322;uguje ró&#380;ne rodzaje wierszy; komentarze zaczynaj&#261; wiersz znakiem
+'<tt>;</tt>' (tylko spacje i znaki tabulacji s&#261; dopuszczone przed
+'<tt>;</tt>').
+</p><p>
+Plik podzielony jest na sekcje. Ka&#380;da sekcja opisuje skórk&#281; dla ka&#380;dej
+aplikacji i ma nast&#281;puj&#261;c&#261; form&#281;:
+
+<pre class="programlisting">
+section = <i><tt>nazwa sekcji</tt></i>
+.
+.
+.
+end
+</pre>
+</p><p>
+Obecnie jest tylko jedna aplikacja, a wi&#281;c potrzebujesz tylko jedn&#261; sekcj&#281;
+'section' - jej nazwa to <span class="bold"><b>movieplayer</b></span>.
+</p><p>
+Wewn&#261;trz tej sekcji ka&#380;de z okien jest opisane przez blok nast&#281;puj&#261;cej postaci:
+<pre class="programlisting">
+window = <i><tt>nazwa okna</tt></i>
+.
+.
+.
+end
+</pre>
+</p><p>
+gdzie <i><tt>nazwa okna</tt></i> mo&#380;e by&#263; jednym z poni&#380;szych &#322;a&#324;cuchów:
+</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>main</b></span> - dla okna g&#322;ównego</p></li><li><p><span class="bold"><b>sub</b></span> - dla okna ekranu</p></li><li><p><span class="bold"><b>menu</b></span> - dla menu skórki</p></li><li><p><span class="bold"><b>playbar</b></span> - dla panelu odtwarzania</p></li></ul></div><p>
+</p><p>
+(Bloki sub i menu s&#261; opcjonalne - nie musisz tworzy&#263; menu czy elementów skórki
+dla okna ekranu)
+</p><p>
+Wewn&#261;trz bloku 'window' mo&#380;esz definiowa&#263; ka&#380;dy element okna, wpisuj&#261;c linijk&#281;
+tej postaci: <pre class="programlisting">item = parametr</pre>
+Gdzie <tt>item</tt> jest &#322;a&#324;cuchem, kóry identyfikuje typ elementu
+GUI, <tt>parametr</tt> jest warto&#347;ci&#261; numeryczn&#261; lub tekstow&#261; (lub
+list&#261; takich warto&#347;ci oddzielonych od siebie znakiem przecinka).
+</p><p>
+Z&#322;o&#380;enie powy&#380;szych elementów razem tworzy plik, który wygl&#261;da mniej wi&#281;cej tak:
+<pre class="programlisting">
+section = movieplayer
+  window = main
+  ; ... elementy okna g&#322;ównego ...
+  end
+
+  window = sub
+  ; ... elementy okna ekranu ...
+  end
+
+  window = menu
+  ; ... elementy menu skórki ...
+  end
+
+  window = playbar
+  ; ... elementy panelu odtwarzania ...
+  end
+end
+</pre>
+</p><p>
+Nazwa pliku graficznego musi zosta&#263; podana bez &#380;adnych nazw katalogów - obrazki
+s&#261; szukane w katalogu <tt class="filename">Skin</tt>.
+Mo&#380;esz (ale nie musisz) okre&#347;li&#263; rozszerzenia tego pliku. Je&#347;li plik taki nie
+istnieje, <span class="application">MPlayer</span>
+spróbuje wczyta&#263; plik <tt class="filename">&lt;nazwa pliku&gt;.&lt;rozszerzenie&gt;</tt>,
+gdzie <tt>png</tt> oraz <tt>PNG</tt> s&#261; brane jako
+<tt class="filename">&lt;rozszerzenie&gt;</tt> (w tej w&#322;a&#347;nie kolejno&#347;ci). Pierwszy
+pasuj&#261;cy plik b&#281;dzie u&#380;yty.
+</p><p>
+Na koniec kilka s&#322;ów na temat pozycjonowania. Okno g&#322;ówne oraz okno ekranu mo&#380;esz
+umie&#347;ci&#263; w ró&#380;nych naro&#380;nikach ekranu poprzez ustawienie wspó&#322;rz&#281;dnych
+<tt>X</tt> i <tt>Y</tt>. <tt>0</tt> to góra lub
+lewa strona, <tt>-1</tt> to &#347;rodek, <tt>-2</tt> to strona
+prawa, lub dó&#322;, tak jak przedstawiono na poni&#380;szej ilustracji:
+</p><div class="informalfigure"><pre class="screen">
+(0, 0)----(-1, 0)----(-2, 0)
+  |          |          |
+  |          |          |
+(0,-1)----(-1,-1)----(-2,-1)
+  |          |          |
+  |          |          |
+(0,-2)----(-1,-2)----(-2,-2)
+</pre></div><p>
+Oto przyk&#322;ad wyja&#347;niaj&#261;cy to lepiej. Przypu&#347;&#263;my, &#380;e masz obrazek nazwany
+<tt class="filename">main.png</tt>, który zosta&#322; u&#380;yty dla okna g&#322;ównego:
+<pre class="programlisting">base = main, -1, -1</pre>
+<span class="application">MPlayer</span> spróbuje wczyta&#263; pliki
+<tt class="filename">main</tt>, <tt class="filename">main.png</tt>,
+<tt class="filename">main.PNG</tt>.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-file-main"></a>D.2.1. Okno g&#322;ówne i panel odtwarzania</h3></div></div><p>
+Poni&#380;ej znajduje si&#281; lista wpisów, które mog&#261; by&#263; u&#380;yte w blokach
+'<tt>window = main</tt>'...'<tt>end</tt>'
+oraz '<tt>window = playbar</tt>' ... '<tt>end</tt>'.
+</p><div class="variablelist"><dl><dt><span class="term"><tt>
+  <a name="skin-main-base"></a>base = obrazek, X, Y
+  </tt></span></dt><dd><p>
+  Mo&#380;esz okre&#347;li&#263; obrazek t&#322;a, który b&#281;dzie u&#380;ywany w oknie g&#322;ównym.
+  Okno b&#281;dzie widoczne na ekranie na wspó&#322;rz&#281;dnych <tt>X, Y</tt>. Okno
+  b&#281;dzie wielko&#347;ci tego obrazka.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>Wspó&#322;rz&#281;dne te nie dzia&#322;aj&#261; na razie dla okna ekranu.</p></div><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Ostrze&#380;enie</h3><p>Obszary przezroczysto&#347;ci obrazka (kolor #FF00FF) b&#281;d&#261;
+    widoczne jako czarne pod X serwerami niemaj&#261;cymi rozszerzenia
+    XShape. Szeroko&#347;&#263; obrazka musi by&#263; podzielna przez 8.</p></div></dd><dt><span class="term"><tt>
+  <a name="skin-button"></a>button = obrazek, X, Y, szeroko&#347;&#263;, wysoko&#347;&#263;, sygna&#322;
+  </tt></span></dt><dd><p>
+Umie&#347;ci przycisk o rozmiarze <tt>szeroko&#347;&#263;</tt> *
+<tt>wysoko&#347;&#263;</tt> na pozycji <tt>X</tt>,
+<tt>Y</tt>. Okre&#347;lony <tt>sygna&#322;</tt> jest generowany
+podczas klikni&#281;cia na przycisk. Obrazek ten opisany przez
+<tt>obrazek</tt> musi sk&#322;ada&#263; si&#281; z trzech cz&#281;&#347;ci jedna pod drug&#261;
+(stosownie do mo&#380;liwych stanów przycisku), w ten oto sposób:
+</p><div class="informalfigure"><pre class="screen">
++---------------+
+|  wci&#347;ni&#281;ty    |
++---------------+
+|  zwolniony    |
++---------------+
+| nieaktywny    |
++---------------+
+</pre></div></dd><dt><span class="term"><tt>
+  <a name="skin-decoration"></a>decoration = enable|disable (w&#322;&#261;czona|wy&#322;&#261;czona)
+  </tt></span></dt><dd><p>
+W&#322;&#261;cza lub wy&#322;&#261;cza dekoracj&#281; mened&#380;era okna w oknie g&#322;ównym.
+Domy&#347;lnie jest <span class="bold"><b>wy&#322;&#261;czona</b></span>.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>Nie dzia&#322;a to w oknie ekranu, gdy&#380; nie ma takiej potrzeby.</p></div></dd><dt><span class="term"><tt>
+  <a name="skin-hpotmeter"></a>hpotmeter = przycisk, szer_przycisku, wys_przycisku, faza, liczba_faz, domy&#347;lny, X, Y, szeroko&#347;&#263;, wysoko&#347;&#263;, sygna&#322;
+  </tt></span></dt><dd><p>
+
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-vpotmeter"></a>vpotmeter = przycisk, szer_przycisku, wys_przycisku, fazy, liczba_faz, domy&#347;lny, X, Y, szeroko&#347;&#263;, wysoko&#347;&#263;, sygna&#322;
+  </tt></span></dt><dd><p>
+Umieszcza poziomo (hpotmeter) lub pionowo (vpotmeter) suwak o rozmiarze
+<tt>szeroko&#347;&#263;</tt> * <tt>wysoko&#347;&#263;</tt> i pozycji
+<tt>X,Y</tt>. Obrazek mo&#380;e by&#263; podzielony na ró&#380;ne cz&#281;&#347;ci dla ró&#380;nych
+faz suwaka (np. mo&#380;esz mie&#263; suwak g&#322;o&#347;no&#347;ci, który w zale&#380;no&#347;ci od po&#322;o&#380;enia
+zmienia kolor z zielonego (minimum) na czerwony (maksimum)).
+<tt>hpotmeter</tt> mo&#380;e by&#263; przyciskiem umieszczonym poziomo.
+Jego parametry to:
+    </p><div class="itemizedlist"><ul type="disc"><li><p><tt>przycisk</tt> - obrazek u&#380;yty do przycisku
+    (musi posiada&#263; trzy cz&#281;&#347;ci jedna pod drug&#261; tak, jak w przypadku
+    <a href="skin-file.html#skin-button">przycisku</a>)
+    </p></li><li><p><tt>szer_przycisku</tt>,<tt>wys_przycisku</tt> - wielko&#347;&#263; przycisku
+    </p></li><li><p><tt>fazy</tt> - obrazek u&#380;ywany do okre&#347;lenie faz
+   dla hpotmeter. Warto&#347;&#263; specjalna <tt>NULL</tt> mo&#380;e by&#263; u&#380;yta,
+   je&#347;li nie chcesz &#380;adnego obrazka. Obrazek musi by&#263; podzielony w pionie
+   na fragmenty <tt>poszczególnych faz</tt> tak, jak poni&#380;ej:
+    </p><div class="informalfigure"><pre class="screen">
++------------+
+|  faza #1   |
++------------+
+|  faza #2   |
++------------+
+     ...
++------------+
+|  faza #n   |
++------------+
+</pre></div></li><li><p><tt>liczba_faz</tt> - liczba faz znajduj&#261;ca si&#281; na obrazku z <tt>fazami</tt>
+    </p></li><li><p><tt>domy&#347;lny</tt> - domy&#347;lne ustawienie dla hpotmeter
+    (zakres od <tt>0</tt> do <tt>100</tt>)
+    </p></li><li><p><tt>X</tt>,<tt>Y</tt> - pozycja dla hpotmeter
+    </p></li><li><p><tt>szeroko&#347;&#263;</tt>,<tt>wysoko&#347;&#263;</tt> - szeroko&#347;&#263; i wysoko&#347;&#263; dla
+  <tt>hpotmeter</tt>
+    </p></li><li><p><tt>sygna&#322;</tt> - sygna&#322; generowany podczas zmiany warto&#347;ci <tt>hpotmeter</tt>
+    </p></li></ul></div></dd><dt><span class="term"><tt>
+  <a name="skin-potmeter"></a>potmeter = fazy, liczba_faz, domy&#347;lny, X, Y, szeroko&#347;&#263;, wysoko&#347;&#263;, sygna&#322;
+  </tt></span></dt><dd><p>
+<tt>hpotmeter</tt> bez przycisku. (domy&#347;lam si&#281;, &#380;e chodzi o to, aby
+nim kr&#281;ci&#263;, ale reaguje on tylko na poziome przesuwanie). Opis parametrów znajdziesz w cz&#281;&#347;ci o
+<a href="skin-file.html#skin-hpotmeter">hpotmeter</a>.
+Parametr <tt>fazy</tt> mo&#380;e mie&#263; warto&#347;&#263; <tt>NULL</tt>, ale
+jest to zupe&#322;nie bezu&#380;yteczne, gdy&#380; nie wida&#263; wtedy po&#322;o&#380;enia potencjometru.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-font"></a>font = plik_czcionek, id_czcionki
+  </tt></span></dt><dd><p>
+Definiuje czcionk&#281;. <tt>plik_czcionek</tt> jest nazw&#261; pliku opisu
+czcionki z rozszerzeniem <tt class="filename">.fnt</tt> (nie podawaj rozszerzenia w
+tym miejscu). <tt>id_czcionki</tt> jest u&#380;ywany do wskazywania
+konkretnej czcionki (zobacz <a href="skin-file.html#skin-dlabel">dlabel</a>
+oraz <a href="skin-file.html#skin-slabel">slabel</a>). Mo&#380;na zdefiniowa&#263; do 25
+czcionek.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-slabel"></a>slabel = X, Y, id_czcionki, "tekst"
+  </tt></span></dt><dd><p>
+Umieszcza statyczn&#261; etykiet&#281; w pozycji <tt>X,Y</tt>.
+<tt>tekst</tt> jest wy&#347;wietlany za pomoc&#261; czcionki wskazywanych przez
+<tt>id_czcionki</tt>. Tekst jest po prostu zwyk&#322;ym &#322;a&#324;cuchem znaków
+(zmienne <tt>$x</tt> nie dzia&#322;aj&#261;), któru musi by&#263; umieszczony
+pomi&#281;dzy podwójnym cudzys&#322;owem (znak " nie mo&#380;e by&#263; cz&#281;&#347;ci&#261; tekstu).
+Etykieta wy&#347;wietlana jest za pomoc&#261; czcionki, na któr&#261; wskazuje
+<tt>id_czcionki</tt>.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-dlabel"></a>dlabel = X, Y, d&#322;ugo&#347;&#263;, wyrównanie, id_czcionki, "tekst"
+  </tt></span></dt><dd><p>
+Umieszcza dynamiczn&#261; etykiet&#281; w pozycji <tt>X,Y</tt>. Etykieta jest
+nazywana dynamiczn&#261;, poniewa&#380; jej tekst jest cyklicznie od&#347;wie&#380;any. Maksymaln&#261;
+d&#322;ugo&#347;&#263; etykiety okre&#347;la parametr <tt>d&#322;ugo&#347;&#263;</tt> (jej wysoko&#347;&#263;
+okre&#347;la wysoko&#347;&#263; czcionki). Je&#347;li tekst jest szerszy ni&#380; zdefiniowana d&#322;ugo&#347;&#263;,
+b&#281;dzie on przewijany, w przeciwnym wypadku b&#281;dzie wyrównany w miejscu okre&#347;lonym
+przez warto&#347;&#263; parametru <tt>wyrównanie</tt>: <tt>0</tt>
+oznacza do prawej, <tt>1</tt> to wy&#347;rodkowanie, <tt>2</tt>
+to wyrównanie do lewej.
+</p><p>
+Wy&#347;wietlany tekst jest okre&#347;lony przez zmienn&#261; <tt>tekst</tt>: musi
+by&#263; zawarty pomi&#281;dzy podwójnymi cudzys&#322;owami (znak " nie mo&#380;e by&#263; cz&#281;&#347;ci&#261;
+tekstu). Etykieta wy&#347;wietlana jest za pomoc&#261; czcionki, na któr&#261; wskazuje
+parametr <tt>id_czcionki</tt>. Mo&#380;esz u&#380;y&#263; nast&#281;puj&#261;cych zmiennych w
+tek&#347;cie:
+</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Zmienna</th><th>Znaczenie</th></tr></thead><tbody><tr><td>$1</td><td>czas odtwarzania w formacie <span class="emphasis"><i>hh:mm:ss</i></span></td></tr><tr><td>$2</td><td>czas odtwarzania w formacie <span class="emphasis"><i>mmmm:ss</i></span></td></tr><tr><td>$3</td><td>czas odtwarzania w formacie (godziny) <span class="emphasis"><i>hh</i></span></td></tr><tr><td>$4</td><td>czas odtwarzania w formacie (minuty) <span class="emphasis"><i>mm</i></span></td></tr><tr><td>$5</td><td>czas odtwarzania w formacie (sekundy) <span class="emphasis"><i>ss</i></span></td></tr><tr><td>$6</td><td>d&#322;ugo&#347;&#263; filmu w formacie <span class="emphasis"><i>hh:mm:ss</i></span></td></tr><tr><td>$7</td><td>d&#322;ugo&#347;&#263; filmu w formacie <span class="emphasis"><i>mmmm:ss</i></span></td></tr><tr><td>$8</td><td>d&#322;ugo&#347;&#263; filmu w formacie<span class="emphasis"><i>h:mm:ss</i></span></td></tr><tr><td>$v</td><td>format g&#322;o&#347;no&#347;ci w %<span class="emphasis"><i>xxx.xx</i></span></td></tr><tr><td>$V</td><td>format g&#322;o&#347;no&#347;ci <span class="emphasis"><i>xxx.xx</i></span> format</td></tr><tr><td>$b</td><td>format balansu w %<span class="emphasis"><i>xxx.xx</i></span></td></tr><tr><td>$B</td><td>format balansu <span class="emphasis"><i>xxx.xx</i></span></td></tr><tr><td>$$</td><td>znak $</td></tr><tr><td>$a</td><td>oznaczenie zgodne z rodzajem typu pliku audio (nic: <tt>n</tt>,
+mono: <tt>m</tt>, stereo: <tt>t</tt>)</td></tr><tr><td>$t</td><td>numer &#347;cie&#380;ki (na li&#347;cie odtwarzania)</td></tr><tr><td>$o</td><td>nazwa pliku</td></tr><tr><td>$f</td><td>nazwa pliku pisana ma&#322;ymi literami</td></tr><tr><td>$F</td><td>nazwa pliku pisana wielkimi literami</td></tr><tr><td>$T</td><td>oznaczenie zgodne z rodzajem strumienia (plik: <tt>f</tt>,
+Video CD: <tt>v</tt>, DVD: <tt>d</tt>, URL: <tt>u</tt>)</td></tr><tr><td>$p</td><td>znak <span class="keycap"><b>p</b></span> (gdy film jest odtwarzany i czcionka ma znak <span class="keycap"><b>p</b></span>)</td></tr><tr><td>$s</td><td>znak <span class="keycap"><b>s</b></span> (gdy film jest zatrzymany i czcionka ma znak <span class="keycap"><b>s</b></span>)</td></tr><tr><td>$e</td><td>znak <span class="keycap"><b>e</b></span> (gdy film jest wstrzymany (pauza) i czcionka ma znak <span class="keycap"><b>e</b></span>)
+</td></tr><tr><td>$x</td><td>rozdzielczo&#347;&#263; filmu (szeroko&#347;&#263;)</td></tr><tr><td>$y</td><td>rozdzielczo&#347;&#263; filmu (wysoko&#347;&#263;)</td></tr><tr><td>$C</td><td>nazwa u&#380;ywanego kodeka</td></tr></tbody></table></div></dd></dl></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+Zmienne <tt>$a, $T, $p, $s</tt> oraz <tt>$e</tt>
+zwracaj&#261; znaki, które powinny by&#263; wy&#347;wietlane jako znaki specjalne (na przyk&#322;ad
+<span class="keycap"><b>e</b></span> jest symbolem pauzy, która z regu&#322;y wygl&#261;da mniej wi&#281;cej tak
+||). Powiniene&#347; mie&#263; czcionk&#281; dla zwyk&#322;ych znaków oraz osobn&#261; czcionk&#281; dla symboli.
+Zobacz sekcj&#281; na temat <a href="skin-fonts.html#skin-fonts-symbols" title="D.3.1. Znaki specjalne (symbole)">symboli</a>,
+by dowiedzie&#263; si&#281; wi&#281;cej.
+</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-file-subwindow"></a>D.2.2. Okno ekranu</h3></div></div><p>
+Poni&#380;sze wpisy mog&#261; by&#263; u&#380;yte w bloku
+'<tt>window = sub</tt>' . . . '<tt>end</tt>' .
+</p><div class="variablelist"><dl><dt><span class="term"><tt>
+  <a name="skin-sub-base"></a>base = obrazek, X, Y, szeroko&#347;&#263;, wysoko&#347;&#263;
+  </tt></span></dt><dd><p>
+Wy&#347;wietla obrazek w oknie. Okno b&#281;dzie widoczne na ekranie w miejscu oznaczonym
+przez wspó&#322;rz&#281;dne <tt>X</tt>, <tt>Y</tt>
+(<tt>0,0</tt> to lewy górny naro&#380;nik). Mo&#380;esz u&#380;y&#263;
+<tt>-1</tt> dla &#347;rodka, <tt>-2</tt> dla prawej strony
+(<tt>X</tt>) i do&#322;u (<tt>Y</tt>). Okno b&#281;dzie mie&#263; wielko&#347;&#263;
+obrazka. <tt>szeroko&#347;&#263;</tt> oraz <tt>wysoko&#347;&#263;</tt> oznaczaj&#261;
+wielko&#347;&#263; okna; s&#261; one opcjonalne (je&#347;li nie s&#261; okre&#347;lone, okno b&#281;dzie wielko&#347;ci
+takiej, jak obrazek).</p></dd><dt><span class="term"><tt>
+  <a name="skin-background"></a>background = R, G, B
+  </tt></span></dt><dd><p>
+  Pozwala ustawi&#263; kolor t&#322;a. Jest to u&#380;yteczne je&#347;li obrazek jest mniejszy ni&#380;
+  okno. <tt>R</tt>, <tt>G</tt> oraz <tt>B</tt>
+  okre&#347;laj&#261; sk&#322;adniki kolorów czerwonego, zielonego i niebieskiego (ka&#380;dy z nich
+  jest reprezentowany przez liczb&#281; dziesi&#281;tn&#261; w zakresie od 0 do
+  255).</p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="skin-file-menu"></a>D.2.3. Menu skórki</h3></div></div><p>
+Jak wspomniano wcze&#347;niej, menu jest wy&#347;wietlane przy u&#380;yciu dwóch obrazków.
+Zwyk&#322;e obszary menu s&#261; pobierane z obrazka okre&#347;lonego przez element
+<tt>base</tt>, podczas gdy obszary zaznaczone s&#261; pobierane z obrazka
+wskazywanego przez element <tt>selected</tt>. Musisz zdefiniowa&#263;
+pozycj&#281; i rozmiar ka&#380;dego obszaru menu poprzez element menu.
+</p><p>
+Poni&#380;sze wpisy mog&#261; by&#263; u&#380;yte w bloku:
+'<tt>window = menu</tt>'. . .'<tt>end</tt>' .
+</p><div class="variablelist"><dl><dt><span class="term"><tt>
+  <a name="skin-menu-base"></a>base = obrazek
+  </tt></span></dt><dd><p>
+Obrazek dla zwyk&#322;ych obszarów menu.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-selected"></a>selected = obrazek
+  </tt></span></dt><dd><p>
+Obrazek pokazuj&#261;cy w menu wszystkie zaznaczone obszary.
+    </p></dd><dt><span class="term"><tt>
+  <a name="skin-menu"></a>menu = X, Y, szeroko&#347;&#263;, wysoko&#347;&#263;, sygna&#322;
+  </tt></span></dt><dd><p>
+Definiuje pozycj&#281; i rozmiar obszarów menu na obrazku przy pomocy
+<tt>X,Y</tt>. <tt>sygna&#322;</tt> to zdarzenie wygenerowane
+podczas zwolnienia przycisku myszy nad obszarem.
+    </p></dd></dl></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-overview.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="skin.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="skin-fonts.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">D.1. Wst&#281;p </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> D.3. Czcionki</td></tr></table></div></body></html>

@@ -1,0 +1,354 @@
+/****************************************************************************
+** MainWindowBase meta object code from reading C++ file 'mainwindowbase.h'
+**
+** Created: Thu Nov 20 06:21:49 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "mainwindowbase.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *MainWindowBase::className() const
+{
+    return "MainWindowBase";
+}
+
+QMetaObject *MainWindowBase::metaObj = 0;
+
+#ifdef QWS
+static class MainWindowBase_metaObj_Unloader {
+public:
+    ~MainWindowBase_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "MainWindowBase" );
+    }
+} MainWindowBase_metaObj_unloader;
+#endif
+
+void MainWindowBase::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QMainWindow::className(), "QMainWindow") != 0 )
+	badSuperclassWarning("MainWindowBase","QMainWindow");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString MainWindowBase::tr(const char* s)
+{
+    return qApp->translate( "MainWindowBase", s, 0 );
+}
+
+QString MainWindowBase::tr(const char* s, const char * c)
+{
+    return qApp->translate( "MainWindowBase", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* MainWindowBase::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QMainWindow::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (MainWindowBase::*m1_t0)(const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*om1_t0)(const KURL&,const KParts::URLArgs&);
+    typedef void (MainWindowBase::*m1_t1)(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&);
+    typedef void (QObject::*om1_t1)(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&);
+    typedef void (MainWindowBase::*m1_t2)(const KURL&,KParts::Factory*,bool);
+    typedef void (QObject::*om1_t2)(const KURL&,KParts::Factory*,bool);
+    typedef void (MainWindowBase::*m1_t3)(const QString&);
+    typedef void (QObject::*om1_t3)(const QString&);
+    typedef void (MainWindowBase::*m1_t4)(const QString&,bool);
+    typedef void (QObject::*om1_t4)(const QString&,bool);
+    typedef void (MainWindowBase::*m1_t5)(const QString&,bool);
+    typedef void (QObject::*om1_t5)(const QString&,bool);
+    typedef void (MainWindowBase::*m1_t6)();
+    typedef void (QObject::*om1_t6)();
+    typedef void (MainWindowBase::*m1_t7)(int);
+    typedef void (QObject::*om1_t7)(int);
+    typedef void (MainWindowBase::*m1_t8)();
+    typedef void (QObject::*om1_t8)();
+    typedef void (MainWindowBase::*m1_t9)();
+    typedef void (QObject::*om1_t9)();
+    typedef void (MainWindowBase::*m1_t10)();
+    typedef void (QObject::*om1_t10)();
+    typedef void (MainWindowBase::*m1_t11)();
+    typedef void (QObject::*om1_t11)();
+    typedef void (MainWindowBase::*m1_t12)(View*,const KURL&,const KParts::URLArgs&);
+    typedef void (QObject::*om1_t12)(View*,const KURL&,const KParts::URLArgs&);
+    typedef void (MainWindowBase::*m1_t13)(KHTMLPart*,const QString&);
+    typedef void (QObject::*om1_t13)(KHTMLPart*,const QString&);
+    typedef void (MainWindowBase::*m1_t14)();
+    typedef void (QObject::*om1_t14)();
+    typedef void (MainWindowBase::*m1_t15)();
+    typedef void (QObject::*om1_t15)();
+    typedef void (MainWindowBase::*m1_t16)(const QString&);
+    typedef void (QObject::*om1_t16)(const QString&);
+    typedef void (MainWindowBase::*m1_t17)(bool);
+    typedef void (QObject::*om1_t17)(bool);
+    typedef void (MainWindowBase::*m1_t18)(bool);
+    typedef void (QObject::*om1_t18)(bool);
+    typedef void (MainWindowBase::*m1_t19)();
+    typedef void (QObject::*om1_t19)();
+    typedef void (MainWindowBase::*m1_t20)();
+    typedef void (QObject::*om1_t20)();
+    typedef void (MainWindowBase::*m1_t21)(bool);
+    typedef void (QObject::*om1_t21)(bool);
+    typedef void (MainWindowBase::*m1_t22)(const char*);
+    typedef void (QObject::*om1_t22)(const char*);
+    typedef void (MainWindowBase::*m1_t23)();
+    typedef void (QObject::*om1_t23)();
+    m1_t0 v1_0 = &MainWindowBase::createNewView;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &MainWindowBase::createNewView;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    m1_t2 v1_2 = &MainWindowBase::createPartView;
+    om1_t2 ov1_2 = (om1_t2)v1_2;
+    m1_t3 v1_3 = &MainWindowBase::urlEntered;
+    om1_t3 ov1_3 = (om1_t3)v1_3;
+    m1_t4 v1_4 = &MainWindowBase::statusJustText;
+    om1_t4 ov1_4 = (om1_t4)v1_4;
+    m1_t5 v1_5 = &MainWindowBase::statusMessage;
+    om1_t5 ov1_5 = (om1_t5)v1_5;
+    m1_t6 v1_6 = &MainWindowBase::prepareWindowListMenu;
+    om1_t6 ov1_6 = (om1_t6)v1_6;
+    m1_t7 v1_7 = &MainWindowBase::activateWindowFromPopup;
+    om1_t7 ov1_7 = (om1_t7)v1_7;
+    m1_t8 v1_8 = &MainWindowBase::viewDestroyed;
+    om1_t8 ov1_8 = (om1_t8)v1_8;
+    m1_t9 v1_9 = &MainWindowBase::viewWidgetDestroyed;
+    om1_t9 ov1_9 = (om1_t9)v1_9;
+    m1_t10 v1_10 = &MainWindowBase::nextView;
+    om1_t10 ov1_10 = (om1_t10)v1_10;
+    m1_t11 v1_11 = &MainWindowBase::closeView;
+    om1_t11 ov1_11 = (om1_t11)v1_11;
+    m1_t12 v1_12 = &MainWindowBase::openURL;
+    om1_t12 ov1_12 = (om1_t12)v1_12;
+    m1_t13 v1_13 = &MainWindowBase::popupMenu;
+    om1_t13 ov1_13 = (om1_t13)v1_13;
+    m1_t14 v1_14 = &MainWindowBase::newView;
+    om1_t14 ov1_14 = (om1_t14)v1_14;
+    m1_t15 v1_15 = &MainWindowBase::showPreferences;
+    om1_t15 ov1_15 = (om1_t15)v1_15;
+    m1_t16 v1_16 = &MainWindowBase::setLocationBarURL;
+    om1_t16 ov1_16 = (om1_t16)v1_16;
+    m1_t17 v1_17 = &MainWindowBase::toggleAutoloadImages;
+    om1_t17 ov1_17 = (om1_t17)v1_17;
+    m1_t18 v1_18 = &MainWindowBase::toggleFullScreen;
+    om1_t18 ov1_18 = (om1_t18)v1_18;
+    m1_t19 v1_19 = &MainWindowBase::zoomMenuAboutToShow;
+    om1_t19 ov1_19 = (om1_t19)v1_19;
+    m1_t20 v1_20 = &MainWindowBase::goSpecialURL;
+    om1_t20 ov1_20 = (om1_t20)v1_20;
+    m1_t21 v1_21 = &MainWindowBase::toggleSideBar;
+    om1_t21 ov1_21 = (om1_t21)v1_21;
+    m1_t22 v1_22 = &MainWindowBase::actionChanged;
+    om1_t22 ov1_22 = (om1_t22)v1_22;
+    m1_t23 v1_23 = &MainWindowBase::debugFunc;
+    om1_t23 ov1_23 = (om1_t23)v1_23;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(24);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(24);
+    slot_tbl[0].name = "createNewView(const KURL&,const KParts::URLArgs&)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "createNewView(const KURL&,const KParts::URLArgs&,const KParts::WindowArgs&,KParts::ReadOnlyPart*&)";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    slot_tbl[2].name = "createPartView(const KURL&,KParts::Factory*,bool)";
+    slot_tbl[2].ptr = (QMember)ov1_2;
+    slot_tbl_access[2] = QMetaData::Public;
+    slot_tbl[3].name = "urlEntered(const QString&)";
+    slot_tbl[3].ptr = (QMember)ov1_3;
+    slot_tbl_access[3] = QMetaData::Public;
+    slot_tbl[4].name = "statusJustText(const QString&,bool)";
+    slot_tbl[4].ptr = (QMember)ov1_4;
+    slot_tbl_access[4] = QMetaData::Protected;
+    slot_tbl[5].name = "statusMessage(const QString&,bool)";
+    slot_tbl[5].ptr = (QMember)ov1_5;
+    slot_tbl_access[5] = QMetaData::Protected;
+    slot_tbl[6].name = "prepareWindowListMenu()";
+    slot_tbl[6].ptr = (QMember)ov1_6;
+    slot_tbl_access[6] = QMetaData::Protected;
+    slot_tbl[7].name = "activateWindowFromPopup(int)";
+    slot_tbl[7].ptr = (QMember)ov1_7;
+    slot_tbl_access[7] = QMetaData::Protected;
+    slot_tbl[8].name = "viewDestroyed()";
+    slot_tbl[8].ptr = (QMember)ov1_8;
+    slot_tbl_access[8] = QMetaData::Protected;
+    slot_tbl[9].name = "viewWidgetDestroyed()";
+    slot_tbl[9].ptr = (QMember)ov1_9;
+    slot_tbl_access[9] = QMetaData::Protected;
+    slot_tbl[10].name = "nextView()";
+    slot_tbl[10].ptr = (QMember)ov1_10;
+    slot_tbl_access[10] = QMetaData::Protected;
+    slot_tbl[11].name = "closeView()";
+    slot_tbl[11].ptr = (QMember)ov1_11;
+    slot_tbl_access[11] = QMetaData::Protected;
+    slot_tbl[12].name = "openURL(View*,const KURL&,const KParts::URLArgs&)";
+    slot_tbl[12].ptr = (QMember)ov1_12;
+    slot_tbl_access[12] = QMetaData::Protected;
+    slot_tbl[13].name = "popupMenu(KHTMLPart*,const QString&)";
+    slot_tbl[13].ptr = (QMember)ov1_13;
+    slot_tbl_access[13] = QMetaData::Protected;
+    slot_tbl[14].name = "newView()";
+    slot_tbl[14].ptr = (QMember)ov1_14;
+    slot_tbl_access[14] = QMetaData::Protected;
+    slot_tbl[15].name = "showPreferences()";
+    slot_tbl[15].ptr = (QMember)ov1_15;
+    slot_tbl_access[15] = QMetaData::Protected;
+    slot_tbl[16].name = "setLocationBarURL(const QString&)";
+    slot_tbl[16].ptr = (QMember)ov1_16;
+    slot_tbl_access[16] = QMetaData::Protected;
+    slot_tbl[17].name = "toggleAutoloadImages(bool)";
+    slot_tbl[17].ptr = (QMember)ov1_17;
+    slot_tbl_access[17] = QMetaData::Protected;
+    slot_tbl[18].name = "toggleFullScreen(bool)";
+    slot_tbl[18].ptr = (QMember)ov1_18;
+    slot_tbl_access[18] = QMetaData::Protected;
+    slot_tbl[19].name = "zoomMenuAboutToShow()";
+    slot_tbl[19].ptr = (QMember)ov1_19;
+    slot_tbl_access[19] = QMetaData::Protected;
+    slot_tbl[20].name = "goSpecialURL()";
+    slot_tbl[20].ptr = (QMember)ov1_20;
+    slot_tbl_access[20] = QMetaData::Protected;
+    slot_tbl[21].name = "toggleSideBar(bool)";
+    slot_tbl[21].ptr = (QMember)ov1_21;
+    slot_tbl_access[21] = QMetaData::Protected;
+    slot_tbl[22].name = "actionChanged(const char*)";
+    slot_tbl[22].ptr = (QMember)ov1_22;
+    slot_tbl_access[22] = QMetaData::Protected;
+    slot_tbl[23].name = "debugFunc()";
+    slot_tbl[23].ptr = (QMember)ov1_23;
+    slot_tbl_access[23] = QMetaData::Protected;
+    typedef void (MainWindowBase::*m2_t0)(int);
+    typedef void (QObject::*om2_t0)(int);
+    typedef void (MainWindowBase::*m2_t1)();
+    typedef void (QObject::*om2_t1)();
+    m2_t0 v2_0 = &MainWindowBase::zoomValueSelected;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    m2_t1 v2_1 = &MainWindowBase::loadImages;
+    om2_t1 ov2_1 = (om2_t1)v2_1;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(2);
+    signal_tbl[0].name = "zoomValueSelected(int)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    signal_tbl[1].name = "loadImages()";
+    signal_tbl[1].ptr = (QMember)ov2_1;
+    metaObj = QMetaObject::new_metaobject(
+	"MainWindowBase", "QMainWindow",
+	slot_tbl, 24,
+	signal_tbl, 2,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL zoomValueSelected
+void MainWindowBase::zoomValueSelected( int t0 )
+{
+    activate_signal( "zoomValueSelected(int)", t0 );
+}
+
+// SIGNAL loadImages
+void MainWindowBase::loadImages()
+{
+    activate_signal( "loadImages()" );
+}
+
+
+const char *PopupAction::className() const
+{
+    return "PopupAction";
+}
+
+QMetaObject *PopupAction::metaObj = 0;
+
+#ifdef QWS
+static class PopupAction_metaObj_Unloader {
+public:
+    ~PopupAction_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "PopupAction" );
+    }
+} PopupAction_metaObj_unloader;
+#endif
+
+void PopupAction::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QAction::className(), "QAction") != 0 )
+	badSuperclassWarning("PopupAction","QAction");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString PopupAction::tr(const char* s)
+{
+    return qApp->translate( "PopupAction", s, 0 );
+}
+
+QString PopupAction::tr(const char* s, const char * c)
+{
+    return qApp->translate( "PopupAction", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* PopupAction::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QAction::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (PopupAction::*m1_t0)(bool);
+    typedef void (QObject::*om1_t0)(bool);
+    m1_t0 v1_0 = &PopupAction::setEnabled;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "setEnabled(bool)";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"PopupAction", "QAction",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

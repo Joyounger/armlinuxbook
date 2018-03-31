@@ -1,0 +1,22 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.5. Naprawianie plików AVI ze zniszczonym indeksem lub przeplotem</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="mencoder.html" title="Rozdzia&#322; 7. Kodowanie z MEncoderem"><link rel="previous" href="menc-feat-streamcopy.html" title="7.4. Kopiowanie strumienia"><link rel="next" href="menc-feat-enc-libavcodec.html" title="7.6. Kodowanie przy pomocy rodziny kodeków libavcodec"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.5. Naprawianie plików AVI ze zniszczonym indeksem lub przeplotem</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="menc-feat-streamcopy.html">Poprzedni</a> </td><th width="60%" align="center">Rozdzia&#322; 7. Kodowanie z MEncoderem</th><td width="20%" align="right"> <a accesskey="n" href="menc-feat-enc-libavcodec.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="menc-feat-fix-avi"></a>7.5. Naprawianie plików AVI ze zniszczonym indeksem lub przeplotem</h2></div></div><p>
+Najprostsza sprawa. Po prostu kopiujemy strumie&#324; audio i video, a
+<span class="application">MEncoder</span> generuje indeks. Oczywi&#347;cie nie
+naprawi to mo&#380;liwych b&#322;&#281;dów w strumieniu video i/lub audio, ale za to, naprawi pliki z zepsutym przeplotem,
+tak wi&#281;c opcja <tt class="option">-ni</tt> nie b&#281;dzie tu ju&#380; potrzebna.
+</p><p>
+Komenda:
+<pre class="screen">
+mencoder -idx <i><tt>wejscie.avi</tt></i> -ovc copy -oac copy -o <i><tt>wyjscie.avi</tt></i></pre>
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="menc-feat-appending"></a>7.5.1. &#321;&#261;cznie wielu plików AVI</h3></div></div><p>
+Efektem ubocznym funkcji naprawiania zepsutych plików AVI jest mo&#380;liwo&#347;ci &#322;&#261;czenia
+2 (lub wi&#281;cej) plików AVI:
+</p><p>
+Komenda:
+<pre class="screen">cat 1.avi 2.avi | mencoder -noidx -ovc copy -oac copy -o <i><tt>wyjscie.avi</tt></i> -</pre>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Notatka</h3><p>
+Komenda ta oczekuje tego, &#380;eby <tt class="filename">1.avi</tt> i <tt class="filename">2.avi</tt> u&#380;ywa&#322;y tego
+samego kodeka, rozdzielczo&#347;ci, szybko&#347;ci strumienia (stream rate), i przynajmniej
+<tt class="filename">1.avi</tt> nie mo&#380;e by&#263; zepsute. Mo&#380;liwe, &#380;e b&#281;dziesz musia&#322; naprawi&#263; pliki wej&#347;ciowe,
+jak by&#322;o opisane
+<a href="menc-feat-fix-avi.html" title="7.5. Naprawianie plików AVI ze zniszczonym indeksem lub przeplotem">powy&#380;ej</a>.
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="menc-feat-streamcopy.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="mencoder.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="menc-feat-enc-libavcodec.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">7.4. Kopiowanie strumienia </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> 7.6. Kodowanie przy pomocy rodziny kodeków libavcodec</td></tr></table></div></body></html>

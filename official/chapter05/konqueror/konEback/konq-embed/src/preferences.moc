@@ -1,0 +1,102 @@
+/****************************************************************************
+** PreferencesBase meta object code from reading C++ file 'preferences.h'
+**
+** Created: Thu Nov 20 06:21:59 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "preferences.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *PreferencesBase::className() const
+{
+    return "PreferencesBase";
+}
+
+QMetaObject *PreferencesBase::metaObj = 0;
+
+#ifdef QWS
+static class PreferencesBase_metaObj_Unloader {
+public:
+    ~PreferencesBase_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "PreferencesBase" );
+    }
+} PreferencesBase_metaObj_unloader;
+#endif
+
+void PreferencesBase::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QDialog::className(), "QDialog") != 0 )
+	badSuperclassWarning("PreferencesBase","QDialog");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString PreferencesBase::tr(const char* s)
+{
+    return qApp->translate( "PreferencesBase", s, 0 );
+}
+
+QString PreferencesBase::tr(const char* s, const char * c)
+{
+    return qApp->translate( "PreferencesBase", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* PreferencesBase::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QDialog::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (PreferencesBase::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    typedef void (PreferencesBase::*m1_t1)();
+    typedef void (QObject::*om1_t1)();
+    m1_t0 v1_0 = &PreferencesBase::defaults;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    m1_t1 v1_1 = &PreferencesBase::makeCurrentSiteHomePage;
+    om1_t1 ov1_1 = (om1_t1)v1_1;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(2);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(2);
+    slot_tbl[0].name = "defaults()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Public;
+    slot_tbl[1].name = "makeCurrentSiteHomePage()";
+    slot_tbl[1].ptr = (QMember)ov1_1;
+    slot_tbl_access[1] = QMetaData::Public;
+    metaObj = QMetaObject::new_metaobject(
+	"PreferencesBase", "QDialog",
+	slot_tbl, 2,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}

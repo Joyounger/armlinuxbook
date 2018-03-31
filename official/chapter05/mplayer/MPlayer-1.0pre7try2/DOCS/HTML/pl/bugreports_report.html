@@ -1,0 +1,46 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>B.2. Jak zg&#322;asza&#263; b&#322;&#281;dy</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="bugreports.html" title="Dodatek B. Jak zg&#322;asza&#263; b&#322;&#281;dy"><link rel="previous" href="bugreports_fix.html" title="B.1. Jak poprawia&#263; b&#322;&#281;dy"><link rel="next" href="bugreports_where.html" title="B.3. Gdzie zg&#322;asza&#263; b&#322;&#281;dy"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">B.2. Jak zg&#322;asza&#263; b&#322;&#281;dy</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="bugreports_fix.html">Poprzedni</a> </td><th width="60%" align="center">Dodatek B. Jak zg&#322;asza&#263; b&#322;&#281;dy</th><td width="20%" align="right"> <a accesskey="n" href="bugreports_where.html">Nast&#281;pny</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="bugreports_report"></a>B.2. Jak zg&#322;asza&#263; b&#322;&#281;dy</h2></div></div><p>
+Po pierwsze sprawd&#378; najnowsz&#261; wersj&#281; CVS <span class="application">MPlayera</span>,
+poniewa&#380; dany b&#322;&#261;d mo&#380;e by&#263; ju&#380; w niej naprawiony. Rozwój
+<span class="application">MPlayera</span> przebiega naprawd&#281; szybko, wi&#281;kszo&#347;&#263;
+problemów wyst&#281;puj&#261;cych w oficjalnych wydaniach jest zg&#322;aszana w ci&#261;gu kilku dni
+albo nawet godzin. Dlatego te&#380; prosimy u&#380;ywa&#263; <span class="bold"><b>tylko wersji
+z CVSu</b></span> do zg&#322;aszania b&#322;&#281;dów. Dotyczy to g&#322;ównie pakietów binarnych
+<span class="application">MPlayera</span>. Instrukcje dotycz&#261;ce CVSu znajduj&#261; si&#281; na
+dole <a href="http://www.mplayerhq.hu/homepage/dload.html" target="_top">tej strony</a>
+lub w pliku README. Je&#380;eli problem dalej wyst&#281;puje prosimy sprawdzi&#263; list&#281;
+<a href="bugs.html" title="Dodatek C. Znane b&#322;&#281;dy">znanych b&#322;&#281;dów</a> i reszt&#281; dokumentacji. Je&#380;eli problem
+nie jest znany lub rozwi&#261;zany przez nasz&#261; dokumentacj&#281; prosimy zg&#322;osi&#263; b&#322;&#261;d.
+</p><p>
+Nie nale&#380;y wysy&#322;a&#263; zg&#322;osze&#324; do deweloperów. <span class="application">MPlayer</span>
+jest dzie&#322;em du&#380;ej grupy, wi&#281;c wi&#281;cej osób mo&#380;e by&#263; zainteresowanych tym
+problemem. Czasami inni u&#380;ytkownicy spotkali si&#281; ju&#380; z danym problemem i wiedz&#261;,
+jak go rozwi&#261;za&#263;, nawet je&#380;eli jest to b&#322;&#261;d w kodzie
+<span class="application">MPlayera</span>.
+</p><p>
+Prosimy opisywa&#263; problem tak dok&#322;adnie, jak to tylko mo&#380;liwe. Nale&#380;y sprawdzi&#263; w
+jakich dok&#322;adnie okoliczno&#347;ciach pojawia si&#281; b&#322;&#261;d. Czy wyst&#281;puje on tylko w
+okre&#347;lonych sytuacjach? Czy ma zwi&#261;zek z konkretnym plikiem lub typem plików?
+Czy dotyczy tylko danego kodeka, czy te&#380; jest niezale&#380;ny od kodeków? Czy mo&#380;esz
+go powtórzy&#263; z ka&#380;dym wyj&#347;ciem wideo? Im wi&#281;cej informacji dostarczysz, tym
+wi&#281;ksze s&#261; szanse na rozwi&#261;zanie zg&#322;oszonego problemu. Nie nale&#380;y równie&#380;
+zapomina&#263; o do&#322;&#261;czeniu warto&#347;ciowych informacji wymienionych poni&#380;ej. W
+przeciwnym wypadku nie b&#281;dziemy w stanie prawid&#322;owo zdiagnozowa&#263; zg&#322;oszonego
+problemu.
+</p><p>
+Doskona&#322;ym i dobrze napisanym przewodnikiem dotycz&#261;cym zadawania pyta&#324; jest
+dokument <a href="http://www.catb.org/~esr/faqs/smart-questions.html" target="_top">"Jak
+m&#261;drze zadawa&#263; pytania"</a> napisany przez
+<a href="http://www.catb.org/~esr/" target="_top">Erica S. Raymonda</a>
+(Polskie t&#322;umaczenie tego dokumentu mo&#380;na znale&#378;&#263;
++<a href="http://rtfm.killfile.pl/" target="_top">tutaj</a> -przyp. t&#322;um.). Istnieje
+tak&#380;e inny dokumentem tego typu zatytu&#322;owany
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/bugs.html" target="_top">Jak efektywnie zg&#322;asza&#263; b&#322;&#281;dy</a>
+stworzony przez <a href="http://www.chiark.greenend.org.uk/~sgtatham/" target="_top">Simona Tathama</a>
+(Polskie t&#322;umaczenie tego dokumentu mo&#380;na znale&#378;&#263;
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/bugs-pl.html" target="_top">tutaj</a>
+-przyp. t&#322;um.). Je&#347;li b&#281;dziesz post&#281;powa&#322; zgodnie z tymi przewodnikami,
+powiniene&#347; uzyska&#263; pomoc. Prosimy jednak pami&#281;ta&#263;, &#380;e &#347;ledzimy list&#281; jako
+ochotnicy, po&#347;wi&#281;caj&#261;c nasz wolny czas. Jeste&#347;my bardzo zaj&#281;ci i nie potrafimy
+zagwarantowa&#263;, &#380;e pomo&#380;emy rozwi&#261;za&#263; zg&#322;oszony problem, ani nawet tego, &#380;e
+odpowiemy na Twoje zg&#322;oszenie.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="bugreports_fix.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="bugreports.html">Pocz&#261;tek rozdzia&#322;u</a></td><td width="40%" align="right"> <a accesskey="n" href="bugreports_where.html">Nast&#281;pny</a></td></tr><tr><td width="40%" align="left" valign="top">B.1. Jak poprawia&#263; b&#322;&#281;dy </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis tre&#347;ci</a></td><td width="40%" align="right" valign="top"> B.3. Gdzie zg&#322;asza&#263; b&#322;&#281;dy</td></tr></table></div></body></html>

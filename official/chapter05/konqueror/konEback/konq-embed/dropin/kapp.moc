@@ -1,0 +1,100 @@
+/****************************************************************************
+** KApplication meta object code from reading C++ file 'kapp.h'
+**
+** Created: Thu Nov 20 06:12:46 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "kapp.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KApplication::className() const
+{
+    return "KApplication";
+}
+
+QMetaObject *KApplication::metaObj = 0;
+
+#ifdef QWS
+static class KApplication_metaObj_Unloader {
+public:
+    ~KApplication_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KApplication" );
+    }
+} KApplication_metaObj_unloader;
+#endif
+
+void KApplication::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QApplication::className(), "QApplication") != 0 )
+	badSuperclassWarning("KApplication","QApplication");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KApplication::tr(const char* s)
+{
+    return qApp->translate( "KApplication", s, 0 );
+}
+
+QString KApplication::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KApplication", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KApplication::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QApplication::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    typedef void (KApplication::*m2_t0)();
+    typedef void (QObject::*om2_t0)();
+    m2_t0 v2_0 = &KApplication::kdisplayPaletteChanged;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "kdisplayPaletteChanged()";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"KApplication", "QApplication",
+	0, 0,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+// SIGNAL kdisplayPaletteChanged
+void KApplication::kdisplayPaletteChanged()
+{
+    activate_signal( "kdisplayPaletteChanged()" );
+}

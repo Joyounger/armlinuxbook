@@ -1,0 +1,209 @@
+/****************************************************************************
+** KHTMLPageCache meta object code from reading C++ file 'khtml_pagecache.h'
+**
+** Created: Thu Nov 20 06:20:40 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "khtml_pagecache.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KHTMLPageCache::className() const
+{
+    return "KHTMLPageCache";
+}
+
+QMetaObject *KHTMLPageCache::metaObj = 0;
+
+#ifdef QWS
+static class KHTMLPageCache_metaObj_Unloader {
+public:
+    ~KHTMLPageCache_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KHTMLPageCache" );
+    }
+} KHTMLPageCache_metaObj_unloader;
+#endif
+
+void KHTMLPageCache::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KHTMLPageCache","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KHTMLPageCache::tr(const char* s)
+{
+    return qApp->translate( "KHTMLPageCache", s, 0 );
+}
+
+QString KHTMLPageCache::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KHTMLPageCache", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KHTMLPageCache::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    typedef void (KHTMLPageCache::*m1_t0)();
+    typedef void (QObject::*om1_t0)();
+    m1_t0 v1_0 = &KHTMLPageCache::sendData;
+    om1_t0 ov1_0 = (om1_t0)v1_0;
+    QMetaData *slot_tbl = QMetaObject::new_metadata(1);
+    QMetaData::Access *slot_tbl_access = QMetaObject::new_metaaccess(1);
+    slot_tbl[0].name = "sendData()";
+    slot_tbl[0].ptr = (QMember)ov1_0;
+    slot_tbl_access[0] = QMetaData::Private;
+    metaObj = QMetaObject::new_metaobject(
+	"KHTMLPageCache", "QObject",
+	slot_tbl, 1,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+
+const char *KHTMLPageCacheDelivery::className() const
+{
+    return "KHTMLPageCacheDelivery";
+}
+
+QMetaObject *KHTMLPageCacheDelivery::metaObj = 0;
+
+#ifdef QWS
+static class KHTMLPageCacheDelivery_metaObj_Unloader {
+public:
+    ~KHTMLPageCacheDelivery_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KHTMLPageCacheDelivery" );
+    }
+} KHTMLPageCacheDelivery_metaObj_unloader;
+#endif
+
+void KHTMLPageCacheDelivery::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(QObject::className(), "QObject") != 0 )
+	badSuperclassWarning("KHTMLPageCacheDelivery","QObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KHTMLPageCacheDelivery::tr(const char* s)
+{
+    return qApp->translate( "KHTMLPageCacheDelivery", s, 0 );
+}
+
+QString KHTMLPageCacheDelivery::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KHTMLPageCacheDelivery", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KHTMLPageCacheDelivery::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) QObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    typedef void (KHTMLPageCacheDelivery::*m2_t0)(const QByteArray&);
+    typedef void (QObject::*om2_t0)(const QByteArray&);
+    m2_t0 v2_0 = &KHTMLPageCacheDelivery::emitData;
+    om2_t0 ov2_0 = (om2_t0)v2_0;
+    QMetaData *signal_tbl = QMetaObject::new_metadata(1);
+    signal_tbl[0].name = "emitData(const QByteArray&)";
+    signal_tbl[0].ptr = (QMember)ov2_0;
+    metaObj = QMetaObject::new_metaobject(
+	"KHTMLPageCacheDelivery", "QObject",
+	0, 0,
+	signal_tbl, 1,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
+
+#include <qobjectdefs.h>
+#include <qsignalslotimp.h>
+
+// SIGNAL emitData
+void KHTMLPageCacheDelivery::emitData( const QByteArray& t0 )
+{
+    // No builtin function for signal parameter type const QByteArray&
+    QConnectionList *clist = receivers("emitData(const QByteArray&)");
+    if ( !clist || signalsBlocked() )
+	return;
+    typedef void (QObject::*RT0)();
+    typedef void (QObject::*RT1)(const QByteArray&);
+    RT0 r0;
+    RT1 r1;
+    QConnectionListIt it(*clist);
+    QConnection   *c;
+    QSenderObject *object;
+    while ( (c=it.current()) ) {
+	++it;
+	object = (QSenderObject*)c->object();
+	object->setSender( this );
+	switch ( c->numArgs() ) {
+	    case 0:
+#ifdef Q_FP_CCAST_BROKEN
+		r0 = reinterpret_cast<RT0>(*(c->member()));
+#else
+		r0 = (RT0)*(c->member());
+#endif
+		(object->*r0)();
+		break;
+	    case 1:
+#ifdef Q_FP_CCAST_BROKEN
+		r1 = reinterpret_cast<RT1>(*(c->member()));
+#else
+		r1 = (RT1)*(c->member());
+#endif
+		(object->*r1)(t0);
+		break;
+	}
+    }
+}

@@ -1,0 +1,407 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>1.2. Instalace</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.49"><link rel="home" href="index.html" title="MPlayer - Multimediální p&#345;ehráva&#269;"><link rel="up" href="intro.html" title="Kapitola 1. P&#345;edstavení"><link rel="previous" href="history.html" title="1.1. Historie"><link rel="next" href="gui.html" title="1.3. Cht&#283;li byste GUI?"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.2. Instalace</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="history.html">P&#345;edcházející</a> </td><th width="60%" align="center">Kapitola 1. P&#345;edstavení</th><td width="20%" align="right"> <a accesskey="n" href="gui.html">Dal&#353;í</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="install"></a>1.2. Instalace</h2></div></div><p>
+Jednoduchý návod na instalaci naleznete v souboru <tt class="filename">README</tt>.
+P&#345;e&#269;t&#283;te si nejprve tento soubor a poté se vra&#357;te zde pro dal&#353;í podrobnosti.
+</p><p>
+V této &#269;ásti vás provedeme procesem kompilace a konfigurace programu
+<span class="application">MPlayer</span>. Není to snadné, ale nemusí to být nutn&#283; t&#283;&#382;ké.
+Pokud zaznamenáte rozdílné chování, ne&#382; zde popisuji, prostudujte si prosím
+tuto dokumentaci a naleznete své odpov&#283;di. Pokud narazíte na odkazy, následujte je
+a pe&#269;liv&#283; si prostudujte jejich obsah. Bude vás to stát trochu &#269;asu,  ale STOJÍ to
+za to.
+</p><p>
+Budete pot&#345;ebovat pom&#283;rn&#283; zánovní systém. Na Linuxu doporu&#269;ujeme jádro &#345;ady 2.4.x.
+</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="softreq"></a>1.2.1. Softwarové po&#382;adavky</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>binutils</b></span> - navrhovaná verze je <span class="bold"><b>2.11.x</b></span>.
+  Tento program zaji&#353;&#357;uje generování MMX/ 3DNow!/atd. instrukcí, které jsou velmi
+  d&#367;le&#382;ité.
+</p></li><li><p>
+  <span class="bold"><b>gcc</b></span> - doporu&#269;ené verze jsou: <span class="bold"><b>2.95.3</b></span>
+  (mo&#382;ná <span class="bold"><b>2.95.4</b></span>) a <span class="bold"><b>3.2+</b></span>.
+  <span class="bold"><b>Nikdy</b></span> nepou&#382;ívejte 2.96 nebo 3.0.x! Tyto
+  generují vadný kód pro <span class="application">MPlayer</span>. Pokud se rozhodnete
+  vym&#283;nit gcc verze
+  2.96, pak nevolte verzi 3.x jen proto, &#382;e je nov&#283;j&#353;í! První verze &#345;ady
+  3.x byly je&#353;t&#283; hor&#353;í ne&#382; 2.96. Tak&#382;e rad&#283;ji downgradujte na 2.95.x
+  (downgradujte také <tt>libstdc++</tt>, proto&#382;e
+  ji mohou pot&#345;ebovat jiné programy) nebo neup/downgradujte v&#367;bec (pak se ale
+  p&#345;ipravte na problémy p&#345;i b&#283;hu). Pokud se rozhodnete pro 3.x, zkuste pou&#382;ít
+  poslední verzi, první verze m&#283;ly r&#367;zné chyby, tak&#382;e se ujist&#283;te, &#382;e máte aspo&#328;
+  3.1, ta je otestovaná a funk&#269;ní. Pro podrobn&#283;j&#353;í informace o chybách gcc 2.96
+ (které stále NEJSOU opraveny, byly v <span class="application">MPlayer</span>u pouze
+ OBEJITY!), viz sekci <a href="gcc-296.html" title="E.1. GCC 2.96">gcc 2.96</a> a <a href="faq.html">FAQ</a>.
+  </p></li><li><p>
+  <span class="bold"><b>XFree86</b></span> - doporu&#269;ená verze je
+  <span class="bold"><b>v&#382;dy ta nejnov&#283;j&#353;í</b></span> (4.3).
+  Normáln&#283; by to m&#283;l chtít ka&#382;dý, jeliko&#382; od verze
+  XFree86 4.0.2 obsahuje roz&#353;í&#345;ení <a href="video.html#xv" title="2.3.2.1. Xv">XVideo</a>
+  (místy zmi&#328;ované jako <span class="bold"><b>Xv</b></span>)
+  které je nutné k zapnutí hardwarové YUV akcelerace (rychlé vykreslování
+  obrázku) na kartách, které to podporují.
+  Ujist&#283;te se &#382;e máte nainstalován i <span class="bold"><b>vývojový (dev)
+  balí&#269;ek</b></span>, jinak to nebude pracovat.
+  Pro n&#283;které video karty nepot&#345;ebujete XFree86. Viz seznam ní&#382;e.
+  </p></li><li><p>
+  <span class="bold"><b>make</b></span> - doporu&#269;ená verze je
+  <span class="bold"><b>v&#382;dy ta nejnov&#283;j&#353;í</b></span> (aspo&#328; 3.79.x). Obvykle to
+  není d&#367;le&#382;ité.
+  </p></li><li><p>
+  <span class="bold"><b>SDL</b></span> - není vy&#382;adována, ale m&#367;&#382;e pomoci
+  v n&#283;kterých
+  p&#345;ípadech (&#353;patný zvuk, video karty které se podivn&#283; opo&#382;&#271;ují s xv rozhraním).
+  V&#382;dy pou&#382;ijte nejnov&#283;j&#353;í (po&#269;ínaje 1.2.x).
+  </p></li><li><p>
+  <span class="bold"><b>libjpeg</b></span> - volitelný JPEG dekodér, pou&#382;ívaný
+  volbou <tt class="option">-mf</tt> a n&#283;kterými QT MOV soubory. Pou&#382;itelný pro
+  <span class="application">MPlayer</span>
+  i <span class="application">MEncoder</span> pokud chcete pracovat se soubory JPEG.
+  </p></li><li><p>
+  <span class="bold"><b>libpng</b></span> - doporu&#269;ený a výchozí (M)PNG dekodér.
+  Vy&#382;adován pro GUI.
+  Pou&#382;itelný pro <span class="application">MPlayer</span> i <span class="application">MEncoder</span>.
+  </p></li><li><p>
+  <span class="bold"><b>lame</b></span> - doporu&#269;ený, nutný pro enkódování MP3
+  zvuku v <span class="application">MEncoder</span>u, doporu&#269;ená verze je
+  <span class="emphasis"><i>v&#382;dy ta nejnov&#283;j&#353;í</i></span> (aspo&#328; 3.90).
+  </p></li><li><p>
+  <span class="bold"><b>zlib</b></span> - doporu&#269;ená, nutná pro komprimovanou
+  MOV hlavi&#269;ku a podporu PNG.
+  </p></li><li><p>
+  <span class="bold"><b>libogg</b></span> - volitelná, nutná pro p&#345;ehrávání
+  souborového formátu OGG.
+  </p></li><li><p>
+  <span class="bold"><b>libvorbis</b></span> - volitelná, nutná pro p&#345;ehrávání
+  OGG Vorbis zvuku.
+  </p></li><li><p>
+  <span class="bold"><b><a href="http://www.live.com/mplayer/" target="_top">LIVE.COM Streaming Media</a></b></span>
+  - volitelná, nutná pro p&#345;ehrávání RTSP/RTP datových proud&#367;.
+  </p></li><li><p>
+  <span class="bold"><b>directfb</b></span> - volitelný, z
+  <a href="http://www.directfb.org" target="_top">http://www.directfb.org</a>. Vy&#382;adujeme aspo&#328; 0.9.13.
+  </p></li><li><p>
+  <span class="bold"><b>cdparanoia</b></span> - volitelná, pro podporu CDDA
+  </p></li><li><p>
+  <span class="bold"><b>libfreetype</b></span> - volitelná, pro podporu TTF font&#367;.
+  Vy&#382;adujeme aspo&#328; 2.0.9.
+  </p></li><li><p>
+  <span class="bold"><b>libxmms</b></span> - volitelná, pro podporu XMMS
+  vstupního pluginu.
+  Vy&#382;adujeme aspo&#328; 1.2.7.
+  </p></li><li><p>
+  <span class="bold"><b>libsmb</b></span> - volitelná, pro podporu Samby.
+  </p></li><li><p>
+  <span class="bold"><b>ALSA</b></span> - volitelná, pro podporu ALSA
+  zvukového výstupu. Vy&#382;adujeme aspo&#328; 0.9.0rc4.
+  </p></li><li><p>
+  <span class="bold"><b>bio2jack</b></span> - volitelný, pro podporu JACK audio
+  výstupu, pot&#345;ebný pouze p&#345;i kompilaci. M&#367;&#382;ete jej získat z
+  <a href="http://bio2jack.sf.net/" target="_top">http://bio2jack.sf.net</a>.
+  Proto&#382;e nemá volbu install, ulo&#382;te ru&#269;n&#283; soubor
+  <tt class="filename">libbio2jack.a</tt> n&#283;kam do knihovní vyhledávací
+  cesty  (nap&#345;. <tt class="filename">/usr/local/lib</tt>) nebo volbou
+  <tt class="option">--with-bio2jack=DIR</tt> sd&#283;lte <tt class="filename">./configure</tt>
+  kde ten soubor najde.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2839519"></a>1.2.2. Kodeky</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b><tt>libavcodec</tt></b></span>:
+  Tento balík kodek&#367; je schopen dekódovat
+  H.263/MJPEG/RV10/DivX3/DivX4/DivX5/MP41/MP42/WMV1/WMV2/SVQ1/SVQ3 enkódované
+  video proudy a WMA (Windows Media Audio) v1/v2 zvukové proudy na r&#367;zných
+  platformách. Je také známý jako nejrychlej&#353;í pro tento ú&#269;el. Podrobnosti viz
+  oddíl
+  <a href="codecs.html#ffmpeg" title="2.2.1.2. FFmpeg/libavcodec">FFmpeg</a>. Vlastnosti:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    umo&#382;&#328;uje dekódování vý&#353;e uvedených druh&#367; videa na ne-x86 strojích
+    </li><li>
+    enkódování v&#283;t&#353;inou zmín&#283;ných kodek&#367;
+    </li><li>
+    Tento kodek je <span class="bold"><b>nejrychlej&#353;í dostupný kodek</b></span>
+    pro
+    DivX/3/4/5 a ostatní MPEG-4 kodeky. Doporu&#269;eno!
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>Win32 kodeky</b></span>: Pokud plánujete pou&#382;ívat
+  <span class="application">MPlayer</span> na x86 architektu&#345;e, mo&#382;ná je budete
+  pot&#345;ebovat.
+  Stáhn&#283;te si balí&#269;ek s kodeky z na&#353;í
+  <a href="http://www.mplayerhq.hu/homepage/design7/codecs.html" target="_top">kodekové stránky</a>
+  a rozbalte je do <tt class="filename">/usr/local/lib/codecs</tt>
+  <span class="bold"><b>P&#344;ED</b></span> kompilací <span class="application">MPlayer</span>u,
+  jinak nebude zakompilována podpora pro Win32!
+  </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Poznámka</h3><p>Projekt avifile má podobný balí&#269;ek kodek&#367;, ale ten se od na&#353;eho
+  li&#353;í,
+  tak&#382;e pokud chcete v&#353;echny podporované kodeky, pou&#382;ijte ná&#353; balí&#269;ek
+  (bez obav, avifile s ním pracuje bez problém&#367;).</p></div><p>
+  Vlastnosti:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    pot&#345;ebujete je pokud chcete p&#345;ehrávat nebo enkódovat nap&#345;íklad filmy
+    zaznamenané r&#367;znými
+    hardwarovými kompresory, jako jsou tunerové karty a digitální kamery
+    (nap&#345;íklad: DV, ATI VCR, MJPEG)
+    </li><li>
+    pot&#345;ebné pokud chcete p&#345;ehrávat <span class="bold"><b>WMV9/WMA9 filmy</b></span>.
+   </li><li>
+    Nejsou pot&#345;eba pro staré ASF s MP41 nebo MP42 videem (jeliko&#382; je v t&#283;chto
+    souborech &#269;asto VoxWare audio, je to provád&#283;no Win32 kodekem), nebo WMV7.
+    Rovn&#283;&#382; nejsou pot&#345;eba pro WMA (Windows Media Audio), proto&#382;e
+    <tt>libavcodec</tt>
+    pro n&#283; obsahuje open source dekodér.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>QuickTime kodeky</b></span>: na platformn&#283; x86 mohou být
+  tyto kodeky pou&#382;ity k dekódování RPZA a ostatního QuickTime videa, jako&#382;
+  i QDesign audio proud&#367;.
+  Návod na instalaci naleznete v &#269;ásti
+  <a href="codecs.html#sorenson" title="2.2.1.9. Sorenson">Sorenson&#367;v video kodek</a>.
+  </p></li><li><p>
+  <span class="bold"><b>DivX4/DivX5</b></span>: informace o tomto kodeku jsou
+  dostupné v &#269;ásti <a href="codecs.html#divx4-5" title="2.2.1.1. DivX4/DivX5">DivX4/DivX5</a>. Pravd&#283;podobn&#283;
+  tento kodek nebudete
+  v&#367;bec pot&#345;ebovat, proto&#382;e
+  <span class="bold"><b><tt>libavcodec</tt></b></span>
+  (viz vý&#353;) je mnohem rychlej&#353;í a dosahuje lep&#353;í kvality ne&#382; on jak p&#345;i dekódování,
+  tak p&#345;i enkódování. Vlastnosti:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    jedno nebo dvoupr&#367;chodové enkódování pomocí
+    <a href="mencoder.html" title="Kapitola 7. Encoding with MEncoder"><span class="application">MEncoder</span>u</a>
+    </li><li>
+    umí p&#345;ehrávat staré <span class="bold"><b>DivX3</b></span> filmy mnohem
+    rychleji ne&#382; Win32 DLL ale pomaleji ne&#382;
+    <span class="bold"><b><tt>libavcodec</tt></b></span>!
+    </li><li>
+    jeho kód je uzav&#345;ený a je k dispozici pouze x86 verze.
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b>XviD</b></span>: Open source enkódovací alternativa
+  k DivX4Linux.
+  Vlastnosti:
+  </p><div class="itemizedlist"><ul type="round"><li>
+    jedno nebo dvoupr&#367;chodové enkódování pomocí
+    <a href="mencoder.html" title="Kapitola 7. Encoding with MEncoder"><span class="application">MEncoder</span>u</a>
+    </li><li>
+    je open-source, tak&#382;e je multiplatformní.
+    </li><li>
+    je zhruba 2 krát rychlej&#353;í p&#345;i enkódování ne&#382; DivX4 - p&#345;i odpovídající
+    kvalit&#283;
+    </li></ul></div><p>
+  </p></li><li><p>
+  <span class="bold"><b><a href="codecs.html#xanim" title="2.2.1.3. XAnim kodeky">XAnim kodeky</a></b></span>
+  jsou nejlep&#353;í (celoobrazovkový, hardwarový YUV zoom) pro dekódování
+  <span class="bold"><b>3ivx</b></span> a Indeo 3/4/5 film&#367;, a n&#283;kterých starých
+  formát&#367;. Navíc jsou multiplatformní, tak&#382;e jsou jedinou mo&#382;ností jak p&#345;ehrát
+  Indeo na
+  ne-x86 platformách (nehled&#283; na p&#345;ehrávání XAnim:). Ale nap&#345;íklad Cinepak filmy
+  jsou nejlépe p&#345;ehrávány pomocí <span class="application">MPlayer</span>ova vlastního
+  Cinepak dekodéru!
+  </p></li><li><p>
+  Pro dekódování <span class="bold"><b>Ogg Vorbis</b></span> audia musíte správn&#283;
+  nainstalovat <tt>libvorbis</tt>.
+  Binární balí&#269;ky a zdrojové kódy naleznete na
+  <a href="http://www.vorbis.com/download.psp" target="_top">stránkách Ogg Vorbis</a>.
+  </p></li><li><p>
+  <span class="application">MPlayer</span> m&#367;&#382;e pou&#382;ít knihovny z RealPlayeru 8
+  nebo RealONE k p&#345;ehrávání soubor&#367; s
+  <span class="bold"><b>RealVideo 3.0 a 4.0</b></span>
+  videem, a Sipro/Cook zvukem. Viz &#269;ást
+  <a href="formats.html#realmedia" title="2.1.1.7. RealMedia (RM) soubory">souborový formát RealMedia</a>
+  pro návod na instalaci a více informací.
+  </p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="video-cards"></a>1.2.3. Video karty</h3></div></div><p>
+Obecn&#283; máme dva druhy video karet. Jedny (ty nov&#283;j&#353;í) mají podporu pro
+<span class="bold"><b>hardwarové &#353;kálování a YUV akceleraci</b></span>,
+druhé ji nemají.
+</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="yuv-cards"></a>1.2.3.1. YUV karty</h4></div></div><p>
+Mohou zobrazit a &#353;kálovat (zv&#283;t&#353;it/zmen&#353;it) obraz na jakoukoli velikost,
+která se jim vejde do pam&#283;ti, p&#345;i <span class="bold"><b>nízkém zatí&#382;ení CPU</b></span>
+(dokonce i p&#345;i zoomu), tak&#382;e je zobrazení na celou obrazovku hezké a velmi rychlé.
+
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><b>Karty Matrox G200/G400/G450/G550</b></span>: a&#269;koli je
+  pro n&#283;
+  <a href="video.html#vidix" title="2.3.2.13. VIDIX">Vidix ovlada&#269;</a>, doporu&#269;uje se místo n&#283;j rad&#283;ji
+  pou&#382;ít modul mga_vid, jeliko&#382; pracuje mnohem lépe.
+  Podívejte se do &#269;ásti <a href="video.html#mga_vid" title="2.3.2.6. Matrox framebuffer (mga_vid)">mga_vid</a> na informace o
+  jeho pou&#382;ití
+  a instalaci. Je d&#367;le&#382;ité provést v&#353;echny tyto kroky
+  <span class="emphasis"><i>p&#345;ed</i></span> kompilací <span class="application">MPlayer</span>u,
+  jinak nebude zabudována podpora pro mga_vid. Rovn&#283;&#382; nahlédn&#283;te do &#269;ásti
+  <a href="video.html#tvout-mga-g400" title="2.3.5.1. Matrox G400 cards">Matrox TV-out</a>.
+  <span class="bold"><b> Pokud nepou&#382;íváte Linux</b></span>, je va&#353;í jedinou
+  volbou
+  VIDIX ovlada&#269;: p&#345;e&#269;t&#283;te si sekci <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>.
+  </p></li><li><p>
+  <span class="bold"><b>Karty 3Dfx Voodoo3/Banshee</b></span>: prostudujte si
+  sekci <a href="video.html#tdfxfb" title="2.3.2.7. 3Dfx YUV support">tdfxfb</a> pokud chcete velké zrychlení.
+  Je d&#367;le&#382;ité provést v&#353;echny tyto kroky <span class="bold"><b>p&#345;ed</b></span>
+  kompilací <span class="application">MPlayer</span>u, jinak  nebude zabudována
+  podpora pro 3Dfx.
+  Rovn&#283;&#382; nahlédn&#283;te do &#269;ásti <a href="video.html#tvout-voodoo" title="2.3.5.4. Voodoo 3">3dfx TV-out</a>.
+  Pokud pou&#382;íváte X, pou&#382;ijte alespo&#328; <span class="bold"><b>4.2.0</b></span>,
+  proto&#382;e 3dfx Xv ovlada&#269; je vadný v 4.1.0 a p&#345;edchozích.
+  </p></li><li><p>
+  <span class="bold"><b>Karty ATI</b></span>: <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>
+  ovlada&#269; je k dispozici pro následující karty:
+  <span class="bold"><b>Radeon, Rage128, Mach64</b></span>
+ (Rage XL/Mobility, Xpert98).
+  Rovn&#283;&#382; nahlédn&#283;te do sekce <a href="video.html#tvout-ati" title="2.3.5.3. ATI cards">ATI karet</a>
+  s dokumentací pro TV-out, kde se dozvíte zda je pod
+  Linuxem/<span class="application">MPlayer</span>em podporován
+  TV-out va&#353;í karty.
+  </p></li><li><p>
+  <span class="bold"><b>Karty S3</b></span>: Savage a Virge/DX &#269;ipy mají
+  hardwarovou akceleraci. Pou&#382;ijte tak novou verzi XFree86 jak je jen mo&#382;né,
+  star&#353;í ovlada&#269;e
+  jsou plné chyb. &#268;ipy Savage mají problémy se zobrazováním YV12, viz sekci
+  <a href="video.html#s3" title="2.3.2.1.2. S3 cards">S3 Xv</a> 
+  pro více detail&#367;. Star&#353;í Trio karty nemají &#382;ádnou, nebo jen pomalou
+  hardwarovou podporu.
+  </p></li><li><p>
+  <span class="bold"><b>Karty nVidia</b></span>: mohou, ale nemusí být dobrou
+  volbou pro p&#345;ehrávání videa pod Linuxem.
+  Pokud nemáte kartu GeForce2 (nebo nov&#283;j&#353;í), nejspí&#353;e nebude pracovat bezchybn&#283;.
+  <span class="bold"><b>Vestav&#283;ný nVidia ovlada&#269; v XFree86 nepodporuje
+  hardwarovou YUV akceleraci na v&#353;ech nVidia kartách.</b></span> Budete muset
+  stáhnout closed-source ovlada&#269;e od nVidie
+  z <a href="http://nvidia.com" target="_top">nVidia.com</a>.
+  Viz sekci <a href="video.html#nvidia" title="2.3.2.1.3. nVidia cards">nVidia Xv ovlada&#269;</a> pro více detail&#367;.
+  Rovn&#283;&#382; nav&#353;tivte sekci <a href="video.html#tvout-nvidia" title="2.3.5.5. nVidia">nVidia TV-out</a>
+  pokud chcete pou&#382;ívat TV.
+  </p></li><li><p>
+  <span class="bold"><b>3DLabs GLINT R3 a Permedia3</b></span>: k dispozici máte
+  VIDIX ovlada&#269; (pm3_vid). Rovn&#283;&#382; nahlédn&#283;te do &#269;ásti <a href="video.html#vidix" title="2.3.2.13. VIDIX">VIDIX</a>
+  pro více informací.
+  </p></li><li><p>
+  <span class="bold"><b>Ostatní karty</b></span>: &#382;ádná z vý&#353;e uvedených?
+  </p><div class="itemizedlist"><ul type="round"><li>
+    Zkuste zda XFree86 ovlada&#269; (a va&#353;e karta) podporuje hardwarovou
+    akceleraci. Pro více informací viz sekci <a href="video.html#xv" title="2.3.2.1. Xv">Xv</a>.
+    </li><li>
+    Pokud ne, pak nejsou video vlastnosti va&#353;í karty podporovány va&#353;ím opera&#269;ním
+    systémem:( Jestli&#382;e hardwarové &#353;kálování pracuje ve Windows, je&#353;t&#283; to
+    neznamená, &#382;e bude funk&#269;ní v Linuxu nebo jiném opera&#269;ním systému.
+    To závisí na ovlada&#269;ích. V&#283;t&#353;ina výrobc&#367; nedodává ovlada&#269;e pro Linux ani
+    nezve&#345;ejnila specifikace svých
+    &#269;ip&#367; -- pokud pou&#382;íváte jejich karty pak máte sm&#367;lu.
+    Viz <a href="install.html#non-yuv-cards">Ne-YUV karty</a>.
+    </li></ul></div><p>
+  </p></li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="non-yuv-cards"></a>1.2.3.2. Ne-YUV karty</h4></div></div><p>
+P&#345;ehrávání na celé obrazovce m&#367;&#382;e být dosa&#382;eno bu&#271; zapnutím <span class="bold"><b>
+softwarového &#353;kálování</b></span> (pou&#382;itím volby <tt class="option">-zoom</tt> nebo
+<tt class="option">-vf</tt>, ale varuji vás: je to pomalé), anebo p&#345;epnutím do men&#353;ího
+videore&#382;imu, nap&#345;íklad
+352x288. Pokud nemáte YUV akceleraci, doporu&#269;ujeme druhou mo&#382;nost.
+P&#345;epínání videore&#382;imu lze zapnout pou&#382;itím volby <tt class="option">-vm</tt>,
+co&#382; pracuje s t&#283;mito ovlada&#269;i:
+</p><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>pou&#382;íváte</b></span> XFree86: viz detaily v &#269;ásti
+  <a href="video.html#dga" title="2.3.2.2. DGA">DGA ovlada&#269;</a> a
+  <a href="video.html#x11" title="2.3.2.12. X11">X11 ovlada&#269;</a>. Doporu&#269;ujeme DGA! Vyzkou&#353;ejte také DGA
+  p&#345;es SDL, n&#283;kdy je lep&#353;í.
+  </li><li>
+  <span class="bold"><b>nepou&#382;íváte</b></span> XFree86: zkou&#353;ejte ovlada&#269;e
+  v následujícím po&#345;adí:
+  <a href="video.html#vesa" title="2.3.2.11. VESA - output to VESA BIOS">vesa</a>,
+  <a href="video.html#fbdev" title="2.3.2.5. Framebuffer output (FBdev)">fbdev</a>,
+  <a href="video.html#svgalib" title="2.3.2.4. SVGAlib">svgalib</a>,
+  <a href="video.html#aalib" title="2.3.2.9. AAlib - text mode displaying">aalib</a>.
+  </li></ul></div><p>
+</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="cirrus-logic-cards"></a>1.2.3.3. Karty Cirrus-Logic</h4></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  GD 7548: byla integrovaná na základní desce a testována v noteboocích &#345;ady
+  Compaq Armada 41xx.
+  </p><div class="itemizedlist"><ul type="round"><li>
+    XFree86 3: pracuje v re&#382;imech 8/16bpp. Ovlada&#269; je ov&#353;em velmi pomalý a
+    nestabilní p&#345;i
+    800x600@16bpp. <span class="bold"><b>Doporu&#269;ujeme: 640x480@16bpp</b></span>
+   </li><li>
+    XFree86 4: Xserver zamrznul brzy po startu pokud nebyla vypnuta akcelerace,
+    ale pak se v&#353;e zpomalilo víc ne&#382; v XFree86 3. Není XVideo.
+   </li><li>
+    FBdev: framebuffer lze zapnout pomocí modulu jádra <tt>clgenfb</tt>.
+    Pracoval ov&#353;em pouze v 8bpp barevné hloubce, co&#382; je k ni&#269;emu.
+    Zdrojový kód clgenfb musí být roz&#353;í&#345;en o ID 7548 p&#345;ed kompilací.
+   </li><li>
+    VESA: karta podporuje pouze VBE 1.2, tak&#382;e výstup VESA nelze pou&#382;ít.
+    Nelze to obejít pomocí UniVBE.
+  </li><li>
+    SVGAlib: detekuje star&#353;í Cirrus &#269;ip. Pou&#382;itelné, ale pomalé p&#345;i
+    <tt class="option">-bpp 8</tt>.
+  </li></ul></div><p>
+</p></li></ul></div></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="sound-cards"></a>1.2.4. Zvukové karty</h3></div></div><div class="itemizedlist"><ul type="disc"><li>
+  <span class="bold"><b>Soundblaster Live!</b></span>: s touto kartou m&#367;&#382;ete
+  pou&#382;ít 4 nebo 6 (<span class="bold"><b>5.1</b></span>) kanálové AC3 dekódování
+  místo 2 kanálového.
+  P&#345;e&#269;t&#283;te si sekci 
+  <a href="codecs.html#swac3" title="2.2.2.1. Softwarové dekódování AC3">Softwarové dekódování AC3</a>. Pro hardwarové AC3
+  tunelování <span class="bold"><b>musíte</b></span> pou&#382;ít ALSA 0.9 s OSS
+  emulací!
+  </li><li>
+  <span class="bold"><b>C-Media s S/PDIF výstupem</b></span>: hardwarové AC3
+  tunelování je s t&#283;mito kartami mo&#382;né, viz sekci
+  <a href="codecs.html#hwac3" title="2.2.2.2. Hardwarové dekódování AC3">Hardwarové AC3 dekódování</a>.
+  </li><li>
+  Vlastnosti <span class="bold"><b>ostatních karet</b></span> nejsou
+  <span class="application">MPlayer</span>em podporovány.
+  <span class="bold"><b>Velmi doporu&#269;ujeme k p&#345;e&#269;tení sekci
+  <a href="audio.html" title="2.4. Výstupní zvuková za&#345;ízení">zvukové karty</a>!</b></span>
+  </li></ul></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="id2840864"></a>1.2.5. Vlastnosti</h3></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  Rozhodn&#283;te se zda pot&#345;ebujete GUI. Pokud ano, p&#345;e&#269;t&#283;te si p&#345;ed kompilací
+  sekci <a href="gui.html" title="1.3. Cht&#283;li byste GUI?">GUI</a>.
+  </p></li><li><p>
+  Pokud chcete nainstalovat <span class="application">MEncoder</span> (ná&#353; skv&#283;lý
+  v&#353;estranný enkodér), p&#345;e&#269;t&#283;te si sekci
+  <a href="mencoder.html" title="Kapitola 7. Encoding with MEncoder"><span class="application">MEncoder</span></a>.
+  </p></li><li><p>
+  Pokud máte V4L kompatibilní <span class="bold"><b>TV tuner</b></span> kartu,
+  a p&#345;ejete si sledovat/grabovat filmy <span class="application">MPlayer</span>em,
+  p&#345;e&#269;t&#283;te si sekci <a href="tv-input.html" title="2.5. TV vstup">TV vstup</a>.
+  </p></li><li><p>
+  P&#345;ipravena k pou&#382;ití je podpora p&#283;kného <span class="bold"><b>OSD Menu</b></span>.
+  P&#345;e&#269;t&#283;te si sekci <a href="subosd.html" title="1.4. Titulky a OSD">OSD menu</a>.
+  </p></li></ul></div><p>
+  Pak p&#345;elo&#382;te <span class="application">MPlayer</span>:
+<pre class="screen">
+  ./configure
+  make
+  make install</pre>
+</p><p>
+  V tuto chvíli máte <span class="application">MPlayer</span> p&#345;ipraven k pou&#382;ití.
+  Adresá&#345; <tt class="filename">$PREFIX/share/mplayer</tt>
+  obsahuje soubor <tt class="filename">codecs.conf</tt>. Ten se pou&#382;ívá pro oznámení
+  v&#353;ech kodek&#367; a jejich schopností. Tento soubor je pot&#345;eba pouze pokud chcete
+  tyto p&#345;edvolby zm&#283;nit, proto&#382;e
+  jeho kopie je sou&#269;ástí vlastního programu.
+  Zjist&#283;te jestli máte v domácím adresá&#345;i soubor
+  <tt class="filename">codecs.conf</tt> 
+  (<tt class="filename">~/.mplayer/codecs.conf</tt>) ze starých verzí
+  <span class="application">MPlayer</span>u a odstra&#328;te ho.
+</p><p>
+  Poznamenejme &#382;e pokud umístíte <tt class="filename">codecs.conf</tt> do
+  <tt class="filename">~/.mplayer/</tt>, vestav&#283;ný a systémový
+  <tt class="filename">codecs.conf</tt> budou zcela ignorovány.
+  Ned&#283;lejte to pokud nechcete o&#353;idit p&#345;ednastavení
+  <span class="application">MPlayer</span>u, co&#382; m&#367;&#382;e zp&#367;sobit mnoho problém&#367;.
+  Pokud jen chcete zm&#283;nit po&#345;adí vyhledávání kodek&#367;,
+  pou&#382;ijte volby <tt class="option">-vc</tt>, <tt class="option">-ac</tt>,
+  <tt class="option">-vfm</tt> nebo <tt class="option">-afm</tt> v p&#345;íkazovém &#345;ádku,
+  nebo konfigura&#269;ním souboru (viz manuálová stránka).
+</p><p>
+  U&#382;ivatelé Debianu si mohou vyrobit .deb balí&#269;ek, je to velmi jednoduché.
+  Jen spus&#357;te binárku
+  <pre class="screen">fakeroot debian/rules</pre>
+  v <span class="application">MPlayer</span>ov&#283; ko&#345;enovém adresá&#345;i. Podrobnosti viz
+  <a href="linux.html#debian" title="6.1.1. Debian packaging">Balí&#269;kování Debianu</a>.
+</p><p>
+  <span class="bold"><b>V&#382;dy si prostudujte výstup skriptu</b></span>
+  <tt class="filename">./configure</tt>, a soubor <tt class="filename">configure.log</tt>,
+  které obsahují informace o tom co bude zakompilováno a co ne. Také m&#367;&#382;ete
+  chtít vid&#283;t soubory <tt class="filename">config.h</tt> a
+  <tt class="filename">config.mak</tt>.
+  Pokud máte n&#283;které knihovny nainstalovány, ale nebyly detekovány skriptem
+  <tt class="filename">./configure</tt>, pak ov&#283;&#345;te, zda máte p&#345;íslu&#353;né hlavi&#269;kové
+  soubory
+  (obvykle -dev balí&#269;ky) a jejich verze jsou shodné. Soubor
+  <tt class="filename">configure.log</tt> vám obvykle prozradí co vám chybí.
+</p><p>
+  A&#269;koli to není podmínkou, m&#283;li byste mít nainstalovány fonty pro funkci OSD a
+  zobrazování titulk&#367;. Doporu&#269;ujeme nainstalovat soubor fontu TTF a na&#345;ídit
+  <span class="application">MPlayer</span>u jej pou&#382;ívat.
+  Detaily viz sekce <a href="subosd.html" title="1.4. Titulky a OSD">Titulky a OSD</a>.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="history.html">P&#345;edcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="intro.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="gui.html">Dal&#353;í</a></td></tr><tr><td width="40%" align="left" valign="top">1.1. Historie </td><td width="20%" align="center"><a accesskey="h" href="index.html">Dom&#367;</a></td><td width="40%" align="right" valign="top"> 1.3. Cht&#283;li byste GUI?</td></tr></table></div></body></html>

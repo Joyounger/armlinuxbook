@@ -1,0 +1,87 @@
+/****************************************************************************
+** KAuthCacheServer meta object code from reading C++ file 'authcache.h'
+**
+** Created: Thu Nov 20 06:13:49 2008
+**      by: The Qt MOC ($Id: qt/src/moc/moc.y   2.3.10   edited 2005-01-24 $)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#define Q_MOC_OUTPUT_REVISION 9
+#elif Q_MOC_OUTPUT_REVISION != 9
+#error "Moc format conflict - please regenerate all moc files"
+#endif
+
+#include "authcache.h"
+#include <qmetaobject.h>
+#include <qapplication.h>
+#ifdef QWS
+#include <qobjectdict.h>
+#endif
+
+
+
+const char *KAuthCacheServer::className() const
+{
+    return "KAuthCacheServer";
+}
+
+QMetaObject *KAuthCacheServer::metaObj = 0;
+
+#ifdef QWS
+static class KAuthCacheServer_metaObj_Unloader {
+public:
+    ~KAuthCacheServer_metaObj_Unloader()
+    {
+         if ( objectDict )
+             objectDict->remove( "KAuthCacheServer" );
+    }
+} KAuthCacheServer_metaObj_unloader;
+#endif
+
+void KAuthCacheServer::initMetaObject()
+{
+    if ( metaObj )
+	return;
+    if ( qstrcmp(DCOPObject::className(), "DCOPObject") != 0 )
+	badSuperclassWarning("KAuthCacheServer","DCOPObject");
+    (void) staticMetaObject();
+}
+
+#ifndef QT_NO_TRANSLATION
+
+QString KAuthCacheServer::tr(const char* s)
+{
+    return qApp->translate( "KAuthCacheServer", s, 0 );
+}
+
+QString KAuthCacheServer::tr(const char* s, const char * c)
+{
+    return qApp->translate( "KAuthCacheServer", s, c );
+}
+
+#endif // QT_NO_TRANSLATION
+
+QMetaObject* KAuthCacheServer::staticMetaObject()
+{
+    if ( metaObj )
+	return metaObj;
+    (void) DCOPObject::staticMetaObject();
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    QMetaData::Access *slot_tbl_access = 0;
+    metaObj = QMetaObject::new_metaobject(
+	"KAuthCacheServer", "DCOPObject",
+	0, 0,
+	0, 0,
+#ifndef QT_NO_PROPERTIES
+	0, 0,
+	0, 0,
+#endif // QT_NO_PROPERTIES
+	0, 0 );
+    metaObj->set_slot_access( slot_tbl_access );
+#ifndef QT_NO_PROPERTIES
+#endif // QT_NO_PROPERTIES
+    return metaObj;
+}
