@@ -1,0 +1,70 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <fcntl.h>
+
+#include "stepper.h"
+
+static int fd = -1;
+
+static struct stepper s;
+
+/*
+ * leddrv application code, the code of Linux application to use driver code
+ * compile :
+ *          $/usr/local/arm/2.95.3/bin/arm-linux-gcc -o drvtest drvtest.c
+ *          $cp helloworld /tftpboot/examples
+ * run in target:
+ *          #mount 192.168.1.180:/tftpboot/ /mnt/nfs
+ *          #cd /mnt/nfs/examples
+ *          #insmod drv
+ *          #mknod /dev/steppertest c 96 0
+ *          #./steppertest start
+ */
+int main(int argc, char **argv)
+{
+	if (argc != 2) {
+        fprintf(stderr,"usage: stepper command\nYou can use 5 kinds of commands\nstart\nstop\nreverse\nup\ndown\n");
+        exit(1);
+    }
+	
+	fd=open("/dev/stepper",O_RDWR);
+	if(fd<0) 
+	{
+		printf("Can't open\n");
+		return -1;
+	}
+	else
+	{
+		printf("open OK %x\n", fd);
+	}
+
+	s.Arg=0;            //now this argument is not used
+	switch(argv[1][0])
+	{
+		case 's':
+			switch(argv[1][2])
+			{
+				case 'a':s.CmdID=0;printf("start\n");break;
+				case 'o':s.CmdID=1;printf("stop\n");break;
+				default:printf("command name error\n");exit(1);
+			}
+			break;
+		case 'r':
+			s.CmdID=2;printf("reverse\n");break;
+		case 'u':
+			s.CmdID=3;printf("up\n");break;
+		case 'd':
+			s.CmdID=4;printf("down\n");break;
+		default:
+			printf("command name error\n");exit(1);
+	}
+
+   
+	ioctl(fd, IOCTL_SET_MSG, &s);
+
+   	close(fd);
+   	
+  	return 0;
+}
+
+

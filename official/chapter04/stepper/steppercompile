@@ -1,0 +1,5 @@
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -DMODULE -D__KERNEL__ -I/home/cvtech/jx2410/linux/include -c -o stepper.o stepper.c
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -o steppertest steppertest.c
+cp stepper.o /tftpboot -f
+cp steppertest /tftpboot -f
+

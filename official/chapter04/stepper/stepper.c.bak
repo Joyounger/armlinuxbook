@@ -1,0 +1,239 @@
+/*  leddrv.c - Create an input/output character device
+ */
+
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/fs.h>
+#include <linux/errno.h> 	/* for -EBUSY */
+#include <linux/ioport.h>	/* for verify_area */
+#include <linux/init.h>		/* for module_init */
+#include <linux/cdev.h>
+#include <linux/types.h>//ssize_t定义文件
+
+#include <asm/uaccess.h>  	/* for get_user and put_user */
+#include "stepper.h"
+
+
+static struct timer_list ttimer;
+
+static int 	Device_Open = 0;//用于设备是否在被使用
+
+static int num=2;  /*used to control the speed of the stepper*/
+static enum{open,off,clockwise,anticlockwise} status=off; /*used to indicate and set the status of the stepper*/
+
+static int row=0;
+static int stepper_major=MAJOR_NUM;
+static void __iomem *stepper_base_addr;
+struct cdev stepper_cdev;//设备的cdev结构体
+
+/*********        A,	AB,	B,	BC,	C	CD,		D,	DA           ***/
+char stepdata[]={0x10,0x30,0x20,0x60,0x40,0xc0,0x80,0x90};
+
+int	device_ioctl(struct inode *,struct file *,unsigned int ,unsigned long );
+
+/**************************************************************************/
+static void time_tick(unsigned long data)
+{
+	static int i=0;
+
+//	printk("time_tick\n");
+
+	switch(status)
+	{
+	  case off:
+		  break;
+	  case clockwise:
+	  	if(row==8)
+	  		row=0;
+			writeb(stepper_base_addr,stepdata[row++])
+		  ttimer.expires=jiffies+num*3;
+		  add_timer(&ttimer);
+		  break;
+	  case anticlockwise:
+	  	if(row==0)
+	  		row=7;
+			writeb(stepper_base_addr,stepdata[row--])
+		  ttimer.expires=jiffies+5;
+		  add_timer(&ttimer);
+		  break;
+	  default:
+		  break;
+	}
+}
+
+/**************************************************************************/
+/* 设备打开函数 */
+static int stepper_open(struct inode *inode, struct file *file)
+{
+  printk("Device Open\n");
+
+  if (Device_Open) return -EBUSY;//检验设备打开标志位是否为1 ，若打开返回设备忙错误号
+  Device_Open++;//设置设备已经代开
+  return 0;
+}
+
+/**************************************************************************/
+/* 设备关闭函数 */
+static int stepper_release(struct inode *inode, struct file *file)
+{
+  printk(("Device Release\n"));
+  Device_Open --;
+
+  return 0;
+}
+
+/**************************************************************************/
+/* 设备读操作函数，没什么事做，但还写上好，结构性比较好 */
+static ssize_t stepper_read(struct file *file,char *buffer,size_t length,loff_t *offset)
+{
+	return 0;
+}
+
+
+/**************************************************************************/
+/* 设备写函数 */ 
+static ssize_t stepper_write(struct file *file, const char *buffer, size_t length, loff_t *offset)
+{
+	return 0;
+};
+
+
+/**************************************************************************/
+/* 设备控制函数，步进电机的关键操作函数 */
+int stepper_ioctl(struct inode *inode,struct file *file,unsigned int ioctl_num,unsigned long ioctl_param)
+{
+  struct stepper * s;
+
+  printk(("Device Ioctl\n"));
+  
+  /* Switch according to the ioctl called */
+  switch (ioctl_num) 
+  {
+		    case STEPPER_START:       /*start*/
+			  status=clockwise;
+			  ttimer.expires=jiffies+1;  //start the timer
+			  add_timer(&ttimer);
+			  printk("clockwise\n");
+			  break;
+			  
+		    case STEPPER_STOP:       /*stop*/
+			  status=off;    //change the status of the stepper
+			  printk("off\n");
+			  break;
+			  
+		    case STEPPER_REVERSE:       /*reverse*/
+		  	if(status==clockwise)
+		  	{
+			  status=anticlockwise;		//change the status of the stepper	  
+			  printk("anticlockwise\n");
+		  	}
+		  	else 
+		  	if(status==anticlockwise)
+		  	{
+			  	status=clockwise;
+			  	printk("clockwise\n");
+		  	}
+		  	break;
+		  
+		    case STEPPER_SPEED_UP:       /*speed up*/
+			  if(num!=1)num--;
+			  break;
+			  
+		    case STEPPER_SPEED_DOWN:       /*speed down*/
+			  if(num<4)num++;
+				break;
+				
+				default:
+				break;
+	
+
+  }
+
+  return 0;
+};
+
+/**************************************************************************/
+/* file_opertions */
+struct file_operations stepper_fops = {
+	.read 		= stepper_read, 
+	.write 		= stepper_write,
+	.open 		= stepper_open,
+	.release 	= stepper_release,
+	.ioctl		= stepper_ioctl
+	};
+
+
+/**************************************************************************/
+/*驱动模块加载函数*/
+static int __init stepper_init( void )
+{
+  int ret;
+  int err;
+  dev_t devno=MKDEV(stepper_major,0);//设备号
+ 
+	//基地址映射
+	stepper_base_addr = ioremap(0xd3000006, 0x01);
+	if (base_addr == NULL) {
+	      printk(KERN_ERR "Failed to remap register block\n");
+	      return -ENOMEM;
+	}
+		
+  //申请设备号
+	if (stepper_major)
+  	ret = register_chrdev_region(devno, 1, DEVICE_FILE_NAME);
+	else 
+		{
+  		ret = alloc_chrdev_region(&devno, 0, 1, DEVICE_FILE_NAME);//动态申请设备号
+  		stepper_major = MAJOR(devno);
+ 		}
+	if (ret< 0)//申请失败的话，返回
+		{
+  		printk(KERN_WARNING "adc: unable to get major %d\n", stepper_major);
+  		return ret;
+ 		}
+ 		
+  
+  printk ("%s The major device number is %d.\n",
+          "Registeration is a success.", 
+          stepper_major);
+          
+  printk ("If you want to talk to the device driver,\n");
+  printk ("you'll have to create a device file. \n");
+  printk ("We suggest you use:\n");
+  printk ("mknod /dev/%s c %d 0\n", DEVICE_FILE_NAME,stepper_major);
+  printk ("The device file name is important, because\n");
+  printk ("the ioctl program assumes that's the\n");
+  printk ("file you'll use.\n");
+  
+  //设备cdev的初始化并和file_operations建立联系
+	cdev_init(&stepper_cdev,&stepper_fops);
+	stepper_cdev.owner=THIS_MODULE;
+	//设备的注册
+	err=cdev_add(&stepper_cdev,devno,1);
+	if(err)//设备注册失败，释放设备号 并返回函数
+	{
+		printk("注册设备失败");
+		unregister_chrdev_region(MKDEV(stepper_major,0),1);
+		return err;
+	}		
+	
+  init_timer(&ttimer);//初始化时钟
+  ttimer.function=time_tick;//计时回调函数设置
+
+  return 0;
+};
+
+/**************************************************************************/
+/* 设备卸载函数 */
+static void __exit stepper_exit(void)
+{
+	cdev_del(&stepper_cdev);//注销设备
+	unregister_chrdev_region(MKDEV(stepper_major,0),1);	//释放设备号
+};
+
+module_init(stepper_init);
+module_exit(stepper_exit);
+
+MODULE_LICENSE("Dual BSD/GPL");
+MODULE_AUTHOR("Liang Baoqiang");
+MODULE_DESCRIPTION("stepper driver");
