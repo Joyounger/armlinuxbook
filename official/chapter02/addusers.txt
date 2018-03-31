@@ -1,0 +1,16 @@
+#!/bin/sh
+i=1
+groupadd class1                   //添加一个名为 class1的组
+while [ $i -le 30 ]                  //循环30次
+do
+      if [ $i -le 9 ]                //如果i的值小于等于9
+      then
+            USERNAME=stu0${i} 
+      Else                      //i的值在9~30之间
+            USERNAME=stu${i}
+      fi
+      useradd $USERNAME      //添加一个用户名为$USERNAME的用户
+      chown -R $USERNAME /home/$USERNAME //改变/home/$USERNAME所属用户
+      chgrp -R class1  /home/$USERNAME //改变/home/$USERNAME所属组
+      i=$(($i+1))    //i自增1
+done
